@@ -19,6 +19,7 @@ struct EnemyBody2D: View {
       .frame(width: width, height: height)
       .background(Color.red)
       .offset(y: offsetValue)
+      .padding(.top, 20) 
   }
 }
 

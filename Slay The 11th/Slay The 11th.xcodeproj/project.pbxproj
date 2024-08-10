@@ -63,6 +63,7 @@
 		6476CAA62C666AFE001C664A /* Slay The 11th */ = {
 			isa = PBXGroup;
 			children = (
+				64832AE82C676FF200895A90 /* ViewModel */,
 				64FF8D2E2C6749E30010487C /* Views */,
 				6476CAA72C666AFE001C664A /* Slay_The_11thApp.swift */,
 				6476CAAB2C666B01001C664A /* Assets.xcassets */,
@@ -84,6 +85,13 @@
 				6476CAAE2C666B01001C664A /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		64832AE82C676FF200895A90 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		64FF8D2E2C6749E30010487C /* Views */ = {
