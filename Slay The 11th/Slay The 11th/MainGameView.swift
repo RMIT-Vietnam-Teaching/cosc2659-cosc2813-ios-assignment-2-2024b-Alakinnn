@@ -9,16 +9,16 @@ import SwiftUI
 
 struct MainGameView: View {
     var body: some View {
-        VStack(spacing: 0) { // No spacing to avoid gaps between the views
+        VStack(spacing: 0) {
             EnemyZoneView()
-                .frame(height: UIScreen.main.bounds.height * 0.55) // Fixed height proportion for EnemyZoneView
+                .frame(height: UIScreen.main.bounds.height * 0.55)
             
-            Spacer(minLength: 10) // Space between the two views
+            Spacer(minLength: 10)
             
             PlayerHandView()
-                .frame(height: UIScreen.main.bounds.height * 0.35) // Fixed height proportion for PlayerHandView
+                .frame(height: UIScreen.main.bounds.height * 0.35)
         }
-        .edgesIgnoringSafeArea(.all) // Make sure views can extend to the edges of the screen
+        .edgesIgnoringSafeArea(.all)
     }
 }
 

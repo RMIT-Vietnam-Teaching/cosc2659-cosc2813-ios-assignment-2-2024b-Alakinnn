@@ -12,7 +12,7 @@ struct CardView: View {
     
     var body: some View {
         VStack(alignment: .center) {
-            card.image
+            Image(systemName: card.imageName) // Render the image using the imageName
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 250, height: 100)
@@ -51,11 +51,10 @@ struct CardView_Previews: PreviewProvider {
             description: "Deal 10 damage to the enemy.",
             cardType: .attack,
             value: 10,
-            image: Image(systemName: "flame.fill")
+            imageName: "flame.fill" // Pass the image name here
         )
         
         CardView(card: exampleCard)
             .previewLayout(.sizeThatFits)
     }
 }
-

@@ -7,8 +7,9 @@
 
 import Foundation
 import SwiftUI
+import UniformTypeIdentifiers
 
-enum CardType {
+enum CardType: Codable {
   case attack
   case defense
   case poison
@@ -27,13 +28,17 @@ enum DebuffType {
     case silence
 }
 
-struct Card: Identifiable  {
-  let id: UUID
-  let name: String
-  let description: String
-  let cardType: CardType
-  let value: Int
-  let image: Image
+struct Card: Identifiable, Transferable, Codable {
+    let id: UUID
+    let name: String
+    let description: String
+    let cardType: CardType
+    let value: Int
+    let imageName: String 
+
+    static var transferRepresentation: some TransferRepresentation {
+        CodableRepresentation(contentType: .cardObject)
+    }
 }
 
 struct Player {
@@ -54,4 +59,6 @@ enum EnemyActions {
   case cleanse
 }
 
-
+extension UTType {
+  static let cardObject = UTType(exportedAs: "sa.hoang.cardObject")
+}

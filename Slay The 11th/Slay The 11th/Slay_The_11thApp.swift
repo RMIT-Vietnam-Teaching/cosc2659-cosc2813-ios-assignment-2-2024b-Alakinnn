@@ -11,7 +11,7 @@ import SwiftUI
 struct Slay_The_11thApp: App {
     var body: some Scene {
         WindowGroup {
-            
+            MainGameView()
         }
     }
 }
