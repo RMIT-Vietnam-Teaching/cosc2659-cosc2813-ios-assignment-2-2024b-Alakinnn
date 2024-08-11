@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct EnemyZoneView: View {
-    @Binding var selectedCard: Card? // Bind to selected card
+    var viewModel: StageViewModel
 
     var body: some View {
         GeometryReader { geometry in
@@ -18,9 +18,13 @@ struct EnemyZoneView: View {
             
             VStack {
                 HStack(spacing: 12) {
-                    EnemyBody2D(offsetValue: -offsetValue, width: enemyWidth, height: enemyHeight, selectedCard: $selectedCard)
-                    EnemyBody2D(offsetValue: offsetValue, width: enemyWidth, height: enemyHeight, selectedCard: $selectedCard)
-                    EnemyBody2D(offsetValue: -offsetValue, width: enemyWidth, height: enemyHeight, selectedCard: $selectedCard)
+                    ForEach(0..<3) { index in
+                        EnemyBody2D(
+                            offsetValue: offsetValue,
+                            width: enemyWidth,
+                            height: enemyHeight,
+                            viewModel: viewModel)
+                    }
                 }
             }
             .frame(width: geometry.size.width, height: geometry.size.height)
@@ -31,6 +35,6 @@ struct EnemyZoneView: View {
 }
 
 #Preview {
-    EnemyZoneView(selectedCard: .constant(nil))
+    EnemyZoneView(viewModel: StageViewModel())
 }
 

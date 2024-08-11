@@ -8,28 +8,21 @@
 import SwiftUI
 
 struct PlayerHandView: View {
-    @Binding var deck: [Card]
-    @Binding var selectedCard: Card? // Bind to selected card
-    
+    var viewModel: StageViewModel
+
     var body: some View {
         GeometryReader { geometry in
             VStack {
                 ScrollView(.horizontal) {
                     HStack {
-                        ForEach(deck.indices, id: \.self) { index in
-                            CardView(card: deck[index])
+                        ForEach(viewModel.deck.indices, id: \.self) { index in
+                            CardView(card: viewModel.deck[index])
                                 .padding()
                                 .background(
-                                    selectedCard?.id == deck[index].id ? Color.yellow.opacity(0.3) : Color.clear
+                                    viewModel.selectedCard?.id == viewModel.deck[index].id ? Color.yellow.opacity(0.3) : Color.clear
                                 )
                                 .onTapGesture {
-                                    if selectedCard?.id == deck[index].id {
-                                        // If the card is already selected, deselect it
-                                        selectedCard = nil
-                                    } else {
-                                        // Otherwise, select the card
-                                        selectedCard = deck[index]
-                                    }
+                                    viewModel.selectCard(viewModel.deck[index])
                                 }
                         }
                     }
@@ -45,7 +38,7 @@ struct PlayerHandView: View {
     }
 }
 
-
 #Preview {
-    PlayerHandView(deck: .constant(createStaticDeck()), selectedCard: .constant(nil))
+    PlayerHandView(viewModel: StageViewModel())
 }
+

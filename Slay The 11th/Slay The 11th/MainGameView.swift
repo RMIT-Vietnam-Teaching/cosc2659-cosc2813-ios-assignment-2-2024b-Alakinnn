@@ -8,17 +8,16 @@
 import SwiftUI
 
 struct MainGameView: View {
-    @State private var deck: [Card] = createStaticDeck()
-    @State private var selectedCard: Card? = nil // Track the selected card
+    private var viewModel = StageViewModel()
 
     var body: some View {
         VStack(spacing: 0) {
-            EnemyZoneView(selectedCard: $selectedCard)
+            EnemyZoneView(viewModel: viewModel)
                 .frame(height: UIScreen.main.bounds.height * 0.55)
             
             Spacer(minLength: 10)
             
-            PlayerHandView(deck: $deck, selectedCard: $selectedCard)
+            PlayerHandView(viewModel: viewModel)
                 .frame(height: UIScreen.main.bounds.height * 0.35)
         }
         .edgesIgnoringSafeArea(.all)

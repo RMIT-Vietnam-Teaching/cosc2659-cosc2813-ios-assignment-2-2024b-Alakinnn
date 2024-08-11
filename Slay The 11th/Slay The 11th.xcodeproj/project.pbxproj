@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6456BB5F2C69217800AE46FD /* StageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6456BB5E2C69217800AE46FD /* StageViewModel.swift */; };
 		6476CAA82C666AFE001C664A /* Slay_The_11thApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6476CAA72C666AFE001C664A /* Slay_The_11thApp.swift */; };
 		6476CAAC2C666B01001C664A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6476CAAB2C666B01001C664A /* Assets.xcassets */; };
 		6476CAAF2C666B01001C664A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6476CAAE2C666B01001C664A /* Preview Assets.xcassets */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		6456BB5D2C690FB900AE46FD /* Slay-The-11th-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Slay-The-11th-Info.plist"; sourceTree = SOURCE_ROOT; };
+		6456BB5E2C69217800AE46FD /* StageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageViewModel.swift; sourceTree = "<group>"; };
 		6476CAA42C666AFE001C664A /* Slay The 11th.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Slay The 11th.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6476CAA72C666AFE001C664A /* Slay_The_11thApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slay_The_11thApp.swift; sourceTree = "<group>"; };
 		6476CAAB2C666B01001C664A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 		64832AE82C676FF200895A90 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				6456BB5E2C69217800AE46FD /* StageViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -188,6 +191,7 @@
 				64FF8D2D2C673DB90010487C /* PlayerHandView.swift in Sources */,
 				64FF8D252C6735EF0010487C /* MainGameView.swift in Sources */,
 				64FF8D372C674ED80010487C /* EnemyBody2D.swift in Sources */,
+				6456BB5F2C69217800AE46FD /* StageViewModel.swift in Sources */,
 				64FF8D332C674A810010487C /* EnemyZoneView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
