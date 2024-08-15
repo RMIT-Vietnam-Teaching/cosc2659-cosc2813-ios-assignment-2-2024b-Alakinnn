@@ -28,12 +28,11 @@ struct CharacterBody2D: View {
                                 .font(.caption)
                                 .foregroundColor(.white)
                         }
-                        .padding(4)
                         .background(Color.black.opacity(0.7))
                         .cornerRadius(4)
                     }
                 }
-                .padding(.bottom, 4)
+                .padding(.vertical, 8)
 
                 // Enemy image
                 Image(systemName: "person.fill")
@@ -43,7 +42,7 @@ struct CharacterBody2D: View {
                     .offset(y: offsetValue)
 
                 // HP Bar below the enemy
-                Text("\(enemy.hp)/\(enemy.maxHp)")
+                Text("\(enemy.curHp)/\(enemy.maxHp)")
                     .font(.caption)
                     .foregroundColor(.white)
                     .padding(4)
@@ -59,7 +58,7 @@ struct CharacterBody2D: View {
                 .border(Color.red, width: 2)
                 .offset(y: offsetValue)
                 .onTapGesture {
-                    vm.stageViewModel.applyCardToEnemy(at: index)
+                    vm.stageViewModel.applyCard(at: index)
                 }
         }
     }

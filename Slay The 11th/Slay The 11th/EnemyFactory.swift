@@ -85,7 +85,7 @@ class EnemyFactory {
         return baseEnemies.map { enemy in
             Enemy(
                 name: enemy.name,
-                hp: Int(Double(enemy.hp) * hpMultiplier),
+                hp: Int(Double(enemy.maxHp) * hpMultiplier),
                 debuffEffects: enemy.debuffEffects,
                 isBoss: enemy.isBoss
             )
