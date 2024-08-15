@@ -40,52 +40,61 @@ import Observation
     }
 
     // Apply a card to an enemy
-    func applyCardToEnemy(at index: Int) {
-        guard let card = selectedCard else {
-            print("No card selected")
-            return
-        }
+  func applyCardToEnemy(at index: Int) {
+          guard let card = selectedCard else {
+              print("No card selected")
+              return
+          }
 
-        // Ensure the index is valid
-        guard index >= 0 && index < enemies.count else {
-            print("Invalid enemy index")
-            return
-        }
+          // Ensure the index is valid
+          guard index >= 0 && index < enemies.count else {
+              print("Invalid enemy index")
+              return
+          }
 
-        // Work directly with the enemy in the array
-        var enemy = enemies[index]
+          // Work directly with the enemy in the array
+          var enemy = enemies[index]
 
-        switch card.cardType {
-        case .attack:
-            enemy.hp -= card.value
-            print("Enemy \(enemy.name) takes \(card.value) damage. Remaining HP: \(enemy.hp)")
+          switch card.cardType {
+          case .attack:
+              enemy.hp -= card.value
+              print("Enemy \(enemy.name) takes \(card.value) damage. Remaining HP: \(enemy.hp)")
 
-        case .poison:
-            let debuff = Debuff(type: .poison, value: card.value, duration: 3)
-            enemy.debuffEffects.append(debuff)
-            print("Enemy \(enemy.name) is poisoned for \(card.value) damage per turn.")
+          case .poison:
+              addOrUpdateDebuff(on: &enemy, type: .poison, value: card.value, duration: 3)
+              print("Enemy \(enemy.name) is poisoned for \(card.value) damage per turn.")
 
-        case .silence:
-            let debuff = Debuff(type: .silence, value: card.value, duration: 1)
-            enemy.debuffEffects.append(debuff)
-            print("Enemy \(enemy.name) is silenced.")
-        
-        default:
-            print("Unhandled card type: \(card.cardType)")
-        }
+          case .silence:
+              addOrUpdateDebuff(on: &enemy, type: .silence, value: card.value, duration: 1)
+              print("Enemy \(enemy.name) is silenced.")
 
-        // Update the enemy in the array
-        enemies[index] = enemy
+          default:
+              print("Unhandled card type: \(card.cardType)")
+          }
 
-        // Move the used card to the discarded deck
-        moveCardToDiscardedDeck(card)
+          // Update the enemy in the array
+          enemies[index] = enemy
 
-        // Clear the selected card after applying
-        selectedCard = nil
+          // Move the used card to the discarded deck
+          moveCardToDiscardedDeck(card)
 
-        // Check if the stage is completed after the attack
-        checkIfStageCompleted()
-    }
+          // Clear the selected card after applying
+          selectedCard = nil
+
+          // Check if the stage is completed after the attack
+          checkIfStageCompleted()
+      }
+
+      // Add or update a debuff on the enemy
+      private func addOrUpdateDebuff(on enemy: inout Enemy, type: DebuffType, value: Int, duration: Int) {
+          if let index = enemy.debuffEffects.firstIndex(where: { $0.type == type }) {
+              enemy.debuffEffects[index].value += value
+              enemy.debuffEffects[index].duration = max(enemy.debuffEffects[index].duration, duration)
+          } else {
+              let debuff = Debuff(type: type, value: value, duration: duration)
+              enemy.debuffEffects.append(debuff)
+          }
+      }
     
     // Move a card to the discarded deck
     func moveCardToDiscardedDeck(_ card: Card) {

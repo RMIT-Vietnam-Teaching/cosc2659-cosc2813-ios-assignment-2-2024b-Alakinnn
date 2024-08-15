@@ -17,7 +17,7 @@ enum CardType: Codable {
   case drawCards
 }
 
-struct Debuff {
+struct Debuff: Hashable {
     let type: DebuffType
     var value: Int
     var duration: Int
@@ -46,19 +46,23 @@ struct Player {
   let extraDamage: Int
 }
 
-struct Enemy {
-  let name: String
-  var hp: Int
-  var debuffEffects: [Debuff] = []
-  var isBoss: Bool = false
-  
-  init(name: String, hp: Int, debuffEffects: [Debuff] = [], isBoss: Bool = false) {
-          self.name = name
-          self.hp = hp
-          self.debuffEffects = debuffEffects
-          self.isBoss = isBoss
-  }
+struct Enemy: Identifiable {
+    let id = UUID()
+    var name: String
+    var hp: Int
+    var maxHp: Int
+    var debuffEffects: [Debuff] = []
+    var isBoss: Bool = false
+
+    init(name: String, hp: Int, debuffEffects: [Debuff] = [], isBoss: Bool = false) {
+        self.name = name
+        self.hp = hp
+        self.maxHp = hp 
+        self.debuffEffects = debuffEffects
+        self.isBoss = isBoss
+    }
 }
+
 
 enum EnemyActions {
   case attack

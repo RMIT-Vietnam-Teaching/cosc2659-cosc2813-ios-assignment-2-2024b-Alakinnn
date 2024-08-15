@@ -1,3 +1,10 @@
+//
+//  EnemyBody2D.swift
+//  Slay The 11th
+//
+//  Created by Duong Tran Minh Hoang on 10/08/2024.
+//
+
 import SwiftUI
 
 struct CharacterBody2D: View {
@@ -8,12 +15,43 @@ struct CharacterBody2D: View {
     var index: Int // Pass the index instead of the enemy
 
     var body: some View {
+        let enemy = vm.stageViewModel.enemies[index]
+
         ZStack {
-            Image(systemName: "person.fill")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: width, height: height)
-                .offset(y: offsetValue)
+            VStack(spacing: 0) {
+                // Display effects above the enemy
+                HStack {
+                    ForEach(enemy.debuffEffects, id: \.self) { debuff in
+                        VStack {
+                            Text(debuff.type == .poison ? "☠️" : "🔇") // Example: Use emojis or custom icons
+                            Text("\(debuff.value)x")
+                                .font(.caption)
+                                .foregroundColor(.white)
+                        }
+                        .padding(4)
+                        .background(Color.black.opacity(0.7))
+                        .cornerRadius(4)
+                    }
+                }
+                .padding(.bottom, 4)
+
+                // Enemy image
+                Image(systemName: "person.fill")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: width, height: height)
+                    .offset(y: offsetValue)
+
+                // HP Bar below the enemy
+                Text("\(enemy.hp)/\(enemy.maxHp)")
+                    .font(.caption)
+                    .foregroundColor(.white)
+                    .padding(4)
+                    .background(Color.green)
+                    .cornerRadius(4)
+                    .padding(.top, 4)
+            }
+            .frame(width: width, height: height)
           
             Rectangle()
                 .fill(Color.black.opacity(0.001))
