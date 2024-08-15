@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct EnemyZoneView: View {
-    var viewModel: StageViewModel
+    var vm: GameViewModel
 
     var body: some View {
         GeometryReader { geometry in
@@ -18,12 +18,14 @@ struct EnemyZoneView: View {
             
             VStack {
                 HStack(spacing: 12) {
-                    ForEach(0..<3) { index in
-                        EnemyBody2D(
+                    ForEach(vm.stageViewModel.enemies.indices, id: \.self) { index in
+                        CharacterBody2D(
                             offsetValue: offsetValue,
                             width: enemyWidth,
                             height: enemyHeight,
-                            viewModel: viewModel)
+                            vm: vm,
+                            index: index // Pass the index here
+                        )
                     }
                 }
             }
@@ -35,6 +37,7 @@ struct EnemyZoneView: View {
 }
 
 #Preview {
-    EnemyZoneView(viewModel: StageViewModel())
+    EnemyZoneView(vm: GameViewModel())
 }
+
 

@@ -7,17 +7,17 @@
 
 import SwiftUI
 
-struct MainGameView: View {
-    private var viewModel = StageViewModel()
+struct StageView: View {
+    private var vm = GameViewModel()
 
     var body: some View {
         VStack(spacing: 0) {
-            EnemyZoneView(viewModel: viewModel)
-                .frame(height: UIScreen.main.bounds.height * 0.55)
+          EnemyZoneView(vm: vm)
+            .frame(height: UIScreen.main.bounds.height * 0.45)
             
             Spacer(minLength: 10)
             
-            PlayerHandView(viewModel: viewModel)
+          PlayerHandView(vm: vm)
                 .frame(height: UIScreen.main.bounds.height * 0.35)
         }
         .edgesIgnoringSafeArea(.all)
@@ -25,6 +25,6 @@ struct MainGameView: View {
 }
 
 #Preview {
-    MainGameView()
+  StageView()
 }
 
