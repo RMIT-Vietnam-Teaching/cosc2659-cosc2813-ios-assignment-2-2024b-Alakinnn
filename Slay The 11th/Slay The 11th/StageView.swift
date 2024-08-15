@@ -13,10 +13,11 @@ struct StageView: View {
     var body: some View {
         VStack(spacing: 0) {
           EnemyZoneView(vm: vm)
-            .frame(height: UIScreen.main.bounds.height * 0.45)
+            .frame(height: UIScreen.main.bounds.height * 0.4)
             
-            Spacer(minLength: 10)
-            
+          PlayerZoneView(vm: vm)
+                          .frame(height: UIScreen.main.bounds.height * 0.25)
+          
           PlayerHandView(vm: vm)
                 .frame(height: UIScreen.main.bounds.height * 0.35)
         }
