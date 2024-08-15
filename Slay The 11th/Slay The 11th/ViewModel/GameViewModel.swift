@@ -16,15 +16,16 @@ enum Difficulty {
 }
 
 @Observable class GameViewModel {
-  var playerHealth: Int
+  var player: Player
   var difficulty: Difficulty
   var stageViewModel: StageViewModel
   
-  init(difficulty: Difficulty = .medium) {
-    self.playerHealth = 44
-    self.difficulty = difficulty
-    self.stageViewModel = StageViewModel(difficulty: difficulty)
+  init(difficulty: Difficulty = .medium, player: Player = Player(maxHP: 44, tempHP: 0)) {
+      self.player = player
+      self.difficulty = difficulty
+      self.stageViewModel = StageViewModel(difficulty: difficulty, player: player)
   }
+      
   
   func checkAndAdvanceStage() {
     if stageViewModel.isStageCompleted {
