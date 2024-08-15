@@ -15,14 +15,14 @@ struct PlayerHandView: View {
             VStack {
                 ScrollView(.horizontal) {
                     HStack {
-                      ForEach(vm.stageViewModel.deck.indices, id: \.self) { index in
-                        CardView(card: vm.stageViewModel.deck[index])
+                        ForEach(vm.stageViewModel.playerHand.indices, id: \.self) { index in
+                            CardView(card: vm.stageViewModel.playerHand[index])
                                 .padding()
                                 .background(
-                                  vm.stageViewModel.selectedCard?.id == vm.stageViewModel.deck[index].id ? Color.yellow.opacity(0.3) : Color.clear
+                                    vm.stageViewModel.selectedCard?.id == vm.stageViewModel.playerHand[index].id ? Color.yellow.opacity(0.3) : Color.clear
                                 )
                                 .onTapGesture {
-                                  vm.stageViewModel.selectCard(vm.stageViewModel.deck[index])
+                                  vm.stageViewModel.selectedCard = vm.stageViewModel.playerHand[index]
                                 }
                         }
                     }
@@ -41,4 +41,3 @@ struct PlayerHandView: View {
 #Preview {
     PlayerHandView(vm: GameViewModel())
 }
-
