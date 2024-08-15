@@ -8,15 +8,22 @@
 import SwiftUI
 
 struct PlayerHandView: View {
-    @State private var deck: [Card] = createStaticDeck()
-    
+    var vm: GameViewModel
+
     var body: some View {
         GeometryReader { geometry in
             VStack {
                 ScrollView(.horizontal) {
                     HStack {
-                        ForEach(deck) { card in
-                            CardView(card: card)
+                        ForEach(vm.stageViewModel.playerHand.indices, id: \.self) { index in
+                            CardView(card: vm.stageViewModel.playerHand[index])
+                                .padding()
+                                .background(
+                                    vm.stageViewModel.selectedCard?.id == vm.stageViewModel.playerHand[index].id ? Color.yellow.opacity(0.3) : Color.clear
+                                )
+                                .onTapGesture {
+                                  vm.stageViewModel.selectedCard = vm.stageViewModel.playerHand[index]
+                                }
                         }
                     }
                     .scrollTargetLayout()
@@ -32,5 +39,5 @@ struct PlayerHandView: View {
 }
 
 #Preview {
-    PlayerHandView()
+    PlayerHandView(vm: GameViewModel())
 }

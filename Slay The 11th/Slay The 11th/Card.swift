@@ -47,9 +47,17 @@ struct Player {
 }
 
 struct Enemy {
-  let HP: Int
-  let debuffEffects: [Debuff]
-  let isBoss: Bool
+  let name: String
+  var hp: Int
+  var debuffEffects: [Debuff] = []
+  var isBoss: Bool = false
+  
+  init(name: String, hp: Int, debuffEffects: [Debuff] = [], isBoss: Bool = false) {
+          self.name = name
+          self.hp = hp
+          self.debuffEffects = debuffEffects
+          self.isBoss = isBoss
+  }
 }
 
 enum EnemyActions {
