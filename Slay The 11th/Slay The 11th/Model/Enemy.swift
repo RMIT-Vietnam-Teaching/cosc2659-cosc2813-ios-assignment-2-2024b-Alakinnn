@@ -15,6 +15,7 @@ import Observation
     let maxHp: Int
     var debuffEffects: [Debuff] = []
     var isBoss: Bool = false
+    var attackBuff: Int = 0 // Track attack buffs applied to the enemy
 
     init(name: String, hp: Int, debuffEffects: [Debuff] = [], isBoss: Bool = false) {
         self.name = name
@@ -23,12 +24,30 @@ import Observation
         self.debuffEffects = debuffEffects
         self.isBoss = isBoss
     }
+    
+    // Check if the enemy is silenced
+    func isSilenced() -> Bool {
+        return debuffEffects.contains { $0.type == .silence }
+    }
+
+    // Check if the enemy has any debuff
+    func isDebuffed() -> Bool {
+        return !debuffEffects.isEmpty
+    }
+    
+    // Apply an attack buff to the enemy
+    func applyBuff() {
+        attackBuff += 1
+    }
+    
+    // Perform a cleanse action, removing all debuffs
+    func cleanse() {
+        debuffEffects.removeAll()
+    }
 }
 
-
-enum EnemyActions {
-  case attack
-  case heal
-  case buff
-  case cleanse
+enum EnemyAction {
+    case attack
+    case buff
+    case cleanse
 }

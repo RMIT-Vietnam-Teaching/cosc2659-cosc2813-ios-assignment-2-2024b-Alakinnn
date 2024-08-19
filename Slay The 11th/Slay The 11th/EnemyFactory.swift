@@ -83,13 +83,21 @@ class EnemyFactory {
         }
         
         return baseEnemies.map { enemy in
-            Enemy(
+            var newDebuffEffects: [Debuff] = []
+            
+            // Safely copy debuff effects if they exist
+            if !enemy.debuffEffects.isEmpty {
+                newDebuffEffects = enemy.debuffEffects
+            }
+            
+            return Enemy(
                 name: enemy.name,
                 hp: Int(Double(enemy.maxHp) * hpMultiplier),
-                debuffEffects: enemy.debuffEffects,
+                debuffEffects: newDebuffEffects, // Safe handling of debuff effects
                 isBoss: enemy.isBoss
             )
         }
     }
 }
+
 
