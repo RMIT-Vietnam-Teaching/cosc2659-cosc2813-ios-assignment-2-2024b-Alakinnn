@@ -77,6 +77,10 @@ import Observation
           enemy.debuffEffects[index].duration -= 1
           if enemy.debuffEffects[index].duration <= 0 {
               enemy.debuffEffects.removeAll { $0.type == .silence }
+          } else {
+              // Update the debuff effect stack
+              enemy.debuffEffects[index].value -= 1
+              print("Enemy \(enemy.name) has \(enemy.debuffEffects[index].value) silence stacks left.")
           }
       }
   }
@@ -87,9 +91,14 @@ import Observation
           enemy.debuffEffects[index].duration -= 1
           if enemy.debuffEffects[index].duration <= 0 {
               enemy.debuffEffects.removeAll { $0.type == .poison }
+          } else {
+              // Update the debuff effect stack
+              enemy.debuffEffects[index].value -= 1
+              print("Enemy \(enemy.name) has \(enemy.debuffEffects[index].value) poison stacks left.")
           }
       }
   }
+
 
 
     // Perform an action for a given enemy
