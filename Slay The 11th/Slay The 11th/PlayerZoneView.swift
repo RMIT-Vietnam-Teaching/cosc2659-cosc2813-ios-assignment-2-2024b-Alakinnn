@@ -18,7 +18,6 @@ struct PlayerZoneView: View {
             ZStack {
                 // Background
                 Color.green.opacity(0.7)
-                    .cornerRadius(8)
                     .frame(width: zoneWidth, height: zoneHeight)
 
                 HStack {

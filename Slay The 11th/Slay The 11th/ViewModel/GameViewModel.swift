@@ -27,10 +27,5 @@ enum Difficulty {
   }
       
   
-  func checkAndAdvanceStage() {
-    if stageViewModel.isStageCompleted {
-      stageViewModel.currentStage += 1
-      print("Advancing to Stage \(stageViewModel.currentStage)")
-    }
-  }
+  
 }

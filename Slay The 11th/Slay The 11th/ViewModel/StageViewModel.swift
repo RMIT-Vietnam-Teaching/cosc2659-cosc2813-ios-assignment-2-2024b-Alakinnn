@@ -11,9 +11,11 @@ import Observation
     var enemies: [Enemy] = []
     var currentStage: Int = 1
     var isPlayerTurn: Bool = true  // Track if it's the player's turn
+  var difficulty: Difficulty
 
     init(difficulty: Difficulty, player: Player) {
         self.player = player
+      self.difficulty = difficulty
         self.enemies = EnemyFactory.createEnemies(for: difficulty, stage: currentStage)
         startPlayerTurn()
     }
@@ -329,10 +331,29 @@ import Observation
         }
     }
 
-    private func checkIfStageCompleted() {
-        if enemies.allSatisfy({ $0.curHp <= 0 }) {
-            isStageCompleted = true
-            player.tempHP = 0
-        }
-    }
+  private func checkIfStageCompleted() {
+      if enemies.allSatisfy({ $0.curHp <= 0 }) {
+          isStageCompleted = true
+          player.tempHP = 0
+          checkAndAdvanceStage() // Call to advance stage
+      }
+  }
+
+  func checkAndAdvanceStage() {
+      if isStageCompleted {
+          currentStage += 1
+
+          let newEnemies = EnemyFactory.createEnemies(for: difficulty, stage: currentStage)
+          if !newEnemies.isEmpty {
+              enemies = newEnemies
+              isStageCompleted = false
+              startPlayerTurn() // Restart player's turn for the new stage
+              print("Advancing to Stage \(currentStage)")
+          } else {
+              print("No more stages available. Game completed.")
+              // Handle end of game logic here
+          }
+      }
+  }
+
 }
