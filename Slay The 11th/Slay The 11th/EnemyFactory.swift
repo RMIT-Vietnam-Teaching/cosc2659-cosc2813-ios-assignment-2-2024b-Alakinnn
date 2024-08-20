@@ -10,18 +10,14 @@ import Foundation
 let enemiesByStage: [Int: [Enemy]] = [
     1: [
         Enemy(name: "Enemy 1", hp: 11),
-        Enemy(name: "Enemy 2", hp: 14),
-        Enemy(name: "Enemy 3", hp: 12)
     ],
     2: [
         Enemy(name: "Enemy 1", hp: 16),
-        Enemy(name: "Enemy 2", hp: 22),
-        Enemy(name: "Enemy 3", hp: 18)
+        Enemy(name: "Enemy 2", hp: 22)    
     ],
     3: [
         Enemy(name: "Enemy 1", hp: 30),
-        Enemy(name: "Enemy 2", hp: 25),
-        Enemy(name: "Enemy 3", hp: 21)
+        Enemy(name: "Enemy 2", hp: 25)
     ],
     4: [
         Enemy(name: "Enemy 1", hp: 39),
@@ -30,28 +26,21 @@ let enemiesByStage: [Int: [Enemy]] = [
     ],
     5: [
         Enemy(name: "Enemy 1", hp: 45),
-        Enemy(name: "Enemy 2", hp: 40),
         Enemy(name: "Enemy 3", hp: 43)
     ],
     6: [
-        Enemy(name: "Enemy 1", hp: 59),
-        Enemy(name: "Enemy 2", hp: 61),
-        Enemy(name: "Enemy 3", hp: 52)
+        Enemy(name: "Enemy 1", hp: 89),
     ],
     7: [
         Enemy(name: "Enemy 1", hp: 64),
         Enemy(name: "Enemy 2", hp: 71),
-        Enemy(name: "Enemy 3", hp: 75)
     ],
     8: [
-        Enemy(name: "Enemy 1", hp: 89),
-        Enemy(name: "Enemy 2", hp: 85),
-        Enemy(name: "Enemy 3", hp: 82)
+        Enemy(name: "Enemy 1", hp: 112),
     ],
     9: [
         Enemy(name: "Enemy 1", hp: 90),
         Enemy(name: "Enemy 2", hp: 92),
-        Enemy(name: "Enemy 3", hp: 93)
     ],
     10: [
         Enemy(name: "Enemy 1", hp: 99),
