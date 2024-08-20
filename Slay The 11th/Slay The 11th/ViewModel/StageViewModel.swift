@@ -12,6 +12,8 @@ import Observation
     var currentStage: Int = 1
     var isPlayerTurn: Bool = true  // Track if it's the player's turn
   var difficulty: Difficulty
+  var isShowingRewards: Bool = false
+  var selectedReward: Reward? = nil
 
     init(difficulty: Difficulty, player: Player) {
         self.player = player
@@ -78,14 +80,14 @@ import Observation
       if let index = enemy.debuffEffects.firstIndex(where: { $0.type == .silence }) {
           enemy.debuffEffects[index].duration -= 1
           if enemy.debuffEffects[index].duration <= 0 {
-              enemy.debuffEffects.removeAll { $0.type == .silence }
+              enemy.debuffEffects.remove(at: index)
+              print("Enemy \(enemy.name) is no longer silenced.")
           } else {
-              // Update the debuff effect stack
-              enemy.debuffEffects[index].value -= 1
-              print("Enemy \(enemy.name) has \(enemy.debuffEffects[index].value) silence stacks left.")
+              print("Enemy \(enemy.name) has \(enemy.debuffEffects[index].duration) turns of silence left.")
           }
       }
   }
+
 
   // Function to decrement the poison effect duration
   private func decrementPoisonEffectDuration(for enemy: inout Enemy) {
@@ -345,7 +347,7 @@ import Observation
       if enemies.allSatisfy({ $0.curHp <= 0 }) {
           isStageCompleted = true
           player.tempHP = 0
-          checkAndAdvanceStage() // Call to advance stage
+          isShowingRewards = true
       }
   }
 
@@ -361,21 +363,34 @@ import Observation
               print("Advancing to Stage \(currentStage)")
           } else {
               print("No more stages available. Game completed.")
-              // Handle end of game logic here
           }
       }
   }
   
   func updateCardValues() {
-          for card in playerHand {
-              switch card.cardType {
-              case .attack:
-                  card.currentValue = card.baseValue + player.attackBuff
-              case .defense:
-                  card.currentValue = card.baseValue + player.shieldBuff
-              default:
-                  card.currentValue = card.baseValue
-              }
+      // Update values for cards in availableDeck
+      for index in availableDeck.indices {
+          switch availableDeck[index].cardType {
+          case .attack:
+              availableDeck[index].currentValue = availableDeck[index].baseValue + player.attackBuff
+          case .defense:
+              availableDeck[index].currentValue = availableDeck[index].baseValue + player.shieldBuff
+          default:
+              availableDeck[index].currentValue = availableDeck[index].baseValue
           }
       }
+
+      // Update values for cards in discardedDeck
+      for index in discardedDeck.indices {
+          switch discardedDeck[index].cardType {
+          case .attack:
+              discardedDeck[index].currentValue = discardedDeck[index].baseValue + player.attackBuff
+          case .defense:
+              discardedDeck[index].currentValue = discardedDeck[index].baseValue + player.shieldBuff
+          default:
+              discardedDeck[index].currentValue = discardedDeck[index].baseValue
+          }
+      }
+  }
+
 }
