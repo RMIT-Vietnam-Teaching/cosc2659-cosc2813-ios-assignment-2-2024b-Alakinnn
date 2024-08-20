@@ -28,7 +28,7 @@ struct CardView: View {
                 .padding([.leading, .trailing, .bottom], 8)
                 .lineLimit(3)
             
-            Text("Value: \(card.value)")
+            Text("Value: \(card.baseValue)")
                 .font(.caption)
                 .padding(.bottom, 8)
         }

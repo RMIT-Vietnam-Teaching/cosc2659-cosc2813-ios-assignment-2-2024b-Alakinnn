@@ -11,19 +11,21 @@ import UniformTypeIdentifiers
 import Observation
 
 @Observable class Card: Identifiable{
-    let id: UUID
-    let name: String
-    let description: String
-    let cardType: CardType
-    let value: Int
-    let imageName: String
+  let id: UUID
+  let name: String
+  let description: String
+  let cardType: CardType
+  let baseValue: Int
+  let imageName: String
+  var currentValue: Int
   
   init(id: UUID, name: String, description: String, cardType: CardType, value: Int, imageName: String) {
     self.id = id
     self.name = name
     self.description = description
     self.cardType = cardType
-    self.value = value
+    self.baseValue = value
+    self.currentValue = value
     self.imageName = imageName
   }
 }
@@ -34,6 +36,7 @@ enum CardType: Codable {
   case poison
   case silence
   case drawCards
+  case heal
 }
 
 struct Debuff: Hashable {

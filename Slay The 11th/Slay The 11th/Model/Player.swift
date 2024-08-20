@@ -12,6 +12,8 @@ import Observation
   var maxHP: Int
   var curHP: Int
   var tempHP: Int
+  var attackBuff: Int = 0
+  var shieldBuff: Int = 0
   
   init(maxHP: Int, tempHP: Int) {
     self.maxHP = maxHP
