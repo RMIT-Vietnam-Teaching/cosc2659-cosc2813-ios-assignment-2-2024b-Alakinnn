@@ -22,10 +22,11 @@ struct RewardBoxView: View {
                 .frame(width: 40, height: 40)
             
         }
+      
         .padding()
+        .frame(width: 170)
         .background(Color.gray.opacity(0.2))
         .clipShape(.rect(cornerRadius: 15))
-        .frame(width: 170)
         .shadow(radius: 5)
     }
 }
