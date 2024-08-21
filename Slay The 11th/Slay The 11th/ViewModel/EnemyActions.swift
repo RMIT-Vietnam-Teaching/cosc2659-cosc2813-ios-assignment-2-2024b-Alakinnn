@@ -19,6 +19,13 @@ extension StageViewModel {
           for (index, enemy) in enemies.enumerated() where enemy.curHp > 0 {
               let action = enemy.intendedAction
               
+              // Check if the enemy is silenced before performing any action
+              if enemy.isSilenced() {
+                  print("Enemy \(enemy.name) is silenced and skips its turn.")
+                  decrementSilenceEffectDuration(for: &enemies[index])
+                  continue // Skip the rest of the loop, move to the next enemy
+              }
+
               // Execute the previously calculated action
               switch action {
               case .attack:
