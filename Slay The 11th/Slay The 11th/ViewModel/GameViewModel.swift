@@ -20,12 +20,10 @@ enum Difficulty {
   var difficulty: Difficulty
   var stageViewModel: StageViewModel
   
-  init(difficulty: Difficulty = .medium, player: Player = Player(maxHP: 44, tempHP: 0)) {
+  init(difficulty: Difficulty = .medium, player: Player = Player(hp: 44)) {
       self.player = player
       self.difficulty = difficulty
       self.stageViewModel = StageViewModel(difficulty: difficulty, player: player)
   }
-      
-  
-  
+
 }

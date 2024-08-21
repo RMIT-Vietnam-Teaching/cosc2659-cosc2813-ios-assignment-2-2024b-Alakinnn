@@ -12,7 +12,7 @@ struct Slay_The_11thApp: App {
   @State private var gameVm = GameViewModel()
     var body: some Scene {
         WindowGroup {
-            StageView()
+            MainMenuView()
               .environment(gameVm)
         }
     }

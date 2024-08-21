@@ -11,13 +11,12 @@ import Observation
 @Observable class Player {
   var maxHP: Int
   var curHP: Int
-  var tempHP: Int
+  var tempHP: Int = 0
   var attackBuff: Int = 0
   var shieldBuff: Int = 0
   
-  init(maxHP: Int, tempHP: Int) {
-    self.maxHP = maxHP
-    self.curHP = maxHP
-    self.tempHP = tempHP
+  init(hp: Int) {
+    self.maxHP = hp
+    self.curHP = hp
   }
 }
