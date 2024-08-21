@@ -20,6 +20,9 @@
 		64B71A172C74D4C1009F3987 /* Reward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B71A162C74D4C1009F3987 /* Reward.swift */; };
 		64B71A1B2C74D670009F3987 /* RewardBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B71A1A2C74D670009F3987 /* RewardBoxView.swift */; };
 		64B71A1D2C74E428009F3987 /* RewardSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B71A1C2C74E428009F3987 /* RewardSelectionView.swift */; };
+		64D9B1E72C76259000CB11D1 /* EnemyActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D9B1E62C76259000CB11D1 /* EnemyActions.swift */; };
+		64D9B1E92C7625FE00CB11D1 /* CardActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D9B1E82C7625FE00CB11D1 /* CardActions.swift */; };
+		64D9B1EB2C76270000CB11D1 /* PlayerActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D9B1EA2C76270000CB11D1 /* PlayerActions.swift */; };
 		64FF8D252C6735EF0010487C /* StageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FF8D242C6735EF0010487C /* StageView.swift */; };
 		64FF8D272C6735FB0010487C /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FF8D262C6735FB0010487C /* Card.swift */; };
 		64FF8D292C673C0C0010487C /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FF8D282C673C0C0010487C /* CardView.swift */; };
@@ -45,6 +48,9 @@
 		64B71A162C74D4C1009F3987 /* Reward.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reward.swift; sourceTree = "<group>"; };
 		64B71A1A2C74D670009F3987 /* RewardBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardBoxView.swift; sourceTree = "<group>"; };
 		64B71A1C2C74E428009F3987 /* RewardSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardSelectionView.swift; sourceTree = "<group>"; };
+		64D9B1E62C76259000CB11D1 /* EnemyActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyActions.swift; sourceTree = "<group>"; };
+		64D9B1E82C7625FE00CB11D1 /* CardActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardActions.swift; sourceTree = "<group>"; };
+		64D9B1EA2C76270000CB11D1 /* PlayerActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerActions.swift; sourceTree = "<group>"; };
 		64FF8D242C6735EF0010487C /* StageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageView.swift; sourceTree = "<group>"; };
 		64FF8D262C6735FB0010487C /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		64FF8D282C673C0C0010487C /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
@@ -129,7 +135,10 @@
 			isa = PBXGroup;
 			children = (
 				6456BB5E2C69217800AE46FD /* StageViewModel.swift */,
+				64D9B1E82C7625FE00CB11D1 /* CardActions.swift */,
 				6472AC362C6B786300F81A82 /* GameViewModel.swift */,
+				64D9B1E62C76259000CB11D1 /* EnemyActions.swift */,
+				64D9B1EA2C76270000CB11D1 /* PlayerActions.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -222,13 +231,16 @@
 				6476CAA82C666AFE001C664A /* Slay_The_11thApp.swift in Sources */,
 				6472AC392C6C5BB400F81A82 /* MainMenuView.swift in Sources */,
 				6456EC752C6DFE060037DEA1 /* PlayerZoneView.swift in Sources */,
+				64D9B1E72C76259000CB11D1 /* EnemyActions.swift in Sources */,
 				64FF8D272C6735FB0010487C /* Card.swift in Sources */,
 				6456EC782C6E05BB0037DEA1 /* Player.swift in Sources */,
 				64FF8D2B2C673CA70010487C /* DeckFactory.swift in Sources */,
+				64D9B1EB2C76270000CB11D1 /* PlayerActions.swift in Sources */,
 				64FF8D292C673C0C0010487C /* CardView.swift in Sources */,
 				64FF8D2D2C673DB90010487C /* PlayerHandView.swift in Sources */,
 				64FF8D252C6735EF0010487C /* StageView.swift in Sources */,
 				64FF8D372C674ED80010487C /* CharacterBody2D.swift in Sources */,
+				64D9B1E92C7625FE00CB11D1 /* CardActions.swift in Sources */,
 				64B71A1D2C74E428009F3987 /* RewardSelectionView.swift in Sources */,
 				64B71A1B2C74D670009F3987 /* RewardBoxView.swift in Sources */,
 				6456BB5F2C69217800AE46FD /* StageViewModel.swift in Sources */,
