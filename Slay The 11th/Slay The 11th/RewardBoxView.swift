@@ -24,8 +24,8 @@ struct RewardBoxView: View {
         }
         .padding()
         .background(Color.gray.opacity(0.2))
-        .frame(width: 250)
         .clipShape(.rect(cornerRadius: 15))
+        .frame(width: 170)
         .shadow(radius: 5)
     }
 }
