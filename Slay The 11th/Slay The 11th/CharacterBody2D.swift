@@ -32,7 +32,7 @@ struct CharacterBody2D: View {
                         .cornerRadius(4)
                     }
                 }
-                .padding(.vertical, 8)
+                .padding(.top, 8)
 
                 // Enemy image
                 Image(systemName: "person.fill")
@@ -63,8 +63,7 @@ struct CharacterBody2D: View {
           
             Rectangle()
                 .fill(Color.black.opacity(0.001))
-                .frame(width: width * 0.8, height: height * 0.6)
-                .border(Color.red, width: 2)
+                .frame(width: width * 1, height: height * 1)
                 .offset(y: offsetValue)
                 .onTapGesture {
                     vm.stageViewModel.applyCard(at: index)
