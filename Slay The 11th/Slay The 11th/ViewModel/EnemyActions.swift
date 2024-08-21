@@ -15,31 +15,51 @@ extension StageViewModel {
   }
   
   func startEnemyTurn() {
-      var cleanseChance = 0.1 // initial cleanse chance
+          // Ensure that intentions are already calculated
+          for (index, enemy) in enemies.enumerated() where enemy.curHp > 0 {
+              let action = enemy.intendedAction
+              
+              // Execute the previously calculated action
+              switch action {
+              case .attack:
+                  performAttack(enemy: &enemies[index])
+              case .buff:
+                  performBuff(enemy: &enemies[index])
+              case .cleanse:
+                  performCleanse(for: &enemies[index])
+              case .none:
+                  print("Enemy \(enemy.name) is silenced and skips its turn.")
+              }
 
-      for (index, enemy) in enemies.enumerated() where enemy.curHp > 0 {
-          // Skip the turn if the enemy is silenced
-          if enemy.isSilenced() {
-              print("Enemy \(enemy.name) is silenced and skips its turn.")
+              // Decrement effects after performing the action
+              decrementPoisonEffectDuration(for: &enemies[index])
               decrementSilenceEffectDuration(for: &enemies[index])
-              continue
           }
 
-          // Increase cleanse chance for each subsequent enemy
-          let actionPerformed = performEnemyAction(enemy: &enemies[index], at: index, cleanseChance: cleanseChance)
-          if actionPerformed == .cleanse {
-              cleanseChance = 0.1 // Reset chance after successful cleanse
-          } else {
-              cleanseChance += 0.1 // Increase chance if not cleansed
-          }
-
-          // Decrement poison and silence effects after the enemy's action
-          decrementPoisonEffectDuration(for: &enemies[index])
-          decrementSilenceEffectDuration(for: &enemies[index])
-      }
-
-      startPlayerTurn() // Back to player turn
+          startPlayerTurn() // Back to player turn
   }
+
+
+  
+  func calculateEnemyIntentions() {
+          var cleanseChance = 0.1 // initial cleanse chance
+
+          for (index, enemy) in enemies.enumerated() where enemy.curHp > 0 {
+              // Skip if the enemy is silenced
+              if enemy.isSilenced() {
+                  enemy.intendedAction = .none // Or some other default action to indicate no action
+                  continue
+              }
+
+              // Calculate the intended action
+              enemy.intendedAction = determineEnemyAction(for: &enemies[index], at: index, cleanseChance: cleanseChance)
+
+              // Increase cleanse chance if not performed
+              if enemy.intendedAction != .cleanse {
+                  cleanseChance += 0.1
+              }
+          }
+      }
 
   // Function to decrement the silence effect duration
   private func decrementSilenceEffectDuration(for enemy: inout Enemy) {
@@ -53,7 +73,6 @@ extension StageViewModel {
           }
       }
   }
-
 
   // Function to decrement the poison effect duration
   private func decrementPoisonEffectDuration(for enemy: inout Enemy) {
@@ -70,14 +89,16 @@ extension StageViewModel {
   }
 
   // Perform an action for a given enemy
-  func performEnemyAction(enemy: inout Enemy, at index: Int, cleanseChance: Double) -> EnemyAction {
+  private func determineEnemyAction(for enemy: inout Enemy, at index: Int, cleanseChance: Double) -> EnemyAction {
       let possibleActions: [EnemyAction] = [.attack, .buff, .cleanse]
       var chosenAction: EnemyAction = .attack // Default to attack
-      var actionWeights: [Double] = [0.6, 0.2, 0.2] // Initial weights: attack is more likely
+      var actionWeights: [Double] = [0.7, 0.2, 0.1] // Initial weights: attack is more likely
 
       // Adjust weights based on current conditions
       if hasDebuffedAlly(excluding: index) {
           actionWeights[2] = cleanseChance // Increase chance for cleanse if there's a debuffed ally
+      } else {
+          actionWeights[2] = 0.0 // No chance to cleanse if no debuffed allies exist
       }
 
       // Calculate cumulative weights for random selection
@@ -88,18 +109,18 @@ extension StageViewModel {
           break
       }
 
-      // Perform the chosen action
-      switch chosenAction {
-      case .attack:
-          performAttack(enemy: &enemy)
-      case .buff:
-          performBuff(enemy: &enemy)
-      case .cleanse:
-          performCleanse(for: &enemy)
+      // Final check: if cleanse was chosen but there is nothing to cleanse, fallback to attack
+//    There was a bug where it shows cleanse but enemy attacks instead
+      if chosenAction == .cleanse && !hasDebuffedAlly(excluding: index) {
+          chosenAction = .attack
       }
+
+      print("Enemy \(enemy.name) at index \(index) intends to \(chosenAction).")
 
       return chosenAction
   }
+
+
 
   // Perform attack action
   func performAttack(enemy: inout Enemy) {

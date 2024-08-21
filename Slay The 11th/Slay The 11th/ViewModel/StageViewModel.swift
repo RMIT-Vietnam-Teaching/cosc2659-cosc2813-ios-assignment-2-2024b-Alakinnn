@@ -27,6 +27,7 @@ import Observation
       isPlayerTurn = true
       resetPlayerTempHP() // Reset temp HP at the start of the player's turn
       drawInitialHand()
+    calculateEnemyIntentions()
   }
 
   // Reset player's temporary HP

@@ -40,7 +40,16 @@ struct CharacterBody2D: View {
                     .aspectRatio(contentMode: .fit)
                     .frame(width: width, height: height)
                     .offset(y: offsetValue)
+                
+                VStack {
+                  Image(systemName: enemy.intendedAction == .attack ? "flame.fill" : enemy.intendedAction == .buff ? "arrow.up.circle.fill" : enemy.intendedAction == .cleanse ? "figure.mind.and.body" :
+                          "speaker.slash.fill"
+                  )
 
+                }
+                .background(Color.black.opacity(0.2))
+                .cornerRadius(4)
+              
                 // HP Bar below the enemy
                 Text("\(enemy.curHp)/\(enemy.maxHp)")
                     .font(.caption)

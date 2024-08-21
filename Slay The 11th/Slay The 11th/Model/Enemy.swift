@@ -15,6 +15,7 @@ import Observation
     let maxHp: Int
     var debuffEffects: [Debuff] = []
     var isBoss: Bool = false
+  var intendedAction: EnemyAction = .attack
     var attackBuff: Int = 0 // Track attack buffs applied to the enemy
 
     init(name: String, hp: Int, debuffEffects: [Debuff] = [], isBoss: Bool = false) {
@@ -44,10 +45,15 @@ import Observation
     func cleanse() {
         debuffEffects.removeAll()
     }
+  
+  func setIntendedAction(_ action: EnemyAction) {
+          self.intendedAction = action
+      }
 }
 
 enum EnemyAction {
     case attack
     case buff
     case cleanse
+    case none
 }
