@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct MainMenuView: View {
-    @State private var isSelectingDifficulty = false
     @State private var selectedDifficulty: Difficulty = .medium
     @State private var isGameStarted = false
     var gameVm = GameViewModel()
@@ -16,26 +15,25 @@ struct MainMenuView: View {
     var body: some View {
         NavigationStack {
             VStack {
+                
+              Spacer()
+
                 Button("Play") {
-                    isSelectingDifficulty = true
+                    gameVm.difficulty = selectedDifficulty
+                    gameVm.stageViewModel = StageViewModel(difficulty: selectedDifficulty, player: gameVm.player)
+                    isGameStarted = true
                 }
                 .font(.largeTitle)
                 .padding()
 
-                Spacer()
+              HStack {
+                  DifficultyOptionButton(title: "Easy", difficulty: .easy, selectedDifficulty: $selectedDifficulty)
+                  DifficultyOptionButton(title: "Medium", difficulty: .medium, selectedDifficulty: $selectedDifficulty)
+                  DifficultyOptionButton(title: "Hard", difficulty: .hard, selectedDifficulty: $selectedDifficulty)
+              }
+              .padding()
 
-                NavigationLink("", value: isGameStarted)
-                    .hidden()
-            }
-            .sheet(isPresented: $isSelectingDifficulty) {
-                DifficultySelectionView(
-                    selectedDifficulty: $selectedDifficulty,
-                    isGameStarted: $isGameStarted
-                )
-                .onDisappear {
-                    gameVm.difficulty = selectedDifficulty
-                    gameVm.stageViewModel = StageViewModel(difficulty: selectedDifficulty, player: gameVm.player)
-                }
+                Spacer()
             }
             .navigationDestination(isPresented: $isGameStarted) {
                 StageView(vm: gameVm)
@@ -44,40 +42,33 @@ struct MainMenuView: View {
     }
 }
 
-#Preview {
-  MainMenuView(gameVm: GameViewModel())
-}
-
-
-struct DifficultySelectionView: View {
+struct DifficultyOptionButton: View {
+    let title: String
+    let difficulty: Difficulty
     @Binding var selectedDifficulty: Difficulty
-    @Binding var isGameStarted: Bool
 
     var body: some View {
-        VStack {
-            Text("Select Difficulty")
-                .font(.largeTitle)
-                .padding()
+        HStack {
+            Circle()
+                .fill(selectedDifficulty == difficulty ? Color.blue : Color.clear)
+                .frame(width: 12, height: 24)
+                .overlay(
+                    Circle().stroke(Color.blue, lineWidth: 2)
+                )
 
-            Picker("Difficulty", selection: $selectedDifficulty) {
-                Text("Easy").tag(Difficulty.easy)
-                Text("Medium").tag(Difficulty.medium)
-                Text("Hard").tag(Difficulty.hard)
-            }
-            .pickerStyle(SegmentedPickerStyle())
-            .padding()
-
-            Button("Confirm") {
-                isGameStarted = true
-            }
-            .font(.title)
-            .padding()
-            .background(Color.green)
-            .foregroundColor(.white)
-            .cornerRadius(10)
+            Text(title)
+                .font(.title2)
+                .foregroundColor(.black)
         }
         .padding()
+        .onTapGesture {
+            selectedDifficulty = difficulty
+        }
     }
+}
+
+#Preview {
+    MainMenuView(gameVm: GameViewModel())
 }
 
 

@@ -46,11 +46,3 @@ func createStaticDeck() -> [Card] {
   ]
 }
 
-func sample3CardDeck() -> [Card] {
-  return [
-    Card(id: UUID(), name: "Attack", description: "Deal 3 damage.", cardType: .attack, value: 3, imageName: "flame.fill"),
-    Card(id: UUID(), name: "Attack", description: "Deal 3 damage.", cardType: .attack, value: 3, imageName: "flame.fill"),
-    Card(id: UUID(), name: "Attack", description: "Deal 3 damage.", cardType: .attack, value: 3, imageName: "flame.fill"),
-  ]
-}
-
