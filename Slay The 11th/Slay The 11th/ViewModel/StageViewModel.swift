@@ -1,3 +1,10 @@
+//
+//  StageViewModel.swift
+//  Slay The 11th
+//
+//  Created by Duong Tran Minh Hoang on 11/08/2024.
+//
+
 import SwiftUI
 import Observation
 
