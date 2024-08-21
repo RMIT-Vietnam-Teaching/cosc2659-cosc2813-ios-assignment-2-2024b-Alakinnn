@@ -51,7 +51,7 @@ struct PlayerZoneView: View {
                                     if let card = vm.stageViewModel.selectedCard {
                                         switch card.cardType {
                                         case .defense:
-                                            vm.stageViewModel.applyDefenseEffect(value: card.baseValue)
+                                            vm.stageViewModel.applyDefenseEffect(value: card.currentValue)
                                             vm.stageViewModel.moveCardToDiscardedDeck(card)
                                             vm.stageViewModel.selectedCard = nil
                                             

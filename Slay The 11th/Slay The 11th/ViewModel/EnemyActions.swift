@@ -15,7 +15,7 @@ extension StageViewModel {
   }
   
   func startEnemyTurn() {
-      var cleanseChance = 0.1 // Lower initial cleanse chance
+      var cleanseChance = 0.1 // initial cleanse chance
 
       for (index, enemy) in enemies.enumerated() where enemy.curHp > 0 {
           // Skip the turn if the enemy is silenced

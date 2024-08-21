@@ -44,9 +44,9 @@ import Observation
 
   func checkIfStageCompleted() {
       if enemies.allSatisfy({ $0.curHp <= 0 }) {
-          isStageCompleted = true
-          player.tempHP = 0
-          isShowingRewards = true
+        isStageCompleted = true
+        player.tempHP = 0
+        isShowingRewards = true
       }
   }
 

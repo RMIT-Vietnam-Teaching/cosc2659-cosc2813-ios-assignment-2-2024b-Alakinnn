@@ -26,7 +26,15 @@ extension StageViewModel {
       }
   }
   
-  // Reshuffle the discarded deck into the available deck
+  // Reshuffle the discared deck into the available deck after the stage ends
+  func reshuffleAllCardsIntoAvailableDeckAfterTurnEnds() {
+    availableDeck.append(contentsOf: discardedDeck)
+    availableDeck.append(contentsOf: playerHand)
+    discardedDeck.removeAll()
+    playerHand.removeAll()
+  }
+  
+  // Reshuffle the discarded deck into the available deck if hands
   func reshuffleDiscardedDeck() {
       availableDeck = discardedDeck.shuffled()
       discardedDeck.removeAll()
@@ -46,9 +54,8 @@ extension StageViewModel {
       }
   }
   
-  // Update card values if it is user choice rewards  
+  // Update card values if it is user choice rewards
   func updateCardValues() {
-      // Update values for cards in availableDeck
       for index in availableDeck.indices {
           switch availableDeck[index].cardType {
           case .attack:
@@ -57,18 +64,6 @@ extension StageViewModel {
               availableDeck[index].currentValue = availableDeck[index].baseValue + player.shieldBuff
           default:
               availableDeck[index].currentValue = availableDeck[index].baseValue
-          }
-      }
-
-      // Update values for cards in discardedDeck
-      for index in discardedDeck.indices {
-          switch discardedDeck[index].cardType {
-          case .attack:
-              discardedDeck[index].currentValue = discardedDeck[index].baseValue + player.attackBuff
-          case .defense:
-              discardedDeck[index].currentValue = discardedDeck[index].baseValue + player.shieldBuff
-          default:
-              discardedDeck[index].currentValue = discardedDeck[index].baseValue
           }
       }
   }

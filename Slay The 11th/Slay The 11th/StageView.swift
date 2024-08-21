@@ -33,6 +33,7 @@ struct StageView: View {
                         ),
                         onConfirm: {
                             if let reward = vm.stageViewModel.selectedReward {
+                              vm.stageViewModel.reshuffleAllCardsIntoAvailableDeckAfterTurnEnds()
                                 RewardSystem.applyReward(reward, to: vm.stageViewModel.player, in: vm.stageViewModel)
                                 vm.stageViewModel.isShowingRewards = false
                                 vm.stageViewModel.checkAndAdvanceStage()
@@ -40,7 +41,6 @@ struct StageView: View {
                         }
                     )
                     .background(Color.black.opacity(0.8))
-                    .edgesIgnoringSafeArea(.all)
                     .transition(.opacity)
                 }
             }
