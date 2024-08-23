@@ -143,8 +143,13 @@ extension StageViewModel {
       let damage = Int.random(in: damageRange) + enemy.attackBuff
       player.curHP -= max(0, damage - player.tempHP) // Apply temp HP first, then curHP
       player.tempHP = max(0, player.tempHP - damage)
+      player.curHP = max(0, player.curHP) // Ensure HP does not drop below 0
 
       print("Enemy \(enemy.name) attacks the player for \(damage) damage. Player HP: \(player.curHP)")
+      
+      if player.curHP <= 0 {
+          gameOver()
+      }
   }
 
   // Check if any ally is debuffed (excluding the current enemy)

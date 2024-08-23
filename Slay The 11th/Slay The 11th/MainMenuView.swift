@@ -20,7 +20,7 @@ struct MainMenuView: View {
 
                 Button("Play") {
                     gameVm.difficulty = selectedDifficulty
-                    gameVm.stageViewModel = StageViewModel(difficulty: selectedDifficulty, player: gameVm.player)
+                    gameVm.stageViewModel = StageViewModel(difficulty: selectedDifficulty, player: Player(hp: 44))
                     isGameStarted = true
                 }
                 .font(.largeTitle)
@@ -36,7 +36,7 @@ struct MainMenuView: View {
                 Spacer()
             }
             .navigationDestination(isPresented: $isGameStarted) {
-                StageView(vm: gameVm)
+                StageView(vm: gameVm, isGameStarted: $isGameStarted)
             }
         }
     }
