@@ -6,41 +6,63 @@
 //
 
 import SwiftUI
+import NavigationTransitions
 
 struct MainMenuView: View {
     @State private var selectedDifficulty: Difficulty = .medium
     @State private var isGameStarted = false
+    @State private var blackoutOpacity: Double = 0.0
     var gameVm = GameViewModel()
 
     var body: some View {
         NavigationStack {
-            VStack {
-                
-              Spacer()
+            ZStack {
+                VStack {
+                    Spacer()
 
-                Button("Play") {
-                    gameVm.difficulty = selectedDifficulty
-                    gameVm.stageViewModel = StageViewModel(difficulty: selectedDifficulty, player: Player(hp: 44))
-                    isGameStarted = true
+                    Button("Play") {
+                        gameVm.difficulty = selectedDifficulty
+                        gameVm.stageViewModel = StageViewModel(difficulty: selectedDifficulty, player: Player(hp: 44))
+                        
+                        withAnimation(.easeInOut(duration: 1.0)) {
+                            blackoutOpacity = 1.0
+                        }
+                        
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                            isGameStarted = true
+                            withAnimation(.easeInOut(duration: 1.0)) {
+                                blackoutOpacity = 0.0
+                            }
+                        }
+                    }
+                    .font(.largeTitle)
+                    .padding()
+
+                    HStack {
+                        DifficultyOptionButton(title: "Easy", difficulty: .easy, selectedDifficulty: $selectedDifficulty)
+                        DifficultyOptionButton(title: "Medium", difficulty: .medium, selectedDifficulty: $selectedDifficulty)
+                        DifficultyOptionButton(title: "Hard", difficulty: .hard, selectedDifficulty: $selectedDifficulty)
+                    }
+                    .padding()
+
+                    Spacer()
                 }
-                .font(.largeTitle)
-                .padding()
 
-              HStack {
-                  DifficultyOptionButton(title: "Easy", difficulty: .easy, selectedDifficulty: $selectedDifficulty)
-                  DifficultyOptionButton(title: "Medium", difficulty: .medium, selectedDifficulty: $selectedDifficulty)
-                  DifficultyOptionButton(title: "Hard", difficulty: .hard, selectedDifficulty: $selectedDifficulty)
-              }
-              .padding()
-
-                Spacer()
+                // Blackout overlay
+                Color.black
+                    .opacity(blackoutOpacity)
+                    .edgesIgnoringSafeArea(.all)
             }
             .navigationDestination(isPresented: $isGameStarted) {
                 StageView(vm: gameVm, isGameStarted: $isGameStarted)
             }
+            .navigationTransition(.fade(.in))
         }
+        .navigationBarHidden(true)
     }
 }
+
+
 
 struct DifficultyOptionButton: View {
     let title: String

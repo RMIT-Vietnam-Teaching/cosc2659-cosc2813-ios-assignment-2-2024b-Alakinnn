@@ -6,6 +6,7 @@
   //
 
 import SwiftUI
+import NavigationTransitions
 
 struct StageView: View {
     var vm: GameViewModel
@@ -51,12 +52,12 @@ struct StageView: View {
                         .opacity(blackoutOpacity)
                         .edgesIgnoringSafeArea(.all)
                         .onAppear {
-                            withAnimation(.easeInOut(duration: 2.0)) {
+                          withAnimation(.easeInOut(duration: 1.2)) {
                                 blackoutOpacity = 1.0
                             }
                             // Delay the appearance of the GameOverView until after the blackout
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                                withAnimation(.easeInOut(duration: 1.0)) {
+                          DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
+                            withAnimation(.easeInOut(duration: 0.8)) {
                                     showGameOverView = true
                                 }
                             }
@@ -70,6 +71,7 @@ struct StageView: View {
                         .background(Color.black.opacity(0.8))
                         .edgesIgnoringSafeArea(.all)
                         .transition(.opacity.combined(with: .scale))
+                        .navigationTransition(.fade(.out))
                     }
                 }
             }
