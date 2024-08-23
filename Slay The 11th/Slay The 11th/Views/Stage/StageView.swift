@@ -1,0 +1,70 @@
+  //
+  //  MainGameView.swift
+  //  Slay The 11th
+  //
+  //  Created by Duong Tran Minh Hoang on 10/08/2024.
+  //
+
+import SwiftUI
+import NavigationTransitions
+
+struct StageView: View {
+    var vm: GameViewModel
+    @State private var blackoutOpacity: Double = 0.0
+    @State private var showGameOverView: Bool = false
+    @State private var isPaused: Bool = false
+    @State private var showMenuSheet: Bool = false
+
+    var body: some View {
+        ZStack {
+            // Game content view
+            StageContentView(vm: vm)
+
+            // Header view, if the game is not over
+            if !vm.stageViewModel.isGameOver {
+                StageHeaderView(vm: vm, isPaused: $isPaused, showMenuSheet: $showMenuSheet)
+            }
+
+            // Pause overlay
+            PauseOverlay(isPaused: $isPaused)
+
+            // Handle game over directly in the StageView
+            if vm.stageViewModel.isGameOver {
+                Color.black
+                    .opacity(blackoutOpacity)
+                    .edgesIgnoringSafeArea(.all)
+                    .onAppear {
+                        withAnimation(.easeInOut(duration: 1.2)) {
+                            blackoutOpacity = 1.0
+                        }
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
+                            withAnimation(.easeInOut(duration: 0.8)) {
+                                showGameOverView = true
+                            }
+                        }
+                    }
+
+                if showGameOverView {
+                    GameOverView(onConfirm: {
+                        vm.stageViewModel.isGameOver = false
+                      vm.isGameStarted = false
+                    })
+                    .background(Color.black.opacity(0.8))
+                    .edgesIgnoringSafeArea(.all)
+                    .transition(.opacity.combined(with: .scale))
+                    .navigationTransition(.fade(.out))
+                }
+            }
+        }
+        .navigationBarHidden(true)
+    }
+}
+
+
+
+  
+  #Preview {
+    StageView(vm: GameViewModel())
+  }
+
+

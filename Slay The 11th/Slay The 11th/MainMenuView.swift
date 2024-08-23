@@ -12,7 +12,7 @@ struct MainMenuView: View {
     @State private var selectedDifficulty: Difficulty = .medium
     @State private var isGameStarted = false
     @State private var blackoutOpacity: Double = 0.0
-    var gameVm = GameViewModel()
+    @Bindable var gameVm = GameViewModel()
 
     var body: some View {
         NavigationStack {
@@ -29,7 +29,7 @@ struct MainMenuView: View {
                         }
                         
                         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                            isGameStarted = true
+                          gameVm.isGameStarted = true
                             withAnimation(.easeInOut(duration: 1.0)) {
                                 blackoutOpacity = 0.0
                             }
@@ -53,8 +53,8 @@ struct MainMenuView: View {
                     .opacity(blackoutOpacity)
                     .edgesIgnoringSafeArea(.all)
             }
-            .navigationDestination(isPresented: $isGameStarted) {
-                StageView(vm: gameVm, isGameStarted: $isGameStarted)
+            .navigationDestination(isPresented: $gameVm.isGameStarted) {
+              StageView(vm: gameVm)
             }
             .navigationTransition(.fade(.in))
         }

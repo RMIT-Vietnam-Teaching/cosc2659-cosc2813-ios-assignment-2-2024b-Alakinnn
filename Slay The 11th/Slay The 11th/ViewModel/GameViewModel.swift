@@ -18,6 +18,7 @@ enum Difficulty {
 @Observable class GameViewModel {
   var difficulty: Difficulty
   var stageViewModel: StageViewModel
+  var isGameStarted: Bool = false
   
   init(difficulty: Difficulty = .medium) {
       self.difficulty = difficulty

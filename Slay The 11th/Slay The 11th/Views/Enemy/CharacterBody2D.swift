@@ -38,9 +38,9 @@ struct CharacterBody2D: View {
                   )
                   .font(.title)
                   .foregroundColor(.white)
-                  .padding(4)
                   .background(Color.black.opacity(0.7))
                   .cornerRadius(4)
+                  .padding(4)
 
                   Text("\(enemy.curHp)/\(enemy.maxHp)")
                       .font(.caption)

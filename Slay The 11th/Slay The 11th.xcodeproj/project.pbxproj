@@ -7,8 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6447CDE12C7852DE00F57F46 /* GameOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6447CDE02C7852DE00F57F46 /* GameOverView.swift */; };
 		6447CDE82C78660600F57F46 /* NavigationTransitions in Frameworks */ = {isa = PBXBuildFile; productRef = 6447CDE72C78660600F57F46 /* NavigationTransitions */; };
+		6447CDEA2C78D57900F57F46 /* StageContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6447CDE92C78D57900F57F46 /* StageContentView.swift */; };
+		6447CDEC2C78D5A500F57F46 /* StageHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6447CDEB2C78D5A500F57F46 /* StageHeaderView.swift */; };
+		6447CDEE2C78D5B900F57F46 /* PauseOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6447CDED2C78D5B900F57F46 /* PauseOverlay.swift */; };
+		6447CDF02C78D5C900F57F46 /* RewardSelectionOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6447CDEF2C78D5C900F57F46 /* RewardSelectionOverlay.swift */; };
+		6447CDF22C78D5D700F57F46 /* GameOverOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6447CDF12C78D5D700F57F46 /* GameOverOverlay.swift */; };
+		6447CDF82C78DBB700F57F46 /* GameOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6447CDF72C78DBB700F57F46 /* GameOverView.swift */; };
 		6456BB5F2C69217800AE46FD /* StageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6456BB5E2C69217800AE46FD /* StageViewModel.swift */; };
 		6456EC752C6DFE060037DEA1 /* PlayerZoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6456EC742C6DFE060037DEA1 /* PlayerZoneView.swift */; };
 		6456EC782C6E05BB0037DEA1 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6456EC772C6E05BB0037DEA1 /* Player.swift */; };
@@ -35,7 +40,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		6447CDE02C7852DE00F57F46 /* GameOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverView.swift; sourceTree = "<group>"; };
+		6447CDE92C78D57900F57F46 /* StageContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageContentView.swift; sourceTree = "<group>"; };
+		6447CDEB2C78D5A500F57F46 /* StageHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageHeaderView.swift; sourceTree = "<group>"; };
+		6447CDED2C78D5B900F57F46 /* PauseOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseOverlay.swift; sourceTree = "<group>"; };
+		6447CDEF2C78D5C900F57F46 /* RewardSelectionOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardSelectionOverlay.swift; sourceTree = "<group>"; };
+		6447CDF12C78D5D700F57F46 /* GameOverOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverOverlay.swift; sourceTree = "<group>"; };
+		6447CDF72C78DBB700F57F46 /* GameOverView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverView.swift; sourceTree = "<group>"; };
 		6456BB5D2C690FB900AE46FD /* Slay-The-11th-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Slay-The-11th-Info.plist"; sourceTree = SOURCE_ROOT; };
 		6456BB5E2C69217800AE46FD /* StageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageViewModel.swift; sourceTree = "<group>"; };
 		6456EC742C6DFE060037DEA1 /* PlayerZoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerZoneView.swift; sourceTree = "<group>"; };
@@ -75,6 +85,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6447CDF32C78DB1A00F57F46 /* Stage */ = {
+			isa = PBXGroup;
+			children = (
+				6447CDF72C78DBB700F57F46 /* GameOverView.swift */,
+				64FF8D242C6735EF0010487C /* StageView.swift */,
+				6447CDE92C78D57900F57F46 /* StageContentView.swift */,
+				6447CDEB2C78D5A500F57F46 /* StageHeaderView.swift */,
+				6447CDED2C78D5B900F57F46 /* PauseOverlay.swift */,
+				6447CDEF2C78D5C900F57F46 /* RewardSelectionOverlay.swift */,
+				6447CDF12C78D5D700F57F46 /* GameOverOverlay.swift */,
+			);
+			path = Stage;
+			sourceTree = "<group>";
+		};
+		6447CDF42C78DB4200F57F46 /* Enemy */ = {
+			isa = PBXGroup;
+			children = (
+				64FF8D322C674A810010487C /* EnemyZoneView.swift */,
+				64FF8D362C674ED80010487C /* CharacterBody2D.swift */,
+			);
+			path = Enemy;
+			sourceTree = "<group>";
+		};
+		6447CDF52C78DB5A00F57F46 /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				64FF8D2C2C673DB80010487C /* PlayerHandView.swift */,
+				6456EC742C6DFE060037DEA1 /* PlayerZoneView.swift */,
+			);
+			path = Player;
+			sourceTree = "<group>";
+		};
+		6447CDF62C78DB7400F57F46 /* Reward */ = {
+			isa = PBXGroup;
+			children = (
+				64B71A1C2C74E428009F3987 /* RewardSelectionView.swift */,
+				64B71A1A2C74D670009F3987 /* RewardBoxView.swift */,
+			);
+			path = Reward;
+			sourceTree = "<group>";
+		};
 		6456EC762C6E05960037DEA1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -112,17 +163,9 @@
 				6476CAA72C666AFE001C664A /* Slay_The_11thApp.swift */,
 				6476CAAB2C666B01001C664A /* Assets.xcassets */,
 				6476CAAD2C666B01001C664A /* Preview Content */,
-				64FF8D242C6735EF0010487C /* StageView.swift */,
 				6472AC382C6C5BB400F81A82 /* MainMenuView.swift */,
-				64B71A1C2C74E428009F3987 /* RewardSelectionView.swift */,
 				64FF8D282C673C0C0010487C /* CardView.swift */,
-				6447CDE02C7852DE00F57F46 /* GameOverView.swift */,
 				64FF8D2A2C673CA70010487C /* DeckFactory.swift */,
-				64FF8D2C2C673DB80010487C /* PlayerHandView.swift */,
-				64FF8D322C674A810010487C /* EnemyZoneView.swift */,
-				64B71A1A2C74D670009F3987 /* RewardBoxView.swift */,
-				64FF8D362C674ED80010487C /* CharacterBody2D.swift */,
-				6456EC742C6DFE060037DEA1 /* PlayerZoneView.swift */,
 				6472AC3C2C6C5F2900F81A82 /* EnemyFactory.swift */,
 			);
 			path = "Slay The 11th";
@@ -151,16 +194,12 @@
 		64FF8D2E2C6749E30010487C /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				64FF8D2F2C6749E90010487C /* Common */,
+				6447CDF62C78DB7400F57F46 /* Reward */,
+				6447CDF52C78DB5A00F57F46 /* Player */,
+				6447CDF42C78DB4200F57F46 /* Enemy */,
+				6447CDF32C78DB1A00F57F46 /* Stage */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		64FF8D2F2C6749E90010487C /* Common */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,17 +288,22 @@
 				64D9B1EB2C76270000CB11D1 /* PlayerActions.swift in Sources */,
 				64FF8D292C673C0C0010487C /* CardView.swift in Sources */,
 				64FF8D2D2C673DB90010487C /* PlayerHandView.swift in Sources */,
+				6447CDF02C78D5C900F57F46 /* RewardSelectionOverlay.swift in Sources */,
 				64FF8D252C6735EF0010487C /* StageView.swift in Sources */,
 				64FF8D372C674ED80010487C /* CharacterBody2D.swift in Sources */,
-				6447CDE12C7852DE00F57F46 /* GameOverView.swift in Sources */,
 				64D9B1E92C7625FE00CB11D1 /* CardActions.swift in Sources */,
 				64B71A1D2C74E428009F3987 /* RewardSelectionView.swift in Sources */,
 				64B71A1B2C74D670009F3987 /* RewardBoxView.swift in Sources */,
+				6447CDEC2C78D5A500F57F46 /* StageHeaderView.swift in Sources */,
 				6456BB5F2C69217800AE46FD /* StageViewModel.swift in Sources */,
 				6456EC7A2C6E12FF0037DEA1 /* Enemy.swift in Sources */,
 				64B71A172C74D4C1009F3987 /* Reward.swift in Sources */,
 				6472AC372C6B786300F81A82 /* GameViewModel.swift in Sources */,
+				6447CDEA2C78D57900F57F46 /* StageContentView.swift in Sources */,
 				64FF8D332C674A810010487C /* EnemyZoneView.swift in Sources */,
+				6447CDF22C78D5D700F57F46 /* GameOverOverlay.swift in Sources */,
+				6447CDEE2C78D5B900F57F46 /* PauseOverlay.swift in Sources */,
+				6447CDF82C78DBB700F57F46 /* GameOverView.swift in Sources */,
 				6472AC3D2C6C5F2A00F81A82 /* EnemyFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
