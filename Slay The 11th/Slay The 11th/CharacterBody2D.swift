@@ -22,7 +22,7 @@ struct CharacterBody2D: View {
             let dynamicPadding: CGFloat = screenSize.width > 600 ? 12 : 6 // Adjust padding based on screen width
 
           ZStack {
-            VStack(spacing: dynamicPadding) {
+            VStack(spacing: 1) {
                   // Display effects above the enemy
                   HStack {
                       ForEach(enemy.debuffEffects, id: \.self) { debuff in
@@ -36,7 +36,7 @@ struct CharacterBody2D: View {
                           .cornerRadius(4)
                       }
                   }
-                  .padding(.top, dynamicPadding)
+                  .padding(.top, 1)
 
             
                   // Enemy image (default system image)
@@ -55,7 +55,6 @@ struct CharacterBody2D: View {
                 .foregroundColor(.white)
                 .background(Color.black.opacity(0.7))
                 .cornerRadius(4)
-                .padding(.vertical, dynamicPadding)
 
                   Text("\(enemy.curHp)/\(enemy.maxHp)")
                       .font(.caption)
@@ -65,8 +64,9 @@ struct CharacterBody2D: View {
                       .cornerRadius(4)
               }
               .frame(width: width, height: height) // Set fixed width and height
-              .position(x: screenSize.width / 2, y: screenSize.height / 2) // Center the view
+              .position(x: screenSize.width / 2, y: screenSize.height / 2)
             .clipped()
+            .padding(.top, 16)
             
             Rectangle()
               .fill(Color.black.opacity(0.001))
