@@ -70,7 +70,6 @@ struct CharacterBody2D: View {
             
             Rectangle()
               .fill(Color.black.opacity(0.001))
-              .
                 .frame(width: width, height: height)
                 .offset(y: offsetValue)
                 .onTapGesture {
