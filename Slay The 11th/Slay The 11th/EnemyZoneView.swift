@@ -14,7 +14,7 @@ struct EnemyZoneView: View {
         GeometryReader { geometry in
             let offsetValue = geometry.size.width * 0.02
             let enemyWidth = geometry.size.width * 0.3
-            let enemyHeight = geometry.size.height * 0.5
+            let enemyHeight = geometry.size.height * 0.35
             
             VStack {
                 HStack(spacing: 12) {

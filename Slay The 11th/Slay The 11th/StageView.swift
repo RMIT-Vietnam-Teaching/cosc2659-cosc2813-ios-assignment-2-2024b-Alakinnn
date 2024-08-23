@@ -13,8 +13,10 @@ struct StageView: View {
     @Binding var isGameStarted: Bool
     @State private var blackoutOpacity: Double = 0.0
     @State private var showGameOverView: Bool = false
+    @State private var isPaused: Bool = false
 
     var body: some View {
+      ZStack {
         VStack(spacing: 0) {
             EnemyZoneView(vm: vm)
                 .frame(height: UIScreen.main.bounds.height * 0.4)
@@ -78,10 +80,54 @@ struct StageView: View {
             }
         )
         .navigationBarHidden(true)
-    }
+          
+        // Header for stage number and pause menu
+        VStack {
+            HStack(alignment: .center) {
+                Button(action: {
+                    // Your pause logic here
+                    isPaused = true
+                }) {
+                    Image(systemName: "ellipsis.circle")
+                        .font(.system(size: 25))
+                        .foregroundColor(.white)
+                }
+                .frame(width: 35, height: 35) // Ensure the frame is square
+
+                Spacer()
+
+                Text("Stage \(vm.stageViewModel.currentStage)")
+                    .font(.system(size: 20))
+                    .foregroundColor(.white)
+            }
+            .padding(.horizontal, 25)
+            .padding(.vertical, 6)
+            .frame(height: 60)
+            .background(Color.black.opacity(0.7))
+
+            Spacer()
+        }
+        .edgesIgnoringSafeArea(.top)
+
+
+        // Pause overlay
+        if isPaused {
+          Color.black.opacity(0.7)
+              .edgesIgnoringSafeArea(.all)
+              .overlay(
+                  Button("Unpause") {
+                      isPaused = false
+                  }
+                  .font(.title)
+                  .foregroundColor(.white)
+                  .padding()
+                  .background(Color.gray.opacity(0.8))
+                  .cornerRadius(10)
+              )
+        }
+      }
+  }
 }
-
-
 
 
   
