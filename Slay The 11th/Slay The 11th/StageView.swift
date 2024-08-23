@@ -37,6 +37,7 @@ struct StageView: View {
                         ),
                         onConfirm: {
                             if let reward = vm.stageViewModel.selectedReward {
+                              vm.stageViewModel.reshuffleAllCardsIntoAvailableDeckAfterTurnEnds()
                                 RewardSystem.applyReward(reward, to: vm.stageViewModel.player, in: vm.stageViewModel)
                                 vm.stageViewModel.isShowingRewards = false
                                 vm.stageViewModel.checkAndAdvanceStage()
