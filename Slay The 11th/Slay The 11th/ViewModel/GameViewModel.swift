@@ -16,14 +16,12 @@ enum Difficulty {
 }
 
 @Observable class GameViewModel {
-  var player: Player
   var difficulty: Difficulty
   var stageViewModel: StageViewModel
   
-  init(difficulty: Difficulty = .medium, player: Player = Player(hp: 44)) {
-      self.player = player
+  init(difficulty: Difficulty = .medium) {
       self.difficulty = difficulty
-      self.stageViewModel = StageViewModel(difficulty: difficulty, player: player)
+      self.stageViewModel = StageViewModel(difficulty: difficulty)
   }
 
 }

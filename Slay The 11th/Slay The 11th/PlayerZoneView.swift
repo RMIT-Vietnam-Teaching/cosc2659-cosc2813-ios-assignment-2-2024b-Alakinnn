@@ -30,7 +30,7 @@ struct PlayerZoneView: View {
                                 .frame(width: 20, height: 20)
                                 .foregroundColor(.yellow)
                             
-                            Text("\(vm.player.tempHP)")
+                          Text("\(vm.stageViewModel.player.tempHP)")
                                 .font(.headline)
                                 .foregroundColor(.white)
                         }
@@ -68,7 +68,7 @@ struct PlayerZoneView: View {
                         }
 
                         // HP Bar below the player
-                        Text("\(vm.player.curHP)/\(vm.player.maxHP)")
+                      Text("\(vm.stageViewModel.player.curHP)/\(vm.stageViewModel.player.maxHP)")
                             .font(.caption)
                             .foregroundColor(.white)
                             .padding(4)

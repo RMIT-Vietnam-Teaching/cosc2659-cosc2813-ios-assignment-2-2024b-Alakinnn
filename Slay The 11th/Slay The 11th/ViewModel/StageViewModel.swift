@@ -21,12 +21,13 @@ import Observation
   var difficulty: Difficulty
   var isShowingRewards: Bool = false
   var selectedReward: Reward? = nil
+  var isGameOver: Bool = false
 
-  init(difficulty: Difficulty, player: Player) {
-      self.player = player
+  init(difficulty: Difficulty, player: Player = Player(hp: 44)) {
+    self.player = player
     self.difficulty = difficulty
-      self.enemies = EnemyFactory.createEnemies(for: difficulty, stage: currentStage)
-      startPlayerTurn()
+    self.enemies = EnemyFactory.createEnemies(for: difficulty, stage: currentStage)
+    startPlayerTurn()
   }
 
   // Start player's turn
@@ -72,5 +73,9 @@ import Observation
               print("No more stages available. Game completed.")
           }
       }
+  }
+  
+  func gameOver() {
+    isGameOver = true
   }
 }
