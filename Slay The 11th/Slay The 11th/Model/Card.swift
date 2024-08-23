@@ -43,9 +43,30 @@ struct Debuff: Hashable {
     let type: DebuffType
     var value: Int
     var duration: Int
+  
+  // Convert Debuff to dictionary
+  func toDictionary() -> [String: Any] {
+      return [
+          "type": type.rawValue,
+          "value": value,
+          "duration": duration
+      ]
+  }
+
+  // Create Debuff from dictionary
+  static func fromDictionary(_ dictionary: [String: Any]) -> Debuff? {
+      guard
+          let typeRawValue = dictionary["type"] as? String,
+          let type = DebuffType(rawValue: typeRawValue),
+          let value = dictionary["value"] as? Int,
+          let duration = dictionary["duration"] as? Int
+      else { return nil }
+
+      return Debuff(type: type, value: value, duration: duration)
+  }
 }
 
-enum DebuffType {
+enum DebuffType: String {
     case poison
     case silence
 }
