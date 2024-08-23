@@ -21,9 +21,8 @@ struct PlayerZoneView: View {
                     .frame(width: zoneWidth, height: zoneHeight)
 
                 HStack {
-                    // Player shield, icon, and HP on the left
+                  Spacer()
                     VStack(spacing: 10) {
-                        // Display shield icons above the player
                         HStack(spacing: 8) {
                             Image(systemName: "shield.fill")
                                 .resizable()
@@ -36,7 +35,6 @@ struct PlayerZoneView: View {
                         }
                         .padding(.top, 10)
 
-                        // Player image with tap detection
                         ZStack {
                             Image(systemName: "person.fill")
                                 .resizable()
@@ -45,8 +43,8 @@ struct PlayerZoneView: View {
                                 .foregroundColor(.blue)
 
                             Rectangle()
-                                .fill(Color.black.opacity(0.001)) // Invisible but tappable area
-                                .frame(width: zoneWidth * 0.2, height: zoneHeight * 0.4) // Match the player image size
+                                .fill(Color.black.opacity(0.001))
+                                .frame(width: zoneWidth * 0.2, height: zoneHeight * 0.4)
                                 .onTapGesture {
                                     if let card = vm.stageViewModel.selectedCard {
                                         switch card.cardType {
@@ -67,7 +65,6 @@ struct PlayerZoneView: View {
                                 }
                         }
 
-                        // HP Bar below the player
                       Text("\(vm.stageViewModel.player.curHP)/\(vm.stageViewModel.player.maxHP)")
                             .font(.caption)
                             .foregroundColor(.white)
@@ -76,11 +73,9 @@ struct PlayerZoneView: View {
                             .cornerRadius(4)
                     }
                     .padding(.leading, 32)
-                    Spacer() // Push the button to the right
-
-                    // "End Turn" button on the right
+                  
                     Button(action: {
-                      vm.stageViewModel.endPlayerTurn() // Call the function to end the player's turn
+                      vm.stageViewModel.endPlayerTurn()
                     }) {
                         Text("End Turn")
                             .font(.headline)
@@ -89,8 +84,9 @@ struct PlayerZoneView: View {
                             .foregroundColor(.white)
                             .cornerRadius(8)
                     }
+                  Spacer()
                 }
-                .padding(.horizontal, 16) // Add some padding to the sides
+                .padding(.horizontal, 16)
             }
             .frame(width: zoneWidth, height: zoneHeight)
         }
