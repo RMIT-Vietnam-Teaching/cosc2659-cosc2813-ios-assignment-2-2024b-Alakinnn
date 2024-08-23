@@ -5,7 +5,7 @@
   //  Created by Duong Tran Minh Hoang on 10/08/2024.
   //
 
-  import SwiftUI
+import SwiftUI
 
 struct StageView: View {
     var vm: GameViewModel
@@ -56,7 +56,9 @@ struct StageView: View {
                             }
                             // Delay the appearance of the GameOverView until after the blackout
                             DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                                showGameOverView = true
+                                withAnimation(.easeInOut(duration: 1.0)) {
+                                    showGameOverView = true
+                                }
                             }
                         }
 
@@ -67,7 +69,7 @@ struct StageView: View {
                         })
                         .background(Color.black.opacity(0.8))
                         .edgesIgnoringSafeArea(.all)
-                        .transition(.opacity)
+                        .transition(.opacity.combined(with: .scale))
                     }
                 }
             }
@@ -75,6 +77,7 @@ struct StageView: View {
         .navigationBarHidden(true)
     }
 }
+
 
 
 
