@@ -28,9 +28,39 @@ import Observation
     self.currentValue = value
     self.imageName = imageName
   }
+  
+  // Convert Card to dictionary
+  func toDictionary() -> [String: Any] {
+      return [
+          "id": id.uuidString,
+          "name": name,
+          "description": description,
+          "cardType": cardType.rawValue,
+          "baseValue": baseValue,
+          "currentValue": currentValue,
+          "imageName": imageName
+      ]
+  }
+
+  // Create Card from dictionary
+  static func fromDictionary(_ dictionary: [String: Any]) -> Card? {
+      guard
+          let idString = dictionary["id"] as? String,
+          let id = UUID(uuidString: idString),
+          let name = dictionary["name"] as? String,
+          let description = dictionary["description"] as? String,
+          let cardTypeRawValue = dictionary["cardType"] as? String,
+          let cardType = CardType(rawValue: cardTypeRawValue),
+          let baseValue = dictionary["baseValue"] as? Int,
+          let currentValue = dictionary["currentValue"] as? Int,
+          let imageName = dictionary["imageName"] as? String
+      else { return nil }
+
+      return Card(id: id, name: name, description: description, cardType: cardType, value: baseValue, imageName: imageName)
+  }
 }
 
-enum CardType: Codable {
+enum CardType: String, Codable  {
   case attack
   case defense
   case poison

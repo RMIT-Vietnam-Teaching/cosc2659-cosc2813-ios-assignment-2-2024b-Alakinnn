@@ -43,6 +43,63 @@ enum RewardType {
           return "Symbol of Victory"
       }
   }
+  
+  func toDictionary() -> [String: Any] {
+      var typeDict: [String: Any] = [:]
+
+      switch type {
+      case .heal(let percentage):
+          typeDict = ["type": "heal", "percentage": percentage]
+      case .attackBuff(let value):
+          typeDict = ["type": "attackBuff", "value": value]
+      case .shieldBuff(let value):
+          typeDict = ["type": "shieldBuff", "value": value]
+      case .addCards(let cards):
+          typeDict = ["type": "addCards", "cards": cards.map { $0.toDictionary() }]  // Assuming Card has a `toDictionary` method
+      case .symbolicAward:
+          typeDict = ["type": "symbolicAward"]
+      }
+
+      return [
+          "type": typeDict,
+          "name": name,
+          "description": description,
+          "iconName": iconName
+      ]
+  }
+  
+  static func fromDictionary(_ dictionary: [String: Any]) -> Reward? {
+      guard
+          let typeDict = dictionary["type"] as? [String: Any],
+          let name = dictionary["name"] as? String,
+          let description = dictionary["description"] as? String,
+          let iconName = dictionary["iconName"] as? String
+      else { return nil }
+
+      let type: RewardType
+
+      if let percentage = typeDict["percentage"] as? Int {
+          type = .heal(percentage: percentage)
+      } else if let value = typeDict["value"] as? Int {
+          if typeDict["type"] as? String == "attackBuff" {
+              type = .attackBuff(value: value)
+          } else if typeDict["type"] as? String == "shieldBuff" {
+              type = .shieldBuff(value: value)
+          } else {
+              return nil
+          }
+      } else if let cardsData = typeDict["cards"] as? [[String: Any]] {
+          let cards = cardsData.compactMap { Card.fromDictionary($0) } 
+          type = .addCards(cards: cards)
+      } else if typeDict["type"] as? String == "symbolicAward" {
+          type = .symbolicAward
+      } else {
+          return nil
+      }
+
+      return Reward(type: type, name: name, description: description, iconName: iconName)
+  }
+
 }
 
 class RewardSystem {

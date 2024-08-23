@@ -78,4 +78,57 @@ import Observation
   func gameOver() {
     isGameOver = true
   }
+  
+  // Serialization method
+      func toDictionary() -> [String: Any] {
+          return [
+              "availableDeck": availableDeck.map { $0.toDictionary() }, 
+              "discardedDeck": discardedDeck.map { $0.toDictionary() },
+              "playerHand": playerHand.map { $0.toDictionary() },
+              "player": player.toDictionary(),
+              "currentStage": currentStage,
+              "isPlayerTurn": isPlayerTurn,
+              "isStageCompleted": isStageCompleted,
+              "enemies": enemies.map { $0.toDictionary() },
+              "difficulty": difficulty.rawValue,
+              "isShowingRewards": isShowingRewards,
+              "selectedReward": selectedReward?.toDictionary() ?? [:],
+              "isGameOver": isGameOver
+          ]
+      }
+
+      // Deserialization method
+      static func fromDictionary(_ dictionary: [String: Any], difficulty: Difficulty) -> StageViewModel? {
+          guard
+              let availableDeckData = dictionary["availableDeck"] as? [[String: Any]],
+              let discardedDeckData = dictionary["discardedDeck"] as? [[String: Any]],
+              let playerHandData = dictionary["playerHand"] as? [[String: Any]],
+              let playerData = dictionary["player"] as? [String: Any],
+              let currentStage = dictionary["currentStage"] as? Int,
+              let isPlayerTurn = dictionary["isPlayerTurn"] as? Bool,
+              let isStageCompleted = dictionary["isStageCompleted"] as? Bool,
+              let enemiesData = dictionary["enemies"] as? [[String: Any]],
+              let isShowingRewards = dictionary["isShowingRewards"] as? Bool,
+              let isGameOver = dictionary["isGameOver"] as? Bool
+          else { return nil }
+
+          let availableDeck = availableDeckData.compactMap { Card.fromDictionary($0) }  // Assuming Card has a `fromDictionary` method
+          let discardedDeck = discardedDeckData.compactMap { Card.fromDictionary($0) }
+          let playerHand = playerHandData.compactMap { Card.fromDictionary($0) }
+          let player = Player.fromDictionary(playerData)
+          let enemies = enemiesData.compactMap { Enemy.fromDictionary($0) }  // Assuming Enemy has a `fromDictionary` method
+
+          let stageViewModel = StageViewModel(difficulty: difficulty, player: player!)
+          stageViewModel.availableDeck = availableDeck
+          stageViewModel.discardedDeck = discardedDeck
+          stageViewModel.playerHand = playerHand
+          stageViewModel.currentStage = currentStage
+          stageViewModel.isPlayerTurn = isPlayerTurn
+          stageViewModel.isStageCompleted = isStageCompleted
+          stageViewModel.enemies = enemies
+          stageViewModel.isShowingRewards = isShowingRewards
+          stageViewModel.isGameOver = isGameOver
+
+          return stageViewModel
+      }
 }
