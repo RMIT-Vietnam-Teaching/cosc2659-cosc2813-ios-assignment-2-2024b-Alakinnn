@@ -45,42 +45,44 @@ struct StageHeaderView: View {
 }
 
 struct MenuSheetView: View, Observable {
-    @Binding var isPaused: Bool
+  @Binding var isPaused: Bool
   var vm: GameViewModel
-    @Binding var showMenuSheet: Bool
+  @Binding var showMenuSheet: Bool
 
-    var body: some View {
-        VStack(spacing: 0) {
-            Button("Pause") {
-                isPaused = true
-                showMenuSheet = false
-            }
-            .font(.title2)
-            .padding()
+  var body: some View {
+          VStack(spacing: 0) {
+              Button("Save and Quit") {
+                  vm.saveGame()
+                vm.isGameStarted = false
+                  showMenuSheet = false
+              }
+              .font(.title2)
+              .padding()
 
-            Divider()
+              Divider()
 
-            Button("Return to Main Menu") {
-              vm.isGameStarted = false
-                showMenuSheet = false
-            }
-            .font(.title2)
-            .padding()
+              Button("Abandon Run") {
+                  vm.abandonRun()
+                vm.isGameStarted = false
+                  showMenuSheet = false
+              }
+              .font(.title2)
+              .padding()
 
-            Divider()
+              Divider()
 
-            Button("Cancel") {
-                showMenuSheet = false
-            }
-            .font(.title2)
-            .padding()
-        }
-        .padding()
-        .cornerRadius(16)
-        .frame(maxWidth: .infinity)
-        .frame(height: 200)
-        .shadow(radius: 10)
-    }
+              Button("Cancel") {
+                  showMenuSheet = false
+              }
+              .font(.title2)
+              .padding()
+          }
+          .padding()
+          .cornerRadius(16)
+          .frame(maxWidth: .infinity)
+          .frame(height: 200)
+          .shadow(radius: 10)
+      }
 }
 
 

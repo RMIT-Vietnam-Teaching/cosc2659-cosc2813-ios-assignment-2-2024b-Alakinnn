@@ -9,58 +9,81 @@ import SwiftUI
 import NavigationTransitions
 
 struct MainMenuView: View {
-    @State private var selectedDifficulty: Difficulty = .medium
-    @State private var isGameStarted = false
-    @State private var blackoutOpacity: Double = 0.0
-    @Bindable var gameVm = GameViewModel()
+  @State private var selectedDifficulty: Difficulty = .medium
+  @State private var blackoutOpacity: Double = 0.0
+  @Bindable var gameVm = GameViewModel()
 
-    var body: some View {
-        NavigationStack {
-            ZStack {
-                VStack {
-                    Spacer()
+  var body: some View {
+      NavigationStack {
+          ZStack {
+              VStack {
+                  Spacer()
 
-                    Button("Play") {
-                        gameVm.difficulty = selectedDifficulty
-                        gameVm.stageViewModel = StageViewModel(difficulty: selectedDifficulty, player: Player(hp: 44))
-                        
-                        withAnimation(.easeInOut(duration: 1.0)) {
-                            blackoutOpacity = 1.0
-                        }
-                        
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                          gameVm.isGameStarted = true
-                            withAnimation(.easeInOut(duration: 1.0)) {
-                                blackoutOpacity = 0.0
-                            }
-                        }
-                    }
-                    .font(.largeTitle)
-                    .padding()
+                  if gameVm.hasSavedRun {
+                      Button("Continue Run") {
+                          withAnimation(.easeInOut(duration: 1.0)) {
+                              blackoutOpacity = 1.0
+                          }
+                          
+                          DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                              gameVm.isGameStarted = true
+                              withAnimation(.easeInOut(duration: 1.0)) {
+                                  blackoutOpacity = 0.0
+                              }
+                          }
+                      }
+                      .font(.largeTitle)
+                      .padding()
 
-                    HStack {
-                        DifficultyOptionButton(title: "Easy", difficulty: .easy, selectedDifficulty: $selectedDifficulty)
-                        DifficultyOptionButton(title: "Medium", difficulty: .medium, selectedDifficulty: $selectedDifficulty)
-                        DifficultyOptionButton(title: "Hard", difficulty: .hard, selectedDifficulty: $selectedDifficulty)
-                    }
-                    .padding()
+                      Button("Abandon Run") {
+                          gameVm.abandonRun()
+                      }
+                      .font(.title2)
+                      .padding()
+                  } else {
+                      Button("Start New Run") {
+                          gameVm.difficulty = selectedDifficulty
+                          gameVm.stageViewModel = StageViewModel(difficulty: selectedDifficulty, player: Player(hp: 44))
 
-                    Spacer()
-                }
+                          withAnimation(.easeInOut(duration: 1.0)) {
+                              blackoutOpacity = 1.0
+                          }
 
-                // Blackout overlay
-                Color.black
-                    .opacity(blackoutOpacity)
-                    .edgesIgnoringSafeArea(.all)
-            }
-            .navigationDestination(isPresented: $gameVm.isGameStarted) {
+                          DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                              gameVm.isGameStarted = true
+                              withAnimation(.easeInOut(duration: 1.0)) {
+                                  blackoutOpacity = 0.0
+                              }
+                          }
+                      }
+                      .font(.largeTitle)
+                      .padding()
+
+                      HStack {
+                          DifficultyOptionButton(title: "Easy", difficulty: .easy, selectedDifficulty: $selectedDifficulty)
+                          DifficultyOptionButton(title: "Medium", difficulty: .medium, selectedDifficulty: $selectedDifficulty)
+                          DifficultyOptionButton(title: "Hard", difficulty: .hard, selectedDifficulty: $selectedDifficulty)
+                      }
+                      .padding()
+                  }
+
+                  Spacer()
+              }
+
+              // Blackout overlay
+              Color.black
+                  .opacity(blackoutOpacity)
+                  .edgesIgnoringSafeArea(.all)
+          }
+          .navigationDestination(isPresented: $gameVm.isGameStarted) {
               StageView(vm: gameVm)
-            }
-            .navigationTransition(.fade(.in))
-        }
-        .navigationBarHidden(true)
-    }
+          }
+          .navigationTransition(.fade(.in))
+      }
+      .navigationBarHidden(true)
+  }
 }
+
 
 
 
