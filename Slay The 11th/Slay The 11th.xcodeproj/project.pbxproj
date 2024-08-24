@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		643F04FD2C7A09E000CB9EDF /* LoadingScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643F04FC2C7A09E000CB9EDF /* LoadingScreenView.swift */; };
 		6447CDE82C78660600F57F46 /* NavigationTransitions in Frameworks */ = {isa = PBXBuildFile; productRef = 6447CDE72C78660600F57F46 /* NavigationTransitions */; };
 		6447CDEA2C78D57900F57F46 /* StageContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6447CDE92C78D57900F57F46 /* StageContentView.swift */; };
 		6447CDEC2C78D5A500F57F46 /* StageHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6447CDEB2C78D5A500F57F46 /* StageHeaderView.swift */; };
@@ -40,6 +41,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		643F04FC2C7A09E000CB9EDF /* LoadingScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreenView.swift; sourceTree = "<group>"; };
 		6447CDE92C78D57900F57F46 /* StageContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageContentView.swift; sourceTree = "<group>"; };
 		6447CDEB2C78D5A500F57F46 /* StageHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageHeaderView.swift; sourceTree = "<group>"; };
 		6447CDED2C78D5B900F57F46 /* PauseOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseOverlay.swift; sourceTree = "<group>"; };
@@ -85,6 +87,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		643F04FB2C7A09D300CB9EDF /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				643F04FC2C7A09E000CB9EDF /* LoadingScreenView.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		6447CDF32C78DB1A00F57F46 /* Stage */ = {
 			isa = PBXGroup;
 			children = (
@@ -194,6 +204,7 @@
 		64FF8D2E2C6749E30010487C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				643F04FB2C7A09D300CB9EDF /* Common */,
 				6447CDF62C78DB7400F57F46 /* Reward */,
 				6447CDF52C78DB5A00F57F46 /* Player */,
 				6447CDF42C78DB4200F57F46 /* Enemy */,
@@ -297,6 +308,7 @@
 				6447CDEC2C78D5A500F57F46 /* StageHeaderView.swift in Sources */,
 				6456BB5F2C69217800AE46FD /* StageViewModel.swift in Sources */,
 				6456EC7A2C6E12FF0037DEA1 /* Enemy.swift in Sources */,
+				643F04FD2C7A09E000CB9EDF /* LoadingScreenView.swift in Sources */,
 				64B71A172C74D4C1009F3987 /* Reward.swift in Sources */,
 				6472AC372C6B786300F81A82 /* GameViewModel.swift in Sources */,
 				6447CDEA2C78D57900F57F46 /* StageContentView.swift in Sources */,

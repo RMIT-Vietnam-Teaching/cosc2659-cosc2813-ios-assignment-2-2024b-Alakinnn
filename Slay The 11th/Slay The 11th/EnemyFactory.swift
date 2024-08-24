@@ -26,7 +26,7 @@ let enemiesByStage: [Int: [Enemy]] = [
     ],
     5: [
         Enemy(name: "Enemy 1", hp: 45),
-        Enemy(name: "Enemy 3", hp: 43)
+        Enemy(name: "Enemy 2", hp: 43)
     ],
     6: [
         Enemy(name: "Enemy 1", hp: 89),

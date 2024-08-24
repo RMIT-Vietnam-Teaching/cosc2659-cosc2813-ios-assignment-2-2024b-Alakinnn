@@ -6,9 +6,9 @@
 //
 
 import SwiftUI
-
+import NavigationTransitions
 struct StageContentView: View {
-    var vm: GameViewModel
+    @Bindable var vm: GameViewModel
 
     var body: some View {
         VStack(spacing: 0) {
@@ -22,9 +22,10 @@ struct StageContentView: View {
                 .frame(height: UIScreen.main.bounds.height * 0.35)
         }
         .edgesIgnoringSafeArea(.all)
-        .overlay(
+        .navigationDestination(isPresented: $vm.stageViewModel.isShowingRewards) {
             RewardSelectionOverlay(vm: vm)
-        )
+        }
+        .navigationTransition(.fade(.cross))
     }
 }
 

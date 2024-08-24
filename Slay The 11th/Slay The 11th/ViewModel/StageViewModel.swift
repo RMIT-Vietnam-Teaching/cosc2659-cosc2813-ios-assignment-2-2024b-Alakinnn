@@ -16,7 +16,7 @@ import Observation
   var selectedCard: Card? = nil
   var isStageCompleted: Bool = false
   var enemies: [Enemy] = []
-  var currentStage: Int = 1
+  var currentStage: Int = 3
   var isPlayerTurn: Bool = true  // Track if it's the player's turn
   var difficulty: Difficulty
   var isShowingRewards: Bool = false
@@ -35,7 +35,7 @@ import Observation
       isPlayerTurn = true
       resetPlayerTempHP() // Reset temp HP at the start of the player's turn
       drawInitialHand()
-    calculateEnemyIntentions()
+      calculateEnemyIntentions()
   }
 
   // Reset player's temporary HP
@@ -56,18 +56,20 @@ import Observation
         isStageCompleted = true
         player.tempHP = 0
         isShowingRewards = true
+        currentStage += 1
       }
   }
 
   func checkAndAdvanceStage() {
       if isStageCompleted {
-          currentStage += 1
+        enemies.removeAll()
+        let newEnemies = EnemyFactory.createEnemies(for: difficulty, stage: currentStage)
+        print(newEnemies)
 
-          let newEnemies = EnemyFactory.createEnemies(for: difficulty, stage: currentStage)
           if !newEnemies.isEmpty {
               enemies = newEnemies
               isStageCompleted = false
-              startPlayerTurn() // Restart player's turn for the new stage
+              startPlayerTurn()
               print("Advancing to Stage \(currentStage)")
           } else {
               print("No more stages available. Game completed.")
