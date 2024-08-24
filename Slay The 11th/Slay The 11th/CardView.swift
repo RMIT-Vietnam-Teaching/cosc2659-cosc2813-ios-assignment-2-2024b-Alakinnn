@@ -11,35 +11,46 @@ struct CardView: View {
     let card: Card
     
     var body: some View {
+      ZStack {
+        Color("paperColor")
+          .frame(width: 250, height: 300)
+          .clipShape(.rect(cornerRadius: 12))
+        
         VStack(alignment: .center) {
-            Image(systemName: card.imageName) // Render the image using the imageName
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 250, height: 100)
-                .padding(.top)
+              Image(systemName: card.imageName)
+                  .resizable()
+                  .aspectRatio(contentMode: .fit)
+                  .frame(width: 250, height: 100)
             
-            Text(card.name)
-                .font(.headline)
-                .padding(.top, 8)
-            
-            Text(card.description)
-                .font(.subheadline)
-                .multilineTextAlignment(.center)
-                .padding([.leading, .trailing, .bottom], 8)
-                .lineLimit(3)
-            
-          Text("Value: \(card.currentValue)")
-                .font(.caption)
-                .padding(.bottom, 8)
-        }
-        .background(Color.white)
-        .cornerRadius(10)
-        .shadow(radius: 5)
-        .overlay(
-            RoundedRectangle(cornerRadius: 10)
-                .stroke(Color.gray, lineWidth: 1)
-        )
+                  .padding(.vertical)
+                  
+              Text(card.name)
+                  .font(.headline)
+                  .padding(.top, 16)
+              
+              Text(card.description)
+                  .font(.subheadline)
+                  .multilineTextAlignment(.center)
+                  .padding([.leading, .trailing, .bottom], 8)
+                  .lineLimit(3)
+              
+            Text("Value: \(card.currentValue)")
+                  .font(.caption)
+                  .padding(.bottom, 8)
+          }
+          .frame(width: 250, height: 300)
+          .background(
+            Image("cardBackground")
+              .resizable()
+          )
+          .cornerRadius(10)
+          .shadow(radius: 5)
+          .overlay(
+              RoundedRectangle(cornerRadius: 10)
+                  .stroke(Color.gray, lineWidth: 1)
+          )
         .padding()
+      }
     }
 }
 
@@ -55,6 +66,5 @@ struct CardView_Previews: PreviewProvider {
         )
         
         CardView(card: exampleCard)
-            .previewLayout(.sizeThatFits)
     }
 }

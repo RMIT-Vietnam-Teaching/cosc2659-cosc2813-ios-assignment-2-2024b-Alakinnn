@@ -16,12 +16,11 @@ struct StageContentView: View {
                 .frame(height: UIScreen.main.bounds.height * 0.4)
 
             PlayerZoneView(vm: vm)
-                .frame(height: UIScreen.main.bounds.height * 0.25)
+                .frame(height: UIScreen.main.bounds.height * 0.2)
 
             PlayerHandView(vm: vm)
-                .frame(height: UIScreen.main.bounds.height * 0.35)
+                .frame(height: UIScreen.main.bounds.height * 0.4)
         }
-        .edgesIgnoringSafeArea(.all)
         .navigationDestination(isPresented: $vm.stageViewModel.isShowingRewards) {
             RewardSelectionOverlay(vm: vm)
         }

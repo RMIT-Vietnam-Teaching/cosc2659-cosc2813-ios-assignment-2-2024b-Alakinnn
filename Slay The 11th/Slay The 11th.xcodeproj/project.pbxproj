@@ -22,6 +22,7 @@
 		6472AC372C6B786300F81A82 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6472AC362C6B786300F81A82 /* GameViewModel.swift */; };
 		6472AC392C6C5BB400F81A82 /* MainMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6472AC382C6C5BB400F81A82 /* MainMenuView.swift */; };
 		6472AC3D2C6C5F2A00F81A82 /* EnemyFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6472AC3C2C6C5F2900F81A82 /* EnemyFactory.swift */; };
+		647653042C7A247000148222 /* Kreon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 647653032C7A246F00148222 /* Kreon.ttf */; };
 		6476CAA82C666AFE001C664A /* Slay_The_11thApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6476CAA72C666AFE001C664A /* Slay_The_11thApp.swift */; };
 		6476CAAC2C666B01001C664A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6476CAAB2C666B01001C664A /* Assets.xcassets */; };
 		6476CAAF2C666B01001C664A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6476CAAE2C666B01001C664A /* Preview Assets.xcassets */; };
@@ -56,6 +57,7 @@
 		6472AC362C6B786300F81A82 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		6472AC382C6C5BB400F81A82 /* MainMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuView.swift; sourceTree = "<group>"; };
 		6472AC3C2C6C5F2900F81A82 /* EnemyFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyFactory.swift; sourceTree = "<group>"; };
+		647653032C7A246F00148222 /* Kreon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Kreon.ttf; sourceTree = "<group>"; };
 		6476CAA42C666AFE001C664A /* Slay The 11th.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Slay The 11th.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6476CAA72C666AFE001C664A /* Slay_The_11thApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slay_The_11thApp.swift; sourceTree = "<group>"; };
 		6476CAAB2C666B01001C664A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				6456BB5D2C690FB900AE46FD /* Slay-The-11th-Info.plist */,
+				647653032C7A246F00148222 /* Kreon.ttf */,
 				6456EC762C6E05960037DEA1 /* Model */,
 				64832AE82C676FF200895A90 /* ViewModel */,
 				64FF8D2E2C6749E30010487C /* Views */,
@@ -278,6 +281,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6476CAAF2C666B01001C664A /* Preview Assets.xcassets in Resources */,
+				647653042C7A247000148222 /* Kreon.ttf in Resources */,
 				6476CAAC2C666B01001C664A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -457,8 +461,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -487,8 +490,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

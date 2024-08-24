@@ -15,16 +15,16 @@ struct PlayerHandView: View {
             VStack {
                 ScrollView(.horizontal) {
                     HStack {
-                        ForEach(vm.stageViewModel.playerHand.indices, id: \.self) { index in
+                      ForEach(vm.stageViewModel.playerHand.indices, id: \.self) { index in
                             CardView(card: vm.stageViewModel.playerHand[index])
-                                .padding()
-                                .background(
-                                    vm.stageViewModel.selectedCard?.id == vm.stageViewModel.playerHand[index].id ? Color.yellow.opacity(0.3) : Color.clear
-                                )
-                                .onTapGesture {
-                                  vm.stageViewModel.selectedCard = vm.stageViewModel.playerHand[index]
-                                }
-                        }
+                          .shadow(
+                            color: vm.stageViewModel.selectedCard?.id == vm.stageViewModel.playerHand[index].id ? Color.gray.opacity(0.4) : Color.clear,
+                              radius: vm.stageViewModel.selectedCard?.id == vm.stageViewModel.playerHand[index].id ? 8 : 0
+                          )
+                          .onTapGesture {
+                              vm.stageViewModel.selectedCard = vm.stageViewModel.playerHand[index]
+                          }
+                    }
                     }
                     .scrollTargetLayout()
                 }
@@ -32,7 +32,13 @@ struct PlayerHandView: View {
                 .scrollTargetBehavior(.paging)
             }
             .frame(width: geometry.size.width, height: geometry.size.height)
-            .background(Color.red)
+            .background(
+              Image("handBackground")
+                .resizable()
+                .frame(width: geometry.size.width, height: geometry.size.height)
+                .aspectRatio(contentMode: .fill)
+                .clipped()
+            )
             .shadow(color: .black.opacity(0.2), radius: 10, x: 0, y: -5)
         }
     }
