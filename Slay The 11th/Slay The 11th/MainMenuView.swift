@@ -44,7 +44,7 @@ struct MainMenuView: View {
                       Button("Start New Run") {
                           gameVm.difficulty = selectedDifficulty
                           gameVm.stageViewModel = StageViewModel(difficulty: selectedDifficulty, player: Player(hp: 44))
-
+                          gameVm.stageViewModel.startPlayerTurn()
                           withAnimation(.easeInOut(duration: 1.0)) {
                               blackoutOpacity = 1.0
                           }

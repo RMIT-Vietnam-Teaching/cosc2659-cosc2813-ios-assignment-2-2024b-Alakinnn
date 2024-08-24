@@ -16,7 +16,7 @@ import Observation
   var selectedCard: Card? = nil
   var isStageCompleted: Bool = false
   var enemies: [Enemy] = []
-  var currentStage: Int = 3
+  var currentStage: Int = 1
   var isPlayerTurn: Bool = true  // Track if it's the player's turn
   var difficulty: Difficulty
   var isShowingRewards: Bool = false
@@ -27,7 +27,6 @@ import Observation
     self.player = player
     self.difficulty = difficulty
     self.enemies = EnemyFactory.createEnemies(for: difficulty, stage: currentStage)
-    startPlayerTurn()
   }
 
   // Start player's turn

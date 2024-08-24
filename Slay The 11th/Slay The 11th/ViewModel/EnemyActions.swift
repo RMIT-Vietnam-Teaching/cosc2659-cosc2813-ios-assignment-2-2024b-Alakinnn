@@ -72,7 +72,7 @@ extension StageViewModel {
   private func decrementSilenceEffectDuration(for enemy: inout Enemy) {
       if let index = enemy.debuffEffects.firstIndex(where: { $0.type == .silence }) {
           enemy.debuffEffects[index].duration -= 1
-          if enemy.debuffEffects[index].duration <= 0 {
+          if enemy.debuffEffects[index].duration < 0 {
               enemy.debuffEffects.remove(at: index)
               print("Enemy \(enemy.name) is no longer silenced.")
           } else {
@@ -85,7 +85,7 @@ extension StageViewModel {
   private func decrementPoisonEffectDuration(for enemy: inout Enemy) {
       if let index = enemy.debuffEffects.firstIndex(where: { $0.type == .poison }) {
           enemy.debuffEffects[index].duration -= 1
-          if enemy.debuffEffects[index].duration <= 0 {
+          if enemy.debuffEffects[index].duration < 0 {
               enemy.debuffEffects.removeAll { $0.type == .poison }
           } else {
               // Update the debuff effect stack

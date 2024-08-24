@@ -86,11 +86,11 @@ extension StageViewModel {
           print("Enemy \(enemy.name) takes \(card.currentValue) damage. Remaining HP: \(enemy.curHp)")
 
       case .poison:
-          addOrUpdateDebuff(on: &enemy, type: .poison, value: card.currentValue, duration: 3)
+        addOrUpdateDebuff(on: &enemy, type: .poison, value: card.currentValue, duration: card.currentValue)
           print("Enemy \(enemy.name) is poisoned for \(card.currentValue) damage per turn.")
 
       case .silence:
-          addOrUpdateDebuff(on: &enemy, type: .silence, value: card.currentValue, duration: 1)
+        addOrUpdateDebuff(on: &enemy, type: .silence, value: card.currentValue, duration: card.currentValue)
           print("Enemy \(enemy.name) is silenced.")
 
       default:
@@ -114,9 +114,11 @@ extension StageViewModel {
   // Add or update a debuff on the enemy
   private func addOrUpdateDebuff(on enemy: inout Enemy, type: DebuffType, value: Int, duration: Int) {
       if let index = enemy.debuffEffects.firstIndex(where: { $0.type == type }) {
+          // If the debuff already exists, update the value and increase the duration
           enemy.debuffEffects[index].value += value
-          enemy.debuffEffects[index].duration = max(enemy.debuffEffects[index].duration, duration)
+          enemy.debuffEffects[index].duration += duration
       } else {
+          // If the debuff doesn't exist, add it
           let debuff = Debuff(type: type, value: value, duration: duration)
           enemy.debuffEffects.append(debuff)
       }
