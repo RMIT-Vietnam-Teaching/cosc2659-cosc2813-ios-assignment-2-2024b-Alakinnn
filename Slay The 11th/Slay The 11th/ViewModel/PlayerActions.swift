@@ -91,6 +91,7 @@ extension StageViewModel {
 
       case .silence:
         addOrUpdateDebuff(on: &enemy, type: .silence, value: card.currentValue, duration: card.currentValue)
+        enemy.setIntendedAction(.none)
           print("Enemy \(enemy.name) is silenced.")
 
       default:

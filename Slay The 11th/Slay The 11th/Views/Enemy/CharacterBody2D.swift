@@ -61,7 +61,7 @@ struct CharacterBody2D: View {
                             ForEach(enemy.debuffEffects, id: \.self) { debuff in
                                 VStack {
                                     Text(debuff.type == .poison ? "☠️" : "🔇")
-                                    Text("\(debuff.value)x")
+                                    Text("\(debuff.duration)x")
                                         .font(.caption)
                                         .foregroundColor(.white)
                                 }

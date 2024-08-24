@@ -38,9 +38,7 @@ extension StageViewModel {
                   print("Enemy \(enemy.name) is silenced and skips its turn.")
               }
 
-              // Decrement effects after performing the action
-              decrementPoisonEffectDuration(for: &enemies[index])
-              decrementSilenceEffectDuration(for: &enemies[index])
+            decrementSilenceEffectDuration(for: &enemies[index])
           }
 
           startPlayerTurn() // Back to player turn
@@ -72,7 +70,7 @@ extension StageViewModel {
   private func decrementSilenceEffectDuration(for enemy: inout Enemy) {
       if let index = enemy.debuffEffects.firstIndex(where: { $0.type == .silence }) {
           enemy.debuffEffects[index].duration -= 1
-          if enemy.debuffEffects[index].duration < 0 {
+          if enemy.debuffEffects[index].duration <= 0 {
               enemy.debuffEffects.remove(at: index)
               print("Enemy \(enemy.name) is no longer silenced.")
           } else {
@@ -82,18 +80,22 @@ extension StageViewModel {
   }
 
   // Function to decrement the poison effect duration
-  private func decrementPoisonEffectDuration(for enemy: inout Enemy) {
-      if let index = enemy.debuffEffects.firstIndex(where: { $0.type == .poison }) {
-          enemy.debuffEffects[index].duration -= 1
-          if enemy.debuffEffects[index].duration < 0 {
-              enemy.debuffEffects.removeAll { $0.type == .poison }
-          } else {
-              // Update the debuff effect stack
-              enemy.debuffEffects[index].value -= 1
-              print("Enemy \(enemy.name) has \(enemy.debuffEffects[index].value) poison stacks left.")
-          }
-      }
-  }
+//  private func decrementPoisonEffectDuration(for enemy: inout Enemy) {
+//      if let index = enemy.debuffEffects.firstIndex(where: { $0.type == .poison }) {
+//          // Decrement the duration first
+//          enemy.debuffEffects[index].duration -= 1
+//          
+//          if enemy.debuffEffects[index].duration <= 0 {
+//              // If the duration has expired, remove the poison debuff
+//              enemy.debuffEffects.remove(at: index)
+//              print("Enemy \(enemy.name) is no longer poisoned.")
+//          } else {
+//              // Update the debuff effect stack (value)
+//              enemy.debuffEffects[index].value = max(0, enemy.debuffEffects[index].value - 1) // Ensure value does not drop below 0
+//              print("Enemy \(enemy.name) has \(enemy.debuffEffects[index].value) poison stacks left.")
+//          }
+//      }
+//  }
 
   // Perform an action for a given enemy
   private func determineEnemyAction(for enemy: inout Enemy, at index: Int, cleanseChance: Double) -> EnemyAction {
