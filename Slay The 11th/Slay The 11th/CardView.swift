@@ -25,17 +25,19 @@ struct CardView: View {
                   .padding(.vertical)
                   
               Text(card.name)
-                  .font(.headline)
+                  .font(.custom("Kreon", size: 24))
                   .padding(.top, 16)
               
               Text(card.description)
-                  .font(.subheadline)
+                  .font(.custom("Kreon", size: 14))
+                  .fontWeight(.medium)
                   .multilineTextAlignment(.center)
                   .padding([.leading, .trailing, .bottom], 8)
                   .lineLimit(3)
               
             Text("Value: \(card.currentValue)")
-                  .font(.caption)
+                  .font(.custom("Kreon", size: 14))
+                  .fontWeight(.light)
                   .padding(.bottom, 8)
           }
           .frame(width: 250, height: 300)
