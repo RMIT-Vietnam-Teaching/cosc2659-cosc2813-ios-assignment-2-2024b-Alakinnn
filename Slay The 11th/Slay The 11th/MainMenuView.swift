@@ -21,12 +21,14 @@ struct MainMenuView: View {
 
                   if gameVm.hasSavedRun {
                       Button("Continue Run") {
+                        AudioManager.shared.playSFX("sfxButton")
                           withAnimation(.easeInOut(duration: 1.0)) {
                               blackoutOpacity = 1.0
                           }
                           
                           DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                               gameVm.isGameStarted = true
+                            AudioManager.shared.changeBackgroundMusic(to: "stage")
                               withAnimation(.easeInOut(duration: 1.0)) {
                                   blackoutOpacity = 0.0
                               }
@@ -36,6 +38,7 @@ struct MainMenuView: View {
                       .padding()
 
                       Button("Abandon Run") {
+                        AudioManager.shared.playSFX("sfxButton")
                           gameVm.abandonRun()
                       }
                       .font(.title2)
@@ -45,12 +48,14 @@ struct MainMenuView: View {
                           gameVm.difficulty = selectedDifficulty
                           gameVm.stageViewModel = StageViewModel(difficulty: selectedDifficulty, player: Player(hp: 44))
                           gameVm.stageViewModel.startPlayerTurn()
+                        AudioManager.shared.playSFX("sfxButton")
                           withAnimation(.easeInOut(duration: 1.0)) {
                               blackoutOpacity = 1.0
                           }
 
                           DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                               gameVm.isGameStarted = true
+                            AudioManager.shared.changeBackgroundMusic(to: "stage")
                               withAnimation(.easeInOut(duration: 1.0)) {
                                   blackoutOpacity = 0.0
                               }
@@ -81,6 +86,12 @@ struct MainMenuView: View {
           .navigationTransition(.fade(.in))
       }
       .navigationBarHidden(true)
+      .onAppear {
+          AudioManager.shared.playBackgroundMusic("mainMenu")
+      }
+      .onDisappear {
+          AudioManager.shared.stopBackgroundMusic()
+      }
   }
 }
 
