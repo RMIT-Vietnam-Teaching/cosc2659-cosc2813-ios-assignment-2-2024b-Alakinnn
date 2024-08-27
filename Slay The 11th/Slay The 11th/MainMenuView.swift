@@ -81,7 +81,7 @@ struct MainMenuView: View {
                   .edgesIgnoringSafeArea(.all)
           }
           .navigationDestination(isPresented: $gameVm.isGameStarted) {
-              StageView(vm: gameVm)
+            StageView(vm: gameVm.stageViewModel, gameVm: gameVm)
           }
           .navigationTransition(.fade(.in))
       }

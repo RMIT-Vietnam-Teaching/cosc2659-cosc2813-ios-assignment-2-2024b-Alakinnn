@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct StageHeaderView: View {
-    @Bindable var vm: GameViewModel
+    @Bindable var vm: StageViewModel
+  var gameVm: GameViewModel
     @Binding var isPaused: Bool
     @Binding var showMenuSheet: Bool
 
@@ -26,7 +27,7 @@ struct StageHeaderView: View {
 
                 Spacer()
 
-                Text("Stage \(vm.stageViewModel.currentStage)")
+                Text("Stage \(vm.currentStage)")
                     .font(.system(size: 20))
                     .foregroundColor(.white)
             }
@@ -39,7 +40,7 @@ struct StageHeaderView: View {
         }
         .edgesIgnoringSafeArea(.top)
         .sheet(isPresented: $showMenuSheet) {
-          MenuSheetView(isPaused: $isPaused, vm: vm, showMenuSheet: $showMenuSheet)
+          MenuSheetView(isPaused: $isPaused, vm: gameVm, showMenuSheet: $showMenuSheet)
         }
     }
 }
@@ -87,5 +88,5 @@ struct MenuSheetView: View, Observable {
 
 
 #Preview {
-  StageHeaderView(vm: GameViewModel(), isPaused: .constant(false), showMenuSheet: .constant(false))
+  StageHeaderView(vm: StageViewModel(difficulty: .medium, player: Player(hp: 44)) ,gameVm: GameViewModel(), isPaused: .constant(false), showMenuSheet: .constant(false))
 }

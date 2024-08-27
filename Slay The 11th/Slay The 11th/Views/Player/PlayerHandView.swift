@@ -8,21 +8,21 @@
 import SwiftUI
 
 struct PlayerHandView: View {
-    var vm: GameViewModel
+    var vm: StageViewModel
 
     var body: some View {
         GeometryReader { geometry in
             VStack {
                 ScrollView(.horizontal) {
                     HStack {
-                      ForEach(vm.stageViewModel.playerHand.indices, id: \.self) { index in
-                            CardView(card: vm.stageViewModel.playerHand[index])
+                      ForEach(vm.playerHand.indices, id: \.self) { index in
+                            CardView(card: vm.playerHand[index])
                           .shadow(
-                            color: vm.stageViewModel.selectedCard?.id == vm.stageViewModel.playerHand[index].id ? Color.gray.opacity(0.4) : Color.clear,
-                              radius: vm.stageViewModel.selectedCard?.id == vm.stageViewModel.playerHand[index].id ? 8 : 0
+                            color: vm.selectedCard?.id == vm.playerHand[index].id ? Color.gray.opacity(0.4) : Color.clear,
+                              radius: vm.selectedCard?.id == vm.playerHand[index].id ? 8 : 0
                           )
                           .onTapGesture {
-                              vm.stageViewModel.selectedCard = vm.stageViewModel.playerHand[index]
+                              vm.selectedCard = vm.playerHand[index]
                           }
                     }
                     }
@@ -45,5 +45,5 @@ struct PlayerHandView: View {
 }
 
 #Preview {
-    PlayerHandView(vm: GameViewModel())
+    PlayerHandView(vm: StageViewModel(difficulty: .medium, player: Player(hp: 44)))
 }

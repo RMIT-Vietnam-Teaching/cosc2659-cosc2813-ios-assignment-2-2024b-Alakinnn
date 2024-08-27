@@ -11,10 +11,10 @@ struct GameOverOverlay: View {
     @Binding var blackoutOpacity: Double
     @Binding var showGameOverView: Bool
     @Binding var isGameStarted: Bool
-    var vm: GameViewModel
+    var vm: StageViewModel
 
     var body: some View {
-        if vm.stageViewModel.isGameOver {
+        if vm.isGameOver {
             Color.black
                 .opacity(blackoutOpacity)
                 .edgesIgnoringSafeArea(.all)
@@ -31,7 +31,7 @@ struct GameOverOverlay: View {
 
             if showGameOverView {
                 GameOverView(onConfirm: {
-                    vm.stageViewModel.isGameOver = false
+                    vm.isGameOver = false
                     isGameStarted = false
                 })
                 .background(Color.black.opacity(0.8))

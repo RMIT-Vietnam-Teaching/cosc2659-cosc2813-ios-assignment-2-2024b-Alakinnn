@@ -8,22 +8,22 @@
 import SwiftUI
 
 struct RewardSelectionOverlay: View {
-    var vm: GameViewModel
+    var vm: StageViewModel
 
     var body: some View {
-        if vm.stageViewModel.isShowingRewards {
+        if vm.isShowingRewards {
             RewardSelectionView(
-                rewards: RewardSystem.rewardsForStage(vm.stageViewModel.currentStage),
+                rewards: RewardSystem.rewardsForStage(vm.currentStage),
                 selectedReward: Binding(
-                    get: { vm.stageViewModel.selectedReward },
-                    set: { vm.stageViewModel.selectedReward = $0 }
+                    get: { vm.selectedReward },
+                    set: { vm.selectedReward = $0 }
                 ),
                 onConfirm: {
-                    if let reward = vm.stageViewModel.selectedReward {
-                        vm.stageViewModel.reshuffleAllCardsIntoAvailableDeckAfterTurnEnds()
-                        RewardSystem.applyReward(reward, to: vm.stageViewModel.player, in: vm.stageViewModel)
-                        vm.stageViewModel.isShowingRewards = false
-                        vm.stageViewModel.checkAndAdvanceStage()
+                    if let reward = vm.selectedReward {
+                        vm.reshuffleAllCardsIntoAvailableDeckAfterTurnEnds()
+                        RewardSystem.applyReward(reward, to: vm.player, in: vm)
+                        vm.isShowingRewards = false
+                        vm.checkAndAdvanceStage()
                     }
                 }
             )
@@ -36,5 +36,5 @@ struct RewardSelectionOverlay: View {
 
 
 #Preview {
-  RewardSelectionOverlay(vm: GameViewModel())
+  RewardSelectionOverlay(vm: StageViewModel(difficulty: .medium, player: Player(hp: 44)))
 }

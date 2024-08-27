@@ -9,7 +9,8 @@ import SwiftUI
 import NavigationTransitions
 
 struct StageView: View {
-    var vm: GameViewModel
+    var vm: StageViewModel
+    var gameVm: GameViewModel
     @State private var blackoutOpacity: Double = 0.0
     @State private var showGameOverView: Bool = false
     @State private var isPaused: Bool = false
@@ -21,15 +22,15 @@ struct StageView: View {
             StageContentView(vm: vm)
 
             // Header view, if the game is not over
-            if !vm.stageViewModel.isGameOver {
-                StageHeaderView(vm: vm, isPaused: $isPaused, showMenuSheet: $showMenuSheet)
+            if !vm.isGameOver {
+                StageHeaderView(vm: vm, gameVm: gameVm, isPaused: $isPaused, showMenuSheet: $showMenuSheet)
             }
 
             // Pause overlay
             PauseOverlay(isPaused: $isPaused)
 
             // Handle game over directly in the StageView
-            if vm.stageViewModel.isGameOver {
+            if vm.isGameOver {
                 Color.black
                     .opacity(blackoutOpacity)
                     .edgesIgnoringSafeArea(.all)
@@ -46,8 +47,8 @@ struct StageView: View {
 
                 if showGameOverView {
                     GameOverView(onConfirm: {
-                        vm.stageViewModel.isGameOver = false
-                      vm.isGameStarted = false
+                        vm.isGameOver = false
+                      gameVm.isGameStarted = false
                     })
                     .background(Color.black.opacity(0.8))
                     .edgesIgnoringSafeArea(.all)
@@ -64,7 +65,7 @@ struct StageView: View {
 
   
   #Preview {
-    StageView(vm: GameViewModel())
+    StageView(vm: StageViewModel(difficulty: .medium, player: Player(hp: 44)), gameVm: GameViewModel())
   }
 
 

@@ -11,13 +11,13 @@ struct CharacterBody2D: View {
     let offsetValue: CGFloat
     let width: CGFloat
     let height: CGFloat
-    var vm: GameViewModel
+    var vm: StageViewModel
     var index: Int
 
     var body: some View {
         // Safely unwrap the enemy to avoid out-of-bounds access
-        if index < vm.stageViewModel.enemies.count {
-            let enemy = vm.stageViewModel.enemies[index]
+        if index < vm.enemies.count {
+            let enemy = vm.enemies[index]
 
             GeometryReader { geometry in
                 let screenSize = geometry.size
@@ -78,7 +78,7 @@ struct CharacterBody2D: View {
                         .frame(width: width, height: height)
                         .offset(y: offsetValue)
                         .onTapGesture {
-                            vm.stageViewModel.applyCard(at: index)
+                            vm.applyCard(at: index)
                         }
                 }
             }
@@ -93,5 +93,5 @@ struct CharacterBody2D: View {
 }
 
 #Preview {
-    CharacterBody2D(offsetValue: 0, width: 100, height: 200, vm: GameViewModel(), index: 0)
+    CharacterBody2D(offsetValue: 0, width: 100, height: 200, vm: StageViewModel(difficulty: .medium, player: Player(hp: 44)), index: 0)
 }

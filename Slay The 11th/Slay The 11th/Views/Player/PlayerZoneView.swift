@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PlayerZoneView: View {
-    var vm: GameViewModel
+    var vm: StageViewModel
 
     var body: some View {
         GeometryReader { geometry in
@@ -29,7 +29,7 @@ struct PlayerZoneView: View {
                                 .frame(width: 20, height: 20)
                                 .foregroundColor(.yellow)
                             
-                          Text("\(vm.stageViewModel.player.tempHP)")
+                          Text("\(vm.player.tempHP)")
                                 .font(.headline)
                                 .foregroundColor(.white)
                         }
@@ -46,17 +46,17 @@ struct PlayerZoneView: View {
                                 .fill(Color.black.opacity(0.001))
                                 .frame(width: zoneWidth * 0.2, height: zoneHeight * 0.4)
                                 .onTapGesture {
-                                    if let card = vm.stageViewModel.selectedCard {
+                                    if let card = vm.selectedCard {
                                         switch card.cardType {
                                         case .defense:
-                                            vm.stageViewModel.applyDefenseEffect(value: card.currentValue)
-                                            vm.stageViewModel.moveCardToDiscardedDeck(card)
-                                            vm.stageViewModel.selectedCard = nil
+                                            vm.applyDefenseEffect(value: card.currentValue)
+                                            vm.moveCardToDiscardedDeck(card)
+                                            vm.selectedCard = nil
                                             
                                         case .drawCards:
-                                            vm.stageViewModel.applyDrawEffect(value: card.baseValue)
-                                            vm.stageViewModel.moveCardToDiscardedDeck(card)
-                                            vm.stageViewModel.selectedCard = nil
+                                            vm.applyDrawEffect(value: card.baseValue)
+                                            vm.moveCardToDiscardedDeck(card)
+                                            vm.selectedCard = nil
                                             
                                         default:
                                             print("Card type \(card.cardType) is not applicable to the player directly.")
@@ -65,7 +65,7 @@ struct PlayerZoneView: View {
                                 }
                         }
 
-                      Text("\(vm.stageViewModel.player.curHP)/\(vm.stageViewModel.player.maxHP)")
+                      Text("\(vm.player.curHP)/\(vm.player.maxHP)")
                             .font(.caption)
                             .foregroundColor(.white)
                             .padding(4)
@@ -75,7 +75,7 @@ struct PlayerZoneView: View {
                     .padding(.leading, 32)
                   
                     Button(action: {
-                      vm.stageViewModel.endPlayerTurn()
+                      vm.endPlayerTurn()
                     }) {
                         Text("End Turn")
                             .font(.headline)
@@ -94,7 +94,7 @@ struct PlayerZoneView: View {
 }
 
 #Preview {
-    PlayerZoneView(vm: GameViewModel())
+    PlayerZoneView(vm: StageViewModel(difficulty: .medium, player: Player(hp: 44)))
 }
 
 
