@@ -16,7 +16,7 @@ import Observation
   var selectedCard: Card? = nil
   var isStageCompleted: Bool = false
   var enemies: [Enemy] = []
-  var currentStage: Int = 1
+  var currentStage: Int = 11
   var isPlayerTurn: Bool = true  // Track if it's the player's turn
   var difficulty: Difficulty
   var isShowingRewards: Bool = false
@@ -26,6 +26,7 @@ import Observation
   var startTime: Date?
   var elapsedTime: TimeInterval = 0
   var timer: Timer?
+  var allStagesCleared: Bool = false
 
   init(difficulty: Difficulty, player: Player = Player(hp: 44)) {
     self.player = player
@@ -57,34 +58,38 @@ import Observation
   }
 
   func checkIfStageCompleted() {
-      if enemies.allSatisfy({ $0.curHp <= 0 }) {
-        isStageCompleted = true
-        player.tempHP = 0
-        isShowingRewards = true
-        calculateScore()
+    if enemies.allSatisfy({ $0.curHp <= 0 }) {
+      isStageCompleted = true
+      player.tempHP = 0
+      isShowingRewards = true
+      calculateScore()
       }
   }
 
   func checkAndAdvanceStage() {
       if isStageCompleted {
-        enemies.removeAll()
-        currentStage += 1
-        let newEnemies = EnemyFactory.createEnemies(for: difficulty, stage: currentStage)
-        print(newEnemies)
+          enemies.removeAll()
 
-          if !newEnemies.isEmpty {
-              enemies = newEnemies
-              isStageCompleted = false
-              startPlayerTurn()
-              print("Advancing to Stage \(currentStage)")
+          if currentStage == 11 {
+              print("Game completed. Showing victory screen.")
           } else {
-              print("No more stages available. Game completed.")
+              currentStage += 1
+              let newEnemies = EnemyFactory.createEnemies(for: difficulty, stage: currentStage)
+
+              if !newEnemies.isEmpty {
+                  enemies = newEnemies
+                  isStageCompleted = false
+                  startPlayerTurn()
+                  print("Advancing to Stage \(currentStage)")
+              } else {
+                  print("No more stages available. Game completed.")
+              }
           }
       }
   }
   
   func gameOver() {
-    isGameOver = true
+      isGameOver = true
   }
   
   // Serialization method

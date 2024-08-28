@@ -24,7 +24,6 @@ struct MainMenuView: View {
             ZStack {
                 VStack {
                     Spacer()
-
                     if gameVm.hasSavedRun {
                         Button("Continue Run") {
                             AudioManager.shared.playSFX("sfxButton")
@@ -125,6 +124,9 @@ struct MainMenuView: View {
             }
             .navigationDestination(isPresented: $gameVm.isGameStarted) {
                 StageView(vm: gameVm.stageViewModel, gameVm: gameVm)
+            }
+            .navigationDestination(isPresented: $gameVm.stageViewModel.allStagesCleared) {
+              VictoryView(gameVm: gameVm)
             }
             .navigationTransition(.fade(.in))
         }
