@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		640DF4642C7F7A01005B3342 /* VictoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640DF4632C7F7A01005B3342 /* VictoryView.swift */; };
 		640DF4672C7F7A7A005B3342 /* Pow in Frameworks */ = {isa = PBXBuildFile; productRef = 640DF4662C7F7A7A005B3342 /* Pow */; };
+		640DF4692C7F7F87005B3342 /* ScoreSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640DF4682C7F7F86005B3342 /* ScoreSystem.swift */; };
 		643F04FD2C7A09E000CB9EDF /* LoadingScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643F04FC2C7A09E000CB9EDF /* LoadingScreenView.swift */; };
 		6447CDE82C78660600F57F46 /* NavigationTransitions in Frameworks */ = {isa = PBXBuildFile; productRef = 6447CDE72C78660600F57F46 /* NavigationTransitions */; };
 		6447CDEA2C78D57900F57F46 /* StageContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6447CDE92C78D57900F57F46 /* StageContentView.swift */; };
@@ -49,6 +50,7 @@
 
 /* Begin PBXFileReference section */
 		640DF4632C7F7A01005B3342 /* VictoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VictoryView.swift; sourceTree = "<group>"; };
+		640DF4682C7F7F86005B3342 /* ScoreSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreSystem.swift; sourceTree = "<group>"; };
 		643F04FC2C7A09E000CB9EDF /* LoadingScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreenView.swift; sourceTree = "<group>"; };
 		6447CDE92C78D57900F57F46 /* StageContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageContentView.swift; sourceTree = "<group>"; };
 		6447CDEB2C78D5A500F57F46 /* StageHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageHeaderView.swift; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 			isa = PBXGroup;
 			children = (
 				6456BB5E2C69217800AE46FD /* StageViewModel.swift */,
+				640DF4682C7F7F86005B3342 /* ScoreSystem.swift */,
 				64D9B1E82C7625FE00CB11D1 /* CardActions.swift */,
 				6472AC362C6B786300F81A82 /* GameViewModel.swift */,
 				64D9B1E62C76259000CB11D1 /* EnemyActions.swift */,
@@ -379,6 +382,7 @@
 				643F04FD2C7A09E000CB9EDF /* LoadingScreenView.swift in Sources */,
 				64B71A172C74D4C1009F3987 /* Reward.swift in Sources */,
 				6472AC372C6B786300F81A82 /* GameViewModel.swift in Sources */,
+				640DF4692C7F7F87005B3342 /* ScoreSystem.swift in Sources */,
 				6447CDEA2C78D57900F57F46 /* StageContentView.swift in Sources */,
 				64FF8D332C674A810010487C /* EnemyZoneView.swift in Sources */,
 				6447CDF22C78D5D700F57F46 /* GameOverOverlay.swift in Sources */,

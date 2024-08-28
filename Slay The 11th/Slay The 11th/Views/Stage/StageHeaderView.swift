@@ -56,7 +56,7 @@ struct MenuSheetView: View, Observable {
             vm.saveGame()
             vm.isGameStarted = false
             showMenuSheet = false
-            
+          print(vm.stageViewModel.score)
             // Stop the stage music and play the main menu music
             AudioManager.shared.stopBackgroundMusic()
             AudioManager.shared.playBackgroundMusic("mainMenu")

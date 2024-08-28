@@ -22,11 +22,17 @@ import Observation
   var isShowingRewards: Bool = false
   var selectedReward: Reward? = nil
   var isGameOver: Bool = false
+  var score: Int = 0
+  var startTime: Date?
+  var elapsedTime: TimeInterval = 0
+  var timer: Timer?
 
   init(difficulty: Difficulty, player: Player = Player(hp: 44)) {
     self.player = player
     self.difficulty = difficulty
     self.enemies = EnemyFactory.createEnemies(for: difficulty, stage: currentStage)
+    self.startTimer()
+    self.calculateScore()
   }
 
   // Start player's turn
@@ -55,13 +61,14 @@ import Observation
         isStageCompleted = true
         player.tempHP = 0
         isShowingRewards = true
-        currentStage += 1
+        calculateScore()
       }
   }
 
   func checkAndAdvanceStage() {
       if isStageCompleted {
         enemies.removeAll()
+        currentStage += 1
         let newEnemies = EnemyFactory.createEnemies(for: difficulty, stage: currentStage)
         print(newEnemies)
 

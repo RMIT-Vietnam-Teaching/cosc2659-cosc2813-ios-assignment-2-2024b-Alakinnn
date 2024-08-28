@@ -28,9 +28,10 @@ enum Difficulty: Int {
     }
 
     func saveGame() {
+        stageViewModel.pauseTimer() // Pause the timer before saving
+
         UserDefaults.standard.set(isGameStarted, forKey: "isGameStarted")
         UserDefaults.standard.set(difficulty.rawValue, forKey: "difficulty")
-
         UserDefaults.standard.set(stageViewModel.player.toDictionary(), forKey: "playerData")
         UserDefaults.standard.set(stageViewModel.toDictionary(), forKey: "stageData")
 
@@ -49,11 +50,14 @@ enum Difficulty: Int {
                 self.stageViewModel = StageViewModel(difficulty: difficulty, player: player!)
                 self.stageViewModel.currentStage = stageViewModel?.currentStage ?? 1
                 self.stageViewModel.enemies = stageViewModel?.enemies ?? []
+
+                self.stageViewModel.resumeTimer() // Resume the timer after loading the game
             }
 
             hasSavedRun = true
         }
     }
+
 
     func abandonRun() {
         UserDefaults.standard.removeObject(forKey: "isGameStarted")
