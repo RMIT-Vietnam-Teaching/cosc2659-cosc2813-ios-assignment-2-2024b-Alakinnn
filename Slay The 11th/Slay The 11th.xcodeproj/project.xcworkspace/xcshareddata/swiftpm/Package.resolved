@@ -1,6 +1,15 @@
 {
-  "originHash" : "78784ed9c1c18dee007f91a9a5bf15f8f13d038b2287d81dad092b5fa7e64613",
+  "originHash" : "88160fd1ab88fcdb42977c9cf3e973d5ea12f018a31e6dbcf12b58c0f7c6b1ff",
   "pins" : [
+    {
+      "identity" : "pow",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/EmergeTools/Pow",
+      "state" : {
+        "revision" : "f0d0f3e72d42beaf2b01f1cb798e1b55902814eb",
+        "version" : "1.0.4"
+      }
+    },
     {
       "identity" : "swiftui-introspect",
       "kind" : "remoteSourceControl",

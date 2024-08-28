@@ -13,6 +13,10 @@ class AudioManager {
     
     var backgroundMusicPlayer: AVAudioPlayer?
     var sfxPlayer: AVAudioPlayer?
+    
+    // Global volume levels
+    private var globalMusicVolume: Float = 0.5
+    private var globalSFXVolume: Float = 0.5
 
     private init() {}
 
@@ -21,11 +25,12 @@ class AudioManager {
             print("Could not find file: \(filename)")
             return
         }
-      print("Playing background music from path: \(url.path)")
+        print("Playing background music from path: \(url.path)")
 
         do {
             backgroundMusicPlayer = try AVAudioPlayer(contentsOf: url)
             backgroundMusicPlayer?.numberOfLoops = -1 // Loop indefinitely
+            backgroundMusicPlayer?.volume = globalMusicVolume // Apply global volume
             backgroundMusicPlayer?.play()
         } catch {
             print("Could not create audio player: \(error)")
@@ -40,6 +45,7 @@ class AudioManager {
 
         do {
             sfxPlayer = try AVAudioPlayer(contentsOf: url)
+            sfxPlayer?.volume = globalSFXVolume // Apply global volume
             sfxPlayer?.play()
         } catch {
             print("Could not create audio player: \(error)")
@@ -54,4 +60,17 @@ class AudioManager {
         stopBackgroundMusic()
         playBackgroundMusic(filename)
     }
+
+    // Set global volume for background music and apply it to any active player
+    func setMusicVolume(to volume: Double) {
+        globalMusicVolume = Float(volume)
+        backgroundMusicPlayer?.volume = globalMusicVolume
+    }
+
+    // Set global volume for SFX and apply it to any active player
+    func setSFXVolume(to volume: Double) {
+        globalSFXVolume = Float(volume)
+        sfxPlayer?.volume = globalSFXVolume
+    }
 }
+

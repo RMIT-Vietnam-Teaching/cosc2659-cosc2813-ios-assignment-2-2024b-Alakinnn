@@ -51,40 +51,49 @@ struct MenuSheetView: View, Observable {
   @Binding var showMenuSheet: Bool
 
   var body: some View {
-          VStack(spacing: 0) {
-              Button("Save and Quit") {
-                  vm.saveGame()
-                vm.isGameStarted = false
-                  showMenuSheet = false
-              }
-              .font(.title2)
-              .padding()
+    VStack(spacing: 0) {
+        Button("Save and Quit") {
+            vm.saveGame()
+            vm.isGameStarted = false
+            showMenuSheet = false
+            
+            // Stop the stage music and play the main menu music
+            AudioManager.shared.stopBackgroundMusic()
+            AudioManager.shared.playBackgroundMusic("mainMenu")
+        }
+        .font(.title2)
+        .padding()
 
-              Divider()
+        Divider()
 
-              Button("Abandon Run") {
-                  vm.abandonRun()
-                vm.isGameStarted = false
-                  showMenuSheet = false
-              }
-              .font(.title2)
-              .padding()
+        Button("Abandon Run") {
+            vm.abandonRun()
+            vm.isGameStarted = false
+            showMenuSheet = false
+            
+            // Stop the stage music and play the main menu music
+            AudioManager.shared.stopBackgroundMusic()
+            AudioManager.shared.playBackgroundMusic("mainMenu")
+        }
+        .font(.title2)
+        .padding()
 
-              Divider()
+        Divider()
 
-              Button("Cancel") {
-                  showMenuSheet = false
-              }
-              .font(.title2)
-              .padding()
-          }
-          .padding()
-          .cornerRadius(16)
-          .frame(maxWidth: .infinity)
-          .frame(height: 200)
-          .shadow(radius: 10)
-      }
+        Button("Cancel") {
+            showMenuSheet = false
+        }
+        .font(.title2)
+        .padding()
+    }
+    .padding()
+    .cornerRadius(16)
+    .frame(maxWidth: .infinity)
+    .frame(height: 200)
+    .shadow(radius: 10)
+  }
 }
+
 
 
 #Preview {
