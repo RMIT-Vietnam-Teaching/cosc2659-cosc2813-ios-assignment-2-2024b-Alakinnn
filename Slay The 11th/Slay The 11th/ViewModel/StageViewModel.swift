@@ -8,6 +8,11 @@
 import SwiftUI
 import Observation
 
+enum StageMode {
+    case tutorial
+    case regular
+}
+
 @Observable class StageViewModel {
   var availableDeck: [Card] = createStaticDeck() // Cards available to draw
   var discardedDeck: [Card] = [] // Cards that have been used
@@ -22,11 +27,28 @@ import Observation
   var isShowingRewards: Bool = false
   var selectedReward: Reward? = nil
   var isGameOver: Bool = false
+  var currentTutorialStep: Int = 0
+  var tutorialSteps: [TutorialStep] = []
+  var isTutorialActive: Bool = true
+  var highlightedCardIndex: Int? = nil
+  var isEnemyZoneHighlighted: Bool = false
+  var isPlayerZoneHighlighted: Bool = false
+  var isEndTurnHighlighted: Bool = false
+  var isPlayerHandHighlighted: Bool = false
+  var mode: StageMode
 
-  init(difficulty: Difficulty, player: Player = Player(hp: 44)) {
+  init(difficulty: Difficulty, player: Player = Player(hp: 44), mode: StageMode = .regular) {
     self.player = player
-    self.difficulty = difficulty
-    self.enemies = EnemyFactory.createEnemies(for: difficulty, stage: currentStage)
+     self.difficulty = difficulty
+     self.mode = mode
+
+     if mode == .tutorial {
+       setupTutorialStage() 
+       setupTutorialSteps()
+     } else {
+         self.enemies = EnemyFactory.createEnemies(for: difficulty, stage: currentStage)
+         self.availableDeck = createStaticDeck()
+     }
   }
 
   // Start player's turn

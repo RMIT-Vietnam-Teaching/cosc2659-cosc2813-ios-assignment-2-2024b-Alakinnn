@@ -21,14 +21,14 @@ struct MainMenuView: View {
 
                   if gameVm.hasSavedRun {
                       Button("Continue Run") {
-                        AudioManager.shared.playSFX("sfxButton")
+                          AudioManager.shared.playSFX("sfxButton")
                           withAnimation(.easeInOut(duration: 1.0)) {
                               blackoutOpacity = 1.0
                           }
-                          
+
                           DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                               gameVm.isGameStarted = true
-                            AudioManager.shared.changeBackgroundMusic(to: "stage")
+                              AudioManager.shared.changeBackgroundMusic(to: "stage")
                               withAnimation(.easeInOut(duration: 1.0)) {
                                   blackoutOpacity = 0.0
                               }
@@ -38,7 +38,7 @@ struct MainMenuView: View {
                       .padding()
 
                       Button("Abandon Run") {
-                        AudioManager.shared.playSFX("sfxButton")
+                          AudioManager.shared.playSFX("sfxButton")
                           gameVm.abandonRun()
                       }
                       .font(.title2)
@@ -46,20 +46,28 @@ struct MainMenuView: View {
                   } else {
                       Button("Start New Run") {
                           gameVm.difficulty = selectedDifficulty
-                          gameVm.stageViewModel = StageViewModel(difficulty: selectedDifficulty, player: Player(hp: 44))
+                          gameVm.stageViewModel = StageViewModel(difficulty: selectedDifficulty, player: Player(hp: 44), mode: .regular)
                           gameVm.stageViewModel.startPlayerTurn()
-                        AudioManager.shared.playSFX("sfxButton")
+                          AudioManager.shared.playSFX("sfxButton")
                           withAnimation(.easeInOut(duration: 1.0)) {
                               blackoutOpacity = 1.0
                           }
 
                           DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                               gameVm.isGameStarted = true
-                            AudioManager.shared.changeBackgroundMusic(to: "stage")
+                              AudioManager.shared.changeBackgroundMusic(to: "stage")
                               withAnimation(.easeInOut(duration: 1.0)) {
                                   blackoutOpacity = 0.0
                               }
                           }
+                      }
+                      .font(.largeTitle)
+                      .padding()
+
+                      Button("Tutorial") {
+                          gameVm.stageViewModel = StageViewModel(difficulty: .easy, player: Player(hp: 44), mode: .tutorial)
+                          gameVm.isGameStarted = true 
+                          AudioManager.shared.playSFX("sfxButton")
                       }
                       .font(.largeTitle)
                       .padding()
@@ -81,7 +89,7 @@ struct MainMenuView: View {
                   .edgesIgnoringSafeArea(.all)
           }
           .navigationDestination(isPresented: $gameVm.isGameStarted) {
-            StageView(vm: gameVm.stageViewModel, gameVm: gameVm)
+              StageView(vm: gameVm.stageViewModel, gameVm: gameVm)
           }
           .navigationTransition(.fade(.in))
       }
@@ -94,6 +102,8 @@ struct MainMenuView: View {
       }
   }
 }
+
+
 
 
 

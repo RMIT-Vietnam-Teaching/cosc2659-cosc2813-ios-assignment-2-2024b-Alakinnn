@@ -10,9 +10,13 @@ import Foundation
 extension StageViewModel {
   // Draw initial hand (e.g., 5 cards)
   func drawInitialHand() {
+    if mode == .tutorial {
+      return
+    } else {
       for _ in 0..<5 {
           drawCard()
       }
+    }
   }
 
   // Draw a card from the available deck to the player's hand

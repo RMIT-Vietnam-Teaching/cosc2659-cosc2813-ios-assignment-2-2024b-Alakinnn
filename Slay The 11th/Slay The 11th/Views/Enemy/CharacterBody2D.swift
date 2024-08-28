@@ -56,7 +56,6 @@ struct CharacterBody2D: View {
                         .clipped()
                         .padding(.top, 48)
 
-                        // Display effects above the enemy without affecting layout
                         HStack(spacing: 2) {
                             ForEach(enemy.debuffEffects, id: \.self) { debuff in
                                 VStack {
@@ -70,7 +69,7 @@ struct CharacterBody2D: View {
                                 .cornerRadius(4)
                             }
                         }
-                        .position(x: screenSize.width / 2, y: screenSize.height / 2 - height / 2 - 20) // Adjust position above the enemy image
+                        .position(x: screenSize.width / 2, y: screenSize.height / 2 - height / 2 - 20)
                     }
 
                     Rectangle()
@@ -79,11 +78,13 @@ struct CharacterBody2D: View {
                         .offset(y: offsetValue)
                         .onTapGesture {
                             vm.applyCard(at: index)
+                          if vm.isTutorialActive && vm.currentTutorialStep == 1 {
+                            vm.nextTutorialStep()
+                          }
                         }
                 }
             }
         } else {
-            // Placeholder or loading view if the index is out of bounds
             Text("Loading...")
                 .font(.headline)
                 .foregroundColor(.gray)

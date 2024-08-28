@@ -26,6 +26,11 @@ struct EnemyZoneView: View {
                             vm: vm,
                             index: index // Pass the index here
                         )
+                        .onTapGesture {
+                          if vm.isTutorialActive && vm.currentTutorialStep == 1 {
+                            vm.nextTutorialStep()
+                          }
+                        }
                     }
                 }
             }
