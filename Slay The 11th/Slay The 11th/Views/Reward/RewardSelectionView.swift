@@ -17,7 +17,7 @@ struct RewardSelectionView: View {
           Spacer(minLength: 20)
           
             Text("Choose Your Reward")
-                .font(.largeTitle)
+                .font(.custom("Kreon", size: 42))
                 .padding()
                 .foregroundColor(.black)
 

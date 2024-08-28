@@ -52,7 +52,7 @@ import Observation
           let cardTypeRawValue = dictionary["cardType"] as? String,
           let cardType = CardType(rawValue: cardTypeRawValue),
           let baseValue = dictionary["baseValue"] as? Int,
-          let currentValue = dictionary["currentValue"] as? Int,
+//          let currentValue = dictionary["currentValue"] as? Int,
           let imageName = dictionary["imageName"] as? String
       else { return nil }
 

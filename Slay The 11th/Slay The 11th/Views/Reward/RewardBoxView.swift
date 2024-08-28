@@ -13,9 +13,9 @@ struct RewardBoxView: View {
     var body: some View {
         VStack {
             Text(reward.name)
-                .font(.headline)
+              .font(.custom("Kreon", size: 38))
             Text(reward.description)
-                .font(.subheadline)
+              .font(.custom("Kreon", size: 22))
             Image(systemName: reward.iconName)
                 .resizable()
                 .aspectRatio(contentMode: .fit)

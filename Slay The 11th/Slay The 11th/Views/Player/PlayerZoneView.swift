@@ -30,7 +30,7 @@ struct PlayerZoneView: View {
                                 .foregroundColor(.yellow)
                             
                           Text("\(vm.player.tempHP)")
-                                .font(.headline)
+                            .font(.custom("Kreon", size: 38))
                                 .foregroundColor(.white)
                         }
                         .padding(.top, 10)
@@ -66,7 +66,7 @@ struct PlayerZoneView: View {
                         }
 
                       Text("\(vm.player.curHP)/\(vm.player.maxHP)")
-                            .font(.caption)
+                        .font(.custom("Kreon", size: 22))
                             .foregroundColor(.white)
                             .padding(4)
                             .background(Color.green)
@@ -78,7 +78,7 @@ struct PlayerZoneView: View {
                       vm.endPlayerTurn()
                     }) {
                         Text("End Turn")
-                            .font(.headline)
+                        .font(.custom("Kreon", size: 22))
                             .padding()
                             .background(Color.red)
                             .foregroundColor(.white)

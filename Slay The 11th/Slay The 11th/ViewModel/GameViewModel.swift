@@ -20,6 +20,7 @@ enum Difficulty: Int {
     var stageViewModel: StageViewModel
     var isGameStarted: Bool = false
     var hasSavedRun: Bool = false
+  var showStatistics: Bool = false
 
     init(difficulty: Difficulty = .medium) {
         self.difficulty = difficulty
