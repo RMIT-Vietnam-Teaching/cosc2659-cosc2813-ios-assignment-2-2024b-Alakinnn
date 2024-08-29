@@ -6,6 +6,7 @@
   //
 
   import SwiftUI
+import Pow
 
   struct StatisticsView: View {
       @State private var selectedTab = 0
@@ -128,14 +129,23 @@
 
   struct AchievementCardView: View {
       var achievement: Achievement
+    @State private var isGlowing = false
 
       var body: some View {
           HStack {
-              Image(achievement.iconName)
-                  .resizable()
-                  .frame(width: 50, height: 50)
-                  .clipShape(Circle())
-                  .opacity(achievement.isUnlocked ? 1.0 : 0.3) 
+            Image(systemName: achievement.iconName)
+              .resizable()
+              .frame(width: 50, height: 50)
+              .clipShape(Circle())
+              .opacity(achievement.isUnlocked ? 1.0 : 0.3)
+              .shadow(color: achievement.isUnlocked ? Color.yellow : Color.clear, radius: isGlowing ? 20 : 0)
+              .onAppear {
+                  if achievement.isUnlocked {
+                      withAnimation(Animation.easeInOut(duration: 1.0).repeatForever(autoreverses: true)) {
+                          isGlowing = true
+                      }
+                  }
+              }
 
               VStack(alignment: .leading) {
                   Text(achievement.isUnlocked ? achievement.name : "???")

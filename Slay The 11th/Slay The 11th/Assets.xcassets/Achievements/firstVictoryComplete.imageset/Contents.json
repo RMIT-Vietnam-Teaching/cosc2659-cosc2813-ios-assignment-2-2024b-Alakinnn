@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "Achievement-Pack-32x32_Gold-Crown-Outline.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "Achievement-Pack-32x32_Gold-Crown-Outline 1.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "Achievement-Pack-32x32_Gold-Crown-Outline 2.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

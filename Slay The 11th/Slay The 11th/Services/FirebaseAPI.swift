@@ -88,14 +88,14 @@ import Observation
       // Initialize achievements
       private func initializeAchievements() {
           let initialAchievements = [
-              Achievement(id: "first_run", name: "First Run", description: "Start a run for the first time.", iconName: "flag", isUnlocked: false),
-              Achievement(id: "gain_attack_buff", name: "Offensive Start", description: "Gain an attack buff for the first time.", iconName: "flame.fill", isUnlocked: false),
-              Achievement(id: "gain_shield_buff", name: "Defensive Start", description: "Gain a shield buff for the first time.", iconName: "shield.fill", isUnlocked: false),
-              Achievement(id: "reach_stage_7", name: "Halfway There", description: "Reach stage 7 for the first time.", iconName: "flag.fill", isUnlocked: false),
-              Achievement(id: "clear_game_first_time", name: "First Victory", description: "Clear the game for the first time.", iconName: "trophy.fill", isUnlocked: false),
-              Achievement(id: "clear_game_easy", name: "Victory on Easy", description: "Clear the game on Easy difficulty.", iconName: "trophy.fill", isUnlocked: false),
-              Achievement(id: "clear_game_medium", name: "Victory on Medium", description: "Clear the game on Medium difficulty.", iconName: "trophy.fill", isUnlocked: false),
-              Achievement(id: "clear_game_hard", name: "Victory on Hard", description: "Clear the game on Hard difficulty.", iconName: "trophy.fill", isUnlocked: false)
+              Achievement(id: "first_run", name: "To The Spire", description: "Start a run for the first time.", iconName: "firstRunComplete", isUnlocked: false),
+              Achievement(id: "gain_attack_buff", name: "Whetting Blade", description: "Gain an attack buff for the first time.", iconName: "attackBuffComplete", isUnlocked: false),
+              Achievement(id: "gain_shield_buff", name: "Hard As Rock", description: "Gain a shield buff for the first time.", iconName: "defendBuffComplete", isUnlocked: false),
+              Achievement(id: "reach_stage_7", name: "Halfway There", description: "Reach stage 7 for the first time.", iconName: "7thStageComplete", isUnlocked: false),
+              Achievement(id: "clear_game_first_time", name: "First Victory?", description: "Clear the game for the first time.", iconName: "firstVictoryComplete", isUnlocked: false),
+              Achievement(id: "clear_game_easy", name: "Victory on Easy", description: "Clear the game on Easy difficulty.", iconName: "easyComplete", isUnlocked: false),
+              Achievement(id: "clear_game_medium", name: "Victory on Medium", description: "Clear the game on Medium difficulty.", iconName: "medComplete", isUnlocked: false),
+              Achievement(id: "clear_game_hard", name: "Victory on Hard", description: "Clear the game on Hard difficulty.", iconName: "hardComplete", isUnlocked: false)
           ]
           saveAchievements(initialAchievements)
       }
