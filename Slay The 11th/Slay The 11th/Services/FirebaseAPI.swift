@@ -4,8 +4,8 @@
 //
 //  Created by Duong Tran Minh Hoang on 29/08/2024.
 //
-
-import Firebase
+import SwiftUI
+import Observation
 
 @Observable class DatabaseManager {
 static let shared = DatabaseManager()

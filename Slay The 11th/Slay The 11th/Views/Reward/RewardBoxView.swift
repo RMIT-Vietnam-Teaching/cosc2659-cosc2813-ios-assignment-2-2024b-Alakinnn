@@ -13,9 +13,8 @@ struct RewardBoxView: View {
     var body: some View {
         VStack {
             Text(reward.name)
-              .font(.custom("Kreon", size: 38))
-            Text(reward.description)
-              .font(.custom("Kreon", size: 22))
+            .font(.kreonHeadline)
+          Text(reward.description).font(.kreonSubheadline)
             Image(systemName: reward.iconName)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
@@ -32,6 +31,6 @@ struct RewardBoxView: View {
 }
 
 #Preview {
-  RewardBoxView(reward: Reward(type: .heal(percentage: 35), name: "Heal", description: "Heals 35% max HP", iconName: "heart.fill"))
+  RewardBoxView(reward: Reward(type: .heal(percentage: 35), name: "Heal", description: "Heals 35%", iconName: "heart.fill"))
 }
 

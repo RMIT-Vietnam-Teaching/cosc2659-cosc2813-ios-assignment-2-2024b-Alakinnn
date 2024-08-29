@@ -19,17 +19,17 @@ struct VictoryView: View {
             
             VStack(spacing: 20) {
                 Text("Victory?")
-                .font(.custom("Kreon", size: 42))
+                .font(.kreonTitle)
                     .foregroundColor(.white)
                     .padding()
               
               Text("\(Int(gameVm.stageViewModel.score))")
-              .font(.custom("Kreon", size: 20))
+              .font(.kreonBody)
                   .foregroundColor(.white)
                   .padding()
               
                 Text("The Spire is to no escape...")
-                .font(.custom("Kreon", size: 32))
+                .font(.kreonBody)
                     .foregroundColor(.white)
                     .padding()
 
@@ -47,10 +47,10 @@ struct VictoryView: View {
                 }
             }
             .changeEffect(
-                .spray(origin: UnitPoint(x: 0.5, y: 0.5)) {
+              .spray(origin: UnitPoint(x: 0.5, y: 0)) {
                     Image(systemName: "star.fill")
                         .foregroundColor(.yellow)
-                        .font(.largeTitle)
+                        .font(.kreonTitle)
                 }, value: triggerSpray
             )
         }

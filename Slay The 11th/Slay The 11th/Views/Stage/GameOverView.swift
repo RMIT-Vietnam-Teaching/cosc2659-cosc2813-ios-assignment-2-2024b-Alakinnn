@@ -12,13 +12,13 @@ struct GameOverView: View {
     var body: some View {
         VStack {
             Text("Game Over")
-                .font(.largeTitle)
+                .font(.kreonTitle)
                 .padding()
 
             Button("Confirm") {
                 onConfirm()
             }
-            .font(.title)
+            .font(.kreonTitle2)
             .padding()
             .background(Color.red)
             .foregroundColor(.white)
