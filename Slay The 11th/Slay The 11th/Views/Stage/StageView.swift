@@ -9,9 +9,10 @@ import SwiftUI
 import NavigationTransitions
 
 struct StageView: View {
-    var vm: StageViewModel
-    var gameVm: GameViewModel
+  var vm: StageViewModel
+  var gameVm: GameViewModel
   var db: DatabaseManager
+  var toastManager = ToastManager.shared
     @State private var blackoutOpacity: Double = 0.0
     @State private var showGameOverView: Bool = false
     @State private var isPaused: Bool = false
@@ -57,6 +58,20 @@ struct StageView: View {
                     .navigationTransition(.fade(.out))
                 }
             }
+          
+          // Add this section for the toast
+          if toastManager.showToast, let message = toastManager.toastMessage {
+              ToastView(message: message)
+                  .transition(.move(edge: .top).combined(with: .opacity))
+                  .onAppear {
+                      DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                          withAnimation {
+                              toastManager.showToast = false
+                              toastManager.toastMessage = nil
+                          }
+                      }
+                  }
+          }
         }
         .navigationBarHidden(true)
     }

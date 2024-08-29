@@ -70,6 +70,7 @@ struct MainMenuView: View {
                                   gameVm.stageViewModel = StageViewModel(difficulty: selectedDifficulty, player: Player(hp: 44), playerID: playerID)
                                   gameVm.stageViewModel.startPlayerTurn()
                                   gameVm.isGameStarted = true
+                                gameVm.checkAchievements(db: db, action: .startFirstRun)
                                   AudioManager.shared.playSFX("sfxButton")
                                   AudioManager.shared.changeBackgroundMusic(to: "stage")
                                   withAnimation(.easeInOut(duration: 1.0)) {

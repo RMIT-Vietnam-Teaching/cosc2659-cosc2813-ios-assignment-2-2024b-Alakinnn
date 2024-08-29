@@ -13,6 +13,17 @@ enum Difficulty: Int {
   case easy
   case medium
   case hard
+  
+  var name: String {
+      switch self {
+      case .easy:
+          return "easy"
+      case .medium:
+          return "medium"
+      case .hard:
+          return "hard"
+      }
+  }
 }
 
 @Observable class GameViewModel {
