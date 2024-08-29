@@ -107,28 +107,28 @@ class RewardSystem {
         switch stage {
         case 1:
             return [Reward(type: .attackBuff(value: 2), name: "Attack Buff", description: "+2 Attack Buff", iconName: "flame.fill"),
-                    Reward(type: .heal(percentage: 35), name: "Heal", description: "Heal 35% Max HP", iconName: "heart.fill")]
+                    Reward(type: .heal(percentage: 35), name: "Heal", description: "Heal 35%", iconName: "heart.fill")]
         case 3:
             return [Reward(type: .shieldBuff(value: 3), name: "Shield Buff", description: "+3 Shield Buff", iconName: "shield.fill"),
-                    Reward(type: .heal(percentage: 35), name: "Heal", description: "Heal 35% Max HP", iconName: "heart.fill")]
+                    Reward(type: .heal(percentage: 35), name: "Heal", description: "Heal 35%", iconName: "heart.fill")]
         case 5:
             return [Reward(type: .addCards(cards: [Card(id: UUID(), name: "Double Poison", description: "Doubles the poison stacks", cardType: .poison, value: 0, imageName: "poison.fill")]), name: "Add Poison Cards", description: "Add cards that double poison stacks", iconName: "drop.fill"),
-                    Reward(type: .heal(percentage: 35), name: "Heal", description: "Heal 35% Max HP", iconName: "heart.fill")]
+                    Reward(type: .heal(percentage: 35), name: "Heal", description: "Heal 35%", iconName: "heart.fill")]
         case 7:
             return [Reward(type: .addCards(cards: [Card(id: UUID(), name: "Heal Card", description: "Heals for 2 HP", cardType: .heal, value: 2, imageName: "heal.fill")]), name: "Add Heal Cards", description: "Add cards that heal 2 HP", iconName: "bandage.fill"),
-                    Reward(type: .heal(percentage: 35), name: "Heal", description: "Heal 35% Max HP", iconName: "heart.fill")]
+                    Reward(type: .heal(percentage: 35), name: "Heal", description: "Heal 35%", iconName: "heart.fill")]
         case 9:
             return [Reward(type: .attackBuff(value: 2), name: "Attack Buff", description: "+2 Attack Buff", iconName: "flame.fill"),
                     Reward(type: .shieldBuff(value: 2), name: "Shield Buff", description: "+2 Shield Buff", iconName: "shield.fill"),
-                    Reward(type: .heal(percentage: 35), name: "Heal", description: "Heal 35% Max HP", iconName: "heart.fill")]
+                    Reward(type: .heal(percentage: 35), name: "Heal", description: "Heal 35%", iconName: "heart.fill")]
         case 11:
             return [Reward(type: .symbolicAward, name: "Victory Symbol", description: "You won the game!", iconName: "trophy.fill")]
         default:
-            return [Reward(type: .heal(percentage: 35), name: "Heal", description: "Heal 35% Max HP", iconName: "heart.fill")]
+            return [Reward(type: .heal(percentage: 35), name: "Heal", description: "Heal 35%", iconName: "heart.fill")]
         }
     }
 
-    static func applyReward(_ reward: Reward, to player: Player, in stageViewModel: StageViewModel) {
+  static func applyReward(_ reward: Reward, gameVm: GameViewModel, db: DatabaseManager, to player: Player, in stageViewModel: StageViewModel) {
         switch reward.type {
         case .heal(let percentage):
             let healAmount = (player.maxHP * percentage) / 100
@@ -136,6 +136,8 @@ class RewardSystem {
         case .attackBuff(let value):
             player.attackBuff += value
             stageViewModel.updateCardValues()
+          
+          gameVm.checkAndUnlockAchievements(db: db, action: .gainAttackBuff)
         case .shieldBuff(let value):
             player.shieldBuff += value
             stageViewModel.updateCardValues()

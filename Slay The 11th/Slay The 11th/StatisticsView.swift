@@ -18,18 +18,12 @@
                       Label("Leaderboard", systemImage: "list.number")
                   }
                   .tag(0)
-
-              WinRatesView()
-                  .tabItem {
-                      Label("Win Rates", systemImage: "chart.pie")
-                  }
-                  .tag(1)
             
             AchievementsView(db: db)
                             .tabItem {
                                 Label("Achievements", systemImage: "star.fill")
                             }
-                            .tag(2)
+                            .tag(1)
           }
       }
   }
@@ -162,13 +156,6 @@
       var description: String
       var iconName: String
       var isUnlocked: Bool
-  }
-
-
-  struct WinRatesView: View {
-      var body: some View {
-          Text("Win Rates") // Placeholder for now
-      }
   }
 
   struct PlayerScore: Identifiable, Codable, Hashable {

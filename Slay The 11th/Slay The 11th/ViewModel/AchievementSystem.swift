@@ -9,13 +9,12 @@ import Foundation
 import SwiftUI
 
 extension GameViewModel {
-  func checkAchievements(db: DatabaseManager,action: AchievementAction) {
+  func checkAndUnlockAchievements(db: DatabaseManager,action: AchievementAction) {
         switch action {
         case .startFirstRun:
-            if db.isFirstRun() {
+            if !db.isAchievementUnlocked("first_run") {
                 db.unlockAchievement("first_run")
                 ToastManager.shared.showToast(message: "Achievement Unlocked: First Run!")
-                db.setFirstRun()
             }
         case .gainAttackBuff:
             if !db.isAchievementUnlocked("gain_attack_buff") {

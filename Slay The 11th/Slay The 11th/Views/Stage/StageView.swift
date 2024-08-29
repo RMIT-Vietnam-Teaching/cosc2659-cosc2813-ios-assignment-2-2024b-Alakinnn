@@ -7,6 +7,7 @@
 
 import SwiftUI
 import NavigationTransitions
+import Pow
 
 struct StageView: View {
   var vm: StageViewModel
@@ -21,7 +22,7 @@ struct StageView: View {
     var body: some View {
         ZStack {
             // Game content view
-            StageContentView(vm: vm)
+            StageContentView(vm: vm, gameVm: gameVm)
 
             // Header view, if the game is not over
             if !vm.isGameOver {

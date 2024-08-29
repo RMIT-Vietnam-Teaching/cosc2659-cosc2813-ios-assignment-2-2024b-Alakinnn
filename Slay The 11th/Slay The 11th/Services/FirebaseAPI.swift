@@ -13,6 +13,8 @@ import Observation
   private let achievementsKey = "achievements"
   private let firstRunCompletedKey = "firstRunCompleted"
   private let firstRunKey = "firstRun"
+  private let firstAttackBuff = "attackBuff"
+  private let firstDefendBuff = "defendBuff"
 
   init() {
     UserDefaults.resetDefaults()
@@ -20,24 +22,6 @@ import Observation
     if fetchAchievements().isEmpty {
       initializeAchievements()
     }
-  }
-  
-  func isFirstRun() -> Bool {
-    return !UserDefaults.standard.bool(forKey: firstRunKey)
-  }
-  
-  func setFirstRun() {
-    UserDefaults.standard.set(true, forKey: firstRunKey)
-  }
-  
-  // Check if first run is completed
-  func isFirstRunCompleted() -> Bool {
-      return UserDefaults.standard.bool(forKey: firstRunCompletedKey)
-  }
-
-  // Mark first run as completed
-  func setFirstRunCompleted() {
-      UserDefaults.standard.set(true, forKey: firstRunCompletedKey)
   }
 
   func fetchPlayers(limit: Int = 0) -> [PlayerScore] {

@@ -48,6 +48,7 @@ struct MainMenuView: View {
                         Button("Abandon Run") {
                             AudioManager.shared.playSFX("sfxButton")
                             gameVm.abandonRun()
+                            gameVm.stageViewModel.updatePlayerScore(db: db)
                         }
                         .font(.title2)
                         .padding()
@@ -70,7 +71,7 @@ struct MainMenuView: View {
                                   gameVm.stageViewModel = StageViewModel(difficulty: selectedDifficulty, player: Player(hp: 44), playerID: playerID)
                                   gameVm.stageViewModel.startPlayerTurn()
                                   gameVm.isGameStarted = true
-                                gameVm.checkAchievements(db: db, action: .startFirstRun)
+                                gameVm.checkAndUnlockAchievements(db: db, action: .startFirstRun)
                                   AudioManager.shared.playSFX("sfxButton")
                                   AudioManager.shared.changeBackgroundMusic(to: "stage")
                                   withAnimation(.easeInOut(duration: 1.0)) {
