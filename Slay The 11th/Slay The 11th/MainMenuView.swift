@@ -14,7 +14,7 @@ struct MainMenuView: View {
     @State private var playerName: String = "" // Player name input
     @State private var showingPlayerNameInput = false // Controls input modal visibility
     @Bindable var gameVm = GameViewModel()
-    @Bindable var db = FirebaseManager()
+  @Bindable var db = DatabaseManager.shared
 
     // New state variables for volume controls
     @State private var isMusicPopoverPresented = false
@@ -62,26 +62,23 @@ struct MainMenuView: View {
                         .padding()
 
                         if showingPlayerNameInput {
-                            PlayerNameInputView(playerName: $playerName, isPresented: $showingPlayerNameInput, gameVm: gameVm) {
-                                db.addNewPlayer(name: playerName) { success in
-                                        
-                                }
-                              DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                                showingPlayerNameInput = false
-                                gameVm.difficulty = selectedDifficulty
-                                gameVm.stageViewModel = StageViewModel(difficulty: selectedDifficulty, player: Player(hp: 44))
-                                gameVm.stageViewModel.startPlayerTurn()
-                                gameVm.isGameStarted = true
-                                AudioManager.shared.playSFX("sfxButton")
-                                AudioManager.shared.changeBackgroundMusic(to: "stage")
-                              withAnimation(.easeInOut(duration: 1.0)) {
-                                  blackoutOpacity = 0.0
+                          PlayerNameInputView(playerName: $playerName, isPresented: $showingPlayerNameInput, gameVm: gameVm) {
+                              let playerID = db.addNewPlayer(name: playerName)
+                              DispatchQueue.main.async {
+                                  showingPlayerNameInput = false
+                                  gameVm.difficulty = selectedDifficulty
+                                  gameVm.stageViewModel = StageViewModel(difficulty: selectedDifficulty, player: Player(hp: 44), playerID: playerID)
+                                  gameVm.stageViewModel.startPlayerTurn()
+                                  gameVm.isGameStarted = true
+                                  AudioManager.shared.playSFX("sfxButton")
+                                  AudioManager.shared.changeBackgroundMusic(to: "stage")
+                                  withAnimation(.easeInOut(duration: 1.0)) {
+                                      blackoutOpacity = 0.0
+                                  }
                               }
-                      
-                              }
-                            }
-                            .transition(.scale)
-                        }
+                          }
+                          .transition(.scale)
+                      }
 
                         
                         Button("Statistics") {
@@ -143,7 +140,7 @@ struct MainMenuView: View {
                     .edgesIgnoringSafeArea(.all)
             }
             .navigationDestination(isPresented: $gameVm.isGameStarted) {
-                StageView(vm: gameVm.stageViewModel, gameVm: gameVm)
+              StageView(vm: gameVm.stageViewModel, gameVm: gameVm, db: db)
             }
             .navigationDestination(isPresented: $gameVm.stageViewModel.allStagesCleared) {
               VictoryView(gameVm: gameVm)

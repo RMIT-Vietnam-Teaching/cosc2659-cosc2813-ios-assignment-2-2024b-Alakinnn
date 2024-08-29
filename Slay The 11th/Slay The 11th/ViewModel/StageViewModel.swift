@@ -16,7 +16,7 @@ import Observation
   var selectedCard: Card? = nil
   var isStageCompleted: Bool = false
   var enemies: [Enemy] = []
-  var currentStage: Int = 11
+  var currentStage: Int = 1
   var isPlayerTurn: Bool = true  // Track if it's the player's turn
   var difficulty: Difficulty
   var isShowingRewards: Bool = false
@@ -27,11 +27,14 @@ import Observation
   var elapsedTime: TimeInterval = 0
   var timer: Timer?
   var allStagesCleared: Bool = false
+  var playerID: String?
 
-  init(difficulty: Difficulty, player: Player = Player(hp: 44)) {
+  init(difficulty: Difficulty, player: Player = Player(hp: 44), playerID: String? = nil) {
     self.player = player
     self.difficulty = difficulty
     self.enemies = EnemyFactory.createEnemies(for: difficulty, stage: currentStage)
+    self.playerID = playerID
+    self.startTime = Date() 
     self.startTimer()
     self.calculateScore()
   }
@@ -91,6 +94,17 @@ import Observation
   func gameOver() {
       isGameOver = true
   }
+  
+  func updatePlayerScore(db: DatabaseManager) {
+      guard let playerID = playerID else {
+          print("No playerID found, unable to update score.")
+          return
+      }
+      let newScore = score
+      db.updatePlayerScore(playerId: playerID, newScore: newScore)
+      print("Score updated successfully in local storage.")
+  }
+
   
   // Serialization method
       func toDictionary() -> [String: Any] {
