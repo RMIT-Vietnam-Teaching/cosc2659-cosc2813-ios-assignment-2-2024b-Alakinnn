@@ -101,8 +101,10 @@ import Observation
           return
       }
       let newScore = score
-      db.updatePlayerScore(playerId: playerID, newScore: newScore)
-      print("Score updated successfully in local storage.")
+      let stagesFinished = currentStage - 1 // Assuming `currentStage` exists and tracks the stage
+
+      db.updatePlayerScore(playerId: playerID, newScore: newScore, stagesFinished: stagesFinished)
+      print("Score and stage updated successfully in local storage.")
   }
 
   

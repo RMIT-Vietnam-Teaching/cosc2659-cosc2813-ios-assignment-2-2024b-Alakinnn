@@ -47,16 +47,17 @@ import Observation
   func addNewPlayer(name: String) -> String {
       var players = fetchPlayers()
       let newPlayerID = UUID().uuidString
-      let newPlayer = PlayerScore(id: newPlayerID, name: name, score: 0)
+      let newPlayer = PlayerScore(id: newPlayerID, name: name, score: 0, stagesFinished: 1)
       players.append(newPlayer)
       savePlayers(players)
       return newPlayerID
   }
 
-  func updatePlayerScore(playerId: String, newScore: Int) {
+  func updatePlayerScore(playerId: String, newScore: Int, stagesFinished: Int) {
       var players = fetchPlayers()
       if let index = players.firstIndex(where: { $0.id == playerId }) {
           players[index].score = newScore
+          players[index].stagesFinished = stagesFinished 
           savePlayers(players)
       } else {
           print("Player not found")
@@ -131,8 +132,8 @@ import Observation
 class MockDataManager: DatabaseManager {
   override func fetchPlayers(limit: Int = 0) -> [PlayerScore] {
           return [
-              PlayerScore(id: "1", name: "Player1", score: 100),
-              PlayerScore(id: "2", name: "Player2", score: 200)
+              PlayerScore(id: "1", name: "Player1", score: 100, stagesFinished: 1),
+              PlayerScore(id: "2", name: "Player2", score: 200, stagesFinished: 1)
           ]
       }
 }

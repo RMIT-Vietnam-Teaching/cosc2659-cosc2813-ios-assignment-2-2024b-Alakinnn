@@ -7,10 +7,12 @@
 
   import SwiftUI
 import Pow
+import NavigationTransitions
 
   struct StatisticsView: View {
       @State private var selectedTab = 0
-    var db: DatabaseManager
+    var db: DatabaseManager = DatabaseManager.shared
+    
 
       var body: some View {
           TabView(selection: $selectedTab) {
@@ -25,6 +27,12 @@ import Pow
                                 Label("Achievements", systemImage: "star.fill")
                             }
                             .tag(1)
+            GameplayStatisticsView(db: db)
+              .tabItem {
+                Label("Analytics",
+                systemImage: "percent")
+              }
+              .tag(2)
           }
       }
   }
@@ -34,28 +42,37 @@ import Pow
       private let db = DatabaseManager.shared
 
       @State private var players: [PlayerScore] = [] // State to store players
-      @State private var currentPage = 1 // Track the current page for pagination
+      @State private var currentPage = 1
 
       var body: some View {
-          NavigationView {
-              VStack {
-                  List(players.indices, id: \.self) { index in
-                      let player = players[index]
-                      LeaderboardRowView(rank: index + 1, player: player)
-                          .onAppear {
-                              // Check if the last item in the list is appearing to fetch more data
-                              if index == players.count - 1 {
-                                  fetchMorePlayers()
+        NavigationView {
+              ZStack {
+                  if players.isEmpty {
+                      Text("No players to display")
+                          .font(.kreonTitle)
+                          .foregroundColor(.gray)
+                  } else {
+                      List(players.indices, id: \.self) { index in
+                          let player = players[index]
+                          LeaderboardRowView(rank: index + 1, player: player)
+                              .onAppear {
+                                  // Check if the last item in the list is appearing to fetch more data
+                                  if index == players.count - 1 {
+                                      fetchMorePlayers()
+                                  }
                               }
-                          }
+                      }
+                      .listStyle(PlainListStyle())
                   }
-                  .listStyle(PlainListStyle())
               }
               .onAppear {
                   currentPage = 1 // Reset page
                   fetchPlayers(limit: itemsPerPage)
               }
+              .navigationTitle("Leaderboard")
+              .navigationTransition(.slide)
           }
+          
       }
 
       private func fetchPlayers(limit: Int) {
@@ -94,6 +111,7 @@ import Pow
           .background(Color.white) // Optional: Background color for each row
           .cornerRadius(8) // Optional: Rounded corners for each row
           .shadow(radius: 2) // Optional: Shadow for each row
+         
       }
   }
 
@@ -119,7 +137,8 @@ import Pow
                   }
                   .padding()
               }
-              .navigationTitle("Achievements")
+              .navigationTitle(Text("Achievements").font(.kreonTitle))
+              .navigationTransition(.slide)
               .onAppear {
                   achievements = db.fetchAchievements()
               }
@@ -169,9 +188,10 @@ import Pow
   }
 
   struct PlayerScore: Identifiable, Codable, Hashable {
-      var id: String
-      var name: String
-      var score: Int
+    var id: String
+    var name: String
+    var score: Int
+    var stagesFinished: Int
   }
 
 
