@@ -47,6 +47,7 @@
 		64CC612F2C809D5D00F88EFE /* TooltipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CC612E2C809D5D00F88EFE /* TooltipView.swift */; };
 		64CC61312C809D6800F88EFE /* LineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CC61302C809D6800F88EFE /* LineChartView.swift */; };
 		64CC61332C80AAAF00F88EFE /* BarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CC61322C80AAAF00F88EFE /* BarChartView.swift */; };
+		64CC61382C81FB5700F88EFE /* Spotlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CC61372C81FB5700F88EFE /* Spotlight.swift */; };
 		64D9B1E72C76259000CB11D1 /* EnemyActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D9B1E62C76259000CB11D1 /* EnemyActions.swift */; };
 		64D9B1E92C7625FE00CB11D1 /* CardActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D9B1E82C7625FE00CB11D1 /* CardActions.swift */; };
 		64D9B1EB2C76270000CB11D1 /* PlayerActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D9B1EA2C76270000CB11D1 /* PlayerActions.swift */; };
@@ -100,6 +101,7 @@
 		64CC612E2C809D5D00F88EFE /* TooltipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TooltipView.swift; sourceTree = "<group>"; };
 		64CC61302C809D6800F88EFE /* LineChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartView.swift; sourceTree = "<group>"; };
 		64CC61322C80AAAF00F88EFE /* BarChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartView.swift; sourceTree = "<group>"; };
+		64CC61372C81FB5700F88EFE /* Spotlight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spotlight.swift; sourceTree = "<group>"; };
 		64D9B1E62C76259000CB11D1 /* EnemyActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyActions.swift; sourceTree = "<group>"; };
 		64D9B1E82C7625FE00CB11D1 /* CardActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardActions.swift; sourceTree = "<group>"; };
 		64D9B1EA2C76270000CB11D1 /* PlayerActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerActions.swift; sourceTree = "<group>"; };
@@ -323,6 +325,7 @@
 				64FF8D2A2C673CA70010487C /* DeckFactory.swift */,
 				64CC61242C80486A00F88EFE /* CustomFont.swift */,
 				6472AC3C2C6C5F2900F81A82 /* EnemyFactory.swift */,
+				64CC61372C81FB5700F88EFE /* Spotlight.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -436,6 +439,7 @@
 				64D9B1EB2C76270000CB11D1 /* PlayerActions.swift in Sources */,
 				64FF8D292C673C0C0010487C /* CardView.swift in Sources */,
 				64CC61312C809D6800F88EFE /* LineChartView.swift in Sources */,
+				64CC61382C81FB5700F88EFE /* Spotlight.swift in Sources */,
 				640DF49F2C7F9A06005B3342 /* FirebaseAPI.swift in Sources */,
 				64CC61332C80AAAF00F88EFE /* BarChartView.swift in Sources */,
 				64FF8D2D2C673DB90010487C /* PlayerHandView.swift in Sources */,
