@@ -87,7 +87,7 @@ struct MainMenuView: View {
                           gameVm.mode = .tutorial
                           gameVm.stageViewModel = StageViewModel(difficulty: selectedDifficulty, player: Player(hp: 99), mode: gameVm.mode)
                           gameVm.isGameStarted = true
-                          isTutorialMode = true
+                          gameVm.isTutorial = true
                           AudioManager.shared.playSFX("sfxButton")
                           AudioManager.shared.changeBackgroundMusic(to: "stage")
                           withAnimation(.easeInOut(duration: 1.0)) {
@@ -164,7 +164,7 @@ struct MainMenuView: View {
             .navigationDestination(isPresented: $gameVm.showStatistics) {
               StatisticsView(db: db)
             }
-            .navigationDestination(isPresented: $isTutorialMode) {
+            .navigationDestination(isPresented: $gameVm.isTutorial) {
               TutorialView(gameVm: gameVm, vm: gameVm.stageViewModel, db: db)
             }
             .navigationTransition(.fade(.in))

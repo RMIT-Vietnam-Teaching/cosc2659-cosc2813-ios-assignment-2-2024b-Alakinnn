@@ -38,10 +38,14 @@ enum Mode: Int {
     var hasSavedRun: Bool = false
     var showStatistics: Bool = false
     var mode: Mode
+  var isTutorial: Bool = false
 
     init(difficulty: Difficulty = .medium, mode: Mode = .regular) {
         self.difficulty = difficulty
         self.mode = mode
+      if mode == .tutorial {
+        self.isTutorial = true
+      }
         self.stageViewModel = StageViewModel(difficulty: difficulty, mode: mode)
 
         // Only load the game if it's in regular mode

@@ -54,11 +54,12 @@ struct MenuSheetView: View, Observable {
 
   var body: some View {
     VStack(spacing: 0) {
+      if vm.mode == .regular {
         Button("Save and Quit") {
             vm.saveGame()
             vm.isGameStarted = false
             showMenuSheet = false
-          print(vm.stageViewModel.score)
+            print(vm.stageViewModel.score)
             // Stop the stage music and play the main menu music
             AudioManager.shared.stopBackgroundMusic()
             AudioManager.shared.playBackgroundMusic("mainMenu")
@@ -67,10 +68,13 @@ struct MenuSheetView: View, Observable {
         .padding()
 
         Divider()
+    }
 
         Button("Abandon Run") {
             vm.abandonRun()
-            vm.isGameStarted = false
+          if vm.mode == .regular {vm.isGameStarted = false} else {
+            vm.isTutorial = false
+          }
             showMenuSheet = false
           vm.stageViewModel.updatePlayerScore(db: db)
             // Stop the stage music and play the main menu music
