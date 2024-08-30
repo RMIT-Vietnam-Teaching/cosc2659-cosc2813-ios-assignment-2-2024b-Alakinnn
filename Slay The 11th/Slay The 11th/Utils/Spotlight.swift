@@ -22,9 +22,6 @@ extension View{
     func addSpotlightOverlay(show: Binding<Bool>,currentSpot: Binding<Int>)->some View{
         self
             .overlayPreferenceValue(BoundsKey.self) { values in
-                // For More About Overlay Preference And Anchor Preference
-                // Watch My Advanced Transitions Video
-                // Link In Description
                 GeometryReader{proxy in
                     if let preference = values.first(where: { item in
                         item.key == currentSpot.wrappedValue
@@ -33,7 +30,7 @@ extension View{
                         let anchor = proxy[preference.value.anchor]
                         
                         // MARK: Spotlight View
-                        SpotlightHelperView(screenSize: screenSize, rect: anchor,show: show,currentSpot: currentSpot,properties: preference.value){
+                        SpotlightHelperView(screenSize: screenSize, rect: anchor, show: show,currentSpot: currentSpot,properties: preference.value){
                             if currentSpot.wrappedValue <= (values.count){
                                 currentSpot.wrappedValue += 1
                             }else{
