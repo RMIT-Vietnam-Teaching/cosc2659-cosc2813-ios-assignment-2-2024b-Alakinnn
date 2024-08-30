@@ -25,6 +25,7 @@
 		6456EC752C6DFE060037DEA1 /* PlayerZoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6456EC742C6DFE060037DEA1 /* PlayerZoneView.swift */; };
 		6456EC782C6E05BB0037DEA1 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6456EC772C6E05BB0037DEA1 /* Player.swift */; };
 		6456EC7A2C6E12FF0037DEA1 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6456EC792C6E12FF0037DEA1 /* Enemy.swift */; };
+		646AE7B52C8251A8004B8572 /* Menu_button (1).png in Resources */ = {isa = PBXBuildFile; fileRef = 646AE7B42C8251A7004B8572 /* Menu_button (1).png */; };
 		6472AC372C6B786300F81A82 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6472AC362C6B786300F81A82 /* GameViewModel.swift */; };
 		6472AC392C6C5BB400F81A82 /* MainMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6472AC382C6C5BB400F81A82 /* MainMenuView.swift */; };
 		6472AC3D2C6C5F2A00F81A82 /* EnemyFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6472AC3C2C6C5F2900F81A82 /* EnemyFactory.swift */; };
@@ -80,6 +81,7 @@
 		6456EC742C6DFE060037DEA1 /* PlayerZoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerZoneView.swift; sourceTree = "<group>"; };
 		6456EC772C6E05BB0037DEA1 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		6456EC792C6E12FF0037DEA1 /* Enemy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
+		646AE7B42C8251A7004B8572 /* Menu_button (1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Menu_button (1).png"; sourceTree = "<group>"; };
 		6472AC362C6B786300F81A82 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		6472AC382C6C5BB400F81A82 /* MainMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuView.swift; sourceTree = "<group>"; };
 		6472AC3C2C6C5F2900F81A82 /* EnemyFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyFactory.swift; sourceTree = "<group>"; };
@@ -272,6 +274,7 @@
 				64FF8D2E2C6749E30010487C /* Views */,
 				6476CAA72C666AFE001C664A /* Slay_The_11thApp.swift */,
 				6476CAAB2C666B01001C664A /* Assets.xcassets */,
+				646AE7B42C8251A7004B8572 /* Menu_button (1).png */,
 				640DF46A2C7F9756005B3342 /* GoogleService-Info.plist */,
 				6476CAAD2C666B01001C664A /* Preview Content */,
 				6472AC382C6C5BB400F81A82 /* MainMenuView.swift */,
@@ -424,6 +427,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				646AE7B52C8251A8004B8572 /* Menu_button (1).png in Resources */,
 				6476530D2C7A464300148222 /* stage.mp3 in Resources */,
 				6476CAAF2C666B01001C664A /* Preview Assets.xcassets in Resources */,
 				647653042C7A247000148222 /* Kreon.ttf in Resources */,

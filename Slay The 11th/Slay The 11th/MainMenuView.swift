@@ -60,7 +60,7 @@ struct MainMenuView: View {
                                   showingPlayerNameInput = true
                               }
                         }
-                        .font(.custom("Kreon", size: 22))
+                        .font(.kreonTitle)
                         .padding()
 
                         if showingPlayerNameInput {
@@ -95,8 +95,8 @@ struct MainMenuView: View {
                               blackoutOpacity = 0.0
                           }
                       }
-                      .font(.custom("Kreon", size: 22))
-                        
+                        .font(.kreonCaption)
+
                       }
 
                         HStack {
@@ -115,9 +115,11 @@ struct MainMenuView: View {
                          isMusicPopoverPresented.toggle()
                      }) {
                          Image(systemName: "speaker.2.fill")
-                             .font(.system(size: 25))
-                             .foregroundColor(.blue)
-                     }
+                         .font(.kreonCaption)
+                         .foregroundColor(.white)
+                         .frame(width: 50, height: 50)
+                         .padding(2)
+                     } .background(Image("smallBtnBackground").resizable().scaledToFit())
                      .popover(isPresented: $isMusicPopoverPresented) {
                          VolumeSliderView(volume: $musicVolume, title: "Music Volume")
                              .onDisappear {
@@ -126,14 +128,19 @@ struct MainMenuView: View {
                              .padding()
                              .frame(width: 300)
                      }
+                     .padding(.horizontal, 8)
+
                     
                      Button(action: {
                          isSFXPopoverPresented.toggle()
                      }) {
                          Image(systemName: "music.note")
-                             .font(.system(size: 25))
-                             .foregroundColor(.blue)
+                             .font(.kreonCaption)
+                             .foregroundColor(.white)
+                             .frame(width: 50, height: 50)
+                             .padding(2)
                      }
+                     .background(Image("smallBtnBackground").resizable().scaledToFit())
                      .popover(isPresented: $isSFXPopoverPresented) {
                          VolumeSliderView(volume: $sfxVolume, title: "SFX Volume")
                              .onDisappear {
@@ -142,6 +149,7 @@ struct MainMenuView: View {
                              .padding()
                              .frame(width: 300)
                      }
+
                     Spacer()
                     Button("Statistics") {
                         gameVm.showStatistics = true
@@ -169,6 +177,9 @@ struct MainMenuView: View {
               TutorialView(gameVm: gameVm, vm: gameVm.stageViewModel, db: db)
             }
             .navigationTransition(.fade(.in))
+            .background(Image("mainMenuBackground").resizable().scaledToFill().ignoresSafeArea())
+            
+            
         }
         .navigationBarHidden(true)
         .onAppear {
@@ -177,6 +188,7 @@ struct MainMenuView: View {
         .onDisappear {
             AudioManager.shared.stopBackgroundMusic()
         }
+       
     }
 }
 
@@ -209,8 +221,8 @@ struct DifficultyOptionButton: View {
                 )
 
             Text(title)
-                .font(.title2)
-                .foregroundColor(.black)
+            .font(.kreonSubheadline)
+            .foregroundColor(.black)
         }
         .padding()
         .onTapGesture {
@@ -229,7 +241,7 @@ struct PlayerNameInputView: View {
         VStack(spacing: 20) {
             Text("Enter Your Name")
                 .font(.custom("Kreon", size: 24))
-                .foregroundColor(.white)
+                .foregroundColor(.black)
 
             TextField("Name", text: $playerName)
                 .padding()
