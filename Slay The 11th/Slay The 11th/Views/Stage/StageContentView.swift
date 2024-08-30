@@ -9,6 +9,7 @@ import SwiftUI
 import NavigationTransitions
 struct StageContentView: View {
     @Bindable var vm: StageViewModel
+  var gameVm: GameViewModel
 
     var body: some View {
         VStack(spacing: 0) {
@@ -22,7 +23,7 @@ struct StageContentView: View {
                 .frame(height: UIScreen.main.bounds.height * 0.4)
         }
         .navigationDestination(isPresented: $vm.isShowingRewards) {
-            RewardSelectionOverlay(vm: vm)
+            RewardSelectionOverlay(vm: gameVm)
         }
         .navigationTransition(.fade(.cross))
     }
@@ -30,5 +31,5 @@ struct StageContentView: View {
 
 
 #Preview {
-    StageContentView(vm: StageViewModel(difficulty: .medium, player: Player(hp: 44)))
+    StageContentView(vm: StageViewModel(difficulty: .medium, player: Player(hp: 44)), gameVm: GameViewModel())
 }

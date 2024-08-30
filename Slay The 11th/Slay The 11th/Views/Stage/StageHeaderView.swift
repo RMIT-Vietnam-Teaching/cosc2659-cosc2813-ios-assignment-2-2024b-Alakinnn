@@ -12,6 +12,7 @@ struct StageHeaderView: View {
   var gameVm: GameViewModel
     @Binding var isPaused: Bool
     @Binding var showMenuSheet: Bool
+  var db: DatabaseManager
 
     var body: some View {
         VStack {
@@ -40,7 +41,7 @@ struct StageHeaderView: View {
         }
         .edgesIgnoringSafeArea(.top)
         .sheet(isPresented: $showMenuSheet) {
-          MenuSheetView(isPaused: $isPaused, vm: gameVm, showMenuSheet: $showMenuSheet)
+          MenuSheetView(isPaused: $isPaused, vm: gameVm, db: db, showMenuSheet: $showMenuSheet)
         }
     }
 }
@@ -48,6 +49,7 @@ struct StageHeaderView: View {
 struct MenuSheetView: View, Observable {
   @Binding var isPaused: Bool
   var vm: GameViewModel
+  var db: DatabaseManager
   @Binding var showMenuSheet: Bool
 
   var body: some View {
@@ -56,7 +58,7 @@ struct MenuSheetView: View, Observable {
             vm.saveGame()
             vm.isGameStarted = false
             showMenuSheet = false
-            
+          print(vm.stageViewModel.score)
             // Stop the stage music and play the main menu music
             AudioManager.shared.stopBackgroundMusic()
             AudioManager.shared.playBackgroundMusic("mainMenu")
@@ -70,7 +72,7 @@ struct MenuSheetView: View, Observable {
             vm.abandonRun()
             vm.isGameStarted = false
             showMenuSheet = false
-            
+          vm.stageViewModel.updatePlayerScore(db: db)
             // Stop the stage music and play the main menu music
             AudioManager.shared.stopBackgroundMusic()
             AudioManager.shared.playBackgroundMusic("mainMenu")
@@ -97,5 +99,5 @@ struct MenuSheetView: View, Observable {
 
 
 #Preview {
-  StageHeaderView(vm: StageViewModel(difficulty: .medium, player: Player(hp: 44)) ,gameVm: GameViewModel(), isPaused: .constant(false), showMenuSheet: .constant(false))
+  StageHeaderView(vm: StageViewModel(difficulty: .medium, player: Player(hp: 44)) ,gameVm: GameViewModel(), isPaused: .constant(false), showMenuSheet: .constant(false), db: MockDataManager())
 }

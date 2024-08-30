@@ -38,14 +38,13 @@ struct CharacterBody2D: View {
                                    enemy.intendedAction == .cleanse ? "figure.mind.and.body" :
                                    "speaker.slash.fill"
                             )
-                            .font(.title)
                             .foregroundColor(.white)
                             .background(Color.black.opacity(0.7))
                             .cornerRadius(4)
                             .padding(4)
 
                             Text("\(enemy.curHp)/\(enemy.maxHp)")
-                                .font(.caption)
+                            .font(.kreonSubheadline)
                                 .foregroundColor(.white)
                                 .padding(4)
                                 .background(Color.green)
@@ -62,7 +61,7 @@ struct CharacterBody2D: View {
                                 VStack {
                                     Text(debuff.type == .poison ? "☠️" : "🔇")
                                     Text("\(debuff.duration)x")
-                                        .font(.caption)
+                                        .font(.kreonSubheadline)
                                         .foregroundColor(.white)
                                 }
                                 .padding(4)
@@ -85,7 +84,7 @@ struct CharacterBody2D: View {
         } else {
             // Placeholder or loading view if the index is out of bounds
             Text("Loading...")
-                .font(.headline)
+                .font(.kreonHeadline)
                 .foregroundColor(.gray)
                 .frame(width: width, height: height)
         }

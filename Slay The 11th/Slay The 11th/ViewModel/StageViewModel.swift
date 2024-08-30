@@ -22,11 +22,21 @@ import Observation
   var isShowingRewards: Bool = false
   var selectedReward: Reward? = nil
   var isGameOver: Bool = false
+  var score: Int = 0
+  var startTime: Date?
+  var elapsedTime: TimeInterval = 0
+  var timer: Timer?
+  var allStagesCleared: Bool = false
+  var playerID: String?
 
-  init(difficulty: Difficulty, player: Player = Player(hp: 44)) {
+  init(difficulty: Difficulty, player: Player = Player(hp: 44), playerID: String? = nil) {
     self.player = player
     self.difficulty = difficulty
     self.enemies = EnemyFactory.createEnemies(for: difficulty, stage: currentStage)
+    self.playerID = playerID
+    self.startTime = Date() 
+    self.startTimer()
+    self.calculateScore()
   }
 
   // Start player's turn
@@ -51,34 +61,52 @@ import Observation
   }
 
   func checkIfStageCompleted() {
-      if enemies.allSatisfy({ $0.curHp <= 0 }) {
-        isStageCompleted = true
-        player.tempHP = 0
-        isShowingRewards = true
-        currentStage += 1
+    if enemies.allSatisfy({ $0.curHp <= 0 }) {
+      isStageCompleted = true
+      player.tempHP = 0
+      isShowingRewards = true
+      calculateScore()
       }
   }
 
   func checkAndAdvanceStage() {
       if isStageCompleted {
-        enemies.removeAll()
-        let newEnemies = EnemyFactory.createEnemies(for: difficulty, stage: currentStage)
-        print(newEnemies)
+          enemies.removeAll()
 
-          if !newEnemies.isEmpty {
-              enemies = newEnemies
-              isStageCompleted = false
-              startPlayerTurn()
-              print("Advancing to Stage \(currentStage)")
+          if currentStage == 11 {
+              print("Game completed. Showing victory screen.")
           } else {
-              print("No more stages available. Game completed.")
+              currentStage += 1
+              let newEnemies = EnemyFactory.createEnemies(for: difficulty, stage: currentStage)
+
+              if !newEnemies.isEmpty {
+                  enemies = newEnemies
+                  isStageCompleted = false
+                  startPlayerTurn()
+                  print("Advancing to Stage \(currentStage)")
+              } else {
+                  print("No more stages available. Game completed.")
+              }
           }
       }
   }
   
   func gameOver() {
-    isGameOver = true
+      isGameOver = true
   }
+  
+  func updatePlayerScore(db: DatabaseManager) {
+      guard let playerID = playerID else {
+          print("No playerID found, unable to update score.")
+          return
+      }
+      let newScore = score
+      let stagesFinished = currentStage - 1 // Assuming `currentStage` exists and tracks the stage
+
+      db.updatePlayerScore(playerId: playerID, newScore: newScore, stagesFinished: stagesFinished)
+      print("Score and stage updated successfully in local storage.")
+  }
+
   
   // Serialization method
       func toDictionary() -> [String: Any] {

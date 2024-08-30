@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		640DF4642C7F7A01005B3342 /* VictoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640DF4632C7F7A01005B3342 /* VictoryView.swift */; };
 		640DF4672C7F7A7A005B3342 /* Pow in Frameworks */ = {isa = PBXBuildFile; productRef = 640DF4662C7F7A7A005B3342 /* Pow */; };
+		640DF4692C7F7F87005B3342 /* ScoreSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640DF4682C7F7F86005B3342 /* ScoreSystem.swift */; };
+		640DF46B2C7F9756005B3342 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 640DF46A2C7F9756005B3342 /* GoogleService-Info.plist */; };
+		640DF49C2C7F996C005B3342 /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640DF49B2C7F996C005B3342 /* StatisticsView.swift */; };
+		640DF49F2C7F9A06005B3342 /* FirebaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640DF49E2C7F9A06005B3342 /* FirebaseAPI.swift */; };
 		643F04FD2C7A09E000CB9EDF /* LoadingScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643F04FC2C7A09E000CB9EDF /* LoadingScreenView.swift */; };
 		6447CDE82C78660600F57F46 /* NavigationTransitions in Frameworks */ = {isa = PBXBuildFile; productRef = 6447CDE72C78660600F57F46 /* NavigationTransitions */; };
 		6447CDEA2C78D57900F57F46 /* StageContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6447CDE92C78D57900F57F46 /* StageContentView.swift */; };
@@ -35,6 +39,14 @@
 		64B71A172C74D4C1009F3987 /* Reward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B71A162C74D4C1009F3987 /* Reward.swift */; };
 		64B71A1B2C74D670009F3987 /* RewardBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B71A1A2C74D670009F3987 /* RewardBoxView.swift */; };
 		64B71A1D2C74E428009F3987 /* RewardSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B71A1C2C74E428009F3987 /* RewardSelectionView.swift */; };
+		64CC61252C80486A00F88EFE /* CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CC61242C80486A00F88EFE /* CustomFont.swift */; };
+		64CC61272C80594400F88EFE /* ToastManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CC61262C80594400F88EFE /* ToastManager.swift */; };
+		64CC61292C80595C00F88EFE /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CC61282C80595C00F88EFE /* ToastView.swift */; };
+		64CC612B2C80602B00F88EFE /* AchievementSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CC612A2C80602B00F88EFE /* AchievementSystem.swift */; };
+		64CC612D2C809D1A00F88EFE /* GameplayStatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CC612C2C809D1A00F88EFE /* GameplayStatisticsView.swift */; };
+		64CC612F2C809D5D00F88EFE /* TooltipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CC612E2C809D5D00F88EFE /* TooltipView.swift */; };
+		64CC61312C809D6800F88EFE /* LineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CC61302C809D6800F88EFE /* LineChartView.swift */; };
+		64CC61332C80AAAF00F88EFE /* BarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CC61322C80AAAF00F88EFE /* BarChartView.swift */; };
 		64D9B1E72C76259000CB11D1 /* EnemyActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D9B1E62C76259000CB11D1 /* EnemyActions.swift */; };
 		64D9B1E92C7625FE00CB11D1 /* CardActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D9B1E82C7625FE00CB11D1 /* CardActions.swift */; };
 		64D9B1EB2C76270000CB11D1 /* PlayerActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D9B1EA2C76270000CB11D1 /* PlayerActions.swift */; };
@@ -49,6 +61,10 @@
 
 /* Begin PBXFileReference section */
 		640DF4632C7F7A01005B3342 /* VictoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VictoryView.swift; sourceTree = "<group>"; };
+		640DF4682C7F7F86005B3342 /* ScoreSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreSystem.swift; sourceTree = "<group>"; };
+		640DF46A2C7F9756005B3342 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		640DF49B2C7F996C005B3342 /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
+		640DF49E2C7F9A06005B3342 /* FirebaseAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAPI.swift; sourceTree = "<group>"; };
 		643F04FC2C7A09E000CB9EDF /* LoadingScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreenView.swift; sourceTree = "<group>"; };
 		6447CDE92C78D57900F57F46 /* StageContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageContentView.swift; sourceTree = "<group>"; };
 		6447CDEB2C78D5A500F57F46 /* StageHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageHeaderView.swift; sourceTree = "<group>"; };
@@ -76,6 +92,14 @@
 		64B71A162C74D4C1009F3987 /* Reward.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reward.swift; sourceTree = "<group>"; };
 		64B71A1A2C74D670009F3987 /* RewardBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardBoxView.swift; sourceTree = "<group>"; };
 		64B71A1C2C74E428009F3987 /* RewardSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardSelectionView.swift; sourceTree = "<group>"; };
+		64CC61242C80486A00F88EFE /* CustomFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFont.swift; sourceTree = "<group>"; };
+		64CC61262C80594400F88EFE /* ToastManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastManager.swift; sourceTree = "<group>"; };
+		64CC61282C80595C00F88EFE /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
+		64CC612A2C80602B00F88EFE /* AchievementSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementSystem.swift; sourceTree = "<group>"; };
+		64CC612C2C809D1A00F88EFE /* GameplayStatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameplayStatisticsView.swift; sourceTree = "<group>"; };
+		64CC612E2C809D5D00F88EFE /* TooltipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TooltipView.swift; sourceTree = "<group>"; };
+		64CC61302C809D6800F88EFE /* LineChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartView.swift; sourceTree = "<group>"; };
+		64CC61322C80AAAF00F88EFE /* BarChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartView.swift; sourceTree = "<group>"; };
 		64D9B1E62C76259000CB11D1 /* EnemyActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyActions.swift; sourceTree = "<group>"; };
 		64D9B1E82C7625FE00CB11D1 /* CardActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardActions.swift; sourceTree = "<group>"; };
 		64D9B1EA2C76270000CB11D1 /* PlayerActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerActions.swift; sourceTree = "<group>"; };
@@ -101,6 +125,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		640DF49D2C7F99EF005B3342 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				640DF49E2C7F9A06005B3342 /* FirebaseAPI.swift */,
+				64CC61262C80594400F88EFE /* ToastManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		643F04FB2C7A09D300CB9EDF /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -112,6 +145,7 @@
 		6447CDF32C78DB1A00F57F46 /* Stage */ = {
 			isa = PBXGroup;
 			children = (
+				640DF4632C7F7A01005B3342 /* VictoryView.swift */,
 				6447CDF72C78DBB700F57F46 /* GameOverView.swift */,
 				64FF8D242C6735EF0010487C /* StageView.swift */,
 				6447CDE92C78D57900F57F46 /* StageContentView.swift */,
@@ -231,11 +265,14 @@
 				64FF8D2E2C6749E30010487C /* Views */,
 				6476CAA72C666AFE001C664A /* Slay_The_11thApp.swift */,
 				6476CAAB2C666B01001C664A /* Assets.xcassets */,
+				640DF46A2C7F9756005B3342 /* GoogleService-Info.plist */,
 				6476CAAD2C666B01001C664A /* Preview Content */,
 				6472AC382C6C5BB400F81A82 /* MainMenuView.swift */,
-				640DF4632C7F7A01005B3342 /* VictoryView.swift */,
+				640DF49D2C7F99EF005B3342 /* Services */,
 				64FF8D282C673C0C0010487C /* CardView.swift */,
+				64CC61282C80595C00F88EFE /* ToastView.swift */,
 				64FF8D2A2C673CA70010487C /* DeckFactory.swift */,
+				64CC61242C80486A00F88EFE /* CustomFont.swift */,
 				6472AC3C2C6C5F2900F81A82 /* EnemyFactory.swift */,
 			);
 			path = "Slay The 11th";
@@ -253,17 +290,32 @@
 			isa = PBXGroup;
 			children = (
 				6456BB5E2C69217800AE46FD /* StageViewModel.swift */,
+				640DF4682C7F7F86005B3342 /* ScoreSystem.swift */,
 				64D9B1E82C7625FE00CB11D1 /* CardActions.swift */,
 				6472AC362C6B786300F81A82 /* GameViewModel.swift */,
+				64CC612A2C80602B00F88EFE /* AchievementSystem.swift */,
 				64D9B1E62C76259000CB11D1 /* EnemyActions.swift */,
 				64D9B1EA2C76270000CB11D1 /* PlayerActions.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		64CC61342C80C50F00F88EFE /* Statistics */ = {
+			isa = PBXGroup;
+			children = (
+				640DF49B2C7F996C005B3342 /* StatisticsView.swift */,
+				64CC61322C80AAAF00F88EFE /* BarChartView.swift */,
+				64CC612C2C809D1A00F88EFE /* GameplayStatisticsView.swift */,
+				64CC612E2C809D5D00F88EFE /* TooltipView.swift */,
+				64CC61302C809D6800F88EFE /* LineChartView.swift */,
+			);
+			path = Statistics;
+			sourceTree = "<group>";
+		};
 		64FF8D2E2C6749E30010487C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				64CC61342C80C50F00F88EFE /* Statistics */,
 				643F04FB2C7A09D300CB9EDF /* Common */,
 				6447CDF62C78DB7400F57F46 /* Reward */,
 				6447CDF52C78DB5A00F57F46 /* Player */,
@@ -345,6 +397,7 @@
 				647653102C7A4BB900148222 /* mainMenu.mp3 in Resources */,
 				6476CAAC2C666B01001C664A /* Assets.xcassets in Resources */,
 				647653122C7A4CD100148222 /* sfxButton.mp3 in Resources */,
+				640DF46B2C7F9756005B3342 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,23 +415,34 @@
 				64D9B1E72C76259000CB11D1 /* EnemyActions.swift in Sources */,
 				64FF8D272C6735FB0010487C /* Card.swift in Sources */,
 				6456EC782C6E05BB0037DEA1 /* Player.swift in Sources */,
+				64CC612D2C809D1A00F88EFE /* GameplayStatisticsView.swift in Sources */,
 				64FF8D2B2C673CA70010487C /* DeckFactory.swift in Sources */,
 				64D9B1EB2C76270000CB11D1 /* PlayerActions.swift in Sources */,
 				64FF8D292C673C0C0010487C /* CardView.swift in Sources */,
+				64CC61312C809D6800F88EFE /* LineChartView.swift in Sources */,
+				640DF49F2C7F9A06005B3342 /* FirebaseAPI.swift in Sources */,
+				64CC61332C80AAAF00F88EFE /* BarChartView.swift in Sources */,
 				64FF8D2D2C673DB90010487C /* PlayerHandView.swift in Sources */,
 				6447CDF02C78D5C900F57F46 /* RewardSelectionOverlay.swift in Sources */,
 				64FF8D252C6735EF0010487C /* StageView.swift in Sources */,
 				64FF8D372C674ED80010487C /* CharacterBody2D.swift in Sources */,
 				64D9B1E92C7625FE00CB11D1 /* CardActions.swift in Sources */,
+				64CC61292C80595C00F88EFE /* ToastView.swift in Sources */,
 				6476530B2C7A461000148222 /* AudioManager.swift in Sources */,
 				64B71A1D2C74E428009F3987 /* RewardSelectionView.swift in Sources */,
 				64B71A1B2C74D670009F3987 /* RewardBoxView.swift in Sources */,
+				64CC61252C80486A00F88EFE /* CustomFont.swift in Sources */,
 				6447CDEC2C78D5A500F57F46 /* StageHeaderView.swift in Sources */,
 				6456BB5F2C69217800AE46FD /* StageViewModel.swift in Sources */,
 				6456EC7A2C6E12FF0037DEA1 /* Enemy.swift in Sources */,
+				640DF49C2C7F996C005B3342 /* StatisticsView.swift in Sources */,
 				643F04FD2C7A09E000CB9EDF /* LoadingScreenView.swift in Sources */,
+				64CC612B2C80602B00F88EFE /* AchievementSystem.swift in Sources */,
+				64CC61272C80594400F88EFE /* ToastManager.swift in Sources */,
 				64B71A172C74D4C1009F3987 /* Reward.swift in Sources */,
 				6472AC372C6B786300F81A82 /* GameViewModel.swift in Sources */,
+				640DF4692C7F7F87005B3342 /* ScoreSystem.swift in Sources */,
+				64CC612F2C809D5D00F88EFE /* TooltipView.swift in Sources */,
 				6447CDEA2C78D57900F57F46 /* StageContentView.swift in Sources */,
 				64FF8D332C674A810010487C /* EnemyZoneView.swift in Sources */,
 				6447CDF22C78D5D700F57F46 /* GameOverOverlay.swift in Sources */,

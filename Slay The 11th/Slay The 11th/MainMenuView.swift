@@ -11,7 +11,10 @@ import NavigationTransitions
 struct MainMenuView: View {
     @State private var selectedDifficulty: Difficulty = .medium
     @State private var blackoutOpacity: Double = 0.0
+    @State private var playerName: String = "" // Player name input
+    @State private var showingPlayerNameInput = false // Controls input modal visibility
     @Bindable var gameVm = GameViewModel()
+  @Bindable var db = DatabaseManager.shared
 
     // New state variables for volume controls
     @State private var isMusicPopoverPresented = false
@@ -24,7 +27,6 @@ struct MainMenuView: View {
             ZStack {
                 VStack {
                     Spacer()
-
                     if gameVm.hasSavedRun {
                         Button("Continue Run") {
                             AudioManager.shared.playSFX("sfxButton")
@@ -46,29 +48,45 @@ struct MainMenuView: View {
                         Button("Abandon Run") {
                             AudioManager.shared.playSFX("sfxButton")
                             gameVm.abandonRun()
+                            gameVm.stageViewModel.updatePlayerScore(db: db)
                         }
                         .font(.title2)
                         .padding()
                     } else {
+                      VStack {
                         Button("Start New Run") {
-                            gameVm.difficulty = selectedDifficulty
-                            gameVm.stageViewModel = StageViewModel(difficulty: selectedDifficulty, player: Player(hp: 44))
-                            gameVm.stageViewModel.startPlayerTurn()
-                            AudioManager.shared.playSFX("sfxButton")
-                            withAnimation(.easeInOut(duration: 1.0)) {
-                                blackoutOpacity = 1.0
-                            }
-
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                                gameVm.isGameStarted = true
-                                AudioManager.shared.changeBackgroundMusic(to: "stage")
-                                withAnimation(.easeInOut(duration: 1.0)) {
-                                    blackoutOpacity = 0.0
-                                }
-                            }
+                          withAnimation(.easeInOut) {
+                                  showingPlayerNameInput = true
+                              }
                         }
-                        .font(.largeTitle)
+                        .font(.custom("Kreon", size: 22))
                         .padding()
+
+                        if showingPlayerNameInput {
+                          PlayerNameInputView(playerName: $playerName, isPresented: $showingPlayerNameInput, gameVm: gameVm) {
+                              let playerID = db.addNewPlayer(name: playerName)
+                              DispatchQueue.main.async {
+                                  showingPlayerNameInput = false
+                                  gameVm.difficulty = selectedDifficulty
+                                  gameVm.stageViewModel = StageViewModel(difficulty: selectedDifficulty, player: Player(hp: 44), playerID: playerID)
+                                  gameVm.stageViewModel.startPlayerTurn()
+                                  gameVm.isGameStarted = true
+                                gameVm.checkAndUnlockAchievements(db: db, action: .startFirstRun)
+                                  AudioManager.shared.playSFX("sfxButton")
+                                  AudioManager.shared.changeBackgroundMusic(to: "stage")
+                                  withAnimation(.easeInOut(duration: 1.0)) {
+                                      blackoutOpacity = 0.0
+                                  }
+                              }
+                          }
+                          .transition(.scale)
+                      }
+
+                        
+                        Button("Statistics") {
+                            gameVm.showStatistics = true
+                        }
+                      }
 
                         HStack {
                             DifficultyOptionButton(title: "Easy", difficulty: .easy, selectedDifficulty: $selectedDifficulty)
@@ -124,7 +142,13 @@ struct MainMenuView: View {
                     .edgesIgnoringSafeArea(.all)
             }
             .navigationDestination(isPresented: $gameVm.isGameStarted) {
-                StageView(vm: gameVm.stageViewModel, gameVm: gameVm)
+              StageView(vm: gameVm.stageViewModel, gameVm: gameVm, db: db)
+            }
+            .navigationDestination(isPresented: $gameVm.stageViewModel.allStagesCleared) {
+              VictoryView(gameVm: gameVm)
+            }
+            .navigationDestination(isPresented: $gameVm.showStatistics) {
+              StatisticsView(db: db)
             }
             .navigationTransition(.fade(.in))
         }
@@ -176,6 +200,62 @@ struct DifficultyOptionButton: View {
         }
     }
 }
+
+struct PlayerNameInputView: View {
+    @Binding var playerName: String
+    @Binding var isPresented: Bool
+    var gameVm: GameViewModel
+    var onConfirm: () -> Void
+
+    var body: some View {
+        VStack(spacing: 20) {
+            Text("Enter Your Name")
+                .font(.custom("Kreon", size: 24))
+                .foregroundColor(.white)
+
+            TextField("Name", text: $playerName)
+                .padding()
+                .background(Color.white)
+                .cornerRadius(8)
+                .font(.custom("Kreon", size: 18))
+
+            HStack {
+                Button(action: {
+                    isPresented = false
+                }) {
+                    Text("Cancel")
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(Color.red)
+                        .cornerRadius(8)
+                }
+
+                Button(action: {
+                    if !playerName.isEmpty {
+                        onConfirm()  // Trigger confirm action
+                    }
+                }) {
+                    Text("Confirm")
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(Color.green)
+                        .cornerRadius(8)
+                }
+            }
+        }
+        .padding()
+        .background(
+            Image("wooden_background")  // Use your wooden texture image here
+                .resizable()
+                .scaledToFill()
+        )
+        .cornerRadius(12)
+        .padding()
+        .shadow(radius: 20)
+    }
+}
+
+
 
 #Preview {
     MainMenuView(gameVm: GameViewModel())

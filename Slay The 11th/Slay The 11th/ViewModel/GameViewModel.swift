@@ -13,6 +13,17 @@ enum Difficulty: Int {
   case easy
   case medium
   case hard
+  
+  var name: String {
+      switch self {
+      case .easy:
+          return "easy"
+      case .medium:
+          return "medium"
+      case .hard:
+          return "hard"
+      }
+  }
 }
 
 @Observable class GameViewModel {
@@ -20,6 +31,7 @@ enum Difficulty: Int {
     var stageViewModel: StageViewModel
     var isGameStarted: Bool = false
     var hasSavedRun: Bool = false
+  var showStatistics: Bool = false
 
     init(difficulty: Difficulty = .medium) {
         self.difficulty = difficulty
@@ -28,9 +40,10 @@ enum Difficulty: Int {
     }
 
     func saveGame() {
+        stageViewModel.pauseTimer() // Pause the timer before saving
+
         UserDefaults.standard.set(isGameStarted, forKey: "isGameStarted")
         UserDefaults.standard.set(difficulty.rawValue, forKey: "difficulty")
-
         UserDefaults.standard.set(stageViewModel.player.toDictionary(), forKey: "playerData")
         UserDefaults.standard.set(stageViewModel.toDictionary(), forKey: "stageData")
 
@@ -49,11 +62,14 @@ enum Difficulty: Int {
                 self.stageViewModel = StageViewModel(difficulty: difficulty, player: player!)
                 self.stageViewModel.currentStage = stageViewModel?.currentStage ?? 1
                 self.stageViewModel.enemies = stageViewModel?.enemies ?? []
+
+                self.stageViewModel.resumeTimer() // Resume the timer after loading the game
             }
 
             hasSavedRun = true
         }
     }
+
 
     func abandonRun() {
         UserDefaults.standard.removeObject(forKey: "isGameStarted")

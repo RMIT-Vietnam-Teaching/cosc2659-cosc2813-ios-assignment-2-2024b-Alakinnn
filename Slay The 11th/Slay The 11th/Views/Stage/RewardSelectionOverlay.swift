@@ -6,35 +6,54 @@
 //
 
 import SwiftUI
-
+import NavigationTransitions
 struct RewardSelectionOverlay: View {
-    var vm: StageViewModel
+    var vm: GameViewModel
+  var db: DatabaseManager = DatabaseManager.shared
+  @State private var blackoutOpacity: Double = 0.0
 
     var body: some View {
-        if vm.isShowingRewards {
+      if vm.stageViewModel.isShowingRewards {
             RewardSelectionView(
-                rewards: RewardSystem.rewardsForStage(vm.currentStage),
+              rewards: RewardSystem.rewardsForStage(vm.stageViewModel.currentStage),
                 selectedReward: Binding(
-                    get: { vm.selectedReward },
-                    set: { vm.selectedReward = $0 }
+                  get: { vm.stageViewModel.selectedReward },
+                  set: { vm.stageViewModel.selectedReward = $0 }
                 ),
                 onConfirm: {
-                    if let reward = vm.selectedReward {
-                        vm.reshuffleAllCardsIntoAvailableDeckAfterTurnEnds()
-                        RewardSystem.applyReward(reward, to: vm.player, in: vm)
-                        vm.isShowingRewards = false
-                        vm.checkAndAdvanceStage()
+                  if let reward = vm.stageViewModel.selectedReward {
+                      vm.stageViewModel.reshuffleAllCardsIntoAvailableDeckAfterTurnEnds()
+                    RewardSystem.applyReward(reward, gameVm: vm, db: db, to: vm.stageViewModel.player, in: vm.stageViewModel)
+                    vm.stageViewModel.isShowingRewards = false
+                        
+                    if vm.stageViewModel.currentStage == 11 {
+                          // First, handle the animation for blackout or any other UI effects
+                          withAnimation(.easeInOut(duration: 1.3)) {
+                              blackoutOpacity = 1
+                          }
+
+                          // Delay setting allStagesCleared to ensure smooth transition
+                          DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                            vm.stageViewModel.allStagesCleared = true
+                          }
+                        } else {
+                          vm.stageViewModel.checkAndAdvanceStage()
+                        }
                     }
                 }
             )
             .background(Color.black.opacity(0.8))
             .edgesIgnoringSafeArea(.all)
             .transition(.opacity)
+            .navigationTransition(.fade(.out))
+
         }
     }
 }
 
 
+
+
 #Preview {
-  RewardSelectionOverlay(vm: StageViewModel(difficulty: .medium, player: Player(hp: 44)))
+  RewardSelectionOverlay(vm: GameViewModel())
 }

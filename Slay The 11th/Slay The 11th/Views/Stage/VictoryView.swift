@@ -7,10 +7,11 @@
 
 import SwiftUI
 import Pow
+import NavigationTransitions
 
 struct VictoryView: View {
-    @State private var triggerSpray = false
-
+  @State private var triggerSpray = false
+  var gameVm: GameViewModel
     var body: some View {
         ZStack {
             Color.black.opacity(0.8)
@@ -18,19 +19,27 @@ struct VictoryView: View {
             
             VStack(spacing: 20) {
                 Text("Victory?")
-                    .font(.largeTitle)
+                .font(.kreonTitle)
                     .foregroundColor(.white)
                     .padding()
-                
+              
+              Text("\(Int(gameVm.stageViewModel.score))")
+              .font(.kreonBody)
+                  .foregroundColor(.white)
+                  .padding()
+              
                 Text("The Spire is to no escape...")
-                    .font(.title)
+                .font(.kreonBody)
                     .foregroundColor(.white)
                     .padding()
 
                 Button(action: {
+                  gameVm.isGameStarted = false
+                   gameVm.stageViewModel.allStagesCleared = false
+                   gameVm.abandonRun()
                 }) {
                     Text("Main Menu")
-                        .font(.headline)
+                    .font(.custom("Kreon", size: 22))
                         .padding()
                         .background(Color.blue)
                         .foregroundColor(.white)
@@ -38,19 +47,21 @@ struct VictoryView: View {
                 }
             }
             .changeEffect(
-                .spray(origin: UnitPoint(x: 0.5, y: 0.5)) {
+              .spray(origin: UnitPoint(x: 0.5, y: 0)) {
                     Image(systemName: "star.fill")
                         .foregroundColor(.yellow)
-                        .font(.largeTitle)
+                        .font(.kreonTitle)
                 }, value: triggerSpray
             )
         }
         .onAppear {
             triggerSpray.toggle()
         }
+        .navigationBarHidden(true)
+        .navigationTransition(.fade(.out))
     }
 }
 
 #Preview {
-    VictoryView()
+  VictoryView(gameVm: GameViewModel())
 }

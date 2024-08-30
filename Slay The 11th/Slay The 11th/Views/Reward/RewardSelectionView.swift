@@ -17,7 +17,7 @@ struct RewardSelectionView: View {
           Spacer(minLength: 20)
           
             Text("Choose Your Reward")
-                .font(.largeTitle)
+            .font(.kreonHeadline)
                 .padding()
                 .foregroundColor(.black)
 
@@ -36,6 +36,7 @@ struct RewardSelectionView: View {
             .padding(.leading, 8)
             Spacer()
             Button("Confirm", action: onConfirm)
+            .font(.kreonBody)
                 .disabled(selectedReward == nil)
                 .padding()
                 .background(Color.blue)

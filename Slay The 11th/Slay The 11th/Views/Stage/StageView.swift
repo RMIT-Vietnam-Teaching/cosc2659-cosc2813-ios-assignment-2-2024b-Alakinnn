@@ -7,10 +7,13 @@
 
 import SwiftUI
 import NavigationTransitions
+import Pow
 
 struct StageView: View {
-    var vm: StageViewModel
-    var gameVm: GameViewModel
+  var vm: StageViewModel
+  var gameVm: GameViewModel
+  var db: DatabaseManager
+  var toastManager = ToastManager.shared
     @State private var blackoutOpacity: Double = 0.0
     @State private var showGameOverView: Bool = false
     @State private var isPaused: Bool = false
@@ -19,11 +22,11 @@ struct StageView: View {
     var body: some View {
         ZStack {
             // Game content view
-            StageContentView(vm: vm)
+            StageContentView(vm: vm, gameVm: gameVm)
 
             // Header view, if the game is not over
             if !vm.isGameOver {
-                StageHeaderView(vm: vm, gameVm: gameVm, isPaused: $isPaused, showMenuSheet: $showMenuSheet)
+              StageHeaderView(vm: vm, gameVm: gameVm, isPaused: $isPaused, showMenuSheet: $showMenuSheet, db:db)
             }
 
             // Pause overlay
@@ -56,6 +59,20 @@ struct StageView: View {
                     .navigationTransition(.fade(.out))
                 }
             }
+          
+          // Add this section for the toast
+          if toastManager.showToast, let message = toastManager.toastMessage {
+              ToastView(message: message)
+                  .transition(.move(edge: .top).combined(with: .opacity))
+                  .onAppear {
+                      DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                          withAnimation {
+                              toastManager.showToast = false
+                              toastManager.toastMessage = nil
+                          }
+                      }
+                  }
+          }
         }
         .navigationBarHidden(true)
     }
@@ -65,7 +82,7 @@ struct StageView: View {
 
   
   #Preview {
-    StageView(vm: StageViewModel(difficulty: .medium, player: Player(hp: 44)), gameVm: GameViewModel())
+    StageView(vm: StageViewModel(difficulty: .medium, player: Player(hp: 44)), gameVm: GameViewModel(), db: MockDataManager())
   }
 
 
