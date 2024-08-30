@@ -96,6 +96,9 @@ import Observation
       player.tempHP = 0
       isShowingRewards = true
       calculateScore()
+      if mode == .tutorial {
+        allStagesCleared = true
+      }
       }
   }
 

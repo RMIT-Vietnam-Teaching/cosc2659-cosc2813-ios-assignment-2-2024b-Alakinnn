@@ -55,7 +55,7 @@ extension View{
             // MARK: Spotlight Text
             .overlay(alignment: .topLeading){
                 Text(properties.text)
-                    .font(.title2)
+                .font(.kreonSubheadline)
                     .fontWeight(.semibold)
                     .foregroundColor(.white)
                     // MARK: Extracting Text Size
@@ -65,7 +65,7 @@ extension View{
                             let textSize = proxy.size
                             
                             Text(properties.text)
-                                .font(.title2)
+                            .font(.kreonSubheadline)
                                 .fontWeight(.semibold)
                                 .foregroundColor(.white)
                                 // MARK: Dynamic Text Alignment

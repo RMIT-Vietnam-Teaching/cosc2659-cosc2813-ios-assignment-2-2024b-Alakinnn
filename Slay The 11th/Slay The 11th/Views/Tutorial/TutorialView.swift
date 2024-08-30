@@ -47,56 +47,73 @@ struct TutorialView: View {
 
                      VStack {
                          // No loop; directly place one CharacterBody2D
+                       ZStack {
                          ZStack {
-                             // Debuff Effects and HP Bar
-                             VStack(spacing: 16) {
-                                 Image(systemName: "person.fill")
-                                     .resizable()
-                                     .aspectRatio(contentMode: .fit)
-                                     .frame(width: enemyWidth, height: enemyHeight)
-                                     .offset(y: offsetValue)
-                                     
+                               // Debuff Effects and HP Bar
+                               VStack(spacing: 16) {
+                                   Image(systemName: "person.fill")
+                                       .resizable()
+                                       .aspectRatio(contentMode: .fit)
+                                       .frame(width: enemyWidth, height: enemyHeight)
+                                       .offset(y: offsetValue)
+                                       .addSpotlight(1, shape: .rectangle, text: "Taps on enemy to use card")
+                                       
 
-                                 Image(systemName: vm.enemies.first?.intendedAction == .attack ? "flame.fill" :
-                                        vm.enemies.first?.intendedAction == .buff ? "arrow.up.circle.fill" :
-                                        vm.enemies.first?.intendedAction == .cleanse ? "figure.mind.and.body" :
-                                        "speaker.slash.fill"
-                                 )
-                                 .foregroundColor(.white)
-                                 .background(Color.black.opacity(0.7))
-                                 .cornerRadius(4)
-                                 .padding(4)
-                               
-                                 Text("\(vm.enemies.first?.curHp ?? 0)/\(vm.enemies.first?.maxHp ?? 0)")
-                                     .font(.kreonSubheadline)
-                                     .foregroundColor(.white)
-                                     .padding(4)
-                                     .background(Color.green)
-                                     .cornerRadius(4)
-                             }
+                                   Image(systemName: vm.enemies.first?.intendedAction == .attack ? "flame.fill" :
+                                          vm.enemies.first?.intendedAction == .buff ? "arrow.up.circle.fill" :
+                                          vm.enemies.first?.intendedAction == .cleanse ? "figure.mind.and.body" :
+                                          "speaker.slash.fill"
+                                   )
+                                   .foregroundColor(.white)
+                                   .background(Color.black.opacity(0.7))
+                                   .cornerRadius(4)
+                                   .padding(4)
+                                   .addSpotlight(2, shape: .rectangle, text: "This shows their intentions")
+                                 
+                                   Text("\(vm.enemies.first?.curHp ?? 0)/\(vm.enemies.first?.maxHp ?? 0)")
+                                       .font(.kreonSubheadline)
+                                       .foregroundColor(.white)
+                                       .padding(4)
+                                       .background(Color.green)
+                                       .cornerRadius(4)
+                                       .addSpotlight(3, shape: .rectangle, text: "This is their HP bar")
+                               }
+                               .frame(width: enemyWidth, height: enemyHeight)
+                               .position(x: geometry.size.width / 2, y: geometry.size.height / 2)
+                               .clipped()
+                               .padding(.top, 48)
+
+                               // Debuff Icons
+                               HStack(spacing: 2) {
+                                   if let enemy = vm.enemies.first {
+                                       ForEach(enemy.debuffEffects, id: \.self) { debuff in
+                                           VStack {
+                                               Text(debuff.type == .poison ? "☠️" : "🔇")
+                                               Text("\(debuff.duration)x")
+                                                   .font(.kreonSubheadline)
+                                                   .foregroundColor(.white)
+                                           }
+                                           .padding(4)
+                                           .background(Color.black.opacity(0.7))
+                                           .cornerRadius(4)
+                                       }
+                                   }
+                               }
+                               .position(x: geometry.size.width / 2, y: geometry.size.height / 2 - enemyHeight / 2 - 20)
+                               .addSpotlight(4, shape: .rectangle, text: "The icon above is their debuff")
+                         }
+                         Rectangle()
+                             .fill(Color.black.opacity(0.001))
                              .frame(width: enemyWidth, height: enemyHeight)
-                             .position(x: geometry.size.width / 2, y: geometry.size.height / 2)
-                             .clipped()
-                             .padding(.top, 48)
-
-                             // Debuff Icons
-                             HStack(spacing: 2) {
-                                 if let enemy = vm.enemies.first {
-                                     ForEach(enemy.debuffEffects, id: \.self) { debuff in
-                                         VStack {
-                                             Text(debuff.type == .poison ? "☠️" : "🔇")
-                                             Text("\(debuff.duration)x")
-                                                 .font(.kreonSubheadline)
-                                                 .foregroundColor(.white)
-                                         }
-                                         .padding(4)
-                                         .background(Color.black.opacity(0.7))
-                                         .cornerRadius(4)
-                                     }
+                             .offset(y: offsetValue)
+                             .onTapGesture {
+                                 if let firstEnemyIndex = vm.enemies.firstIndex(where: { $0.name == "Dummy" }) {
+                                     vm.applyCard(at: firstEnemyIndex)
+                                 } else {
+                                     print("No enemy found to apply card to.")
                                  }
                              }
-                             .position(x: geometry.size.width / 2, y: geometry.size.height / 2 - enemyHeight / 2 - 20)
-                         }
+                       }
                      }
                      .frame(width: geometry.size.width, height: geometry.size.height)
                      .background(Color.blue)
@@ -129,6 +146,7 @@ struct TutorialView: View {
                                      .foregroundColor(.white)
                              }
                              .padding(.top, 10)
+                             .addSpotlight(6, shape: .rectangle, text: "This is the shield you've gained.")
 
                              ZStack {
                                  Image(systemName: "person.fill")
@@ -136,6 +154,7 @@ struct TutorialView: View {
                                      .aspectRatio(contentMode: .fit)
                                      .frame(width: zoneWidth * 0.2, height: zoneHeight * 0.4)
                                      .foregroundColor(.blue)
+                                     .addSpotlight(5, shape: .rectangle, text: "The is you. The player.")
 
                                  Rectangle()
                                      .fill(Color.black.opacity(0.001))
@@ -166,8 +185,10 @@ struct TutorialView: View {
                                  .padding(4)
                                  .background(Color.green)
                                  .cornerRadius(4)
+                                 .addSpotlight(7, shape: .rectangle, text: "This is your HP bar, runs out and you're dead.")
                          }
                          .padding(.leading, 32)
+                         
                        
                          Button(action: {
                            vm.endPlayerTurn()
@@ -178,6 +199,7 @@ struct TutorialView: View {
                                  .background(Color.red)
                                  .foregroundColor(.white)
                                  .cornerRadius(8)
+                                 .addSpotlight(8, shape: .rectangle, text: "Click here to end your turn.")
                          }
                        Spacer()
                      }
@@ -186,7 +208,7 @@ struct TutorialView: View {
                  .frame(width: zoneWidth, height: zoneHeight)
              }
                  
-                 .frame(height: UIScreen.main.bounds.height * 0.25)
+                 .frame(height: UIScreen.main.bounds.height * 0.2)
 
                  // Player Hand
              GeometryReader { geometry in
@@ -202,7 +224,7 @@ struct TutorialView: View {
                                .onTapGesture {
                                    vm.selectedCard = vm.playerHand[index]
                                }
-                               .addSpotlight(1, shape: .rectangle, text: "This is your card, tap to select a card")
+
                            }
                          }
                          .scrollTargetLayout()
@@ -220,8 +242,9 @@ struct TutorialView: View {
                  )
                  .shadow(color: .black.opacity(0.2), radius: 10, x: 0, y: -5)
              }
-                 .frame(height: UIScreen.main.bounds.height * 0.35)
-                 .addSpotlight(0, shape: .rectangle, text: "This is your deck")
+                 .frame(height: UIScreen.main.bounds.height * 0.4)
+                 .addSpotlight(0, shape: .rectangle, text: "This is your deck, you can select your card from here")
+             
              }
            
 
@@ -337,5 +360,5 @@ struct TutorialView: View {
 }
 
 #Preview {
-  TutorialView(gameVm: GameViewModel(), vm: StageViewModel(difficulty: .medium, player: Player(hp: 44), mode: .regular), db: MockDataManager())
+  TutorialView(gameVm: GameViewModel(), vm: StageViewModel(difficulty: .medium, player: Player(hp: 44), mode: .tutorial), db: MockDataManager())
 }

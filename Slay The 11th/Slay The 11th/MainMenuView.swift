@@ -88,6 +88,7 @@ struct MainMenuView: View {
                           gameVm.stageViewModel = StageViewModel(difficulty: selectedDifficulty, player: Player(hp: 99), mode: gameVm.mode)
                           gameVm.isGameStarted = true
                           gameVm.isTutorial = true
+                          gameVm.stageViewModel.startPlayerTurn()
                           AudioManager.shared.playSFX("sfxButton")
                           AudioManager.shared.changeBackgroundMusic(to: "stage")
                           withAnimation(.easeInOut(duration: 1.0)) {
