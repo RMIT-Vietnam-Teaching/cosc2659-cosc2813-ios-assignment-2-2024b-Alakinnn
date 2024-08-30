@@ -256,6 +256,7 @@
 		6476CAA62C666AFE001C664A /* Slay The 11th */ = {
 			isa = PBXGroup;
 			children = (
+				64CC61362C81FAF300F88EFE /* Utils */,
 				647653052C7A45DA00148222 /* Resources */,
 				6456BB5D2C690FB900AE46FD /* Slay-The-11th-Info.plist */,
 				647653032C7A246F00148222 /* Kreon.ttf */,
@@ -269,11 +270,6 @@
 				6476CAAD2C666B01001C664A /* Preview Content */,
 				6472AC382C6C5BB400F81A82 /* MainMenuView.swift */,
 				640DF49D2C7F99EF005B3342 /* Services */,
-				64FF8D282C673C0C0010487C /* CardView.swift */,
-				64CC61282C80595C00F88EFE /* ToastView.swift */,
-				64FF8D2A2C673CA70010487C /* DeckFactory.swift */,
-				64CC61242C80486A00F88EFE /* CustomFont.swift */,
-				6472AC3C2C6C5F2900F81A82 /* EnemyFactory.swift */,
 			);
 			path = "Slay The 11th";
 			sourceTree = "<group>";
@@ -312,9 +308,29 @@
 			path = Statistics;
 			sourceTree = "<group>";
 		};
+		64CC61352C81FAD700F88EFE /* Card */ = {
+			isa = PBXGroup;
+			children = (
+				64FF8D282C673C0C0010487C /* CardView.swift */,
+			);
+			path = Card;
+			sourceTree = "<group>";
+		};
+		64CC61362C81FAF300F88EFE /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				64CC61282C80595C00F88EFE /* ToastView.swift */,
+				64FF8D2A2C673CA70010487C /* DeckFactory.swift */,
+				64CC61242C80486A00F88EFE /* CustomFont.swift */,
+				6472AC3C2C6C5F2900F81A82 /* EnemyFactory.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		64FF8D2E2C6749E30010487C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				64CC61352C81FAD700F88EFE /* Card */,
 				64CC61342C80C50F00F88EFE /* Statistics */,
 				643F04FB2C7A09D300CB9EDF /* Common */,
 				6447CDF62C78DB7400F57F46 /* Reward */,
