@@ -68,7 +68,7 @@ struct MainMenuView: View {
                               DispatchQueue.main.async {
                                   showingPlayerNameInput = false
                                   gameVm.difficulty = selectedDifficulty
-                                  gameVm.stageViewModel = StageViewModel(difficulty: selectedDifficulty, player: Player(hp: 44), playerID: playerID)
+                                gameVm.stageViewModel = StageViewModel(difficulty: selectedDifficulty, player: Player(hp: 44), playerID: playerID, mode: gameVm.mode)
                                   gameVm.stageViewModel.startPlayerTurn()
                                   gameVm.isGameStarted = true
                                 gameVm.checkAndUnlockAchievements(db: db, action: .startFirstRun)

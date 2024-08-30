@@ -31,5 +31,5 @@ struct StageContentView: View {
 
 
 #Preview {
-    StageContentView(vm: StageViewModel(difficulty: .medium, player: Player(hp: 44)), gameVm: GameViewModel())
+    StageContentView(vm: StageViewModel(difficulty: .medium, player: Player(hp: 44), mode: .regular), gameVm: GameViewModel())
 }

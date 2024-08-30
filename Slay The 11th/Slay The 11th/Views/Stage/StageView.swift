@@ -82,7 +82,7 @@ struct StageView: View {
 
   
   #Preview {
-    StageView(vm: StageViewModel(difficulty: .medium, player: Player(hp: 44)), gameVm: GameViewModel(), db: MockDataManager())
+    StageView(vm: StageViewModel(difficulty: .medium, player: Player(hp: 44), mode: .regular), gameVm: GameViewModel(), db: MockDataManager())
   }
 
 

@@ -99,5 +99,5 @@ struct MenuSheetView: View, Observable {
 
 
 #Preview {
-  StageHeaderView(vm: StageViewModel(difficulty: .medium, player: Player(hp: 44)) ,gameVm: GameViewModel(), isPaused: .constant(false), showMenuSheet: .constant(false), db: MockDataManager())
+  StageHeaderView(vm: StageViewModel(difficulty: .medium, player: Player(hp: 44), mode: .regular) ,gameVm: GameViewModel(), isPaused: .constant(false), showMenuSheet: .constant(false), db: MockDataManager())
 }

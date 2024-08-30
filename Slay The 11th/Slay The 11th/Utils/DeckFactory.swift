@@ -30,9 +30,9 @@ func createStaticDeck() -> [Card] {
     
     // 4 Poison Cards
     Card(id: UUID(), name: "Poison", description: "Poison the enemy", cardType: .poison, value: 2, imageName: "drop.fill"),
-    Card(id: UUID(), name: "Poison", description: "Poison the poison.", cardType: .poison, value: 2, imageName: "drop.fill"),
-    Card(id: UUID(), name: "Poison", description: "Poison the poison.", cardType: .poison, value: 2, imageName: "drop.fill"),
-    Card(id: UUID(), name: "Poison", description: "Poison the poison.", cardType: .poison, value: 2, imageName: "drop.fill"),
+    Card(id: UUID(), name: "Poison", description: "Poison the enemy.", cardType: .poison, value: 2, imageName: "drop.fill"),
+    Card(id: UUID(), name: "Poison", description: "Poison the enemy.", cardType: .poison, value: 2, imageName: "drop.fill"),
+    Card(id: UUID(), name: "Poison", description: "Poison the enemy.", cardType: .poison, value: 2, imageName: "drop.fill"),
     
     // 3 Silence Cards
     Card(id: UUID(), name: "Silence", description: "Silence the enemy.", cardType: .silence, value: 1, imageName: "speaker.slash.fill"),

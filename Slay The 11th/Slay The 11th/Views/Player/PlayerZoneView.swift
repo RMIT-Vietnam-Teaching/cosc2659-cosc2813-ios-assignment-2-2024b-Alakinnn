@@ -94,7 +94,7 @@ struct PlayerZoneView: View {
 }
 
 #Preview {
-    PlayerZoneView(vm: StageViewModel(difficulty: .medium, player: Player(hp: 44)))
+    PlayerZoneView(vm: StageViewModel(difficulty: .medium, player: Player(hp: 44), mode: .regular))
 }
 
 

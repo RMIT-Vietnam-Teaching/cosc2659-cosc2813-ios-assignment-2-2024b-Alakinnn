@@ -92,5 +92,5 @@ struct CharacterBody2D: View {
 }
 
 #Preview {
-    CharacterBody2D(offsetValue: 0, width: 100, height: 200, vm: StageViewModel(difficulty: .medium, player: Player(hp: 44)), index: 0)
+    CharacterBody2D(offsetValue: 0, width: 100, height: 200, vm: StageViewModel(difficulty: .medium, player: Player(hp: 44), mode: .regular), index: 0)
 }

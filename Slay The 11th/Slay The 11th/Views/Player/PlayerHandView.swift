@@ -45,5 +45,5 @@ struct PlayerHandView: View {
 }
 
 #Preview {
-    PlayerHandView(vm: StageViewModel(difficulty: .medium, player: Player(hp: 44)))
+  PlayerHandView(vm: StageViewModel(difficulty: .medium, player: Player(hp: 44), mode: .regular))
 }

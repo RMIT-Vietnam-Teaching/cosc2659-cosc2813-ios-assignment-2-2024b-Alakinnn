@@ -9,7 +9,7 @@ import SwiftUI
 import Observation
 
 @Observable class StageViewModel {
-  var availableDeck: [Card] = createStaticDeck() // Cards available to draw
+  var availableDeck: [Card] = [] // Cards available to draw
   var discardedDeck: [Card] = [] // Cards that have been used
   var playerHand: [Card] = [] // Cards currently in the player's hand
   var player: Player
@@ -28,17 +28,47 @@ import Observation
   var timer: Timer?
   var allStagesCleared: Bool = false
   var playerID: String?
+  var mode: Mode
 
-  init(difficulty: Difficulty, player: Player = Player(hp: 44), playerID: String? = nil) {
+  init(difficulty: Difficulty, player: Player = Player(hp: 44), playerID: String? = nil, mode: Mode) {
     self.player = player
     self.difficulty = difficulty
-    self.enemies = EnemyFactory.createEnemies(for: difficulty, stage: currentStage)
+    self.mode = mode
+    self.enemies = generateEnemies(mode: mode)
+    self.availableDeck = generateDeck(mode: mode)
     self.playerID = playerID
-    self.startTime = Date() 
+    self.startTime = Date()
     self.startTimer()
     self.calculateScore()
   }
+  
+  func generateEnemies(mode: Mode) -> [Enemy] {
+    if mode == .regular {
+      return EnemyFactory.createEnemies(for: difficulty, stage: currentStage)
+    } else {
+      return [Enemy(name: "Dummy", hp: 14)]
+    }
+  }
+  
+  func generateDeck(mode:Mode) -> [Card] {
+    if mode == .regular {
+      return createStaticDeck()
+    } else {
+      return [
+        Card(id: UUID(), name: "Attack", description: "Slash the enemy", cardType: .attack, value: 3, imageName: "flame.fill"),
+        Card(id: UUID(), name: "Poison", description: "Poison the enemy", cardType: .poison, value: 2, imageName: "drop.fill"),
+        Card(id: UUID(), name: "Defense", description: "Shield yourself", cardType: .defense, value: 2, imageName: "shield.fill"),
+        Card(id: UUID(), name: "Silence", description: "Silence the enemy.", cardType: .silence, value: 1, imageName: "speaker.slash.fill"),
+        Card(id: UUID(), name: "Draw Cards", description: "Draw more cards.", cardType: .drawCards, value: 2, imageName: "rectangle.stack.fill"),
+        Card(id: UUID(), name: "Attack", description: "Slash the enemy", cardType: .attack, value: 3, imageName: "flame.fill"),
 
+        Card(id: UUID(), name: "Attack", description: "Slash the enemy", cardType: .attack, value: 3, imageName: "flame.fill"),
+
+        Card(id: UUID(), name: "Attack", description: "Slash the enemy", cardType: .attack, value: 3, imageName: "flame.fill"),
+      ]
+    }
+  }
+  
   // Start player's turn
   func startPlayerTurn() {
       isPlayerTurn = true
@@ -122,7 +152,8 @@ import Observation
               "difficulty": difficulty.rawValue,
               "isShowingRewards": isShowingRewards,
               "selectedReward": selectedReward?.toDictionary() ?? [:],
-              "isGameOver": isGameOver
+              "isGameOver": isGameOver,
+              "gameMode": mode
           ]
       }
 
@@ -138,7 +169,8 @@ import Observation
               let isStageCompleted = dictionary["isStageCompleted"] as? Bool,
               let enemiesData = dictionary["enemies"] as? [[String: Any]],
               let isShowingRewards = dictionary["isShowingRewards"] as? Bool,
-              let isGameOver = dictionary["isGameOver"] as? Bool
+              let isGameOver = dictionary["isGameOver"] as? Bool,
+              let mode = dictionary["gameMode"] as? Mode
           else { return nil }
 
           let availableDeck = availableDeckData.compactMap { Card.fromDictionary($0) }  // Assuming Card has a `fromDictionary` method
@@ -147,7 +179,7 @@ import Observation
           let player = Player.fromDictionary(playerData)
           let enemies = enemiesData.compactMap { Enemy.fromDictionary($0) }  // Assuming Enemy has a `fromDictionary` method
 
-          let stageViewModel = StageViewModel(difficulty: difficulty, player: player!)
+          let stageViewModel = StageViewModel(difficulty: difficulty, player: player!, mode: mode)
           stageViewModel.availableDeck = availableDeck
           stageViewModel.discardedDeck = discardedDeck
           stageViewModel.playerHand = playerHand

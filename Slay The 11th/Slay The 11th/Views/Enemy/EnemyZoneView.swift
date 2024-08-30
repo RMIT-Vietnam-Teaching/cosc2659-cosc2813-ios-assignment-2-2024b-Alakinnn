@@ -37,7 +37,7 @@ struct EnemyZoneView: View {
 }
 
 #Preview {
-    EnemyZoneView(vm: StageViewModel(difficulty: .medium, player: Player(hp: 44)))
+    EnemyZoneView(vm: StageViewModel(difficulty: .medium, player: Player(hp: 44), mode: .regular))
 }
 
 
