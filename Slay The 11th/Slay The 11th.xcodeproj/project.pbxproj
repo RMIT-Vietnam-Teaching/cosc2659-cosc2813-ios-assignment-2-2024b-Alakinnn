@@ -272,11 +272,6 @@
 				64FF8D282C673C0C0010487C /* CardView.swift */,
 				64CC61282C80595C00F88EFE /* ToastView.swift */,
 				64FF8D2A2C673CA70010487C /* DeckFactory.swift */,
-				640DF49B2C7F996C005B3342 /* StatisticsView.swift */,
-				64CC61322C80AAAF00F88EFE /* BarChartView.swift */,
-				64CC612C2C809D1A00F88EFE /* GameplayStatisticsView.swift */,
-				64CC612E2C809D5D00F88EFE /* TooltipView.swift */,
-				64CC61302C809D6800F88EFE /* LineChartView.swift */,
 				64CC61242C80486A00F88EFE /* CustomFont.swift */,
 				6472AC3C2C6C5F2900F81A82 /* EnemyFactory.swift */,
 			);
@@ -305,9 +300,22 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		64CC61342C80C50F00F88EFE /* Statistics */ = {
+			isa = PBXGroup;
+			children = (
+				640DF49B2C7F996C005B3342 /* StatisticsView.swift */,
+				64CC61322C80AAAF00F88EFE /* BarChartView.swift */,
+				64CC612C2C809D1A00F88EFE /* GameplayStatisticsView.swift */,
+				64CC612E2C809D5D00F88EFE /* TooltipView.swift */,
+				64CC61302C809D6800F88EFE /* LineChartView.swift */,
+			);
+			path = Statistics;
+			sourceTree = "<group>";
+		};
 		64FF8D2E2C6749E30010487C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				64CC61342C80C50F00F88EFE /* Statistics */,
 				643F04FB2C7A09D300CB9EDF /* Common */,
 				6447CDF62C78DB7400F57F46 /* Reward */,
 				6447CDF52C78DB5A00F57F46 /* Player */,
