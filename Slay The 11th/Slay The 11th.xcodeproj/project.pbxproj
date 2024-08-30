@@ -47,6 +47,9 @@
 		64CC612F2C809D5D00F88EFE /* TooltipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CC612E2C809D5D00F88EFE /* TooltipView.swift */; };
 		64CC61312C809D6800F88EFE /* LineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CC61302C809D6800F88EFE /* LineChartView.swift */; };
 		64CC61332C80AAAF00F88EFE /* BarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CC61322C80AAAF00F88EFE /* BarChartView.swift */; };
+		64CC61382C81FB5700F88EFE /* Spotlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CC61372C81FB5700F88EFE /* Spotlight.swift */; };
+		64CC613B2C820EAB00F88EFE /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CC613A2C820EAB00F88EFE /* TutorialView.swift */; };
+		64CC613D2C820F0D00F88EFE /* TutorialMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CC613C2C820F0D00F88EFE /* TutorialMessageView.swift */; };
 		64D9B1E72C76259000CB11D1 /* EnemyActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D9B1E62C76259000CB11D1 /* EnemyActions.swift */; };
 		64D9B1E92C7625FE00CB11D1 /* CardActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D9B1E82C7625FE00CB11D1 /* CardActions.swift */; };
 		64D9B1EB2C76270000CB11D1 /* PlayerActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D9B1EA2C76270000CB11D1 /* PlayerActions.swift */; };
@@ -100,6 +103,9 @@
 		64CC612E2C809D5D00F88EFE /* TooltipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TooltipView.swift; sourceTree = "<group>"; };
 		64CC61302C809D6800F88EFE /* LineChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartView.swift; sourceTree = "<group>"; };
 		64CC61322C80AAAF00F88EFE /* BarChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartView.swift; sourceTree = "<group>"; };
+		64CC61372C81FB5700F88EFE /* Spotlight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spotlight.swift; sourceTree = "<group>"; };
+		64CC613A2C820EAB00F88EFE /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
+		64CC613C2C820F0D00F88EFE /* TutorialMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialMessageView.swift; sourceTree = "<group>"; };
 		64D9B1E62C76259000CB11D1 /* EnemyActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyActions.swift; sourceTree = "<group>"; };
 		64D9B1E82C7625FE00CB11D1 /* CardActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardActions.swift; sourceTree = "<group>"; };
 		64D9B1EA2C76270000CB11D1 /* PlayerActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerActions.swift; sourceTree = "<group>"; };
@@ -256,6 +262,7 @@
 		6476CAA62C666AFE001C664A /* Slay The 11th */ = {
 			isa = PBXGroup;
 			children = (
+				64CC61362C81FAF300F88EFE /* Utils */,
 				647653052C7A45DA00148222 /* Resources */,
 				6456BB5D2C690FB900AE46FD /* Slay-The-11th-Info.plist */,
 				647653032C7A246F00148222 /* Kreon.ttf */,
@@ -269,11 +276,6 @@
 				6476CAAD2C666B01001C664A /* Preview Content */,
 				6472AC382C6C5BB400F81A82 /* MainMenuView.swift */,
 				640DF49D2C7F99EF005B3342 /* Services */,
-				64FF8D282C673C0C0010487C /* CardView.swift */,
-				64CC61282C80595C00F88EFE /* ToastView.swift */,
-				64FF8D2A2C673CA70010487C /* DeckFactory.swift */,
-				64CC61242C80486A00F88EFE /* CustomFont.swift */,
-				6472AC3C2C6C5F2900F81A82 /* EnemyFactory.swift */,
 			);
 			path = "Slay The 11th";
 			sourceTree = "<group>";
@@ -312,9 +314,40 @@
 			path = Statistics;
 			sourceTree = "<group>";
 		};
+		64CC61352C81FAD700F88EFE /* Card */ = {
+			isa = PBXGroup;
+			children = (
+				64FF8D282C673C0C0010487C /* CardView.swift */,
+			);
+			path = Card;
+			sourceTree = "<group>";
+		};
+		64CC61362C81FAF300F88EFE /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				64CC61282C80595C00F88EFE /* ToastView.swift */,
+				64FF8D2A2C673CA70010487C /* DeckFactory.swift */,
+				64CC61242C80486A00F88EFE /* CustomFont.swift */,
+				6472AC3C2C6C5F2900F81A82 /* EnemyFactory.swift */,
+				64CC61372C81FB5700F88EFE /* Spotlight.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		64CC61392C820E9A00F88EFE /* Tutorial */ = {
+			isa = PBXGroup;
+			children = (
+				64CC613A2C820EAB00F88EFE /* TutorialView.swift */,
+				64CC613C2C820F0D00F88EFE /* TutorialMessageView.swift */,
+			);
+			path = Tutorial;
+			sourceTree = "<group>";
+		};
 		64FF8D2E2C6749E30010487C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				64CC61392C820E9A00F88EFE /* Tutorial */,
+				64CC61352C81FAD700F88EFE /* Card */,
 				64CC61342C80C50F00F88EFE /* Statistics */,
 				643F04FB2C7A09D300CB9EDF /* Common */,
 				6447CDF62C78DB7400F57F46 /* Reward */,
@@ -418,8 +451,10 @@
 				64CC612D2C809D1A00F88EFE /* GameplayStatisticsView.swift in Sources */,
 				64FF8D2B2C673CA70010487C /* DeckFactory.swift in Sources */,
 				64D9B1EB2C76270000CB11D1 /* PlayerActions.swift in Sources */,
+				64CC613B2C820EAB00F88EFE /* TutorialView.swift in Sources */,
 				64FF8D292C673C0C0010487C /* CardView.swift in Sources */,
 				64CC61312C809D6800F88EFE /* LineChartView.swift in Sources */,
+				64CC61382C81FB5700F88EFE /* Spotlight.swift in Sources */,
 				640DF49F2C7F9A06005B3342 /* FirebaseAPI.swift in Sources */,
 				64CC61332C80AAAF00F88EFE /* BarChartView.swift in Sources */,
 				64FF8D2D2C673DB90010487C /* PlayerHandView.swift in Sources */,
@@ -446,6 +481,7 @@
 				6447CDEA2C78D57900F57F46 /* StageContentView.swift in Sources */,
 				64FF8D332C674A810010487C /* EnemyZoneView.swift in Sources */,
 				6447CDF22C78D5D700F57F46 /* GameOverOverlay.swift in Sources */,
+				64CC613D2C820F0D00F88EFE /* TutorialMessageView.swift in Sources */,
 				6447CDEE2C78D5B900F57F46 /* PauseOverlay.swift in Sources */,
 				6447CDF82C78DBB700F57F46 /* GameOverView.swift in Sources */,
 				6472AC3D2C6C5F2A00F81A82 /* EnemyFactory.swift in Sources */,

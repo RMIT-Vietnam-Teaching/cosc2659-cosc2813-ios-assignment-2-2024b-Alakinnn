@@ -10,9 +10,13 @@ import Foundation
 extension StageViewModel {
   // Draw initial hand (e.g., 5 cards)
   func drawInitialHand() {
+    if (mode == .regular) {
       for _ in 0..<5 {
           drawCard()
       }
+    } else {
+      playerHand = Array(availableDeck.prefix(5))
+    }
   }
 
   // Draw a card from the available deck to the player's hand
@@ -27,7 +31,7 @@ extension StageViewModel {
   }
   
   // Reshuffle the discared deck into the available deck after the stage ends
-  func reshuffleAllCardsIntoAvailableDeckAfterTurnEnds() {
+  func reshuffleAllCardsIntoAvailableDeckAfterStageEnds() {
     availableDeck.append(contentsOf: discardedDeck)
     availableDeck.append(contentsOf: playerHand)
     discardedDeck.removeAll()

@@ -22,7 +22,7 @@ struct RewardSelectionOverlay: View {
                 ),
                 onConfirm: {
                   if let reward = vm.stageViewModel.selectedReward {
-                      vm.stageViewModel.reshuffleAllCardsIntoAvailableDeckAfterTurnEnds()
+                      vm.stageViewModel.reshuffleAllCardsIntoAvailableDeckAfterStageEnds()
                     RewardSystem.applyReward(reward, gameVm: vm, db: db, to: vm.stageViewModel.player, in: vm.stageViewModel)
                     vm.stageViewModel.isShowingRewards = false
                         

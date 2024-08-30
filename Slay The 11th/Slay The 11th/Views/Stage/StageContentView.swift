@@ -8,17 +8,15 @@
 import SwiftUI
 import NavigationTransitions
 struct StageContentView: View {
-    @Bindable var vm: StageViewModel
+  @Bindable var vm: StageViewModel
   var gameVm: GameViewModel
 
     var body: some View {
         VStack(spacing: 0) {
             EnemyZoneView(vm: vm)
                 .frame(height: UIScreen.main.bounds.height * 0.4)
-
             PlayerZoneView(vm: vm)
                 .frame(height: UIScreen.main.bounds.height * 0.2)
-
             PlayerHandView(vm: vm)
                 .frame(height: UIScreen.main.bounds.height * 0.4)
         }
@@ -31,5 +29,5 @@ struct StageContentView: View {
 
 
 #Preview {
-    StageContentView(vm: StageViewModel(difficulty: .medium, player: Player(hp: 44)), gameVm: GameViewModel())
+    StageContentView(vm: StageViewModel(difficulty: .medium, player: Player(hp: 44), mode: .regular), gameVm: GameViewModel())
 }

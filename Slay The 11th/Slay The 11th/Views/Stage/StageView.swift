@@ -18,11 +18,13 @@ struct StageView: View {
     @State private var showGameOverView: Bool = false
     @State private var isPaused: Bool = false
     @State private var showMenuSheet: Bool = false
+  @State private var showSpotlight: Bool = true
+    @State private var currentSpot: Int = 0
 
     var body: some View {
         ZStack {
             // Game content view
-            StageContentView(vm: vm, gameVm: gameVm)
+          StageContentView(vm: vm, gameVm: gameVm)
 
             // Header view, if the game is not over
             if !vm.isGameOver {
@@ -82,7 +84,7 @@ struct StageView: View {
 
   
   #Preview {
-    StageView(vm: StageViewModel(difficulty: .medium, player: Player(hp: 44)), gameVm: GameViewModel(), db: MockDataManager())
+    StageView(vm: StageViewModel(difficulty: .medium, player: Player(hp: 44), mode: .tutorial), gameVm: GameViewModel(), db: MockDataManager())
   }
 
 

@@ -11,10 +11,11 @@ import NavigationTransitions
 struct MainMenuView: View {
     @State private var selectedDifficulty: Difficulty = .medium
     @State private var blackoutOpacity: Double = 0.0
-    @State private var playerName: String = "" // Player name input
-    @State private var showingPlayerNameInput = false // Controls input modal visibility
+    @State private var playerName: String = ""
+    @State private var showingPlayerNameInput = false
+    @State private var isTutorialMode = false
     @Bindable var gameVm = GameViewModel()
-  @Bindable var db = DatabaseManager.shared
+    @Bindable var db = DatabaseManager.shared
 
     // New state variables for volume controls
     @State private var isMusicPopoverPresented = false
@@ -68,7 +69,7 @@ struct MainMenuView: View {
                               DispatchQueue.main.async {
                                   showingPlayerNameInput = false
                                   gameVm.difficulty = selectedDifficulty
-                                  gameVm.stageViewModel = StageViewModel(difficulty: selectedDifficulty, player: Player(hp: 44), playerID: playerID)
+                                gameVm.stageViewModel = StageViewModel(difficulty: selectedDifficulty, player: Player(hp: 44), playerID: playerID, mode: gameVm.mode)
                                   gameVm.stageViewModel.startPlayerTurn()
                                   gameVm.isGameStarted = true
                                 gameVm.checkAndUnlockAchievements(db: db, action: .startFirstRun)
@@ -82,10 +83,20 @@ struct MainMenuView: View {
                           .transition(.scale)
                       }
 
+                        Button("Start Tutorial") {
+                          gameVm.mode = .tutorial
+                          gameVm.stageViewModel = StageViewModel(difficulty: selectedDifficulty, player: Player(hp: 99), mode: gameVm.mode)
+                          gameVm.isGameStarted = true
+                          gameVm.isTutorial = true
+                          gameVm.stageViewModel.startPlayerTurn()
+                          AudioManager.shared.playSFX("sfxButton")
+                          AudioManager.shared.changeBackgroundMusic(to: "stage")
+                          withAnimation(.easeInOut(duration: 1.0)) {
+                              blackoutOpacity = 0.0
+                          }
+                      }
+                      .font(.custom("Kreon", size: 22))
                         
-                        Button("Statistics") {
-                            gameVm.showStatistics = true
-                        }
                       }
 
                         HStack {
@@ -132,6 +143,10 @@ struct MainMenuView: View {
                              .frame(width: 300)
                      }
                     Spacer()
+                    Button("Statistics") {
+                        gameVm.showStatistics = true
+                    }
+                    .font(.kreonHeadline )
                  }
                  .padding()
                 }
@@ -149,6 +164,9 @@ struct MainMenuView: View {
             }
             .navigationDestination(isPresented: $gameVm.showStatistics) {
               StatisticsView(db: db)
+            }
+            .navigationDestination(isPresented: $gameVm.isTutorial) {
+              TutorialView(gameVm: gameVm, vm: gameVm.stageViewModel, db: db)
             }
             .navigationTransition(.fade(.in))
         }
