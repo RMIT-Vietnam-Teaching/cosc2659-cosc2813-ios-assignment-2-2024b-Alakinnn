@@ -18,7 +18,7 @@ import Observation
     var intendedAction: EnemyAction = .attack
     var enemyImages: [String]
     var attackBuff: Int = 0
-    var enemyState: EnemyState = .idle
+    var enemyState: EntityState = .idle
     var isGrayscale: Bool { return curHp <= 0 }
 
   init(name: String, hp: Int, debuffEffects: [Debuff] = [], isBoss: Bool = false, enemyImages: [String] ) {
@@ -85,7 +85,7 @@ import Observation
            let currentStateRawValue = dictionary["currentState"] as? String,
            let enemyImages = dictionary["enemyImages"] as? [String],
           let enemyStateRawValue = dictionary["enemyState"] as? String, 
-          let enemyState = EnemyState(rawValue: enemyStateRawValue)
+          let enemyState = EntityState(rawValue: enemyStateRawValue)
      else { return nil }
 
        let debuffEffects = debuffEffectsData.compactMap { Debuff.fromDictionary($0) }
@@ -105,7 +105,7 @@ enum EnemyAction: String {
     case none
 }
 
-enum EnemyState: String {
+enum EntityState: String {
     case idle = "idle"
     case takingDamage = "takingDamage"
     case dead = "dead"

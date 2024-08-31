@@ -305,8 +305,15 @@ struct PlayerNameInputView: View {
                 }) {
                     Text("Cancel")
                         .foregroundColor(.white)
+                        .font(.kreonHeadline)
                         .padding()
-                        .background(Color.red)
+                        .background(
+                          Image("bigBtnBackground")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 275, height: 200)
+                          
+                        )
                         .cornerRadius(8)
                 }
 
@@ -316,10 +323,17 @@ struct PlayerNameInputView: View {
                     }
                 }) {
                     Text("Confirm")
-                        .foregroundColor(.white)
-                        .padding()
-                        .background(Color.green)
-                        .cornerRadius(8)
+                      .foregroundColor(.white)
+                      .font(.kreonHeadline)
+                      .padding()
+                      .background(
+                        Image("bigBtnBackground")
+                          .resizable()
+                          .scaledToFit()
+                          .frame(width: 275, height: 200)
+                        
+                      )
+                      .cornerRadius(8)
                 }
             }
         }

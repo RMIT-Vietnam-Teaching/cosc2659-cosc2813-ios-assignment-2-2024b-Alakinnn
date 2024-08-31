@@ -7,6 +7,7 @@
 
 import SwiftUI
 import NavigationTransitions
+import SDWebImageSwiftUI
 
 // Define your tutorial steps
 enum TutorialStep {
@@ -34,13 +35,15 @@ struct TutorialView: View {
     @State private var showGameOverView: Bool = false
     @State private var isPaused: Bool = false
     @State private var showMenuSheet: Bool = false
+  @State var isAnimating: Bool = true
 
   var body: some View {
     ZStack {
              // Game content view
            VStack(spacing: 0) {
                  // Enemy Zone
-                 GeometryReader { geometry in
+             VStack(spacing: 0) {
+               GeometryReader { geometry in
                      let offsetValue = geometry.size.width * 0.02
                      let enemyWidth = geometry.size.width * 0.3
                      let enemyHeight = geometry.size.height * 0.35
@@ -51,13 +54,16 @@ struct TutorialView: View {
                          ZStack {
                                // Debuff Effects and HP Bar
                                VStack(spacing: 16) {
-                                   Image(systemName: "person.fill")
-                                       .resizable()
-                                       .aspectRatio(contentMode: .fit)
-                                       .frame(width: enemyWidth, height: enemyHeight)
-                                       .offset(y: offsetValue)
-                                       .addSpotlight(1, shape: .rectangle, text: "Taps on enemy to use card")
-                                       
+                                 // Using if let
+                                 if let imageName =  vm.enemies.first?.enemyState == .takingDamage ?  vm.enemies.first?.enemyImages[1] :  vm.enemies.first?.enemyImages[0] {
+                                     AnimatedImage(name: imageName, isAnimating: $isAnimating)
+                                         .resizable()
+                                         .aspectRatio(contentMode: .fit)
+                                         .frame(width: 150, height: 150)
+                                         .offset(y: offsetValue)
+                                         .addSpotlight(1, shape: .rectangle, text: "Taps on enemy to use card")
+                                 }
+
 
                                    Image(systemName: vm.enemies.first?.intendedAction == .attack ? "flame.fill" :
                                           vm.enemies.first?.intendedAction == .buff ? "arrow.up.circle.fill" :
@@ -116,99 +122,104 @@ struct TutorialView: View {
                        }
                      }
                      .frame(width: geometry.size.width, height: geometry.size.height)
-                     .background(Color.blue)
                      .shadow(color: .black.opacity(0.2), radius: 10, x: 0, y: 5)
                      
                  }
-                 .frame(height: UIScreen.main.bounds.height * 0.4)
+               .frame(height: UIScreen.main.bounds.height * 0.4)
+               
+               // Player Zone
+           GeometryReader { geometry in
+               let zoneWidth = geometry.size.width
+               let zoneHeight = geometry.size.height
 
-                 // Player Zone
-             GeometryReader { geometry in
-                 let zoneWidth = geometry.size.width
-                 let zoneHeight = geometry.size.height
+               ZStack {
+                   // Background
 
-                 ZStack {
-                     // Background
-                     Color.green.opacity(0.7)
-                         .frame(width: zoneWidth, height: zoneHeight)
+                   HStack {
+                     Spacer()
+                       VStack(spacing: 10) {
+                           HStack(spacing: 8) {
+                               Image(systemName: "shield.fill")
+                                   .resizable()
+                                   .frame(width: 20, height: 20)
+                                   .foregroundColor(.yellow)
+                               
+                             Text("\(vm.player.tempHP)")
+                               .font(.kreonBody)
+                                   .foregroundColor(.white)
+                           }
+                           .padding(.top, 10)
+                           .addSpotlight(6, shape: .rectangle, text: "This is the shield you've gained.")
 
-                     HStack {
-                       Spacer()
-                         VStack(spacing: 10) {
-                             HStack(spacing: 8) {
-                                 Image(systemName: "shield.fill")
-                                     .resizable()
-                                     .frame(width: 20, height: 20)
-                                     .foregroundColor(.yellow)
-                                 
-                               Text("\(vm.player.tempHP)")
-                                 .font(.kreonBody)
-                                     .foregroundColor(.white)
-                             }
-                             .padding(.top, 10)
-                             .addSpotlight(6, shape: .rectangle, text: "This is the shield you've gained.")
+                           ZStack {
+                             AnimatedImage(name: vm.player.playerState == .idle ? "Player-Idle.gif" : "Player-Damage.gif", isAnimating: $isAnimating)
+                                   .resizable()
+                                   .aspectRatio(contentMode: .fit)
+                                   .frame(width: zoneWidth * 0.25, height: zoneHeight * 0.4)
+                                   .addSpotlight(5, shape: .rectangle, text: "The is you. The player.")
 
-                             ZStack {
-                                 Image(systemName: "person.fill")
-                                     .resizable()
-                                     .aspectRatio(contentMode: .fit)
-                                     .frame(width: zoneWidth * 0.2, height: zoneHeight * 0.4)
-                                     .foregroundColor(.blue)
-                                     .addSpotlight(5, shape: .rectangle, text: "The is you. The player.")
+                               Rectangle()
+                                   .fill(Color.black.opacity(0.001))
+                                   .frame(width: zoneWidth * 0.2, height: zoneHeight * 0.4)
+                                   .onTapGesture {
+                                       if let card = vm.selectedCard {
+                                           switch card.cardType {
+                                           case .defense:
+                                               vm.applyDefenseEffect(value: card.currentValue)
+                                               vm.moveCardToDiscardedDeck(card)
+                                               vm.selectedCard = nil
+                                               
+                                           case .drawCards:
+                                               vm.applyDrawEffect(value: card.baseValue)
+                                               vm.moveCardToDiscardedDeck(card)
+                                               vm.selectedCard = nil
+                                               
+                                           default:
+                                               print("Card type \(card.cardType) is not applicable to the player directly.")
+                                           }
+                                       }
+                                   }
+                           }
 
-                                 Rectangle()
-                                     .fill(Color.black.opacity(0.001))
-                                     .frame(width: zoneWidth * 0.2, height: zoneHeight * 0.4)
-                                     .onTapGesture {
-                                         if let card = vm.selectedCard {
-                                             switch card.cardType {
-                                             case .defense:
-                                                 vm.applyDefenseEffect(value: card.currentValue)
-                                                 vm.moveCardToDiscardedDeck(card)
-                                                 vm.selectedCard = nil
-                                                 
-                                             case .drawCards:
-                                                 vm.applyDrawEffect(value: card.baseValue)
-                                                 vm.moveCardToDiscardedDeck(card)
-                                                 vm.selectedCard = nil
-                                                 
-                                             default:
-                                                 print("Card type \(card.cardType) is not applicable to the player directly.")
-                                             }
-                                         }
-                                     }
-                             }
-
-                           Text("\(vm.player.curHP)/\(vm.player.maxHP)")
-                             .font(.kreonBody)
-                                 .foregroundColor(.white)
-                                 .padding(4)
-                                 .background(Color.green)
-                                 .cornerRadius(4)
-                                 .addSpotlight(7, shape: .rectangle, text: "This is your HP bar, runs out and you're dead.")
-                         }
-                         .padding(.leading, 32)
-                         
+                         Text("\(vm.player.curHP)/\(vm.player.maxHP)")
+                           .font(.kreonBody)
+                               .foregroundColor(.white)
+                               .padding(4)
+                               .background(Color.green)
+                               .cornerRadius(4)
+                               .addSpotlight(7, shape: .rectangle, text: "This is your HP bar, runs out and you're dead.")
+                       }
+                       .padding(.leading, 32)
                        
-                         Button(action: {
-                           vm.endPlayerTurn()
-                         }) {
-                             Text("End Turn")
-                             .font(.kreonBody)
-                                 .padding()
-                                 .background(Color.red)
-                                 .foregroundColor(.white)
-                                 .cornerRadius(8)
-                                 .addSpotlight(8, shape: .rectangle, text: "Click here to end your turn.")
-                         }
-                       Spacer()
-                     }
-                     .padding(.horizontal, 16)
-                 }
-                 .frame(width: zoneWidth, height: zoneHeight)
-             }
+                     
+                       Button(action: {
+                         vm.endPlayerTurn()
+                       }) {
+                           Text("End Turn")
+                           .font(.kreonBody)
+                               .padding()
+                               .background(Color.red)
+                               .foregroundColor(.white)
+                               .cornerRadius(8)
+                               .addSpotlight(8, shape: .rectangle, text: "Click here to end your turn.")
+                       }
+                     Spacer()
+                   }
+                   .padding(.horizontal, 16)
+               }
+               .frame(width: zoneWidth, height: zoneHeight)
+           }
+           .frame(height: UIScreen.main.bounds.height * 0.2)
+             }.background(
+              Image("stageBackground")
+                .resizable()
+                .scaledToFill()
+                .blur(radius: 5)
+                .frame(height: UIScreen.main.bounds.height * 0.7))
+              
                  
-                 .frame(height: UIScreen.main.bounds.height * 0.2)
+                 
+                
 
                  // Player Hand
              GeometryReader { geometry in

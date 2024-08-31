@@ -14,7 +14,7 @@ import Observation
   var tempHP: Int = 0
   var attackBuff: Int = 0
   var shieldBuff: Int = 0
-
+  var playerState: EntityState = .idle
   init(hp: Int) {
       self.maxHP = hp
       self.curHP = hp

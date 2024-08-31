@@ -13,43 +13,43 @@ let enemiesByStage: [Int: [Enemy]] = [
     ],
     2: [
         Enemy(name: "Enemy 1", hp: 16, enemyImages: ["Mushroom-Idle.gif", "Mushroom-Damage.gif"]),
-        Enemy(name: "Enemy 2", hp: 22, enemyImages: ["Mushroom-Idle.gif", "Mushroom-Damage.gif"])
+        Enemy(name: "Enemy 2", hp: 22, enemyImages: ["Bat-Idle.gif", "Bat-Damage.gif"])
     ],
     3: [
-        Enemy(name: "Enemy 1", hp: 30, enemyImages: ["Mushroom-Idle.gif", "Mushroom-Damage.gif"]),
-        Enemy(name: "Enemy 2", hp: 25, enemyImages: ["Mushroom-Idle.gif", "Mushroom-Damage.gif"])
+        Enemy(name: "Enemy 1", hp: 30, enemyImages: ["Bat-Idle.gif", "Bat-Damage.gif"]),
+        Enemy(name: "Enemy 2", hp: 25, enemyImages: ["Bat-Idle.gif", "Bat-Damage.gif"])
     ],
     4: [
         Enemy(name: "Enemy 1", hp: 39, enemyImages: ["Mushroom-Idle.gif", "Mushroom-Damage.gif"]),
-        Enemy(name: "Enemy 2", hp: 31, enemyImages: ["Mushroom-Idle.gif", "Mushroom-Damage.gif"]),
+        Enemy(name: "Enemy 2", hp: 31, enemyImages: ["Skeleton-Idle.gif", "Skeleton-Damage.gif"]),
         Enemy(name: "Enemy 3", hp: 34, enemyImages: ["Mushroom-Idle.gif", "Mushroom-Damage.gif"])
     ],
     5: [
-        Enemy(name: "Enemy 1", hp: 45, enemyImages: ["Mushroom-Idle.gif", "Mushroom-Damage.gif"]),
-        Enemy(name: "Enemy 2", hp: 43, enemyImages: ["Mushroom-Idle.gif", "Mushroom-Damage.gif"])
+        Enemy(name: "Enemy 1", hp: 45, enemyImages: ["Skeleton-Idle.gif", "Skeleton-Damage.gif"]),
+        Enemy(name: "Enemy 2", hp: 43, enemyImages: ["Bat-Idle.gif", "Bat-Damage.gif"])
     ],
     6: [
-        Enemy(name: "Enemy 1", hp: 89, enemyImages: ["Mushroom-Idle.gif", "Mushroom-Damage.gif"]),
+        Enemy(name: "Enemy 1", hp: 89, enemyImages: ["Skeleton-Idle.gif", "Skeleton-Damage.gif"]),
     ],
     7: [
-        Enemy(name: "Enemy 1", hp: 64, enemyImages: ["Mushroom-Idle.gif", "Mushroom-Damage.gif"]),
+        Enemy(name: "Enemy 1", hp: 64, enemyImages: ["Bat-Idle.gif", "Bat-Damage.gif"]),
         Enemy(name: "Enemy 2", hp: 71, enemyImages: ["Mushroom-Idle.gif", "Mushroom-Damage.gif"]),
     ],
     8: [
         Enemy(name: "Enemy 1", hp: 112, enemyImages: ["Mushroom-Idle.gif", "Mushroom-Damage.gif"]),
     ],
     9: [
-        Enemy(name: "Enemy 1", hp: 90, enemyImages: ["Mushroom-Idle.gif", "Mushroom-Damage.gif"]),
+        Enemy(name: "Enemy 1", hp: 90, enemyImages: ["Bat-Idle.gif", "Bat-Damage.gif"]),
         Enemy(name: "Enemy 2", hp: 92, enemyImages: ["Mushroom-Idl.gife", "Mushroom-Damage.gif"]),
     ],
     10: [
-        Enemy(name: "Enemy 1", hp: 99, enemyImages: ["Mushroom-Idle.gif", "Mushroom-Damage.gif"]),
+        Enemy(name: "Enemy 1", hp: 99, enemyImages: ["Skeleton-Idle.gif", "Skeleton-Damage.gif"]),
         Enemy(name: "Enemy 2", hp: 101, enemyImages: ["Mushroom-Idle.gif", "Mushroom-Damage.gif"]),
-        Enemy(name: "Enemy 3", hp: 93, enemyImages: ["Mushroom-Idle.gif", "Mushroom-Damage.gif"])
+        Enemy(name: "Enemy 3", hp: 93, enemyImages: ["Skeleton-Idle.gif", "Skeleton-Damage.gif"])
     ],
     11: [
         Enemy(name: "Enemy 1", hp: 40, enemyImages: ["Mushroom-Idle.gif", "Mushroom-Damage.gif"]),
-        Enemy(name: "Boss", hp: 300, isBoss: true, enemyImages: ["Mushroom-Idle.gif", "Mushroom-Damage.gif"]),
+        Enemy(name: "Boss", hp: 300, isBoss: true, enemyImages: ["Boss-Idle.gif", "Boss-Damage.gif"]),
         Enemy(name: "Enemy 3", hp: 40, enemyImages: ["Mushroom-Idle.gif", "Mushroom-Damage.gif"])
     ]
 ]

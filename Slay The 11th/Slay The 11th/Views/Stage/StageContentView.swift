@@ -23,6 +23,7 @@ struct StageContentView: View {
           Image("stageBackground")
             .resizable()
             .scaledToFill()
+            .blur(radius: 5)
             .frame(height: UIScreen.main.bounds.height * 0.7))
             
             PlayerHandView(vm: vm)

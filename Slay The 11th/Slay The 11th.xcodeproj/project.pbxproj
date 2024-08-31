@@ -39,6 +39,14 @@
 		64786C132C83117B005F97BE /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 64786C122C83117B005F97BE /* SDWebImageSwiftUI */; };
 		64786C172C831AA4005F97BE /* Mushroom-Idle.gif in Resources */ = {isa = PBXBuildFile; fileRef = 64786C162C831AA4005F97BE /* Mushroom-Idle.gif */; };
 		64786C192C8321F1005F97BE /* Mushroom-Damage.gif in Resources */ = {isa = PBXBuildFile; fileRef = 64786C182C8321F1005F97BE /* Mushroom-Damage.gif */; };
+		64786C1C2C832DEB005F97BE /* Bat-Idle.gif in Resources */ = {isa = PBXBuildFile; fileRef = 64786C1B2C832DEB005F97BE /* Bat-Idle.gif */; };
+		64786C1E2C832E02005F97BE /* Bat-Damage.gif in Resources */ = {isa = PBXBuildFile; fileRef = 64786C1D2C832E02005F97BE /* Bat-Damage.gif */; };
+		64786C202C832E12005F97BE /* Player-Idle.gif in Resources */ = {isa = PBXBuildFile; fileRef = 64786C1F2C832E12005F97BE /* Player-Idle.gif */; };
+		64786C222C832E24005F97BE /* Player-Damage.gif in Resources */ = {isa = PBXBuildFile; fileRef = 64786C212C832E24005F97BE /* Player-Damage.gif */; };
+		64786C262C83321C005F97BE /* Boss-Idle.gif in Resources */ = {isa = PBXBuildFile; fileRef = 64786C252C83321C005F97BE /* Boss-Idle.gif */; };
+		64786C282C8332B3005F97BE /* Boss-Damage.gif in Resources */ = {isa = PBXBuildFile; fileRef = 64786C272C8332B3005F97BE /* Boss-Damage.gif */; };
+		64786C2A2C83337B005F97BE /* Skeleton-Idle.gif in Resources */ = {isa = PBXBuildFile; fileRef = 64786C292C83337B005F97BE /* Skeleton-Idle.gif */; };
+		64786C2C2C83337F005F97BE /* Skeleton-Damage.gif in Resources */ = {isa = PBXBuildFile; fileRef = 64786C2B2C83337F005F97BE /* Skeleton-Damage.gif */; };
 		64B71A172C74D4C1009F3987 /* Reward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B71A162C74D4C1009F3987 /* Reward.swift */; };
 		64B71A1B2C74D670009F3987 /* RewardBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B71A1A2C74D670009F3987 /* RewardBoxView.swift */; };
 		64B71A1D2C74E428009F3987 /* RewardSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B71A1C2C74E428009F3987 /* RewardSelectionView.swift */; };
@@ -97,6 +105,14 @@
 		6476CAAE2C666B01001C664A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		64786C162C831AA4005F97BE /* Mushroom-Idle.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Mushroom-Idle.gif"; sourceTree = "<group>"; };
 		64786C182C8321F1005F97BE /* Mushroom-Damage.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Mushroom-Damage.gif"; sourceTree = "<group>"; };
+		64786C1B2C832DEB005F97BE /* Bat-Idle.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Bat-Idle.gif"; sourceTree = "<group>"; };
+		64786C1D2C832E02005F97BE /* Bat-Damage.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Bat-Damage.gif"; sourceTree = "<group>"; };
+		64786C1F2C832E12005F97BE /* Player-Idle.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Player-Idle.gif"; sourceTree = "<group>"; };
+		64786C212C832E24005F97BE /* Player-Damage.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Player-Damage.gif"; sourceTree = "<group>"; };
+		64786C252C83321C005F97BE /* Boss-Idle.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Boss-Idle.gif"; sourceTree = "<group>"; };
+		64786C272C8332B3005F97BE /* Boss-Damage.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Boss-Damage.gif"; sourceTree = "<group>"; };
+		64786C292C83337B005F97BE /* Skeleton-Idle.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Skeleton-Idle.gif"; sourceTree = "<group>"; };
+		64786C2B2C83337F005F97BE /* Skeleton-Damage.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Skeleton-Damage.gif"; sourceTree = "<group>"; };
 		64B71A162C74D4C1009F3987 /* Reward.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reward.swift; sourceTree = "<group>"; };
 		64B71A1A2C74D670009F3987 /* RewardBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardBoxView.swift; sourceTree = "<group>"; };
 		64B71A1C2C74E428009F3987 /* RewardSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardSelectionView.swift; sourceTree = "<group>"; };
@@ -268,8 +284,7 @@
 		6476CAA62C666AFE001C664A /* Slay The 11th */ = {
 			isa = PBXGroup;
 			children = (
-				64786C162C831AA4005F97BE /* Mushroom-Idle.gif */,
-				64786C182C8321F1005F97BE /* Mushroom-Damage.gif */,
+				64786C1A2C832DCF005F97BE /* gifs */,
 				64CC61362C81FAF300F88EFE /* Utils */,
 				647653052C7A45DA00148222 /* Resources */,
 				6456BB5D2C690FB900AE46FD /* Slay-The-11th-Info.plist */,
@@ -294,6 +309,23 @@
 				6476CAAE2C666B01001C664A /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		64786C1A2C832DCF005F97BE /* gifs */ = {
+			isa = PBXGroup;
+			children = (
+				64786C162C831AA4005F97BE /* Mushroom-Idle.gif */,
+				64786C182C8321F1005F97BE /* Mushroom-Damage.gif */,
+				64786C1B2C832DEB005F97BE /* Bat-Idle.gif */,
+				64786C1D2C832E02005F97BE /* Bat-Damage.gif */,
+				64786C1F2C832E12005F97BE /* Player-Idle.gif */,
+				64786C212C832E24005F97BE /* Player-Damage.gif */,
+				64786C252C83321C005F97BE /* Boss-Idle.gif */,
+				64786C272C8332B3005F97BE /* Boss-Damage.gif */,
+				64786C292C83337B005F97BE /* Skeleton-Idle.gif */,
+				64786C2B2C83337F005F97BE /* Skeleton-Damage.gif */,
+			);
+			path = gifs;
 			sourceTree = "<group>";
 		};
 		64832AE82C676FF200895A90 /* ViewModel */ = {
@@ -436,13 +468,21 @@
 			files = (
 				6476530D2C7A464300148222 /* stage.mp3 in Resources */,
 				6476CAAF2C666B01001C664A /* Preview Assets.xcassets in Resources */,
+				64786C1C2C832DEB005F97BE /* Bat-Idle.gif in Resources */,
 				647653042C7A247000148222 /* Kreon.ttf in Resources */,
+				64786C282C8332B3005F97BE /* Boss-Damage.gif in Resources */,
+				64786C222C832E24005F97BE /* Player-Damage.gif in Resources */,
 				647653102C7A4BB900148222 /* mainMenu.mp3 in Resources */,
 				6476CAAC2C666B01001C664A /* Assets.xcassets in Resources */,
 				647653122C7A4CD100148222 /* sfxButton.mp3 in Resources */,
 				640DF46B2C7F9756005B3342 /* GoogleService-Info.plist in Resources */,
+				64786C202C832E12005F97BE /* Player-Idle.gif in Resources */,
 				64786C172C831AA4005F97BE /* Mushroom-Idle.gif in Resources */,
 				64786C192C8321F1005F97BE /* Mushroom-Damage.gif in Resources */,
+				64786C2C2C83337F005F97BE /* Skeleton-Damage.gif in Resources */,
+				64786C2A2C83337B005F97BE /* Skeleton-Idle.gif in Resources */,
+				64786C1E2C832E02005F97BE /* Bat-Damage.gif in Resources */,
+				64786C262C83321C005F97BE /* Boss-Idle.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

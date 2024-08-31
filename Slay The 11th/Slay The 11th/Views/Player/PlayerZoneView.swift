@@ -6,10 +6,11 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct PlayerZoneView: View {
     var vm: StageViewModel
-
+  @State var isAnimating: Bool = true
     var body: some View {
         GeometryReader { geometry in
             let zoneWidth = geometry.size.width
@@ -33,11 +34,11 @@ struct PlayerZoneView: View {
                         .padding(.top, 10)
 
                         ZStack {
-                            Image(systemName: "person.fill")
+                          AnimatedImage(name: vm.player.playerState == .idle ? "Player-Idle.gif" : "Player-Damage.gif", isAnimating: $isAnimating)
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
-                                .frame(width: zoneWidth * 0.2, height: zoneHeight * 0.4)
-                                .foregroundColor(.blue)
+                                .frame(width: zoneWidth * 0.25, height: zoneHeight * 0.4)
+
 
                             Rectangle()
                                 .fill(Color.black.opacity(0.001))

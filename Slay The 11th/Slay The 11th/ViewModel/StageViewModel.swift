@@ -46,7 +46,7 @@ import Observation
     if mode == .regular {
       return EnemyFactory.createEnemies(for: difficulty, stage: currentStage)
     } else {
-      return [Enemy(name: "Dummy", hp: 14, debuffEffects: [Debuff(type: .poison, value: 1, duration: 1)], enemyImages: ["Mushroom-Idle", "Mushroom-Damage"])]
+      return [Enemy(name: "Dummy", hp: 14, debuffEffects: [Debuff(type: .poison, value: 1, duration: 1)], enemyImages: ["Mushroom-Idle.gif", "Mushroom-Damage.gif"])]
     }
   }
   
