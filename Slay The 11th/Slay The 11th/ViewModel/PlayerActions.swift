@@ -13,9 +13,17 @@ extension StageViewModel {
       for index in enemies.indices where enemies[index].curHp > 0 {
           if let poisonIndex = enemies[index].debuffEffects.firstIndex(where: { $0.type == .poison }) {
               let poison = enemies[index].debuffEffects[poisonIndex]
+            enemies[index].enemyState = .takingDamage
               enemies[index].curHp -= poison.value
               enemies[index].curHp = max(0, enemies[index].curHp)
               enemies[index].debuffEffects[poisonIndex].duration -= 1
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+              if self.enemies[index].curHp > 0 {
+                self.enemies[index].enemyState = .idle
+                      } else {
+                        self.enemies[index].enemyState = .dead
+                      }
+                  }
               print("Enemy \(enemies[index].name) takes \(poison.value) poison damage. Remaining HP: \(enemies[index].curHp)")
               if enemies[index].debuffEffects[poisonIndex].duration <= 0 {
                   enemies[index].debuffEffects.remove(at: poisonIndex)
@@ -81,8 +89,16 @@ extension StageViewModel {
 
       switch card.cardType {
       case .attack:
+          enemy.enemyState = .takingDamage
           enemy.curHp -= card.currentValue
           enemy.curHp = max(0, enemy.curHp) // Ensure HP does not drop below 0
+          DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    if enemy.curHp > 0 {
+                        enemy.enemyState = .idle
+                    } else {
+                      enemy.enemyState = .dead
+                    }
+                }
           print("Enemy \(enemy.name) takes \(card.currentValue) damage. Remaining HP: \(enemy.curHp)")
 
       case .poison:

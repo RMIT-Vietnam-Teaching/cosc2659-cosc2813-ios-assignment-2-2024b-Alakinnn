@@ -46,7 +46,7 @@ import Observation
     if mode == .regular {
       return EnemyFactory.createEnemies(for: difficulty, stage: currentStage)
     } else {
-      return [Enemy(name: "Dummy", hp: 14, debuffEffects: [Debuff(type: .poison, value: 1, duration: 1)])]
+      return [Enemy(name: "Dummy", hp: 14, debuffEffects: [Debuff(type: .poison, value: 1, duration: 1)], enemyImages: ["Mushroom-Idle", "Mushroom-Damage"])]
     }
   }
   
@@ -86,7 +86,7 @@ import Observation
   func endPlayerTurn() {
       isPlayerTurn = false
       discardPlayerHand()
-      applyPoisonEffects() // Apply poison effects to all enemies
+      applyPoisonEffects() 
       startEnemyTurn()
   }
 

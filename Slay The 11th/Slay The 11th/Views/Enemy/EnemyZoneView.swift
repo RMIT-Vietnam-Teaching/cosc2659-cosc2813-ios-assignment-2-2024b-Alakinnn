@@ -30,7 +30,6 @@ struct EnemyZoneView: View {
                 }
             }
             .frame(width: geometry.size.width, height: geometry.size.height)
-            .background(Color.blue)
             .shadow(color: .black.opacity(0.2), radius: 10, x: 0, y: 5)
         }
     }

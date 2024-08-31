@@ -9,48 +9,48 @@ import Foundation
 
 let enemiesByStage: [Int: [Enemy]] = [
     1: [
-        Enemy(name: "Enemy 1", hp: 11),
+        Enemy(name: "Enemy 1", hp: 11, enemyImages: ["Mushroom-Idle.gif", "Mushroom-Damage.gif"]),
     ],
     2: [
-        Enemy(name: "Enemy 1", hp: 16),
-        Enemy(name: "Enemy 2", hp: 22)    
+        Enemy(name: "Enemy 1", hp: 16, enemyImages: ["Mushroom-Idle.gif", "Mushroom-Damage.gif"]),
+        Enemy(name: "Enemy 2", hp: 22, enemyImages: ["Mushroom-Idle.gif", "Mushroom-Damage.gif"])
     ],
     3: [
-        Enemy(name: "Enemy 1", hp: 30),
-        Enemy(name: "Enemy 2", hp: 25)
+        Enemy(name: "Enemy 1", hp: 30, enemyImages: ["Mushroom-Idle.gif", "Mushroom-Damage.gif"]),
+        Enemy(name: "Enemy 2", hp: 25, enemyImages: ["Mushroom-Idle.gif", "Mushroom-Damage.gif"])
     ],
     4: [
-        Enemy(name: "Enemy 1", hp: 39),
-        Enemy(name: "Enemy 2", hp: 31),
-        Enemy(name: "Enemy 3", hp: 34)
+        Enemy(name: "Enemy 1", hp: 39, enemyImages: ["Mushroom-Idle.gif", "Mushroom-Damage.gif"]),
+        Enemy(name: "Enemy 2", hp: 31, enemyImages: ["Mushroom-Idle.gif", "Mushroom-Damage.gif"]),
+        Enemy(name: "Enemy 3", hp: 34, enemyImages: ["Mushroom-Idle.gif", "Mushroom-Damage.gif"])
     ],
     5: [
-        Enemy(name: "Enemy 1", hp: 45),
-        Enemy(name: "Enemy 2", hp: 43)
+        Enemy(name: "Enemy 1", hp: 45, enemyImages: ["Mushroom-Idle.gif", "Mushroom-Damage.gif"]),
+        Enemy(name: "Enemy 2", hp: 43, enemyImages: ["Mushroom-Idle.gif", "Mushroom-Damage.gif"])
     ],
     6: [
-        Enemy(name: "Enemy 1", hp: 89),
+        Enemy(name: "Enemy 1", hp: 89, enemyImages: ["Mushroom-Idle.gif", "Mushroom-Damage.gif"]),
     ],
     7: [
-        Enemy(name: "Enemy 1", hp: 64),
-        Enemy(name: "Enemy 2", hp: 71),
+        Enemy(name: "Enemy 1", hp: 64, enemyImages: ["Mushroom-Idle.gif", "Mushroom-Damage.gif"]),
+        Enemy(name: "Enemy 2", hp: 71, enemyImages: ["Mushroom-Idle.gif", "Mushroom-Damage.gif"]),
     ],
     8: [
-        Enemy(name: "Enemy 1", hp: 112),
+        Enemy(name: "Enemy 1", hp: 112, enemyImages: ["Mushroom-Idle.gif", "Mushroom-Damage.gif"]),
     ],
     9: [
-        Enemy(name: "Enemy 1", hp: 90),
-        Enemy(name: "Enemy 2", hp: 92),
+        Enemy(name: "Enemy 1", hp: 90, enemyImages: ["Mushroom-Idle.gif", "Mushroom-Damage.gif"]),
+        Enemy(name: "Enemy 2", hp: 92, enemyImages: ["Mushroom-Idl.gife", "Mushroom-Damage.gif"]),
     ],
     10: [
-        Enemy(name: "Enemy 1", hp: 99),
-        Enemy(name: "Enemy 2", hp: 101),
-        Enemy(name: "Enemy 3", hp: 93)
+        Enemy(name: "Enemy 1", hp: 99, enemyImages: ["Mushroom-Idle.gif", "Mushroom-Damage.gif"]),
+        Enemy(name: "Enemy 2", hp: 101, enemyImages: ["Mushroom-Idle.gif", "Mushroom-Damage.gif"]),
+        Enemy(name: "Enemy 3", hp: 93, enemyImages: ["Mushroom-Idle.gif", "Mushroom-Damage.gif"])
     ],
     11: [
-        Enemy(name: "Enemy 1", hp: 40),
-        Enemy(name: "Boss", hp: 300, isBoss: true),
-        Enemy(name: "Enemy 3", hp: 40)
+        Enemy(name: "Enemy 1", hp: 40, enemyImages: ["Mushroom-Idle.gif", "Mushroom-Damage.gif"]),
+        Enemy(name: "Boss", hp: 300, isBoss: true, enemyImages: ["Mushroom-Idle.gif", "Mushroom-Damage.gif"]),
+        Enemy(name: "Enemy 3", hp: 40, enemyImages: ["Mushroom-Idle.gif", "Mushroom-Damage.gif"])
     ]
 ]
 
@@ -83,7 +83,8 @@ class EnemyFactory {
                 name: enemy.name,
                 hp: Int(Double(enemy.maxHp) * hpMultiplier),
                 debuffEffects: newDebuffEffects, // Safe handling of debuff effects
-                isBoss: enemy.isBoss
+                isBoss: enemy.isBoss,
+                enemyImages: enemy.enemyImages
             )
         }
     }

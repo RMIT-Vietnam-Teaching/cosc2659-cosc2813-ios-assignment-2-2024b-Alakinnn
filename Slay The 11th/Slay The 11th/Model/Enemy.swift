@@ -15,15 +15,19 @@ import Observation
     let maxHp: Int
     var debuffEffects: [Debuff] = []
     var isBoss: Bool = false
-  var intendedAction: EnemyAction = .attack
+    var intendedAction: EnemyAction = .attack
+    var enemyImages: [String]
     var attackBuff: Int = 0
+    var enemyState: EnemyState = .idle
+    var isGrayscale: Bool { return curHp <= 0 }
 
-    init(name: String, hp: Int, debuffEffects: [Debuff] = [], isBoss: Bool = false) {
+  init(name: String, hp: Int, debuffEffects: [Debuff] = [], isBoss: Bool = false, enemyImages: [String] ) {
         self.name = name
         self.curHp = hp
         self.maxHp = hp
         self.debuffEffects = debuffEffects
         self.isBoss = isBoss
+      self.enemyImages = enemyImages
     }
     
     // Check if the enemy is silenced
@@ -60,7 +64,9 @@ import Observation
            "debuffEffects": debuffEffects.map { $0.toDictionary() },
            "isBoss": isBoss,
            "intendedAction": intendedAction.rawValue,
-           "attackBuff": attackBuff
+           "attackBuff": attackBuff,
+           "enemyImages": enemyImages,
+           "enemyState": enemyState.rawValue
        ]
    }
 
@@ -74,16 +80,20 @@ import Observation
            let isBoss = dictionary["isBoss"] as? Bool,
            let intendedActionRawValue = dictionary["intendedAction"] as? String,
            let intendedAction = EnemyAction(rawValue: intendedActionRawValue),
-           let attackBuff = dictionary["attackBuff"] as? Int
-       else { return nil }
+           let attackBuff = dictionary["attackBuff"] as? Int,
+           let enemyImages = dictionary["enemyImages"] as? [String: [String]],
+           let currentStateRawValue = dictionary["currentState"] as? String,
+           let enemyImages = dictionary["enemyImages"] as? [String],
+          let enemyStateRawValue = dictionary["enemyState"] as? String, 
+          let enemyState = EnemyState(rawValue: enemyStateRawValue)
+     else { return nil }
 
        let debuffEffects = debuffEffectsData.compactMap { Debuff.fromDictionary($0) }
 
-       let enemy = Enemy(name: name, hp: maxHp, debuffEffects: debuffEffects, isBoss: isBoss)
+       let enemy = Enemy(name: name, hp: maxHp, debuffEffects: debuffEffects, isBoss: isBoss, enemyImages: enemyImages)
        enemy.curHp = curHp
        enemy.intendedAction = intendedAction
        enemy.attackBuff = attackBuff
-
        return enemy
    }
 }
@@ -93,4 +103,10 @@ enum EnemyAction: String {
     case buff
     case cleanse
     case none
+}
+
+enum EnemyState: String {
+    case idle = "idle"
+    case takingDamage = "takingDamage"
+    case dead = "dead"
 }

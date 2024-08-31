@@ -36,6 +36,9 @@
 		6476CAA82C666AFE001C664A /* Slay_The_11thApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6476CAA72C666AFE001C664A /* Slay_The_11thApp.swift */; };
 		6476CAAC2C666B01001C664A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6476CAAB2C666B01001C664A /* Assets.xcassets */; };
 		6476CAAF2C666B01001C664A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6476CAAE2C666B01001C664A /* Preview Assets.xcassets */; };
+		64786C132C83117B005F97BE /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 64786C122C83117B005F97BE /* SDWebImageSwiftUI */; };
+		64786C172C831AA4005F97BE /* Mushroom-Idle.gif in Resources */ = {isa = PBXBuildFile; fileRef = 64786C162C831AA4005F97BE /* Mushroom-Idle.gif */; };
+		64786C192C8321F1005F97BE /* Mushroom-Damage.gif in Resources */ = {isa = PBXBuildFile; fileRef = 64786C182C8321F1005F97BE /* Mushroom-Damage.gif */; };
 		64B71A172C74D4C1009F3987 /* Reward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B71A162C74D4C1009F3987 /* Reward.swift */; };
 		64B71A1B2C74D670009F3987 /* RewardBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B71A1A2C74D670009F3987 /* RewardBoxView.swift */; };
 		64B71A1D2C74E428009F3987 /* RewardSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B71A1C2C74E428009F3987 /* RewardSelectionView.swift */; };
@@ -92,6 +95,8 @@
 		6476CAA72C666AFE001C664A /* Slay_The_11thApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slay_The_11thApp.swift; sourceTree = "<group>"; };
 		6476CAAB2C666B01001C664A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6476CAAE2C666B01001C664A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		64786C162C831AA4005F97BE /* Mushroom-Idle.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Mushroom-Idle.gif"; sourceTree = "<group>"; };
+		64786C182C8321F1005F97BE /* Mushroom-Damage.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Mushroom-Damage.gif"; sourceTree = "<group>"; };
 		64B71A162C74D4C1009F3987 /* Reward.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reward.swift; sourceTree = "<group>"; };
 		64B71A1A2C74D670009F3987 /* RewardBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardBoxView.swift; sourceTree = "<group>"; };
 		64B71A1C2C74E428009F3987 /* RewardSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardSelectionView.swift; sourceTree = "<group>"; };
@@ -123,6 +128,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64786C132C83117B005F97BE /* SDWebImageSwiftUI in Frameworks */,
 				6447CDE82C78660600F57F46 /* NavigationTransitions in Frameworks */,
 				640DF4672C7F7A7A005B3342 /* Pow in Frameworks */,
 			);
@@ -262,6 +268,8 @@
 		6476CAA62C666AFE001C664A /* Slay The 11th */ = {
 			isa = PBXGroup;
 			children = (
+				64786C162C831AA4005F97BE /* Mushroom-Idle.gif */,
+				64786C182C8321F1005F97BE /* Mushroom-Damage.gif */,
 				64CC61362C81FAF300F88EFE /* Utils */,
 				647653052C7A45DA00148222 /* Resources */,
 				6456BB5D2C690FB900AE46FD /* Slay-The-11th-Info.plist */,
@@ -377,6 +385,7 @@
 			packageProductDependencies = (
 				6447CDE72C78660600F57F46 /* NavigationTransitions */,
 				640DF4662C7F7A7A005B3342 /* Pow */,
+				64786C122C83117B005F97BE /* SDWebImageSwiftUI */,
 			);
 			productName = "Slay The 11th";
 			productReference = 6476CAA42C666AFE001C664A /* Slay The 11th.app */;
@@ -409,6 +418,7 @@
 			packageReferences = (
 				6447CDE62C78660600F57F46 /* XCRemoteSwiftPackageReference "swiftui-navigation-transitions" */,
 				640DF4652C7F7A7A005B3342 /* XCRemoteSwiftPackageReference "Pow" */,
+				64786C112C83117B005F97BE /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 			);
 			productRefGroup = 6476CAA52C666AFE001C664A /* Products */;
 			projectDirPath = "";
@@ -431,6 +441,8 @@
 				6476CAAC2C666B01001C664A /* Assets.xcassets in Resources */,
 				647653122C7A4CD100148222 /* sfxButton.mp3 in Resources */,
 				640DF46B2C7F9756005B3342 /* GoogleService-Info.plist in Resources */,
+				64786C172C831AA4005F97BE /* Mushroom-Idle.gif in Resources */,
+				64786C192C8321F1005F97BE /* Mushroom-Damage.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -708,6 +720,14 @@
 				minimumVersion = 0.13.4;
 			};
 		};
+		64786C112C83117B005F97BE /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -720,6 +740,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 6447CDE62C78660600F57F46 /* XCRemoteSwiftPackageReference "swiftui-navigation-transitions" */;
 			productName = NavigationTransitions;
+		};
+		64786C122C83117B005F97BE /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 64786C112C83117B005F97BE /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

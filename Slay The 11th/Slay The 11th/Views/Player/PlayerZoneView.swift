@@ -16,9 +16,6 @@ struct PlayerZoneView: View {
             let zoneHeight = geometry.size.height
 
             ZStack {
-                // Background
-                Color.green.opacity(0.7)
-                    .frame(width: zoneWidth, height: zoneHeight)
 
                 HStack {
                   Spacer()
