@@ -27,8 +27,8 @@ enum Difficulty: Int {
 }
 
 enum Mode: Int {
-  case tutorial
-  case regular
+  case tutorial = 0
+  case regular = 1
 }
 
 @Observable class GameViewModel {
@@ -63,7 +63,8 @@ enum Mode: Int {
         if UserDefaults.standard.bool(forKey: "isGameStarted") {
             self.isGameStarted = true
             self.difficulty = Difficulty(rawValue: UserDefaults.standard.integer(forKey: "difficulty")) ?? .medium
-            self.mode = Mode(rawValue: UserDefaults.standard.integer(forKey: "gameMode")) ?? .regular
+            let savedModeRawValue = UserDefaults.standard.integer(forKey: "gameMode")
+            self.mode = Mode(rawValue: savedModeRawValue) ?? .regular
 
             if let playerData = UserDefaults.standard.dictionary(forKey: "playerData"),
                let stageData = UserDefaults.standard.dictionary(forKey: "stageData") {

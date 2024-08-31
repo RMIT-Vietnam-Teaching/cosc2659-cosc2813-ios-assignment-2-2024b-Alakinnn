@@ -7,7 +7,7 @@
 
 import SwiftUI
 import NavigationTransitions
-
+import Pow
 struct MainMenuView: View {
     @State private var selectedDifficulty: Difficulty = .medium
     @State private var blackoutOpacity: Double = 0.0
@@ -22,6 +22,7 @@ struct MainMenuView: View {
     @State private var isSFXPopoverPresented = false
     @State private var musicVolume: Double = 0.5
     @State private var sfxVolume: Double = 0.5
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
 
     var body: some View {
         NavigationStack {
@@ -43,16 +44,34 @@ struct MainMenuView: View {
                                 }
                             }
                         }
-                        .font(.largeTitle)
+                        .font(.kreonTitle)
+                        .foregroundStyle(.white)
                         .padding()
+                        .background(
+                          Image("bigBtnBackground")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 275, height: 200)
+                          
+                        )
+                      
 
                         Button("Abandon Run") {
                             AudioManager.shared.playSFX("sfxButton")
                             gameVm.abandonRun()
                             gameVm.stageViewModel.updatePlayerScore(db: db)
                         }
-                        .font(.title2)
+                        .font(.kreonTitle2)
+                        .foregroundStyle(.white)
                         .padding()
+                        .background(
+                          Image("bigBtnBackground")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 250, height: 200)
+                          
+                        )
+                        .padding(.top, 24)
                     } else {
                       VStack {
                         Button("Start New Run") {
@@ -61,7 +80,15 @@ struct MainMenuView: View {
                               }
                         }
                         .font(.kreonTitle)
+                        .foregroundStyle(.white)
                         .padding()
+                        .background(
+                          Image("bigBtnBackground")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 275, height: 200)
+                          
+                        )
 
                         if showingPlayerNameInput {
                           PlayerNameInputView(playerName: $playerName, isPresented: $showingPlayerNameInput, gameVm: gameVm) {
@@ -83,7 +110,7 @@ struct MainMenuView: View {
                           .transition(.scale)
                       }
 
-                        Button("Start Tutorial") {
+                        Button(action: {
                           gameVm.mode = .tutorial
                           gameVm.stageViewModel = StageViewModel(difficulty: selectedDifficulty, player: Player(hp: 99), mode: gameVm.mode)
                           gameVm.isGameStarted = true
@@ -94,8 +121,17 @@ struct MainMenuView: View {
                           withAnimation(.easeInOut(duration: 1.0)) {
                               blackoutOpacity = 0.0
                           }
-                      }
-                        .font(.kreonCaption)
+                      }) {
+                        Text("Start Tutorial")
+                          .frame(width: 250, height: 100)
+                          .font(.kreonBody)
+                          .foregroundStyle(.white)
+                          .background(Image("bigBtnBackground") .resizable()
+                            .scaledToFit()
+                            .frame(width: 220, height: 100)
+                          )
+                          .padding(.top, 16)
+                        }
 
                       }
 
@@ -155,6 +191,13 @@ struct MainMenuView: View {
                         gameVm.showStatistics = true
                     }
                     .font(.kreonHeadline )
+                    .foregroundStyle(.white)
+                    .background(
+                    Image("bigBtnBackground")
+                      .resizable()
+                      .scaledToFit()
+                      .frame(width: 150, height: 50))
+                    .padding(.trailing, horizontalSizeClass == .compact ? 20 : 24)
                  }
                  .padding()
                 }
@@ -182,6 +225,7 @@ struct MainMenuView: View {
             
         }
         .navigationBarHidden(true)
+        .ignoresSafeArea(.keyboard, edges: .bottom)
         .onAppear {
             AudioManager.shared.playBackgroundMusic("mainMenu")
         }
@@ -210,24 +254,29 @@ struct DifficultyOptionButton: View {
     let title: String
     let difficulty: Difficulty
     @Binding var selectedDifficulty: Difficulty
+  @Environment(\.horizontalSizeClass) var horizontalSizeClass
+
 
     var body: some View {
         HStack {
-            Circle()
-                .fill(selectedDifficulty == difficulty ? Color.blue : Color.clear)
-                .frame(width: 12, height: 24)
-                .overlay(
-                    Circle().stroke(Color.blue, lineWidth: 2)
-                )
-
             Text(title)
             .font(.kreonSubheadline)
-            .foregroundColor(.black)
+            .foregroundColor(.white)
         }
         .padding()
         .onTapGesture {
             selectedDifficulty = difficulty
         }
+        .background(
+        Image("bigBtnBackground"))
+          .conditionalEffect(
+                       .repeat(
+                           .glow(color: .yellow, radius: 50),
+                           every: 1
+                       ),
+                       condition: selectedDifficulty == difficulty
+                   )
+          .padding(.horizontal, horizontalSizeClass == .compact ? 8 : 24)
     }
 }
 
@@ -240,14 +289,15 @@ struct PlayerNameInputView: View {
     var body: some View {
         VStack(spacing: 20) {
             Text("Enter Your Name")
-                .font(.custom("Kreon", size: 24))
-                .foregroundColor(.black)
+                .font(.kreonTitle)
+                .foregroundColor(.white)
 
             TextField("Name", text: $playerName)
                 .padding()
                 .background(Color.white)
                 .cornerRadius(8)
-                .font(.custom("Kreon", size: 18))
+                .font(.kreonCaption)
+          
 
             HStack {
                 Button(action: {
@@ -262,7 +312,7 @@ struct PlayerNameInputView: View {
 
                 Button(action: {
                     if !playerName.isEmpty {
-                        onConfirm()  // Trigger confirm action
+                        onConfirm()
                     }
                 }) {
                     Text("Confirm")
@@ -274,14 +324,11 @@ struct PlayerNameInputView: View {
             }
         }
         .padding()
-        .background(
-            Image("wooden_background")  // Use your wooden texture image here
-                .resizable()
-                .scaledToFill()
-        )
+        .frame(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
         .cornerRadius(12)
         .padding()
         .shadow(radius: 20)
+        .ignoresSafeArea(.keyboard, edges: .bottom)
     }
 }
 
