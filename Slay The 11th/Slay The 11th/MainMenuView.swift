@@ -31,7 +31,7 @@ struct MainMenuView: View {
                     Spacer()
                     if gameVm.hasSavedRun {
                         Button("Continue Run") {
-                            AudioManager.shared.queueSFX("sfxButton")
+                            AudioManager.shared.playImmediateSFX("sfxButton")
                             withAnimation(.easeInOut(duration: 1.0)) {
                                 blackoutOpacity = 1.0
                             }
@@ -57,7 +57,7 @@ struct MainMenuView: View {
                       
 
                         Button("Abandon Run") {
-                            AudioManager.shared.queueSFX("sfxButton")
+                            AudioManager.shared.playImmediateSFX("sfxButton")
                             gameVm.abandonRun()
                             gameVm.stageViewModel.updatePlayerScore(db: db)
                         }
@@ -100,7 +100,7 @@ struct MainMenuView: View {
                                   gameVm.stageViewModel.startPlayerTurn()
                                   gameVm.isGameStarted = true
                                 gameVm.checkAndUnlockAchievements(db: db, action: .startFirstRun)
-                                  AudioManager.shared.queueSFX("sfxButton")
+                                  AudioManager.shared.playImmediateSFX("sfxButton")
                                   AudioManager.shared.changeBackgroundMusic(to: "stage")
                                   withAnimation(.easeInOut(duration: 1.0)) {
                                       blackoutOpacity = 0.0
@@ -116,7 +116,7 @@ struct MainMenuView: View {
                           gameVm.isGameStarted = true
                           gameVm.isTutorial = true
                           gameVm.stageViewModel.startPlayerTurn()
-                          AudioManager.shared.queueSFX("sfxButton")
+                          AudioManager.shared.playImmediateSFX("sfxButton")
                           AudioManager.shared.changeBackgroundMusic(to: "stage")
                           withAnimation(.easeInOut(duration: 1.0)) {
                               blackoutOpacity = 0.0
@@ -148,7 +148,7 @@ struct MainMenuView: View {
                     // New Buttons for Popovers
                   HStack(spacing: 20) {
                      Button(action: {
-                       AudioManager.shared.queueSFX("sfxButton")
+                       AudioManager.shared.playImmediateSFX("sfxButton")
                          isMusicPopoverPresented.toggle()
                      }) {
                          Image(systemName: "speaker.2.fill")
@@ -169,7 +169,7 @@ struct MainMenuView: View {
 
                     
                      Button(action: {
-                       AudioManager.shared.queueSFX("sfxButton")
+                       AudioManager.shared.playImmediateSFX("sfxButton")
                          isSFXPopoverPresented.toggle()
                      }) {
                          Image(systemName: "music.note")
@@ -190,7 +190,7 @@ struct MainMenuView: View {
 
                     Spacer()
                     Button("Statistics") {
-                      AudioManager.shared.queueSFX("sfxButton")
+                      AudioManager.shared.playImmediateSFX("sfxButton")
                         gameVm.showStatistics = true
                     }
                     .font(.kreonHeadline )
@@ -269,7 +269,7 @@ struct DifficultyOptionButton: View {
         .padding()
         .onTapGesture {
             selectedDifficulty = difficulty
-            AudioManager.shared.queueSFX("sfxButton")
+            AudioManager.shared.playImmediateSFX("sfxButton")
         }
         .background(
         Image("bigBtnBackground"))
@@ -306,7 +306,7 @@ struct PlayerNameInputView: View {
             HStack {
                 Button(action: {
                     isPresented = false
-                    AudioManager.shared.queueSFX("sfxButton")
+                    AudioManager.shared.playImmediateSFX("sfxButton")
                 }) {
                     Text("Cancel")
                         .foregroundColor(.white)
@@ -326,7 +326,7 @@ struct PlayerNameInputView: View {
                     if !playerName.isEmpty {
                         onConfirm()
                     }
-                  AudioManager.shared.queueSFX("sfxButton")
+                  AudioManager.shared.playImmediateSFX("sfxButton")
                 }) {
                     Text("Confirm")
                       .foregroundColor(.white)
