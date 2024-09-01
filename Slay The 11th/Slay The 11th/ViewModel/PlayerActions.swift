@@ -46,7 +46,7 @@ extension StageViewModel {
           applyDefenseEffect(value: card.currentValue)
       case .drawCards:
           applyDrawEffect(value: card.currentValue)
-      case .heal: // New case for healing
+      case .heal:
           applyHealEffect(value: card.currentValue)
       default:
           if let enemyIndex = index, enemies[enemyIndex].curHp > 0 { // Ensure enemy is alive

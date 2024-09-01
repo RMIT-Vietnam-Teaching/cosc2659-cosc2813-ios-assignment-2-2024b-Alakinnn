@@ -10,7 +10,7 @@ import SwiftUI
 import UniformTypeIdentifiers
 import Observation
 
-@Observable class Card: Identifiable{
+@Observable class Card: Identifiable, Equatable{
   let id: UUID
   let name: String
   let description: String
@@ -27,6 +27,17 @@ import Observation
     self.baseValue = value
     self.currentValue = value
     self.imageName = imageName
+  }
+  
+  // Equatable protocol conformance
+  static func ==(lhs: Card, rhs: Card) -> Bool {
+      return lhs.id == rhs.id &&
+             lhs.name == rhs.name &&
+             lhs.description == rhs.description &&
+             lhs.cardType == rhs.cardType &&
+             lhs.baseValue == rhs.baseValue &&
+             lhs.imageName == rhs.imageName &&
+             lhs.currentValue == rhs.currentValue
   }
   
   // Convert Card to dictionary
