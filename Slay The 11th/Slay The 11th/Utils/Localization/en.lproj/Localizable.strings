@@ -1,0 +1,49 @@
+/* 
+  Localizable.strings
+  Slay The 11th
+
+  Created by Duong Tran Minh Hoang on 02/09/2024.
+  
+*/
+"step0" = "This is your deck, you can select your card from here";
+"step1" = "Taps on enemy to use card";
+"step2" = "This shows their intentions";
+"step3" = "This is their HP bar";
+"step4" = "The icon above is their debuff";
+"step5" = "This is you. The player.";
+"step6" = "This is the shield you've gained.";
+"step7" = "This is your HP bar, runs out and you're dead.";
+"step8" = "Click here to end your turn.";
+
+
+// Card Info
+"card_attack_name" = "Attack";
+"card_attack_description" = "Slash the enemy";
+"card_defense_name" = "Defense";
+"card_defense_description" = "Shield yourself";
+"card_poison_name" = "Poison";
+"card_poison_description" = "Poison the enemy";
+"card_silence_name" = "Silence";
+"card_silence_description" = "Silence the enemy";
+"card_draw_name" = "Draw Cards";
+"card_draw_description" = "Draw more cards";
+
+// Statistics
+"leaderboard" = "Leaderboard";
+"achievements" = "Achievements";
+"analytics" = "Analytics";
+"no_players" = "No players to display";
+"unknown" = "???";
+"gameplay_statistics" = "Gameplay Statistics";
+"player_finished_stage" = "%@ finished at stage %d";
+"chart_label_value" = "%@: %.2f";
+"runs_played" = "Runs Played";
+"win_rate" = "Win Rate (%)";
+
+// Reward
+"choose_your_reward" = "Choose Your Reward";
+
+// Common
+"confirm" = "Confirm";
+
+

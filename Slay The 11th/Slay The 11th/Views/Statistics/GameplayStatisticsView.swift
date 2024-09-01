@@ -17,7 +17,7 @@ struct GameplayStatisticsView: View {
 
     var body: some View {
         VStack {
-            Text("Gameplay Statistics")
+            Text(NSLocalizedString("gameplay_statistics", comment: "Gameplay Statistics title"))
                 .font(.kreonTitle)
                 .padding()
             
@@ -25,8 +25,8 @@ struct GameplayStatisticsView: View {
             LineChartView(playerScores: playerScores, selectedDataPoint: $selectedDataPoint)
             
             ZStack {
-                Text("Player \(selectedDataPoint?.name ?? "") finished at stage \(selectedDataPoint?.stagesFinished ?? 0)")
-                  .font(.kreonHeadline)
+                Text(String(format: NSLocalizedString("player_finished_stage", comment: "Player finished at stage message"), selectedDataPoint?.name ?? "", selectedDataPoint?.stagesFinished ?? 0))
+                    .font(.kreonHeadline)
                     .padding()
                     .foregroundColor(.black)
                     .opacity(selectedDataPoint == nil ? 0 : 1)
@@ -42,7 +42,7 @@ struct GameplayStatisticsView: View {
             BarChartView(barChartData: barData, selectedData: $selectedBarData)
             
             ZStack {
-                Text("\(selectedBarData?.label ?? ""): \(selectedBarData?.value ?? 0, specifier: selectedBarData?.label == "Runs Played" ? "%.0f" : "%.2f")")
+                Text(String(format: NSLocalizedString("chart_label_value", comment: "Chart label with value"), selectedBarData?.label ?? "", selectedBarData?.value ?? 0, selectedBarData?.label == NSLocalizedString("runs_played", comment: "Runs Played label") ? "%.0f" : "%.2f"))
                     .font(.kreonHeadline)
                     .padding()
                     .opacity(selectedBarData == nil ? 0 : 1)
@@ -76,8 +76,8 @@ struct GameplayStatisticsView: View {
         let winRate = calculateWinRate(playerScores: playerScores)
         
         return [
-            BarChartData(label: "Runs Played", value: totalRuns, color: .green),
-            BarChartData(label: "Win Rate (%)", value: winRate, color: .blue)
+            BarChartData(label: NSLocalizedString("runs_played", comment: "Runs Played label"), value: totalRuns, color: .green),
+            BarChartData(label: NSLocalizedString("win_rate", comment: "Win Rate (%) label"), value: winRate, color: .blue)
         ]
     }
 }

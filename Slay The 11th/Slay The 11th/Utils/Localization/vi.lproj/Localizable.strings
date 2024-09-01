@@ -1,0 +1,48 @@
+/* 
+  Localizable.strings
+  Slay The 11th
+
+  Created by Duong Tran Minh Hoang on 02/09/2024.
+  
+*/
+
+// Tutorial
+"step0" = "Đây là bộ bài của bạn, chọn thẻ để sử dụng";
+"step1" = "Chạm vào kẻ địch để dùng thẻ";
+"step2" = "Đây là ý định của chúng";
+"step3" = "Đây là thanh HP của chúng";
+"step4" = "Biểu tượng trên là hiệu ứng xấu của chúng";
+"step5" = "Đây là bạn, người chơi.";
+"step6" = "Đây là khiên bạn đã nhận được.";
+"step7" = "Đây là thanh HP của bạn, hết là thua.";
+"step8" = "Nhấn đây để kết thúc lượt.";
+
+// Card Info
+"card_attack_name" = "Tấn Công";
+"card_attack_description" = "Chém kẻ địch";
+"card_defense_name" = "Phòng Thủ";
+"card_defense_description" = "Tự che chắn";
+"card_poison_name" = "Độc";
+"card_poison_description" = "Đầu độc kẻ địch";
+"card_silence_name" = "Câm Lặng";
+"card_silence_description" = "Làm câm lặng kẻ địch";
+"card_draw_name" = "Rút Bài";
+"card_draw_description" = "Rút thêm bài";
+
+// Statistics
+"leaderboard" = "Bảng Xếp Hạng";
+"achievements" = "Thành Tựu";
+"analytics" = "Phân Tích";
+"no_players" = "Không có dữ liệu";
+"unknown" = "???";
+"gameplay_statistics" = "Thống Kê";
+"player_finished_stage" = "%@ hoàn thành tại cửa %d";
+"chart_label_value" = "%@: %.2f";
+"runs_played" = "Số Lần Chơi";
+"win_rate" = "Tỉ Lệ Thắng (%)";
+
+// Reward
+"choose_your_reward" = "Chọn Phần Thưởng";
+
+// Common
+"confirm" = "Xác Nhận";

@@ -61,7 +61,8 @@ struct TutorialView: View {
                                          .aspectRatio(contentMode: .fit)
                                          .frame(width: 150, height: 150)
                                          .offset(y: offsetValue)
-                                         .addSpotlight(1, shape: .rectangle, text: "Taps on enemy to use card")
+                                         .addSpotlight(1, shape: .rectangle, text: NSLocalizedString("step1", comment: "Taps on enemy to use card"))
+
                                  }
 
 
@@ -74,7 +75,8 @@ struct TutorialView: View {
                                    .background(Color.black.opacity(0.7))
                                    .cornerRadius(4)
                                    .padding(4)
-                                   .addSpotlight(2, shape: .rectangle, text: "This shows their intentions")
+                                   .addSpotlight(2, shape: .rectangle, text: NSLocalizedString("step2", comment: "This shows their intentions"))
+
                                  
                                    Text("\(vm.enemies.first?.curHp ?? 0)/\(vm.enemies.first?.maxHp ?? 0)")
                                        .font(.kreonSubheadline)
@@ -82,7 +84,8 @@ struct TutorialView: View {
                                        .padding(4)
                                        .background(Color.green)
                                        .cornerRadius(4)
-                                       .addSpotlight(3, shape: .rectangle, text: "This is their HP bar")
+                                       .addSpotlight(3, shape: .rectangle, text: NSLocalizedString("step3", comment: "This is their HP bar"))
+
                                }
                                .frame(width: enemyWidth, height: enemyHeight)
                                .position(x: geometry.size.width / 2, y: geometry.size.height / 2)
@@ -106,7 +109,8 @@ struct TutorialView: View {
                                    }
                                }
                                .position(x: geometry.size.width / 2, y: geometry.size.height / 2 - enemyHeight / 2 - 20)
-                               .addSpotlight(4, shape: .rectangle, text: "The icon above is their debuff")
+                               .addSpotlight(4, shape: .rectangle, text: NSLocalizedString("step4", comment: "The icon above is their debuff"))
+
                          }
                          Rectangle()
                              .fill(Color.black.opacity(0.001))
@@ -149,14 +153,16 @@ struct TutorialView: View {
                                    .foregroundColor(.white)
                            }
                            .padding(.top, 10)
-                           .addSpotlight(6, shape: .rectangle, text: "This is the shield you've gained.")
+                           .addSpotlight(6, shape: .rectangle, text: NSLocalizedString("step6", comment: "This is the shield you've gained."))
+
 
                            ZStack {
                              AnimatedImage(name: vm.player.playerState == .idle ? "Player-Idle.gif" : "Player-Damage.gif", isAnimating: $isAnimating)
                                    .resizable()
                                    .aspectRatio(contentMode: .fit)
                                    .frame(width: zoneWidth * 0.25, height: zoneHeight * 0.4)
-                                   .addSpotlight(5, shape: .rectangle, text: "The is you. The player.")
+                                   .addSpotlight(5, shape: .rectangle, text: NSLocalizedString("step5", comment: "This is you. The player."))
+
 
                                Rectangle()
                                    .fill(Color.black.opacity(0.001))
@@ -187,7 +193,8 @@ struct TutorialView: View {
                                .padding(4)
                                .background(Color.green)
                                .cornerRadius(4)
-                               .addSpotlight(7, shape: .rectangle, text: "This is your HP bar, runs out and you're dead.")
+                               .addSpotlight(7, shape: .rectangle, text: NSLocalizedString("step7", comment: "This is your HP bar, runs out and you're dead."))
+
                        }
                        .padding(.leading, 32)
                        
@@ -202,7 +209,8 @@ struct TutorialView: View {
                              .background(Image("bigBtnBackground").resizable())
                              .foregroundColor(.white)
                              .cornerRadius(8)
-                             .addSpotlight(8, shape: .rectangle, text: "Click here to end your turn.")
+                             .addSpotlight(8, shape: .rectangle, text: NSLocalizedString("step8", comment: "Click here to end your turn."))
+
                      }
                      
                      Spacer()
@@ -256,7 +264,7 @@ struct TutorialView: View {
                  .shadow(color: .black.opacity(0.2), radius: 10, x: 0, y: -5)
              }
                  .frame(height: UIScreen.main.bounds.height * 0.4)
-                 .addSpotlight(0, shape: .rectangle, text: "This is your deck, you can select your card from here")
+                 .addSpotlight(0, shape: .rectangle, text: NSLocalizedString("step0", comment: "This is your deck, you can select your card from here"))
              
              }
            

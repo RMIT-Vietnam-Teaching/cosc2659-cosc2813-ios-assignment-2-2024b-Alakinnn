@@ -55,6 +55,7 @@
 		64C420B42C85112F0077962F /* stabSfx.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 64C420B32C85112F0077962F /* stabSfx.mp3 */; };
 		64C420B62C8513150077962F /* gameOverSfx.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 64C420B52C8513150077962F /* gameOverSfx.mp3 */; };
 		64C420B82C8513680077962F /* victorySfx.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 64C420B72C8513680077962F /* victorySfx.mp3 */; };
+		64C420BD2C8528BD0077962F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 64C420BB2C8528BD0077962F /* Localizable.strings */; };
 		64CC61252C80486A00F88EFE /* CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CC61242C80486A00F88EFE /* CustomFont.swift */; };
 		64CC61272C80594400F88EFE /* ToastManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CC61262C80594400F88EFE /* ToastManager.swift */; };
 		64CC61292C80595C00F88EFE /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CC61282C80595C00F88EFE /* ToastView.swift */; };
@@ -126,6 +127,8 @@
 		64C420B32C85112F0077962F /* stabSfx.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = stabSfx.mp3; sourceTree = "<group>"; };
 		64C420B52C8513150077962F /* gameOverSfx.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gameOverSfx.mp3; sourceTree = "<group>"; };
 		64C420B72C8513680077962F /* victorySfx.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = victorySfx.mp3; sourceTree = "<group>"; };
+		64C420BC2C8528BD0077962F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		64C420BF2C8529810077962F /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Localizable.strings; sourceTree = "<group>"; };
 		64CC61242C80486A00F88EFE /* CustomFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFont.swift; sourceTree = "<group>"; };
 		64CC61262C80594400F88EFE /* ToastManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastManager.swift; sourceTree = "<group>"; };
 		64CC61282C80595C00F88EFE /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
@@ -357,6 +360,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		64C420B92C85289D0077962F /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				64C420BB2C8528BD0077962F /* Localizable.strings */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
 		64CC61342C80C50F00F88EFE /* Statistics */ = {
 			isa = PBXGroup;
 			children = (
@@ -380,6 +391,7 @@
 		64CC61362C81FAF300F88EFE /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				64C420B92C85289D0077962F /* Localization */,
 				64CC61282C80595C00F88EFE /* ToastView.swift */,
 				64FF8D2A2C673CA70010487C /* DeckFactory.swift */,
 				64CC61242C80486A00F88EFE /* CustomFont.swift */,
@@ -460,6 +472,7 @@
 			knownRegions = (
 				en,
 				Base,
+				vi,
 			);
 			mainGroup = 6476CA9B2C666AFE001C664A;
 			packageReferences = (
@@ -483,6 +496,7 @@
 			files = (
 				64C420B82C8513680077962F /* victorySfx.mp3 in Resources */,
 				6476530D2C7A464300148222 /* stage.mp3 in Resources */,
+				64C420BD2C8528BD0077962F /* Localizable.strings in Resources */,
 				6476CAAF2C666B01001C664A /* Preview Assets.xcassets in Resources */,
 				64786C1C2C832DEB005F97BE /* Bat-Idle.gif in Resources */,
 				647653042C7A247000148222 /* Kreon.ttf in Resources */,
@@ -562,12 +576,25 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXVariantGroup section */
+		64C420BB2C8528BD0077962F /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				64C420BC2C8528BD0077962F /* en */,
+				64C420BF2C8529810077962F /* vi */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		6476CAB02C666B01001C664A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -631,6 +658,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";

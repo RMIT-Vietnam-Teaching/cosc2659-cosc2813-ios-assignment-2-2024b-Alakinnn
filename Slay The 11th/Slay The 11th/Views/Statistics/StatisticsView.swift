@@ -5,179 +5,174 @@
   //  Created by Duong Tran Minh Hoang on 29/08/2024.
   //
 
-  import SwiftUI
+import SwiftUI
 import Pow
 import NavigationTransitions
 
-  struct StatisticsView: View {
-      @State private var selectedTab = 0
+struct StatisticsView: View {
+    @State private var selectedTab = 0
     var db: DatabaseManager = DatabaseManager.shared
     
-
-      var body: some View {
-          TabView(selection: $selectedTab) {
-              LeaderboardView()
-                  .tabItem {
-                      Label("Leaderboard", systemImage: "list.number")
-                  }
-                  .tag(0)
+    var body: some View {
+        TabView(selection: $selectedTab) {
+            LeaderboardView()
+                .tabItem {
+                    Label(NSLocalizedString("leaderboard", comment: "Leaderboard tab label"), systemImage: "list.number")
+                }
+                .tag(0)
             
             AchievementsView(db: db)
-                            .tabItem {
-                                Label("Achievements", systemImage: "star.fill")
-                            }
-                            .tag(1)
+                .tabItem {
+                    Label(NSLocalizedString("achievements", comment: "Achievements tab label"), systemImage: "star.fill")
+                }
+                .tag(1)
+            
             GameplayStatisticsView(db: db)
-              .tabItem {
-                Label("Analytics",
-                systemImage: "percent")
-              }
-              .tag(2)
-          }
-      }
-  }
+                .tabItem {
+                    Label(NSLocalizedString("analytics", comment: "Analytics tab label"), systemImage: "percent")
+                }
+                .tag(2)
+        }
+    }
+}
 
-  struct LeaderboardView: View {
-      private let itemsPerPage = 20
-      private let db = DatabaseManager.shared
+struct LeaderboardView: View {
+    private let itemsPerPage = 20
+    private let db = DatabaseManager.shared
 
-      @State private var players: [PlayerScore] = [] // State to store players
-      @State private var currentPage = 1
+    @State private var players: [PlayerScore] = []
+    @State private var currentPage = 1
 
-      var body: some View {
+    var body: some View {
         NavigationView {
-              ZStack {
-                  if players.isEmpty {
-                      Text("No players to display")
-                          .font(.kreonTitle)
-                          .foregroundColor(.gray)
-                  } else {
-                      List(players.indices, id: \.self) { index in
-                          let player = players[index]
-                          LeaderboardRowView(rank: index + 1, player: player)
-                              .onAppear {
-                                  // Check if the last item in the list is appearing to fetch more data
-                                  if index == players.count - 1 {
-                                      fetchMorePlayers()
-                                  }
-                              }
-                      }
-                      .listStyle(PlainListStyle())
-                  }
-              }
-              .onAppear {
-                  currentPage = 1 // Reset page
-                  fetchPlayers(limit: itemsPerPage)
-              }
-              .navigationTitle("Leaderboard")
-              .navigationTransition(.slide)
-          }
-          
-      }
+            ZStack {
+                if players.isEmpty {
+                    Text(NSLocalizedString("no_players", comment: "No players to display"))
+                        .font(.kreonTitle)
+                        .foregroundColor(.gray)
+                } else {
+                    List(players.indices, id: \.self) { index in
+                        let player = players[index]
+                        LeaderboardRowView(rank: index + 1, player: player)
+                            .onAppear {
+                                if index == players.count - 1 {
+                                    fetchMorePlayers()
+                                }
+                            }
+                    }
+                    .listStyle(PlainListStyle())
+                }
+            }
+            .onAppear {
+                currentPage = 1
+                fetchPlayers(limit: itemsPerPage)
+            }
+            .navigationTitle(NSLocalizedString("leaderboard", comment: "Leaderboard navigation title"))
+            .navigationTransition(.slide)
+        }
+    }
 
-      private func fetchPlayers(limit: Int) {
-          // Reset the players array when fetching anew
-          players = db.fetchPlayers(limit: limit)
-      }
+    private func fetchPlayers(limit: Int) {
+        players = db.fetchPlayers(limit: limit)
+    }
 
-      private func fetchMorePlayers() {
-          currentPage += 1
-          let newPlayers = db.fetchPlayers(limit: itemsPerPage * currentPage)
-          players = Array(Set(players + newPlayers)).sorted(by: { $0.score > $1.score })
-      }
-  }
+    private func fetchMorePlayers() {
+        currentPage += 1
+        let newPlayers = db.fetchPlayers(limit: itemsPerPage * currentPage)
+        players = Array(Set(players + newPlayers)).sorted(by: { $0.score > $1.score })
+    }
+}
 
+struct LeaderboardRowView: View {
+    var rank: Int
+    var player: PlayerScore
 
-  struct LeaderboardRowView: View {
-      var rank: Int
-      var player: PlayerScore
+    var body: some View {
+        HStack {
+            Text("\(rank)")
+                .font(.kreonBody)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.leading, 10)
+            Text(player.name)
+                .font(.kreonCaption)
+                .frame(maxWidth: .infinity, alignment: .leading)
+            Spacer()
+            Text("\(player.score)")
+                .font(.kreonHeadline)
+                .frame(maxWidth: .infinity, alignment: .trailing)
+                .padding(.trailing, 10)
+        }
+        .padding(.vertical, 8)
+        .background(Color.white)
+        .cornerRadius(8)
+        .shadow(radius: 2)
+    }
+}
 
-      var body: some View {
-          HStack {
-              Text("\(rank)")
-              .font(.kreonBody)
-                  .frame(maxWidth: .infinity, alignment: .leading)
-                  .padding(.leading, 10)
-              Text(player.name)
-              .font(.kreonCaption)
-                  .frame(maxWidth: .infinity, alignment: .leading)
-              Spacer()
-              Text("\(player.score)")
-              .font(.kreonHeadline)
-                  .frame(maxWidth: .infinity, alignment: .trailing)
-                  .padding(.trailing, 10)
-          }
-          .padding(.vertical, 8)
-          .background(Color.white) // Optional: Background color for each row
-          .cornerRadius(8) // Optional: Rounded corners for each row
-          .shadow(radius: 2) // Optional: Shadow for each row
-         
-      }
-  }
+struct AchievementsView: View {
+    @State private var achievements: [Achievement] = []
+    var db = DatabaseManager.shared
 
-  struct AchievementsView: View {
-      @State private var achievements: [Achievement] = []
-      var db = DatabaseManager.shared
+    var body: some View {
+        NavigationView {
+            List(achievements) { achievement in
+                HStack {
+                    Image(achievement.iconName)
+                        .resizable()
+                        .frame(width: 50, height: 50)
+                        .grayscale(achievement.isUnlocked ? 0 : 1)
+                    VStack(alignment: .leading) {
+                        Text(achievement.isUnlocked ? achievement.name : NSLocalizedString("unknown", comment: "Unknown achievement name"))
+                            .font(.headline)
+                        Text(achievement.isUnlocked ? achievement.description : NSLocalizedString("unknown", comment: "Unknown achievement description"))
+                            .font(.subheadline)
+                            .foregroundColor(.gray)
+                    }
+                }
+                .padding()
+            }
+            .navigationTitle(Text(NSLocalizedString("achievements", comment: "Achievements navigation title")).font(.kreonTitle))
+            .navigationTransition(.slide)
+            .onAppear {
+                achievements = db.fetchAchievements()
+            }
+        }
+    }
+}
 
-      var body: some View {
-          NavigationView {
-              List(achievements) { achievement in
-                  HStack {
-                      Image(achievement.iconName)
-                          .resizable()
-                          .frame(width: 50, height: 50)
-                          .grayscale(achievement.isUnlocked ? 0 : 1) // Grayscale if not unlocked
-                      VStack(alignment: .leading) {
-                          Text(achievement.isUnlocked ? achievement.name : "???")
-                              .font(.headline)
-                          Text(achievement.isUnlocked ? achievement.description : "???")
-                              .font(.subheadline)
-                              .foregroundColor(.gray)
-                      }
-                  }
-                  .padding()
-              }
-              .navigationTitle(Text("Achievements").font(.kreonTitle))
-              .navigationTransition(.slide)
-              .onAppear {
-                  achievements = db.fetchAchievements()
-              }
-          }
-      }
-  }
-
-  struct AchievementCardView: View {
-      var achievement: Achievement
+struct AchievementCardView: View {
+    var achievement: Achievement
     @State private var isGlowing = false
 
-      var body: some View {
-          HStack {
+    var body: some View {
+        HStack {
             Image(systemName: achievement.iconName)
-              .resizable()
-              .frame(width: 50, height: 50)
-              .clipShape(Circle())
-              .opacity(achievement.isUnlocked ? 1.0 : 0.3)
-              .shadow(color: achievement.isUnlocked ? Color.yellow : Color.clear, radius: isGlowing ? 20 : 0)
-              .onAppear {
-                  if achievement.isUnlocked {
-                      withAnimation(Animation.easeInOut(duration: 1.0).repeatForever(autoreverses: true)) {
-                          isGlowing = true
-                      }
-                  }
-              }
+                .resizable()
+                .frame(width: 50, height: 50)
+                .clipShape(Circle())
+                .opacity(achievement.isUnlocked ? 1.0 : 0.3)
+                .shadow(color: achievement.isUnlocked ? Color.yellow : Color.clear, radius: isGlowing ? 20 : 0)
+                .onAppear {
+                    if achievement.isUnlocked {
+                        withAnimation(Animation.easeInOut(duration: 1.0).repeatForever(autoreverses: true)) {
+                            isGlowing = true
+                        }
+                    }
+                }
 
-              VStack(alignment: .leading) {
-                  Text(achievement.isUnlocked ? achievement.name : "???")
-                      .font(.kreonHeadline)
-                      .foregroundColor(achievement.isUnlocked ? .black : .gray)
-                  Text(achievement.isUnlocked ? achievement.description : "???")
-                      .font(.kreonBody)
-                      .foregroundColor(achievement.isUnlocked ? .black : .gray)
-              }
-          }
-          .padding()
-      }
-  }
+            VStack(alignment: .leading) {
+                Text(achievement.isUnlocked ? achievement.name : NSLocalizedString("unknown", comment: "Unknown achievement name"))
+                    .font(.kreonHeadline)
+                    .foregroundColor(achievement.isUnlocked ? .black : .gray)
+                Text(achievement.isUnlocked ? achievement.description : NSLocalizedString("unknown", comment: "Unknown achievement description"))
+                    .font(.kreonBody)
+                    .foregroundColor(achievement.isUnlocked ? .black : .gray)
+            }
+        }
+        .padding()
+    }
+}
+
 
   struct Achievement: Identifiable, Codable {
       var id: String
