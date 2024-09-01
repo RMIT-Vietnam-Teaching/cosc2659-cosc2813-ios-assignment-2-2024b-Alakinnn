@@ -194,7 +194,7 @@ struct TutorialView: View {
                      
                      Button(action: {
                        vm.endPlayerTurn()
-                       AudioManager.shared.queueSFX("sfxButton")
+                       AudioManager.shared.playImmediateSFX("sfxButton")
                      }) {
                          Text("End Turn")
                          .font(.kreonBody)

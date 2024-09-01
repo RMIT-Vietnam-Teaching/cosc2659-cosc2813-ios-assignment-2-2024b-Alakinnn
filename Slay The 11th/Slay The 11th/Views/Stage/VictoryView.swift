@@ -14,27 +14,30 @@ struct VictoryView: View {
   var gameVm: GameViewModel
     var body: some View {
         ZStack {
-            Color.black.opacity(0.8)
+          Image("victoryBackground").resizable().scaledToFill()
                 .edgesIgnoringSafeArea(.all)
             
             VStack(spacing: 20) {
                 Text("Victory?")
                 .font(.kreonTitle)
-                    .foregroundColor(.white)
-                    .padding()
+                .foregroundColor(.white)
+                .frame(width: 300)
+                .padding(.vertical, 12)
+                .background(Image("textBoxBackground").resizable().scaledToFill())
+                .padding()
+              
               
               Text("\(Int(gameVm.stageViewModel.score))")
               .font(.kreonBody)
-                  .foregroundColor(.white)
-                  .padding()
+              .foregroundColor(.yellow)                  .padding()
               
                 Text("The Spire is to no escape...")
                 .font(.kreonBody)
-                    .foregroundColor(.white)
+                    .foregroundColor(.red)
                     .padding()
 
                 Button(action: {
-                  AudioManager.shared.queueSFX("sfxButton")
+                  AudioManager.shared.playImmediateSFX("sfxButton")
                   gameVm.isGameStarted = false
                    gameVm.stageViewModel.allStagesCleared = false
                    gameVm.abandonRun()

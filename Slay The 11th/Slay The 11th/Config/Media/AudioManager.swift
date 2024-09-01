@@ -12,8 +12,8 @@ class AudioManager: NSObject {
     static let shared = AudioManager()
     
     private var activePlayers: [AVAudioPlayer] = []
-    private var globalMusicVolume: Float = 0.3
-    private var globalSFXVolume: Float = 0.4
+    private var globalMusicVolume: Float = 0.4
+    private var globalSFXVolume: Float = 0.6
     private var sfxQueue: [String] = []  // Queue to store SFX filenames
     private var isPlayingSFX = false  // Flag to check if SFX is currently playing
 
@@ -51,24 +51,26 @@ class AudioManager: NSObject {
         }
     }
     
-    // Add SFX to the queue and play them one by one
+    // Play SFX immediately, stopping any currently playing SFX
+    func playImmediateSFX(_ filename: String) {
+        // Stop any currently playing SFX
+        stopCurrentSFX()
+
+        // Play new SFX
+        playSFX(filename)
+    }
+
+    // Queue SFX to play in sequence, without interrupting currently playing SFX
     func queueSFX(_ filename: String) {
+        // Add new SFX to the queue
         sfxQueue.append(filename)
         if !isPlayingSFX {
             playNextSFX()
         }
     }
     
-    // Play the next SFX in the queue
-    private func playNextSFX() {
-        guard !sfxQueue.isEmpty else {
-            isPlayingSFX = false
-            return
-        }
-        
-        isPlayingSFX = true
-        let filename = sfxQueue.removeFirst()
-        
+    // Play SFX from the filename
+    private func playSFX(_ filename: String) {
         // Supported extensions
         let supportedExtensions = ["mp3", "wav", "m4a", "aac"]
 
@@ -82,7 +84,6 @@ class AudioManager: NSObject {
 
         guard let url = fileURL else {
             print("Could not find file: \(filename) with any of the supported extensions.")
-            playNextSFX()  // Play next SFX if current file not found
             return
         }
 
@@ -92,10 +93,33 @@ class AudioManager: NSObject {
             sfxPlayer.delegate = self
             sfxPlayer.play()
             activePlayers.append(sfxPlayer)
+            isPlayingSFX = true
         } catch {
             print("Could not create audio player for SFX: \(error)")
             playNextSFX()  // Continue with next SFX in case of an error
         }
+    }
+
+    // Stop any currently playing SFX
+    private func stopCurrentSFX() {
+        activePlayers.forEach { player in
+            if player.numberOfLoops == 0 { // Assuming SFX has numberOfLoops set to 0 for SFX
+                player.stop()
+            }
+        }
+        activePlayers.removeAll { $0.numberOfLoops == 0 }
+        isPlayingSFX = false
+    }
+
+    // Play the next SFX in the queue
+    private func playNextSFX() {
+        guard !sfxQueue.isEmpty else {
+            isPlayingSFX = false
+            return
+        }
+
+        let filename = sfxQueue.removeFirst()
+        playSFX(filename)
     }
 
     // Stop all background music
@@ -142,6 +166,6 @@ extension AudioManager: AVAudioPlayerDelegate {
         if let index = activePlayers.firstIndex(of: player) {
             activePlayers.remove(at: index)
         }
-        playNextSFX()  // Continue playing next SFX when current one finishes
+        playNextSFX()  // Continue playing next SFX when the current one finishes
     }
 }

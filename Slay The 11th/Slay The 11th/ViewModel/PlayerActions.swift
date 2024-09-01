@@ -19,7 +19,7 @@ extension StageViewModel {
               // Use DispatchQueue to apply poison effect after a delay
               DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
                   self.enemies[index].enemyState = .takingDamage
-                AudioManager.shared.queueSFX("stabSfx")
+                AudioManager.shared.playImmediateSFX("stabSfx")
                   self.enemies[index].curHp -= poison.value
                   self.enemies[index].curHp = max(0, self.enemies[index].curHp)
                   self.enemies[index].debuffEffects[poisonIndex].duration -= 1
@@ -77,7 +77,7 @@ extension StageViewModel {
       }
     
     if card.cardType != .attack {
-      AudioManager.shared.queueSFX("playCardSfx")
+      AudioManager.shared.playImmediateSFX("playCardSfx")
     }
 
       // Move the used card to the discarded deck
@@ -114,7 +114,7 @@ extension StageViewModel {
       case .attack:
           enemy.enemyState = .takingDamage
           enemy.curHp -= card.currentValue
-          AudioManager.shared.queueSFX("stabSfx")
+          AudioManager.shared.playImmediateSFX("stabSfx")
           enemy.curHp = max(0, enemy.curHp) // Ensure HP does not drop below 0
           DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                     if enemy.curHp > 0 {
