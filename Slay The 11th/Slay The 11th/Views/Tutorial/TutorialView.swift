@@ -192,17 +192,19 @@ struct TutorialView: View {
                        .padding(.leading, 32)
                        
                      
-                       Button(action: {
-                         vm.endPlayerTurn()
-                       }) {
-                           Text("End Turn")
-                           .font(.kreonBody)
-                               .padding()
-                               .background(Color.red)
-                               .foregroundColor(.white)
-                               .cornerRadius(8)
-                               .addSpotlight(8, shape: .rectangle, text: "Click here to end your turn.")
-                       }
+                     Button(action: {
+                       vm.endPlayerTurn()
+                       AudioManager.shared.queueSFX("sfxButton")
+                     }) {
+                         Text("End Turn")
+                         .font(.kreonBody)
+                             .padding(24)
+                             .background(Image("bigBtnBackground").resizable())
+                             .foregroundColor(.white)
+                             .cornerRadius(8)
+                             .addSpotlight(8, shape: .rectangle, text: "Click here to end your turn.")
+                     }
+                     
                      Spacer()
                    }
                    .padding(.horizontal, 16)

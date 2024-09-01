@@ -50,6 +50,11 @@
 		64B71A172C74D4C1009F3987 /* Reward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B71A162C74D4C1009F3987 /* Reward.swift */; };
 		64B71A1B2C74D670009F3987 /* RewardBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B71A1A2C74D670009F3987 /* RewardBoxView.swift */; };
 		64B71A1D2C74E428009F3987 /* RewardSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B71A1C2C74E428009F3987 /* RewardSelectionView.swift */; };
+		64C420B02C8505CB0077962F /* drawSfx.wav in Resources */ = {isa = PBXBuildFile; fileRef = 64C420AF2C8505CB0077962F /* drawSfx.wav */; };
+		64C420B22C850AEC0077962F /* playCardSfx.wav in Resources */ = {isa = PBXBuildFile; fileRef = 64C420B12C850AEC0077962F /* playCardSfx.wav */; };
+		64C420B42C85112F0077962F /* stabSfx.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 64C420B32C85112F0077962F /* stabSfx.mp3 */; };
+		64C420B62C8513150077962F /* gameOverSfx.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 64C420B52C8513150077962F /* gameOverSfx.mp3 */; };
+		64C420B82C8513680077962F /* victorySfx.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 64C420B72C8513680077962F /* victorySfx.mp3 */; };
 		64CC61252C80486A00F88EFE /* CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CC61242C80486A00F88EFE /* CustomFont.swift */; };
 		64CC61272C80594400F88EFE /* ToastManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CC61262C80594400F88EFE /* ToastManager.swift */; };
 		64CC61292C80595C00F88EFE /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CC61282C80595C00F88EFE /* ToastView.swift */; };
@@ -116,6 +121,11 @@
 		64B71A162C74D4C1009F3987 /* Reward.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reward.swift; sourceTree = "<group>"; };
 		64B71A1A2C74D670009F3987 /* RewardBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardBoxView.swift; sourceTree = "<group>"; };
 		64B71A1C2C74E428009F3987 /* RewardSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardSelectionView.swift; sourceTree = "<group>"; };
+		64C420AF2C8505CB0077962F /* drawSfx.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = drawSfx.wav; sourceTree = "<group>"; };
+		64C420B12C850AEC0077962F /* playCardSfx.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = playCardSfx.wav; sourceTree = "<group>"; };
+		64C420B32C85112F0077962F /* stabSfx.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = stabSfx.mp3; sourceTree = "<group>"; };
+		64C420B52C8513150077962F /* gameOverSfx.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gameOverSfx.mp3; sourceTree = "<group>"; };
+		64C420B72C8513680077962F /* victorySfx.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = victorySfx.mp3; sourceTree = "<group>"; };
 		64CC61242C80486A00F88EFE /* CustomFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFont.swift; sourceTree = "<group>"; };
 		64CC61262C80594400F88EFE /* ToastManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastManager.swift; sourceTree = "<group>"; };
 		64CC61282C80595C00F88EFE /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
@@ -244,7 +254,12 @@
 		647653072C7A45F100148222 /* Sfx */ = {
 			isa = PBXGroup;
 			children = (
+				64C420B12C850AEC0077962F /* playCardSfx.wav */,
+				64C420B32C85112F0077962F /* stabSfx.mp3 */,
 				647653112C7A4CD100148222 /* sfxButton.mp3 */,
+				64C420B52C8513150077962F /* gameOverSfx.mp3 */,
+				64C420AF2C8505CB0077962F /* drawSfx.wav */,
+				64C420B72C8513680077962F /* victorySfx.mp3 */,
 			);
 			path = Sfx;
 			sourceTree = "<group>";
@@ -466,20 +481,25 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64C420B82C8513680077962F /* victorySfx.mp3 in Resources */,
 				6476530D2C7A464300148222 /* stage.mp3 in Resources */,
 				6476CAAF2C666B01001C664A /* Preview Assets.xcassets in Resources */,
 				64786C1C2C832DEB005F97BE /* Bat-Idle.gif in Resources */,
 				647653042C7A247000148222 /* Kreon.ttf in Resources */,
+				64C420B02C8505CB0077962F /* drawSfx.wav in Resources */,
 				64786C282C8332B3005F97BE /* Boss-Damage.gif in Resources */,
 				64786C222C832E24005F97BE /* Player-Damage.gif in Resources */,
 				647653102C7A4BB900148222 /* mainMenu.mp3 in Resources */,
+				64C420B22C850AEC0077962F /* playCardSfx.wav in Resources */,
 				6476CAAC2C666B01001C664A /* Assets.xcassets in Resources */,
 				647653122C7A4CD100148222 /* sfxButton.mp3 in Resources */,
 				640DF46B2C7F9756005B3342 /* GoogleService-Info.plist in Resources */,
 				64786C202C832E12005F97BE /* Player-Idle.gif in Resources */,
 				64786C172C831AA4005F97BE /* Mushroom-Idle.gif in Resources */,
+				64C420B42C85112F0077962F /* stabSfx.mp3 in Resources */,
 				64786C192C8321F1005F97BE /* Mushroom-Damage.gif in Resources */,
 				64786C2C2C83337F005F97BE /* Skeleton-Damage.gif in Resources */,
+				64C420B62C8513150077962F /* gameOverSfx.mp3 in Resources */,
 				64786C2A2C83337B005F97BE /* Skeleton-Idle.gif in Resources */,
 				64786C1E2C832E02005F97BE /* Bat-Damage.gif in Resources */,
 				64786C262C83321C005F97BE /* Boss-Idle.gif in Resources */,

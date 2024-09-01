@@ -74,11 +74,12 @@ struct PlayerZoneView: View {
                   
                     Button(action: {
                       vm.endPlayerTurn()
+                      AudioManager.shared.queueSFX("sfxButton")
                     }) {
                         Text("End Turn")
                         .font(.kreonBody)
-                            .padding()
-                            .background(Color.red)
+                            .padding(24)
+                            .background(Image("bigBtnBackground").resizable())
                             .foregroundColor(.white)
                             .cornerRadius(8)
                     }

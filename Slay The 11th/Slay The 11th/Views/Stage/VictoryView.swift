@@ -34,6 +34,7 @@ struct VictoryView: View {
                     .padding()
 
                 Button(action: {
+                  AudioManager.shared.queueSFX("sfxButton")
                   gameVm.isGameStarted = false
                    gameVm.stageViewModel.allStagesCleared = false
                    gameVm.abandonRun()
@@ -41,7 +42,7 @@ struct VictoryView: View {
                     Text("Main Menu")
                     .font(.custom("Kreon", size: 22))
                         .padding()
-                        .background(Color.blue)
+                        .background(Image("bigBtnBackground").resizable())
                         .foregroundColor(.white)
                         .cornerRadius(10)
                 }
@@ -56,6 +57,8 @@ struct VictoryView: View {
         }
         .onAppear {
             triggerSpray.toggle()
+          AudioManager.shared.queueSFX(
+          "victorySfx")
         }
         .navigationBarHidden(true)
         .navigationTransition(.fade(.out))

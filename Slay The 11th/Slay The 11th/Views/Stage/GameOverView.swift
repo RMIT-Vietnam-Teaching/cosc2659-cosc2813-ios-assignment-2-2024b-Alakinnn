@@ -20,7 +20,7 @@ struct GameOverView: View {
             }
             .font(.kreonTitle2)
             .padding()
-            .background(Color.red)
+            .background(Image("bigBtnBackground").resizable())
             .foregroundColor(.white)
             .cornerRadius(10)
             .padding(.horizontal, 20)  // Add padding to prevent the button from touching the borders
@@ -29,7 +29,10 @@ struct GameOverView: View {
         .background(Color.white)
         .cornerRadius(20)
         .shadow(radius: 10)
-        .padding() // Add padding to the overall view
+        .padding()
+        .onAppear {
+          AudioManager.shared.queueSFX("gameOverSfx")
+        }
     }
 }
 

@@ -10,28 +10,47 @@ import Foundation
 extension StageViewModel {
   // Apply poison effects to all enemies
   func applyPoisonEffects() {
+      var delay: Double = 0.0
+
       for index in enemies.indices where enemies[index].curHp > 0 {
           if let poisonIndex = enemies[index].debuffEffects.firstIndex(where: { $0.type == .poison }) {
               let poison = enemies[index].debuffEffects[poisonIndex]
-            enemies[index].enemyState = .takingDamage
-              enemies[index].curHp -= poison.value
-              enemies[index].curHp = max(0, enemies[index].curHp)
-              enemies[index].debuffEffects[poisonIndex].duration -= 1
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-              if self.enemies[index].curHp > 0 {
-                self.enemies[index].enemyState = .idle
+              
+              // Use DispatchQueue to apply poison effect after a delay
+              DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
+                  self.enemies[index].enemyState = .takingDamage
+                AudioManager.shared.queueSFX("stabSfx")
+                  self.enemies[index].curHp -= poison.value
+                  self.enemies[index].curHp = max(0, self.enemies[index].curHp)
+                  self.enemies[index].debuffEffects[poisonIndex].duration -= 1
+                  
+                  DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                      if self.enemies[index].curHp > 0 {
+                          self.enemies[index].enemyState = .idle
                       } else {
-                        self.enemies[index].enemyState = .dead
+                          self.enemies[index].enemyState = .dead
                       }
                   }
-              print("Enemy \(enemies[index].name) takes \(poison.value) poison damage. Remaining HP: \(enemies[index].curHp)")
-              if enemies[index].debuffEffects[poisonIndex].duration <= 0 {
-                  enemies[index].debuffEffects.remove(at: poisonIndex)
+                  
+                  print("Enemy \(self.enemies[index].name) takes \(poison.value) poison damage. Remaining HP: \(self.enemies[index].curHp)")
+                  
+                  // Remove poison if duration is over
+                  if self.enemies[index].debuffEffects[poisonIndex].duration <= 0 {
+                      self.enemies[index].debuffEffects.remove(at: poisonIndex)
+                  }
+
+                  // Check if it's the last enemy in the list and apply further logic
+                  if index == self.enemies.indices.last {
+                      self.checkIfStageCompleted()
+                  }
               }
+
+              // Increment delay for the next enemy
+              delay += 1.5 // Increase delay for each enemy to separate the effects
           }
       }
-      checkIfStageCompleted()
   }
+
 
   // Apply a card's effect to the enemy or the player
   func applyCard(at index: Int? = nil) {
@@ -56,6 +75,10 @@ extension StageViewModel {
               return
           }
       }
+    
+    if card.cardType != .attack {
+      AudioManager.shared.queueSFX("playCardSfx")
+    }
 
       // Move the used card to the discarded deck
       moveCardToDiscardedDeck(card)
@@ -91,6 +114,7 @@ extension StageViewModel {
       case .attack:
           enemy.enemyState = .takingDamage
           enemy.curHp -= card.currentValue
+          AudioManager.shared.queueSFX("stabSfx")
           enemy.curHp = max(0, enemy.curHp) // Ensure HP does not drop below 0
           DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                     if enemy.curHp > 0 {

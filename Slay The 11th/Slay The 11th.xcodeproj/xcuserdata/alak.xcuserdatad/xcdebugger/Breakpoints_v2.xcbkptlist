@@ -14,8 +14,8 @@
             filePath = "Slay The 11th/MainMenuView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "253"
-            endingLineNumber = "253"
+            startingLineNumber = "256"
+            endingLineNumber = "256"
             landmarkName = "DifficultyOptionButton"
             landmarkType = "14">
          </BreakpointContent>
@@ -46,8 +46,8 @@
             filePath = "Slay The 11th/MainMenuView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "283"
-            endingLineNumber = "283"
+            startingLineNumber = "287"
+            endingLineNumber = "287"
             landmarkName = "PlayerNameInputView"
             landmarkType = "14">
          </BreakpointContent>
@@ -62,8 +62,8 @@
             filePath = "Slay The 11th/MainMenuView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "290"
-            endingLineNumber = "290"
+            startingLineNumber = "294"
+            endingLineNumber = "294"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>

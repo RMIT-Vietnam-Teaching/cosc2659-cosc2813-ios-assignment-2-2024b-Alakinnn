@@ -43,6 +43,7 @@ extension StageViewModel {
           switch action {
           case .attack:
               performAttack(enemy: &enemies[index])
+            AudioManager.shared.queueSFX("stabSfx")
             player.playerState = .takingDamage
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
               if self.player.curHP > 0 {

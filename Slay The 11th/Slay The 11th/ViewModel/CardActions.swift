@@ -15,7 +15,9 @@ extension StageViewModel {
           drawCard()
       }
     } else {
-      playerHand = Array(availableDeck.prefix(5))
+      for card in availableDeck.prefix(5) {
+       drawCardTutorialMode(card: card)
+     }
     }
   }
 
@@ -27,6 +29,15 @@ extension StageViewModel {
       availableDeck.shuffle()
       if let card = availableDeck.popLast() {
           playerHand.append(card)
+        AudioManager.shared.queueSFX("drawSfx")
+      }
+  }
+  
+  // Draw a specific card in tutorial mode with the drawing effect
+  func drawCardTutorialMode(card: Card) {
+      DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+          self.playerHand.append(card)
+          AudioManager.shared.queueSFX("drawSfx")
       }
   }
   
