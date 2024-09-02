@@ -140,6 +140,7 @@ class RewardSystem {
         case .shieldBuff(let value):
             player.shieldBuff += value
             stageViewModel.updateCardValues()
+          gameVm.checkAndUnlockAchievements(db: db, action: .gainShieldBuff)
         case .addCards(let cards):
             stageViewModel.availableDeck.append(contentsOf: cards)
         case .symbolicAward:

@@ -12,6 +12,7 @@ import NavigationTransitions
 struct VictoryView: View {
     @State private var triggerSpray = false
     var gameVm: GameViewModel
+    var db: DatabaseManager = DatabaseManager.shared
     
     var body: some View {
         ZStack {
@@ -64,6 +65,8 @@ struct VictoryView: View {
         .onAppear {
             triggerSpray.toggle()
             AudioManager.shared.queueSFX("victorySfx")
+          gameVm.checkAndUnlockAchievements(db: db, action: .clearGame)
+          gameVm.checkAndUnlockAchievements(db: db, action: .clearGameOnDifficulty(gameVm.difficulty))
         }
         .navigationBarHidden(true)
         .navigationTransition(.fade(.out))
