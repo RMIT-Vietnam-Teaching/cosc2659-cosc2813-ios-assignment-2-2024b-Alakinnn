@@ -38,6 +38,9 @@ struct RewardSelectionOverlay: View {
                           }
                         } else {
                           vm.stageViewModel.checkAndAdvanceStage()
+                          if (vm.stageViewModel.currentStage == 7) {
+                            vm.checkAndUnlockAchievements(db: db, action: .reachStageSeven)
+                          }
                         }
                     }
                 }

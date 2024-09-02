@@ -6,13 +6,14 @@
 //
 
 import SwiftUI
-
+import SDWebImageSwiftUI
 struct CharacterBody2D: View {
     let offsetValue: CGFloat
     let width: CGFloat
     let height: CGFloat
     var vm: StageViewModel
     var index: Int
+  @State var isAnimating: Bool = true
 
     var body: some View {
         // Safely unwrap the enemy to avoid out-of-bounds access
@@ -27,10 +28,10 @@ struct CharacterBody2D: View {
                     ZStack {
                         // Enemy image, intention, and HP bar
                         VStack(spacing: 16) {
-                            Image(systemName: "person.fill")
+                          AnimatedImage(name: enemy.enemyState == .takingDamage ? enemy.enemyImages[1] : enemy.enemyImages[0], isAnimating: $isAnimating)
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
-                                .frame(width: width, height: height)
+                                .frame(width: 150, height: 150)
                                 .offset(y: offsetValue)
 
                             Image(systemName: enemy.intendedAction == .attack ? "flame.fill" :

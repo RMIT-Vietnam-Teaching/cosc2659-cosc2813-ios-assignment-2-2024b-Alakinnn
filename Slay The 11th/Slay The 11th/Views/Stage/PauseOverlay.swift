@@ -15,20 +15,22 @@ struct PauseOverlay: View {
             Color.black.opacity(0.7)
                 .edgesIgnoringSafeArea(.all)
                 .overlay(
-                    Button("Unpause") {
+                    Button(action: {
                         isPaused = false
+                    }) {
+                        Text(NSLocalizedString("unpause", comment: "Button to unpause the game"))
+                            .font(.title)
+                            .foregroundColor(.white)
+                            .padding()
+                            .background(Color.gray.opacity(0.8))
+                            .cornerRadius(10)
                     }
-                    .font(.title)
-                    .foregroundColor(.white)
-                    .padding()
-                    .background(Color.gray.opacity(0.8))
-                    .cornerRadius(10)
                 )
         }
     }
 }
 
-
 #Preview {
-  PauseOverlay(isPaused: .constant(true))
+    PauseOverlay(isPaused: .constant(true))
 }
+

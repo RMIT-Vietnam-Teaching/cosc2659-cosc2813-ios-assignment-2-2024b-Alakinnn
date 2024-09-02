@@ -15,36 +15,63 @@ extension StageViewModel {
   }
   
   func startEnemyTurn() {
-          // Ensure that intentions are already calculated
-          for (index, enemy) in enemies.enumerated() where enemy.curHp > 0 {
-              let action = enemy.intendedAction
-              
-              // Check if the enemy is silenced before performing any action
-              if enemy.isSilenced() {
-                  print("Enemy \(enemy.name) is silenced and skips its turn.")
-                  decrementSilenceEffectDuration(for: &enemies[index])
-                  continue // Skip the rest of the loop, move to the next enemy
-              }
-
-              // Execute the previously calculated action
-              switch action {
-              case .attack:
-                  performAttack(enemy: &enemies[index])
-              case .buff:
-                  performBuff(enemy: &enemies[index])
-              case .cleanse:
-                  performCleanse(for: &enemies[index])
-              case .none:
-                  print("Enemy \(enemy.name) is silenced and skips its turn.")
-              }
-
-            decrementSilenceEffectDuration(for: &enemies[index])
-          }
-
-          startPlayerTurn() // Back to player turn
+      // Start with the first enemy
+      performEnemyAction(at: 0)
   }
 
+  private func performEnemyAction(at index: Int) {
+      // Ensure the index is within bounds
+      guard index < enemies.count else {
+          // All enemies have taken their turn, start player's turn
+          startPlayerTurn()
+          return
+      }
 
+      // Check if the current enemy is alive
+      if enemies[index].curHp > 0 {
+          let action = enemies[index].intendedAction
+
+          // Check if the enemy is silenced before performing any action
+          if enemies[index].isSilenced() {
+              print("Enemy \(enemies[index].name) is silenced and skips its turn.")
+              decrementSilenceEffectDuration(for: &enemies[index])
+              performNextEnemyAction(afterDelay: 0.5, fromIndex: index)
+              return
+          }
+
+          // Execute the previously calculated action
+          switch action {
+          case .attack:
+              performAttack(enemy: &enemies[index])
+            AudioManager.shared.playImmediateSFX("stabSfx")
+            player.playerState = .takingDamage
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+              if self.player.curHP > 0 {
+                self.player.playerState = .idle
+                      } else {
+                        self.player.playerState = .dead
+                      }
+                  }
+          case .buff:
+              performBuff(enemy: &enemies[index])
+          case .cleanse:
+              performCleanse(for: &enemies[index])
+          case .none:
+              print("Enemy \(enemies[index].name) is silenced and skips its turn.")
+          }
+
+          decrementSilenceEffectDuration(for: &enemies[index])
+      }
+
+      // Perform the next enemy action with a delay
+      performNextEnemyAction(afterDelay: 0.5, fromIndex: index)
+  }
+
+  private func performNextEnemyAction(afterDelay delay: TimeInterval, fromIndex index: Int) {
+      DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
+          self.performEnemyAction(at: index + 1)
+      }
+  }
   
   func calculateEnemyIntentions() {
           var cleanseChance = 0.1 // initial cleanse chance

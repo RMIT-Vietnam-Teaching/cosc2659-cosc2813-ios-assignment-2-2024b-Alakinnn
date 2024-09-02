@@ -10,44 +10,52 @@ import Pow
 import NavigationTransitions
 
 struct VictoryView: View {
-  @State private var triggerSpray = false
-  var gameVm: GameViewModel
+    @State private var triggerSpray = false
+    var gameVm: GameViewModel
+    var db: DatabaseManager = DatabaseManager.shared
+    
     var body: some View {
         ZStack {
-            Color.black.opacity(0.8)
+            Image("victoryBackground")
+                .resizable()
+                .scaledToFill()
                 .edgesIgnoringSafeArea(.all)
             
             VStack(spacing: 20) {
-                Text("Victory?")
-                .font(.kreonTitle)
+                Text(NSLocalizedString("victory_title", comment: "Victory title"))
+                    .font(.kreonTitle)
                     .foregroundColor(.white)
+                    .frame(width: 300)
+                    .padding(.vertical, 12)
+                    .background(Image("textBoxBackground").resizable().scaledToFill())
                     .padding()
-              
-              Text("\(Int(gameVm.stageViewModel.score))")
-              .font(.kreonBody)
-                  .foregroundColor(.white)
-                  .padding()
-              
-                Text("The Spire is to no escape...")
-                .font(.kreonBody)
-                    .foregroundColor(.white)
+                
+                Text("\(Int(gameVm.stageViewModel.score))")
+                    .font(.kreonBody)
+                    .foregroundColor(.yellow)
                     .padding()
-
+                
+                Text(NSLocalizedString("victory_subtitle", comment: "Victory subtitle"))
+                    .font(.kreonBody)
+                    .foregroundColor(.red)
+                    .padding()
+                
                 Button(action: {
-                  gameVm.isGameStarted = false
-                   gameVm.stageViewModel.allStagesCleared = false
-                   gameVm.abandonRun()
+                    AudioManager.shared.playImmediateSFX("sfxButton")
+                    gameVm.isGameStarted = false
+                    gameVm.stageViewModel.allStagesCleared = false
+                    gameVm.abandonRun()
                 }) {
-                    Text("Main Menu")
-                    .font(.custom("Kreon", size: 22))
+                    Text(NSLocalizedString("main_menu", comment: "Button to return to the main menu"))
+                        .font(.custom("Kreon", size: 22))
                         .padding()
-                        .background(Color.blue)
+                        .background(Image("bigBtnBackground").resizable())
                         .foregroundColor(.white)
                         .cornerRadius(10)
                 }
             }
             .changeEffect(
-              .spray(origin: UnitPoint(x: 0.5, y: 0)) {
+                .spray(origin: UnitPoint(x: 0.5, y: 0)) {
                     Image(systemName: "star.fill")
                         .foregroundColor(.yellow)
                         .font(.kreonTitle)
@@ -56,6 +64,9 @@ struct VictoryView: View {
         }
         .onAppear {
             triggerSpray.toggle()
+            AudioManager.shared.queueSFX("victorySfx")
+          gameVm.checkAndUnlockAchievements(db: db, action: .clearGame)
+          gameVm.checkAndUnlockAchievements(db: db, action: .clearGameOnDifficulty(gameVm.difficulty))
         }
         .navigationBarHidden(true)
         .navigationTransition(.fade(.out))
@@ -63,5 +74,5 @@ struct VictoryView: View {
 }
 
 #Preview {
-  VictoryView(gameVm: GameViewModel())
+    VictoryView(gameVm: GameViewModel())
 }

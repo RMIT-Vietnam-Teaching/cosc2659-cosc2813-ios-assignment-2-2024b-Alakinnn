@@ -11,31 +11,37 @@ struct GameOverView: View {
 
     var body: some View {
         VStack {
-            Text("Game Over")
+            Text(NSLocalizedString("game_over", comment: "Game Over text"))
                 .font(.kreonTitle)
                 .padding()
 
-            Button("Confirm") {
+            Button(action: {
                 onConfirm()
+            }) {
+                Text(NSLocalizedString("confirm", comment: "Confirm button text"))
+                    .font(.kreonTitle2)
+                    .padding()
+                    .background(Image("bigBtnBackground").resizable())
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
+                    .padding(.horizontal, 20)
             }
-            .font(.kreonTitle2)
-            .padding()
-            .background(Color.red)
-            .foregroundColor(.white)
-            .cornerRadius(10)
-            .padding(.horizontal, 20)  // Add padding to prevent the button from touching the borders
         }
         .frame(width: UIScreen.main.bounds.width * 0.8, height: UIScreen.main.bounds.height * 0.3)
         .background(Color.white)
         .cornerRadius(20)
         .shadow(radius: 10)
-        .padding() // Add padding to the overall view
+        .padding()
+        .onAppear {
+            AudioManager.shared.playImmediateSFX("gameOverSfx")
+        }
     }
 }
 
 #Preview {
-  GameOverView {
-  
-  }
+    GameOverView {
+        // Preview action
+    }
 }
+
 

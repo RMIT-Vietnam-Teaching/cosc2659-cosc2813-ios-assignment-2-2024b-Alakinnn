@@ -13,10 +13,19 @@ struct StageContentView: View {
 
     var body: some View {
         VStack(spacing: 0) {
+          VStack(spacing: 0) {
             EnemyZoneView(vm: vm)
-                .frame(height: UIScreen.main.bounds.height * 0.4)
+              .frame(height: UIScreen.main.bounds.height * 0.4)
             PlayerZoneView(vm: vm)
-                .frame(height: UIScreen.main.bounds.height * 0.2)
+                .frame(height: UIScreen.main.bounds.height * 0.25)
+          }
+          .background(
+          Image("stageBackground")
+            .resizable()
+            .scaledToFill()
+            .blur(radius: 5)
+            .frame(height: UIScreen.main.bounds.height * 0.7))
+            
             PlayerHandView(vm: vm)
                 .frame(height: UIScreen.main.bounds.height * 0.4)
         }

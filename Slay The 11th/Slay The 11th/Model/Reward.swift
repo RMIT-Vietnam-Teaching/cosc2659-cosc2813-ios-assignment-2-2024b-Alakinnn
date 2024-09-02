@@ -32,15 +32,15 @@ enum RewardType {
   var valueDescription: String {
       switch type {
       case .heal(let percentage):
-          return "\(percentage)% Max HP"
+          return String(format: NSLocalizedString("heal_description", comment: "Heal percentage description"), percentage)
       case .attackBuff(let value):
-          return "+\(value) Attack Buff"
+          return String(format: NSLocalizedString("attack_buff_description", comment: "Attack buff description"), value)
       case .shieldBuff(let value):
-          return "+\(value) Shield Buff"
+          return String(format: NSLocalizedString("shield_buff_description", comment: "Shield buff description"), value)
       case .addCards(let cards):
-          return "Add \(cards.count) cards to deck"
+          return String(format: NSLocalizedString("add_cards_description", comment: "Add cards description"), cards.count)
       case .symbolicAward:
-          return "Symbol of Victory"
+          return NSLocalizedString("symbol_of_victory", comment: "Symbol of Victory")
       }
   }
   
@@ -55,7 +55,7 @@ enum RewardType {
       case .shieldBuff(let value):
           typeDict = ["type": "shieldBuff", "value": value]
       case .addCards(let cards):
-          typeDict = ["type": "addCards", "cards": cards.map { $0.toDictionary() }]  // Assuming Card has a `toDictionary` method
+          typeDict = ["type": "addCards", "cards": cards.map { $0.toDictionary() }] 
       case .symbolicAward:
           typeDict = ["type": "symbolicAward"]
       }
@@ -106,29 +106,29 @@ class RewardSystem {
     static func rewardsForStage(_ stage: Int) -> [Reward] {
         switch stage {
         case 1:
-            return [Reward(type: .attackBuff(value: 2), name: "Attack Buff", description: "+2 Attack Buff", iconName: "flame.fill"),
-                    Reward(type: .heal(percentage: 35), name: "Heal", description: "Heal 35%", iconName: "heart.fill")]
+            return [Reward(type: .attackBuff(value: 2), name: NSLocalizedString("attack_buff_name", comment: "Attack Buff name"), description: NSLocalizedString("attack_buff_plus2_description", comment: "+2 Attack Buff description"), iconName: "flame.fill"),
+                    Reward(type: .heal(percentage: 35), name: NSLocalizedString("heal_name", comment: "Heal name"), description: NSLocalizedString("heal_35_description", comment: "Heal 35% description"), iconName: "heart.fill")]
         case 3:
-            return [Reward(type: .shieldBuff(value: 3), name: "Shield Buff", description: "+3 Shield Buff", iconName: "shield.fill"),
-                    Reward(type: .heal(percentage: 35), name: "Heal", description: "Heal 35%", iconName: "heart.fill")]
+            return [Reward(type: .shieldBuff(value: 3), name: NSLocalizedString("shield_buff_name", comment: "Shield Buff name"), description: NSLocalizedString("shield_buff_plus3_description", comment: "+3 Shield Buff description"), iconName: "shield.fill"),
+                    Reward(type: .heal(percentage: 35), name: NSLocalizedString("heal_name", comment: "Heal name"), description: NSLocalizedString("heal_35_description", comment: "Heal 35% description"), iconName: "heart.fill")]
         case 5:
-            return [Reward(type: .addCards(cards: [Card(id: UUID(), name: "Double Poison", description: "Doubles the poison stacks", cardType: .poison, value: 0, imageName: "poison.fill")]), name: "Add Poison Cards", description: "Add cards that double poison stacks", iconName: "drop.fill"),
-                    Reward(type: .heal(percentage: 35), name: "Heal", description: "Heal 35%", iconName: "heart.fill")]
+            return [Reward(type: .addCards(cards: [Card(id: UUID(), name: NSLocalizedString("double_poison_card_name", comment: "Double Poison Card name"), description: NSLocalizedString("double_poison_card_description", comment: "Doubles the poison stacks description"), cardType: .doublePoison, value: 0, imageName: "drop.degreesign.fill")]), name: NSLocalizedString("add_poison_cards_name", comment: "Add Poison Cards name"), description: NSLocalizedString("add_poison_cards_description", comment: "Add cards that double poison stacks description"), iconName: "drop.fill"),
+                    Reward(type: .heal(percentage: 35), name: NSLocalizedString("heal_name", comment: "Heal name"), description: NSLocalizedString("heal_35_description", comment: "Heal 35% description"), iconName: "heart.fill")]
         case 7:
-            return [Reward(type: .addCards(cards: [Card(id: UUID(), name: "Heal Card", description: "Heals for 2 HP", cardType: .heal, value: 2, imageName: "heal.fill")]), name: "Add Heal Cards", description: "Add cards that heal 2 HP", iconName: "bandage.fill"),
-                    Reward(type: .heal(percentage: 35), name: "Heal", description: "Heal 35%", iconName: "heart.fill")]
+            return [Reward(type: .addCards(cards: [Card(id: UUID(), name: NSLocalizedString("heal_card_name", comment: "Heal Card name"), description: NSLocalizedString("heal_card_description", comment: "Heals for 2 HP description"), cardType: .heal, value: 2, imageName: "cross.circle"), Card(id: UUID(), name: NSLocalizedString("heal_card_name", comment: "Heal Card name"), description: NSLocalizedString("heal_card_description", comment: "Heals for 2 HP description"), cardType: .heal, value: 2, imageName: "cross.circle")]), name: NSLocalizedString("add_heal_cards_name", comment: "Add Heal Cards name"), description: NSLocalizedString("add_heal_cards_description", comment: "Add cards that heal 2 HP description"), iconName: "cross.circle"),
+                    Reward(type: .heal(percentage: 35), name: NSLocalizedString("heal_name", comment: "Heal name"), description: NSLocalizedString("heal_35_description", comment: "Heal 35% description"), iconName: "heart.fill")]
         case 9:
-            return [Reward(type: .attackBuff(value: 2), name: "Attack Buff", description: "+2 Attack Buff", iconName: "flame.fill"),
-                    Reward(type: .shieldBuff(value: 2), name: "Shield Buff", description: "+2 Shield Buff", iconName: "shield.fill"),
-                    Reward(type: .heal(percentage: 35), name: "Heal", description: "Heal 35%", iconName: "heart.fill")]
+            return [Reward(type: .attackBuff(value: 2), name: NSLocalizedString("attack_buff_name", comment: "Attack Buff name"), description: NSLocalizedString("attack_buff_plus2_description", comment: "+2 Attack Buff description"), iconName: "flame.fill"),
+                    Reward(type: .shieldBuff(value: 2), name: NSLocalizedString("shield_buff_name", comment: "Shield Buff name"), description: NSLocalizedString("shield_buff_plus2_description", comment: "+2 Shield Buff description"), iconName: "shield.fill"),
+                    Reward(type: .heal(percentage: 35), name: NSLocalizedString("heal_name", comment: "Heal name"), description: NSLocalizedString("heal_35_description", comment: "Heal 35% description"), iconName: "heart.fill")]
         case 11:
-            return [Reward(type: .symbolicAward, name: "Victory Symbol", description: "You won the game!", iconName: "trophy.fill")]
+            return [Reward(type: .symbolicAward, name: NSLocalizedString("victory_symbol_name", comment: "Victory Symbol name"), description: NSLocalizedString("victory_symbol_description", comment: "You won the game! description"), iconName: "trophy.fill")]
         default:
-            return [Reward(type: .heal(percentage: 35), name: "Heal", description: "Heal 35%", iconName: "heart.fill")]
+            return [Reward(type: .heal(percentage: 35), name: NSLocalizedString("heal_name", comment: "Heal name"), description: NSLocalizedString("heal_35_description", comment: "Heal 35% description"), iconName: "heart.fill")]
         }
     }
 
-  static func applyReward(_ reward: Reward, gameVm: GameViewModel, db: DatabaseManager, to player: Player, in stageViewModel: StageViewModel) {
+    static func applyReward(_ reward: Reward, gameVm: GameViewModel, db: DatabaseManager, to player: Player, in stageViewModel: StageViewModel) {
         switch reward.type {
         case .heal(let percentage):
             let healAmount = (player.maxHP * percentage) / 100
@@ -136,15 +136,15 @@ class RewardSystem {
         case .attackBuff(let value):
             player.attackBuff += value
             stageViewModel.updateCardValues()
-          
-          gameVm.checkAndUnlockAchievements(db: db, action: .gainAttackBuff)
+            gameVm.checkAndUnlockAchievements(db: db, action: .gainAttackBuff)
         case .shieldBuff(let value):
             player.shieldBuff += value
             stageViewModel.updateCardValues()
+          gameVm.checkAndUnlockAchievements(db: db, action: .gainShieldBuff)
         case .addCards(let cards):
             stageViewModel.availableDeck.append(contentsOf: cards)
         case .symbolicAward:
-            print("Player receives a symbolic award for winning the game.")
+            print(NSLocalizedString("symbolic_award_message", comment: "Symbolic award message"))
         }
     }
 }

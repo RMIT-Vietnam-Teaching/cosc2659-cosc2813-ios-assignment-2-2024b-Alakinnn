@@ -46,7 +46,7 @@ import Observation
     if mode == .regular {
       return EnemyFactory.createEnemies(for: difficulty, stage: currentStage)
     } else {
-      return [Enemy(name: "Dummy", hp: 14, debuffEffects: [Debuff(type: .poison, value: 1, duration: 1)])]
+      return [Enemy(name: "Dummy", hp: 14, debuffEffects: [Debuff(type: .poison, value: 1, duration: 1)], enemyImages: ["Mushroom-Idle.gif", "Mushroom-Damage.gif"])]
     }
   }
   
@@ -86,7 +86,7 @@ import Observation
   func endPlayerTurn() {
       isPlayerTurn = false
       discardPlayerHand()
-      applyPoisonEffects() // Apply poison effects to all enemies
+      applyPoisonEffects() 
       startEnemyTurn()
   }
 
@@ -156,7 +156,8 @@ import Observation
               "isShowingRewards": isShowingRewards,
               "selectedReward": selectedReward?.toDictionary() ?? [:],
               "isGameOver": isGameOver,
-              "gameMode": mode
+              "gameMode": mode.rawValue,
+              "startTime": startTime?.timeIntervalSinceReferenceDate ?? 0,
           ]
       }
 
@@ -173,14 +174,15 @@ import Observation
               let enemiesData = dictionary["enemies"] as? [[String: Any]],
               let isShowingRewards = dictionary["isShowingRewards"] as? Bool,
               let isGameOver = dictionary["isGameOver"] as? Bool,
-              let mode = dictionary["gameMode"] as? Mode
+              let modeRawValue = dictionary["gameMode"] as? Int
           else { return nil }
 
-          let availableDeck = availableDeckData.compactMap { Card.fromDictionary($0) }  // Assuming Card has a `fromDictionary` method
+          let mode = Mode(rawValue: modeRawValue) ?? .regular
+          let availableDeck = availableDeckData.compactMap { Card.fromDictionary($0) }
           let discardedDeck = discardedDeckData.compactMap { Card.fromDictionary($0) }
           let playerHand = playerHandData.compactMap { Card.fromDictionary($0) }
           let player = Player.fromDictionary(playerData)
-          let enemies = enemiesData.compactMap { Enemy.fromDictionary($0) }  // Assuming Enemy has a `fromDictionary` method
+          let enemies = enemiesData.compactMap { Enemy.fromDictionary($0) }
 
           let stageViewModel = StageViewModel(difficulty: difficulty, player: player!, mode: mode)
           stageViewModel.availableDeck = availableDeck
@@ -192,6 +194,10 @@ import Observation
           stageViewModel.enemies = enemies
           stageViewModel.isShowingRewards = isShowingRewards
           stageViewModel.isGameOver = isGameOver
+
+          if let startTimeInterval = dictionary["startTime"] as? TimeInterval {
+              stageViewModel.startTime = Date(timeIntervalSinceReferenceDate: startTimeInterval)
+          }
 
           return stageViewModel
       }

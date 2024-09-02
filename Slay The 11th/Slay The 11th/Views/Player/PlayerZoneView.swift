@@ -6,19 +6,17 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct PlayerZoneView: View {
     var vm: StageViewModel
-
+  @State var isAnimating: Bool = true
     var body: some View {
         GeometryReader { geometry in
             let zoneWidth = geometry.size.width
             let zoneHeight = geometry.size.height
 
             ZStack {
-                // Background
-                Color.green.opacity(0.7)
-                    .frame(width: zoneWidth, height: zoneHeight)
 
                 HStack {
                   Spacer()
@@ -36,11 +34,11 @@ struct PlayerZoneView: View {
                         .padding(.top, 10)
 
                         ZStack {
-                            Image(systemName: "person.fill")
+                          AnimatedImage(name: vm.player.playerState == .idle ? "Player-Idle.gif" : "Player-Damage.gif", isAnimating: $isAnimating)
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
-                                .frame(width: zoneWidth * 0.2, height: zoneHeight * 0.4)
-                                .foregroundColor(.blue)
+                                .frame(width: zoneWidth * 0.25, height: zoneHeight * 0.4)
+
 
                             Rectangle()
                                 .fill(Color.black.opacity(0.001))
@@ -76,11 +74,12 @@ struct PlayerZoneView: View {
                   
                     Button(action: {
                       vm.endPlayerTurn()
+                      AudioManager.shared.playImmediateSFX("sfxButton")
                     }) {
                         Text("End Turn")
                         .font(.kreonBody)
-                            .padding()
-                            .background(Color.red)
+                            .padding(24)
+                            .background(Image("bigBtnBackground").resizable())
                             .foregroundColor(.white)
                             .cornerRadius(8)
                     }

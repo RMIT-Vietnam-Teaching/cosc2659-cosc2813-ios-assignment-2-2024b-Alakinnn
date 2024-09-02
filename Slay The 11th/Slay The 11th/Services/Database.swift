@@ -88,18 +88,19 @@ import Observation
 
       // Initialize achievements
       private func initializeAchievements() {
-          let initialAchievements = [
-              Achievement(id: "first_run", name: "To The Spire", description: "Start a run for the first time.", iconName: "firstRunComplete", isUnlocked: false),
-              Achievement(id: "gain_attack_buff", name: "Whetting Blade", description: "Gain an attack buff for the first time.", iconName: "attackBuffComplete", isUnlocked: false),
-              Achievement(id: "gain_shield_buff", name: "Hard As Rock", description: "Gain a shield buff for the first time.", iconName: "defendBuffComplete", isUnlocked: false),
-              Achievement(id: "reach_stage_7", name: "Halfway There", description: "Reach stage 7 for the first time.", iconName: "7thStageComplete", isUnlocked: false),
-              Achievement(id: "clear_game_first_time", name: "First Victory?", description: "Clear the game for the first time.", iconName: "firstVictoryComplete", isUnlocked: false),
-              Achievement(id: "clear_game_easy", name: "Victory on Easy", description: "Clear the game on Easy difficulty.", iconName: "easyComplete", isUnlocked: false),
-              Achievement(id: "clear_game_medium", name: "Victory on Medium", description: "Clear the game on Medium difficulty.", iconName: "medComplete", isUnlocked: false),
-              Achievement(id: "clear_game_hard", name: "Victory on Hard", description: "Clear the game on Hard difficulty.", iconName: "hardComplete", isUnlocked: false)
-          ]
-          saveAchievements(initialAchievements)
-      }
+         let initialAchievements = [
+             Achievement(id: "first_run", name: NSLocalizedString("achievement_first_run_name", comment: "First run achievement name"), description: NSLocalizedString("achievement_first_run_description", comment: "First run achievement description"), iconName: "firstRunComplete", isUnlocked: false),
+             Achievement(id: "gain_attack_buff", name: NSLocalizedString("achievement_gain_attack_buff_name", comment: "Gain attack buff achievement name"), description: NSLocalizedString("achievement_gain_attack_buff_description", comment: "Gain attack buff achievement description"), iconName: "attackBuffComplete", isUnlocked: false),
+             Achievement(id: "gain_shield_buff", name: NSLocalizedString("achievement_gain_shield_buff_name", comment: "Gain shield buff achievement name"), description: NSLocalizedString("achievement_gain_shield_buff_description", comment: "Gain shield buff achievement description"), iconName: "defendBuffComplete", isUnlocked: false),
+             Achievement(id: "reach_stage_7", name: NSLocalizedString("achievement_reach_stage_7_name", comment: "Reach stage 7 achievement name"), description: NSLocalizedString("achievement_reach_stage_7_description", comment: "Reach stage 7 achievement description"), iconName: "7thStageComplete", isUnlocked: false),
+             Achievement(id: "clear_game_first_time", name: NSLocalizedString("achievement_clear_game_first_time_name", comment: "Clear game for the first time achievement name"), description: NSLocalizedString("achievement_clear_game_first_time_description", comment: "Clear game for the first time achievement description"), iconName: "firstVictoryComplete", isUnlocked: false),
+             Achievement(id: "clear_game_easy", name: NSLocalizedString("achievement_clear_game_easy_name", comment: "Clear game on easy difficulty achievement name"), description: NSLocalizedString("achievement_clear_game_easy_description", comment: "Clear game on easy difficulty achievement description"), iconName: "easyComplete", isUnlocked: false),
+             Achievement(id: "clear_game_medium", name: NSLocalizedString("achievement_clear_game_medium_name", comment: "Clear game on medium difficulty achievement name"), description: NSLocalizedString("achievement_clear_game_medium_description", comment: "Clear game on medium difficulty achievement description"), iconName: "medComplete", isUnlocked: false),
+             Achievement(id: "clear_game_hard", name: NSLocalizedString("achievement_clear_game_hard_name", comment: "Clear game on hard difficulty achievement name"), description: NSLocalizedString("achievement_clear_game_hard_description", comment: "Clear game on hard difficulty achievement description"), iconName: "hardComplete", isUnlocked: false)
+         ]
+         saveAchievements(initialAchievements)
+     }
+
 
       // Check if an achievement is unlocked
       func isAchievementUnlocked(_ id: String) -> Bool {
