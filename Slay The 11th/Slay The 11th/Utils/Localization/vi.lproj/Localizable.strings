@@ -1,0 +1,122 @@
+/* 
+  Localizable.strings
+  Slay The 11th
+
+  Created by Duong Tran Minh Hoang on 02/09/2024.
+  
+*/
+
+// Tutorial
+"step0" = "Đây là bộ bài của bạn, chọn thẻ để sử dụng";
+"step1" = "Chạm vào kẻ địch để dùng thẻ";
+"step2" = "Đây là ý định của chúng";
+"step3" = "Đây là thanh HP của chúng";
+"step4" = "Biểu tượng trên là hiệu ứng xấu của chúng";
+"step5" = "Đây là bạn, người chơi.";
+"step6" = "Đây là khiên bạn đã nhận được.";
+"step7" = "Đây là thanh HP của bạn, hết là thua.";
+"step8" = "Nhấn đây để kết thúc lượt.";
+
+// Card Info
+"card_attack_name" = "Tấn Công";
+"card_attack_description" = "Chém kẻ địch";
+"card_defense_name" = "Phòng Thủ";
+"card_defense_description" = "Tự che chắn";
+"card_poison_name" = "Độc";
+"card_poison_description" = "Đầu độc kẻ địch";
+"card_silence_name" = "Câm Lặng";
+"card_silence_description" = "Làm câm lặng kẻ địch";
+"card_draw_name" = "Rút Bài";
+"card_draw_description" = "Rút thêm bài";
+
+// Statistics
+"leaderboard" = "Bảng Xếp Hạng";
+"achievements" = "Thành Tựu";
+"analytics" = "Phân Tích";
+"no_players" = "Không có dữ liệu";
+"unknown" = "???";
+"gameplay_statistics" = "Thống Kê";
+"player_finished_stage" = "%@ hoàn thành tại cửa %d";
+"chart_label_value" = "%@: %.2f";
+"runs_played" = "Số Lần Chơi";
+"win_rate" = "Tỉ Lệ Thắng (%)";
+
+// Reward
+"choose_your_reward" = "Chọn Phần Thưởng";
+"heal_description" = "%d%% HP Tối Đa";
+"attack_buff_description" = "+%d Sức Tấn Công";
+"shield_buff_description" = "+%d Sức Phòng Thủ";
+"add_cards_description" = "Thêm %d lá bài vào bộ bài";
+"symbol_of_victory" = "Biểu Tượng Chiến Thắng";
+
+"attack_buff_name" = "Sức Tấn Công";
+"attack_buff_plus2_description" = "+2 Sức Tấn Công";
+"heal_name" = "Hồi Máu";
+"heal_35_description" = "Hồi 35%";
+"shield_buff_name" = "Sức Phòng Thủ";
+"shield_buff_plus3_description" = "+3 Sức Phòng Thủ";
+"shield_buff_plus2_description" = "+2 Sức Phòng Thủ";
+"double_poison_card_name" = "Độc Kép";
+"double_poison_card_description" = "Nhân đôi số độc";
+"add_poison_cards_name" = "Thêm Lá 'XĐộc'";
+"add_poison_cards_description" = "Thêm lá nhân đôi số độc";
+"heal_card_name" = "Lá Hồi Máu";
+"heal_card_description" = "Hồi 2 HP";
+"add_heal_cards_name" = "Thêm Lá Hồi Máu";
+"add_heal_cards_description" = "Thêm lá hồi 2 HP";
+"victory_symbol_name" = "Biểu Tượng Chiến Thắng";
+"victory_symbol_description" = "Bạn đã thắng trò chơi!";
+"symbolic_award_message" = "Người chơi nhận biểu tượng chiến thắng.";
+
+// Victory
+"victory_title" = "Chiến Thắng?";
+"victory_subtitle" = "Không có lối thoát khỏi Tháp...";
+"main_menu" = "Menu";
+
+// Game Over
+"game_over" = "Thua cuộc";
+
+// Option Header
+"stage_label" = "Cửa %d";
+"save_and_quit" = "Lưu và Thoát";
+"abandon_run" = "Bỏ Cuộc";
+"cancel" = "Hủy";
+
+// Pause
+"unpause" = "Tiếp Tục";
+
+// Menu
+"continue_run" = "Tiếp Tục Chơi";
+"start_new_run" = "Chơi Màn Mới";
+"start_tutorial" = "Chơi Hướng Dẫn";
+"easy" = "Dễ";
+"medium" = "Trung Bình";
+"hard" = "Khó";
+"music_volume" = "Âm Lượng Nhạc";
+"sfx_volume" = "Âm Lượng Hiệu Ứng";
+"statistics" = "Thống Kê";
+"enter_your_name" = "Nhập Tên Của Bạn";
+"name_placeholder" = "Tên";
+
+// Achievements
+"achievement_first_run_name" = "Lên Đỉnh Tháp";
+"achievement_first_run_description" = "Chơi ván đầu tiên.";
+"achievement_gain_attack_buff_name" = "Lưỡi Gươm Sắc";
+"achievement_gain_attack_buff_description" = "Tăng cường tấn công lần đầu.";
+"achievement_gain_shield_buff_name" = "Cứng Như Đá";
+"achievement_gain_shield_buff_description" = "Tăng cường phòng thủ lần đầu.";
+"achievement_reach_stage_7_name" = "Nửa Đường Rồi";
+"achievement_reach_stage_7_description" = "Đạt đến cửa 7 lần đầu.";
+"achievement_clear_game_first_time_name" = "Chiến Thắng Đầu Tiên?";
+"achievement_clear_game_first_time_description" = "Hoàn thành trò chơi lần đầu.";
+"achievement_clear_game_easy_name" = "Chiến Thắng Mức Dễ";
+"achievement_clear_game_easy_description" = "Hoàn thành trò chơi mức Dễ.";
+"achievement_clear_game_medium_name" = "Chiến Thắng Mức Trung Bình";
+"achievement_clear_game_medium_description" = "Hoàn thành trò chơi mức Trung Bình.";
+"achievement_clear_game_hard_name" = "Chiến Thắng Mức Khó";
+"achievement_clear_game_hard_description" = "Hoàn thành trò chơi mức Khó.";
+"achievement_unlocked_message" = "Thành Tựu Đã Được Mở Khóa: %@";
+
+
+// Common
+"confirm" = "Xác Nhận";
