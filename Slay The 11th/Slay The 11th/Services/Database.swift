@@ -17,8 +17,11 @@ import Observation
   private let firstDefendBuff = "defendBuff"
 
   init() {
-    UserDefaults.resetDefaults()
-
+//    UserDefaults.resetDefaults()
+    if fetchPlayers().isEmpty {
+                initializeMockData()
+            }
+    
     if fetchAchievements().isEmpty {
       initializeAchievements()
     }
@@ -100,6 +103,23 @@ import Observation
          ]
          saveAchievements(initialAchievements)
      }
+  
+  private func initializeMockData() {
+          let mockPlayerScores: [PlayerScore] = [
+              PlayerScore(id: "1", name: "Rahim", score: 100, stagesFinished: 1),
+              PlayerScore(id: "2", name: "Feing", score: 200, stagesFinished: 2),
+              PlayerScore(id: "3", name: "Wukong", score: 300, stagesFinished: 3),
+              PlayerScore(id: "4", name: "Rshata", score: 400, stagesFinished: 4),
+              PlayerScore(id: "5", name: "Wokux", score: 500, stagesFinished: 5),
+              PlayerScore(id: "6", name: "Brokeboi", score: 600, stagesFinished: 6),
+              PlayerScore(id: "7", name: "Wujin", score: 700, stagesFinished: 11), // Won the game
+              PlayerScore(id: "8", name: "Salca", score: 800, stagesFinished: 8),
+              PlayerScore(id: "9", name: "Vyti", score: 900, stagesFinished: 11), // Won the game
+              PlayerScore(id: "10", name: "Loam", score: 1000, stagesFinished: 11), // Won the game
+              PlayerScore(id: "11", name: "Qutic", score: 1100, stagesFinished: 11)  // Won the game
+          ]
+          savePlayers(mockPlayerScores)
+      }
 
 
       // Check if an achievement is unlocked

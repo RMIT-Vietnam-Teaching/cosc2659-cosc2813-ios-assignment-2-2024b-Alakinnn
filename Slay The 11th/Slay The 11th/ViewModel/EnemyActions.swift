@@ -96,15 +96,24 @@ extension StageViewModel {
   // Function to decrement the silence effect duration
   private func decrementSilenceEffectDuration(for enemy: inout Enemy) {
       if let index = enemy.debuffEffects.firstIndex(where: { $0.type == .silence }) {
-          enemy.debuffEffects[index].duration -= 1
-          if enemy.debuffEffects[index].duration <= 0 {
+          // Check if the difficulty is hard
+          if difficulty == .hard {
+              // If hard difficulty, remove the silence debuff immediately
               enemy.debuffEffects.remove(at: index)
-              print("Enemy \(enemy.name) is no longer silenced.")
+              print("Enemy \(enemy.name) is no longer silenced due to hard difficulty.")
           } else {
-              print("Enemy \(enemy.name) has \(enemy.debuffEffects[index].duration) turns of silence left.")
+              // Decrement the silence effect duration for other difficulties
+              enemy.debuffEffects[index].duration -= 1
+              if enemy.debuffEffects[index].duration <= 0 {
+                  enemy.debuffEffects.remove(at: index)
+                  print("Enemy \(enemy.name) is no longer silenced.")
+              } else {
+                  print("Enemy \(enemy.name) has \(enemy.debuffEffects[index].duration) turns of silence left.")
+              }
           }
       }
   }
+
 
   // Function to decrement the poison effect duration
 //  private func decrementPoisonEffectDuration(for enemy: inout Enemy) {
@@ -166,7 +175,7 @@ extension StageViewModel {
       } else if currentStage <= 10 {
           damageRange = 4...8
       } else {
-          damageRange = enemy.isBoss ? 5...10 : 4...8
+          damageRange = enemy.isBoss ? 5...10 : 2...6
       }
 
       let damage = Int.random(in: damageRange) + enemy.attackBuff
