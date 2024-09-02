@@ -22,8 +22,14 @@ extension StageViewModel {
                 AudioManager.shared.playImmediateSFX("stabSfx")
                   self.enemies[index].curHp -= poison.duration
                   self.enemies[index].curHp = max(0, self.enemies[index].curHp)
+                if self.difficulty == .hard {
+                  self.enemies[index].debuffEffects[poisonIndex].duration -= 2
+                } else {
                   self.enemies[index].debuffEffects[poisonIndex].duration -= 1
-                  
+
+                }
+                
+                
                   DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                       if self.enemies[index].curHp > 0 {
                           self.enemies[index].enemyState = .idle
