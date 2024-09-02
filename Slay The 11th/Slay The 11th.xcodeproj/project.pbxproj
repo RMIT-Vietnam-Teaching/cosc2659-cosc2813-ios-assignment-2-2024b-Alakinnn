@@ -12,7 +12,7 @@
 		640DF4692C7F7F87005B3342 /* ScoreSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640DF4682C7F7F86005B3342 /* ScoreSystem.swift */; };
 		640DF46B2C7F9756005B3342 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 640DF46A2C7F9756005B3342 /* GoogleService-Info.plist */; };
 		640DF49C2C7F996C005B3342 /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640DF49B2C7F996C005B3342 /* StatisticsView.swift */; };
-		640DF49F2C7F9A06005B3342 /* FirebaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640DF49E2C7F9A06005B3342 /* FirebaseAPI.swift */; };
+		640DF49F2C7F9A06005B3342 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640DF49E2C7F9A06005B3342 /* Database.swift */; };
 		643F04FD2C7A09E000CB9EDF /* LoadingScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643F04FC2C7A09E000CB9EDF /* LoadingScreenView.swift */; };
 		6447CDE82C78660600F57F46 /* NavigationTransitions in Frameworks */ = {isa = PBXBuildFile; productRef = 6447CDE72C78660600F57F46 /* NavigationTransitions */; };
 		6447CDEA2C78D57900F57F46 /* StageContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6447CDE92C78D57900F57F46 /* StageContentView.swift */; };
@@ -84,7 +84,7 @@
 		640DF4682C7F7F86005B3342 /* ScoreSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreSystem.swift; sourceTree = "<group>"; };
 		640DF46A2C7F9756005B3342 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		640DF49B2C7F996C005B3342 /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
-		640DF49E2C7F9A06005B3342 /* FirebaseAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAPI.swift; sourceTree = "<group>"; };
+		640DF49E2C7F9A06005B3342 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		643F04FC2C7A09E000CB9EDF /* LoadingScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreenView.swift; sourceTree = "<group>"; };
 		6447CDE92C78D57900F57F46 /* StageContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageContentView.swift; sourceTree = "<group>"; };
 		6447CDEB2C78D5A500F57F46 /* StageHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageHeaderView.swift; sourceTree = "<group>"; };
@@ -169,7 +169,7 @@
 		640DF49D2C7F99EF005B3342 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				640DF49E2C7F9A06005B3342 /* FirebaseAPI.swift */,
+				640DF49E2C7F9A06005B3342 /* Database.swift */,
 				64CC61262C80594400F88EFE /* ToastManager.swift */,
 			);
 			path = Services;
@@ -541,7 +541,7 @@
 				64FF8D292C673C0C0010487C /* CardView.swift in Sources */,
 				64CC61312C809D6800F88EFE /* LineChartView.swift in Sources */,
 				64CC61382C81FB5700F88EFE /* Spotlight.swift in Sources */,
-				640DF49F2C7F9A06005B3342 /* FirebaseAPI.swift in Sources */,
+				640DF49F2C7F9A06005B3342 /* Database.swift in Sources */,
 				64CC61332C80AAAF00F88EFE /* BarChartView.swift in Sources */,
 				64FF8D2D2C673DB90010487C /* PlayerHandView.swift in Sources */,
 				6447CDF02C78D5C900F57F46 /* RewardSelectionOverlay.swift in Sources */,

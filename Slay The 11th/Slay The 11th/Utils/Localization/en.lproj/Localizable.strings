@@ -42,8 +42,81 @@
 
 // Reward
 "choose_your_reward" = "Choose Your Reward";
+"heal_description" = "%d%% Max HP";
+"attack_buff_description" = "+%d Attack Buff";
+"shield_buff_description" = "+%d Shield Buff";
+"add_cards_description" = "Add %d cards to deck";
+"symbol_of_victory" = "Symbol of Victory";
+
+"attack_buff_name" = "Attack Buff";
+"attack_buff_plus2_description" = "+2 Attack Buff";
+"heal_name" = "Heal";
+"heal_35_description" = "Heal 35%";
+"shield_buff_name" = "Shield Buff";
+"shield_buff_plus3_description" = "+3 Shield Buff";
+"shield_buff_plus2_description" = "+2 Shield Buff";
+"double_poison_card_name" = "Double Poison";
+"double_poison_card_description" = "Doubles the poison stacks";
+"add_poison_cards_name" = "Add Poison Cards";
+"add_poison_cards_description" = "Add cards that double poison stacks";
+"heal_card_name" = "Heal Card";
+"heal_card_description" = "Heals for 2 HP";
+"add_heal_cards_name" = "Add Heal Cards";
+"add_heal_cards_description" = "Add cards that heal 2 HP";
+"victory_symbol_name" = "Victory Symbol";
+"victory_symbol_description" = "You won the game!";
+"symbolic_award_message" = "Player receives a symbolic award for winning the game.";
+
+// Victory
+"victory_title" = "Victory?";
+"victory_subtitle" = "The Spire is to no escape...";
+"main_menu" = "Main Menu";
+
+// Game Over
+"game_over" = "Game Over";
+
+// Option Header
+"stage_label" = "Stage %d";
+"save_and_quit" = "Save and Quit";
+
+// Pause
+"unpause" = "Unpause";
+
+// Main Menu
+"continue_run" = "Continue Run";
+"start_new_run" = "Start New Run";
+"start_tutorial" = "Start Tutorial";
+"easy" = "Easy";
+"medium" = "Medium";
+"hard" = "Hard";
+"music_volume" = "Music Volume";
+"sfx_volume" = "SFX Volume";
+"statistics" = "Statistics";
+"enter_your_name" = "Enter Your Name";
+"name_placeholder" = "Name";
+
+// Achievements
+"achievement_first_run_name" = "To The Spire";
+"achievement_first_run_description" = "Start a run for the first time.";
+"achievement_gain_attack_buff_name" = "Whetting Blade";
+"achievement_gain_attack_buff_description" = "Gain an attack buff for the first time.";
+"achievement_gain_shield_buff_name" = "Hard As Rock";
+"achievement_gain_shield_buff_description" = "Gain a shield buff for the first time.";
+"achievement_reach_stage_7_name" = "Halfway There";
+"achievement_reach_stage_7_description" = "Reach stage 7 for the first time.";
+"achievement_clear_game_first_time_name" = "First Victory?";
+"achievement_clear_game_first_time_description" = "Clear the game for the first time.";
+"achievement_clear_game_easy_name" = "Victory on Easy";
+"achievement_clear_game_easy_description" = "Clear the game on Easy difficulty.";
+"achievement_clear_game_medium_name" = "Victory on Medium";
+"achievement_clear_game_medium_description" = "Clear the game on Medium difficulty.";
+"achievement_clear_game_hard_name" = "Victory on Hard";
+"achievement_clear_game_hard_description" = "Clear the game on Hard difficulty.";
+"achievement_unlocked_message" = "Achievement Unlocked: %@";
 
 // Common
 "confirm" = "Confirm";
+"abandon_run" = "Abandon Run";
+"cancel" = "Cancel";
 
 
