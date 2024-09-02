@@ -33,6 +33,7 @@
 		6476530D2C7A464300148222 /* stage.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6476530C2C7A464300148222 /* stage.mp3 */; };
 		647653102C7A4BB900148222 /* mainMenu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6476530E2C7A464800148222 /* mainMenu.mp3 */; };
 		647653122C7A4CD100148222 /* sfxButton.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 647653112C7A4CD100148222 /* sfxButton.mp3 */; };
+		6476689D2C85FBF4000629D5 /* achievement.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6476689C2C85FBF4000629D5 /* achievement.mp3 */; };
 		6476CAA82C666AFE001C664A /* Slay_The_11thApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6476CAA72C666AFE001C664A /* Slay_The_11thApp.swift */; };
 		6476CAAC2C666B01001C664A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6476CAAB2C666B01001C664A /* Assets.xcassets */; };
 		6476CAAF2C666B01001C664A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6476CAAE2C666B01001C664A /* Preview Assets.xcassets */; };
@@ -105,6 +106,7 @@
 		6476530C2C7A464300148222 /* stage.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = stage.mp3; sourceTree = "<group>"; };
 		6476530E2C7A464800148222 /* mainMenu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = mainMenu.mp3; sourceTree = "<group>"; };
 		647653112C7A4CD100148222 /* sfxButton.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sfxButton.mp3; sourceTree = "<group>"; };
+		6476689C2C85FBF4000629D5 /* achievement.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = achievement.mp3; sourceTree = "<group>"; };
 		6476CAA42C666AFE001C664A /* Slay The 11th.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Slay The 11th.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6476CAA72C666AFE001C664A /* Slay_The_11thApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slay_The_11thApp.swift; sourceTree = "<group>"; };
 		6476CAAB2C666B01001C664A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 			isa = PBXGroup;
 			children = (
 				6476530E2C7A464800148222 /* mainMenu.mp3 */,
+				6476689C2C85FBF4000629D5 /* achievement.mp3 */,
 				6476530C2C7A464300148222 /* stage.mp3 */,
 			);
 			path = Soundtrack;
@@ -504,6 +507,7 @@
 				64786C282C8332B3005F97BE /* Boss-Damage.gif in Resources */,
 				64786C222C832E24005F97BE /* Player-Damage.gif in Resources */,
 				647653102C7A4BB900148222 /* mainMenu.mp3 in Resources */,
+				6476689D2C85FBF4000629D5 /* achievement.mp3 in Resources */,
 				64C420B22C850AEC0077962F /* playCardSfx.wav in Resources */,
 				6476CAAC2C666B01001C664A /* Assets.xcassets in Resources */,
 				647653122C7A4CD100148222 /* sfxButton.mp3 in Resources */,

@@ -13,26 +13,34 @@ struct StatisticsView: View {
     @State private var selectedTab = 0
     var db: DatabaseManager = DatabaseManager.shared
     
-    var body: some View {
-        TabView(selection: $selectedTab) {
-            LeaderboardView()
-                .tabItem {
-                    Label(NSLocalizedString("leaderboard", comment: "Leaderboard tab label"), systemImage: "list.number")
-                }
-                .tag(0)
-            
-            AchievementsView(db: db)
-                .tabItem {
-                    Label(NSLocalizedString("achievements", comment: "Achievements tab label"), systemImage: "star.fill")
-                }
-                .tag(1)
-            
-            GameplayStatisticsView(db: db)
-                .tabItem {
-                    Label(NSLocalizedString("analytics", comment: "Analytics tab label"), systemImage: "percent")
-                }
-                .tag(2)
+  var body: some View {
+    TabView(selection: $selectedTab) {
+      LeaderboardView()
+        .tabItem {
+          Label(NSLocalizedString("leaderboard", comment: "Leaderboard tab label"), systemImage: "list.number")
         }
+        .tag(0)
+      
+      AchievementsView(db: db)
+        .tabItem {
+          Label(NSLocalizedString("achievements", comment: "Achievements tab label"), systemImage: "star.fill")
+        }
+        .tag(1)
+      
+      GameplayStatisticsView(db: db)
+        .tabItem {
+          Label(NSLocalizedString("analytics", comment: "Analytics tab label"), systemImage: "percent")
+        }
+        .tag(2)
+    }
+    .onAppear {
+      AudioManager.shared.stopBackgroundMusic()
+      AudioManager.shared.playBackgroundMusic("achievement")
+    }
+    .onDisappear {
+      AudioManager.shared.stopBackgroundMusic()
+      AudioManager.shared.playBackgroundMusic("mainMenu")
+    }
     }
 }
 

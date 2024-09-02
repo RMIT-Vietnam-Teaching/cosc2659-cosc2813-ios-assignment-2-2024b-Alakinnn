@@ -25,6 +25,7 @@ struct MainMenuView: View {
     @State private var sfxVolume: Double = 0.5
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
   @State private var showingInfoSheet = false
+  @State private var showSettings = false
 
     var body: some View {
         NavigationStack {
@@ -161,7 +162,6 @@ struct MainMenuView: View {
                                   .padding()
                                   .frame(width: 300)
                           }
-                          .padding(.horizontal, 8)
 
                           Button(action: {
                               AudioManager.shared.playImmediateSFX("sfxButton")
@@ -182,6 +182,19 @@ struct MainMenuView: View {
                                   .padding()
                                   .frame(width: 300)
                           }
+                      Button(action: {
+                              showSettings.toggle()
+                          }) {
+                              Image(systemName: "globe")
+                              .font(.kreonCaption)
+                              .foregroundColor(.white)
+                              .frame(width: 50, height: 50)
+                              .padding(2)
+                          }
+                          .background(Image("smallBtnBackground").resizable().scaledToFit())
+                          .sheet(isPresented: $showSettings) {
+                              SettingsView()
+                          }
 
                           Spacer()
 
@@ -189,7 +202,7 @@ struct MainMenuView: View {
                               AudioManager.shared.playImmediateSFX("sfxButton")
                               gameVm.showStatistics = true
                           }
-                          .font(.kreonHeadline)
+                          .font(horizontalSizeClass == .compact ? .kreonSubheadline : .kreonHeadline)
                           .foregroundStyle(.white)
                           .background(
                             Image("bigBtnBackground")
@@ -247,6 +260,36 @@ struct MainMenuView: View {
         .onDisappear {
             AudioManager.shared.stopBackgroundMusic()
         }
+    }
+}
+
+struct SettingsView: View {
+    @AppStorage("selectedLanguage") private var selectedLanguage = "en" // Default to English
+    private let languages = ["en": "English", "vi": "Vietnamese"]
+
+    var body: some View {
+        NavigationStack {
+            Form {
+                Picker("Language", selection: $selectedLanguage) {
+                    ForEach(languages.keys.sorted(), id: \.self) { key in
+                        Text(languages[key]!).tag(key)
+                    }
+                }
+                .pickerStyle(MenuPickerStyle())
+                .onChange(of: selectedLanguage, perform: { value in
+                    changeLanguage(to: value)
+                })
+            }
+            .navigationTitle("Settings")
+        }
+    }
+
+    private func changeLanguage(to languageCode: String) {
+        UserDefaults.standard.setValue([languageCode], forKey: "AppleLanguages")
+        UserDefaults.standard.synchronize()
+        
+        // Restart the app to apply the new language setting.
+        exit(0)
     }
 }
 

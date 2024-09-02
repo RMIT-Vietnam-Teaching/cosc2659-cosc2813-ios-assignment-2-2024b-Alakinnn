@@ -45,6 +45,8 @@ struct VictoryView: View {
                     gameVm.isGameStarted = false
                     gameVm.stageViewModel.allStagesCleared = false
                     gameVm.abandonRun()
+                    AudioManager.shared.stopBackgroundMusic()
+                    AudioManager.shared.playBackgroundMusic("mainMenu")
                 }) {
                     Text(NSLocalizedString("main_menu", comment: "Button to return to the main menu"))
                         .font(.custom("Kreon", size: 22))

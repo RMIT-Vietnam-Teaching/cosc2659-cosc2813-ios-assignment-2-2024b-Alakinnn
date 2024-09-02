@@ -17,6 +17,8 @@ struct GameOverView: View {
 
             Button(action: {
                 onConfirm()
+                AudioManager.shared.stopBackgroundMusic()
+                AudioManager.shared.playBackgroundMusic("mainMenu")
             }) {
                 Text(NSLocalizedString("confirm", comment: "Confirm button text"))
                     .font(.kreonTitle2)
