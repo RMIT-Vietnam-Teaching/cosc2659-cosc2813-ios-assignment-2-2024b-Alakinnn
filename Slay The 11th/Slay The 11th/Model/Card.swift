@@ -78,6 +78,7 @@ enum CardType: String, Codable  {
   case silence
   case drawCards
   case heal
+  case doublePoison
 }
 
 struct Debuff: Hashable {

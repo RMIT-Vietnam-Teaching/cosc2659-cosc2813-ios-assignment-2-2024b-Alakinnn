@@ -55,7 +55,7 @@ enum RewardType {
       case .shieldBuff(let value):
           typeDict = ["type": "shieldBuff", "value": value]
       case .addCards(let cards):
-          typeDict = ["type": "addCards", "cards": cards.map { $0.toDictionary() }]  // Assuming Card has a `toDictionary` method
+          typeDict = ["type": "addCards", "cards": cards.map { $0.toDictionary() }] 
       case .symbolicAward:
           typeDict = ["type": "symbolicAward"]
       }
@@ -112,10 +112,10 @@ class RewardSystem {
             return [Reward(type: .shieldBuff(value: 3), name: NSLocalizedString("shield_buff_name", comment: "Shield Buff name"), description: NSLocalizedString("shield_buff_plus3_description", comment: "+3 Shield Buff description"), iconName: "shield.fill"),
                     Reward(type: .heal(percentage: 35), name: NSLocalizedString("heal_name", comment: "Heal name"), description: NSLocalizedString("heal_35_description", comment: "Heal 35% description"), iconName: "heart.fill")]
         case 5:
-            return [Reward(type: .addCards(cards: [Card(id: UUID(), name: NSLocalizedString("double_poison_card_name", comment: "Double Poison Card name"), description: NSLocalizedString("double_poison_card_description", comment: "Doubles the poison stacks description"), cardType: .poison, value: 0, imageName: "poison.fill")]), name: NSLocalizedString("add_poison_cards_name", comment: "Add Poison Cards name"), description: NSLocalizedString("add_poison_cards_description", comment: "Add cards that double poison stacks description"), iconName: "drop.fill"),
+            return [Reward(type: .addCards(cards: [Card(id: UUID(), name: NSLocalizedString("double_poison_card_name", comment: "Double Poison Card name"), description: NSLocalizedString("double_poison_card_description", comment: "Doubles the poison stacks description"), cardType: .doublePoison, value: 0, imageName: "drop.degreesign.fill")]), name: NSLocalizedString("add_poison_cards_name", comment: "Add Poison Cards name"), description: NSLocalizedString("add_poison_cards_description", comment: "Add cards that double poison stacks description"), iconName: "drop.fill"),
                     Reward(type: .heal(percentage: 35), name: NSLocalizedString("heal_name", comment: "Heal name"), description: NSLocalizedString("heal_35_description", comment: "Heal 35% description"), iconName: "heart.fill")]
         case 7:
-            return [Reward(type: .addCards(cards: [Card(id: UUID(), name: NSLocalizedString("heal_card_name", comment: "Heal Card name"), description: NSLocalizedString("heal_card_description", comment: "Heals for 2 HP description"), cardType: .heal, value: 2, imageName: "heal.fill")]), name: NSLocalizedString("add_heal_cards_name", comment: "Add Heal Cards name"), description: NSLocalizedString("add_heal_cards_description", comment: "Add cards that heal 2 HP description"), iconName: "bandage.fill"),
+            return [Reward(type: .addCards(cards: [Card(id: UUID(), name: NSLocalizedString("heal_card_name", comment: "Heal Card name"), description: NSLocalizedString("heal_card_description", comment: "Heals for 2 HP description"), cardType: .heal, value: 2, imageName: "cross.circle"), Card(id: UUID(), name: NSLocalizedString("heal_card_name", comment: "Heal Card name"), description: NSLocalizedString("heal_card_description", comment: "Heals for 2 HP description"), cardType: .heal, value: 2, imageName: "cross.circle")]), name: NSLocalizedString("add_heal_cards_name", comment: "Add Heal Cards name"), description: NSLocalizedString("add_heal_cards_description", comment: "Add cards that heal 2 HP description"), iconName: "cross.circle"),
                     Reward(type: .heal(percentage: 35), name: NSLocalizedString("heal_name", comment: "Heal name"), description: NSLocalizedString("heal_35_description", comment: "Heal 35% description"), iconName: "heart.fill")]
         case 9:
             return [Reward(type: .attackBuff(value: 2), name: NSLocalizedString("attack_buff_name", comment: "Attack Buff name"), description: NSLocalizedString("attack_buff_plus2_description", comment: "+2 Attack Buff description"), iconName: "flame.fill"),

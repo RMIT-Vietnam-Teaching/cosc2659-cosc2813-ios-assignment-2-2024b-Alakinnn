@@ -20,7 +20,7 @@ extension StageViewModel {
               DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
                   self.enemies[index].enemyState = .takingDamage
                 AudioManager.shared.playImmediateSFX("stabSfx")
-                  self.enemies[index].curHp -= poison.value
+                  self.enemies[index].curHp -= poison.duration
                   self.enemies[index].curHp = max(0, self.enemies[index].curHp)
                   self.enemies[index].debuffEffects[poisonIndex].duration -= 1
                   
@@ -32,7 +32,7 @@ extension StageViewModel {
                       }
                   }
                   
-                  print("Enemy \(self.enemies[index].name) takes \(poison.value) poison damage. Remaining HP: \(self.enemies[index].curHp)")
+                  print("Enemy \(self.enemies[index].name) takes \(poison.duration) poison damage. Remaining HP: \(self.enemies[index].curHp)")
                   
                   // Remove poison if duration is over
                   if self.enemies[index].debuffEffects[poisonIndex].duration <= 0 {
@@ -62,10 +62,13 @@ extension StageViewModel {
       // Check if the card is player-specific (defense, draw, or heal)
       switch card.cardType {
       case .defense:
+        AudioManager.shared.playImmediateSFX("playCardSfx")
           applyDefenseEffect(value: card.currentValue)
       case .drawCards:
+        AudioManager.shared.playImmediateSFX("playCardSfx")
           applyDrawEffect(value: card.currentValue)
       case .heal:
+        AudioManager.shared.playImmediateSFX("playCardSfx")
           applyHealEffect(value: card.currentValue)
       default:
           if let enemyIndex = index, enemies[enemyIndex].curHp > 0 { // Ensure enemy is alive
@@ -75,11 +78,6 @@ extension StageViewModel {
               return
           }
       }
-    
-    if card.cardType != .attack {
-      AudioManager.shared.playImmediateSFX("playCardSfx")
-    }
-
       // Move the used card to the discarded deck
       moveCardToDiscardedDeck(card)
 
@@ -126,13 +124,26 @@ extension StageViewModel {
           print("Enemy \(enemy.name) takes \(card.currentValue) damage. Remaining HP: \(enemy.curHp)")
 
       case .poison:
+        AudioManager.shared.playImmediateSFX("playCardSfx")
         addOrUpdateDebuff(on: &enemy, type: .poison, value: card.currentValue, duration: card.currentValue)
           print("Enemy \(enemy.name) is poisoned for \(card.currentValue) damage per turn.")
 
       case .silence:
+        AudioManager.shared.playImmediateSFX("playCardSfx")
         addOrUpdateDebuff(on: &enemy, type: .silence, value: card.currentValue, duration: card.currentValue)
         enemy.setIntendedAction(.none)
           print("Enemy \(enemy.name) is silenced.")
+        
+      case .doublePoison:
+         // Double the poison duration if it exists
+         AudioManager.shared.playImmediateSFX("playCardSfx")
+         if let index = enemy.debuffEffects.firstIndex(where: { $0.type == .poison }) {
+             enemy.debuffEffects[index].duration *= 2 // Double the duration
+             print("Enemy \(enemy.name) has their poison duration doubled to \(enemy.debuffEffects[index].duration) turns.")
+         } else {
+             print("Enemy \(enemy.name) has no poison debuff to double.")
+         }
+
 
       default:
           print("Unhandled card type: \(card.cardType)")
@@ -156,7 +167,6 @@ extension StageViewModel {
   private func addOrUpdateDebuff(on enemy: inout Enemy, type: DebuffType, value: Int, duration: Int) {
       if let index = enemy.debuffEffects.firstIndex(where: { $0.type == type }) {
           // If the debuff already exists, update the value and increase the duration
-          enemy.debuffEffects[index].value += value
           enemy.debuffEffects[index].duration += duration
       } else {
           // If the debuff doesn't exist, add it

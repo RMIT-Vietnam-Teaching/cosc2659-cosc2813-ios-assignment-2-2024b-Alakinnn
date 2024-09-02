@@ -57,8 +57,8 @@
 "shield_buff_plus2_description" = "+2 Shield Buff";
 "double_poison_card_name" = "Double Poison";
 "double_poison_card_description" = "Doubles the poison stacks";
-"add_poison_cards_name" = "Add Poison Cards";
-"add_poison_cards_description" = "Add cards that double poison stacks";
+"add_poison_cards_name" = "Add 'XPoison' Cards";
+"add_poison_cards_description" = "A card that double poison stacks";
 "heal_card_name" = "Heal Card";
 "heal_card_description" = "Heals for 2 HP";
 "add_heal_cards_name" = "Add Heal Cards";
