@@ -1,9 +1,11 @@
 import SwiftUI
+import Pow
 
 struct RewardSelectionView: View {
     let rewards: [Reward]
     @Binding var selectedReward: Reward?
     var onConfirm: () -> Void
+    @State var selectedRewardBool: Bool = false
 
     var body: some View {
         VStack(spacing: 5) {
@@ -12,7 +14,7 @@ struct RewardSelectionView: View {
             Text(NSLocalizedString("choose_your_reward", comment: "Prompt to choose a reward"))
                 .font(.kreonHeadline)
                 .padding()
-                .foregroundColor(.black)
+                .foregroundColor(.yellow)
 
             HStack(spacing: 15) {
                 ForEach(rewards, id: \.name) { reward in
@@ -23,7 +25,16 @@ struct RewardSelectionView: View {
                         .cornerRadius(10)
                         .onTapGesture {
                             selectedReward = reward
+                            selectedRewardBool = true
                         }
+                        .conditionalEffect(
+                            .repeat(
+                                .glow(color: .yellow, radius: 50),
+                                every: 1.5
+                            ),
+                            condition: selectedReward?.name == reward.name
+                        )
+
                 }
             }
             .padding(.leading, 8)
@@ -34,15 +45,15 @@ struct RewardSelectionView: View {
                 .font(.kreonBody)
                 .disabled(selectedReward == nil)
                 .padding()
-                .background(Color.blue)
-                .foregroundColor(.white)
+                .foregroundColor(.black)
                 .cornerRadius(10)
                 .padding(.bottom, 20)
+                .background(Image("smallBtnBackground").resizable())
             
             Spacer()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.white)
+        .background(Color.black)
         .navigationBarHidden(true)
     }
 }
@@ -51,7 +62,7 @@ struct RewardSelectionView: View {
     RewardSelectionView(
         rewards: [
             Reward(type: .heal(percentage: 35), name: "Heal", description: "Heals 35% max HP", iconName: "heart.fill"),
-            Reward(type: .attackBuff(value: 2), name: "Attack Buff", description: "Increase attack by 2", iconName: "flame.fill")
+            Reward(type: .shieldBuff(value: 2), name: "Attack Buff", description: "Increase attack by 2", iconName: "flame.fill")
         ],
         selectedReward: .constant(nil), // or you can pass a specific reward for testing selection
         onConfirm: {

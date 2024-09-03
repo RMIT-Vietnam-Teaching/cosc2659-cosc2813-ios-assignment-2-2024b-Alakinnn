@@ -8,12 +8,29 @@
 import Foundation
 import Observation
 
-enum RewardType {
-    case heal(percentage: Int)
-    case attackBuff(value: Int)
-    case shieldBuff(value: Int)
-    case addCards(cards: [Card])
-    case symbolicAward
+enum RewardType: Equatable {
+  case heal(percentage: Int)
+  case attackBuff(value: Int)
+  case shieldBuff(value: Int)
+  case addCards(cards: [Card])
+  case symbolicAward
+  
+  static func ==(lhs: RewardType, rhs: RewardType) -> Bool {
+    switch (lhs, rhs) {
+    case let (.heal(percentage1), .heal(percentage2)):
+      return percentage1 == percentage2
+    case let (.attackBuff(value1), .attackBuff(value2)):
+      return value1 == value2
+    case let (.shieldBuff(value1), .shieldBuff(value2)):
+      return value1 == value2
+    case let (.addCards(cards1), .addCards(cards2)):
+      return cards1 == cards2
+    case (.symbolicAward, .symbolicAward):
+      return true
+    default:
+      return false
+    }
+  }
 }
 
 @Observable class Reward {

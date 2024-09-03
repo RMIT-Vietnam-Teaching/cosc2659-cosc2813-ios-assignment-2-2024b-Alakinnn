@@ -320,6 +320,7 @@ struct TutorialView: View {
            }
          }
          .navigationBarHidden(true)
+         .statusBarHidden()
          .addSpotlightOverlay(show: $showSpotlight, currentSpot: $currentSpot)
     
   }

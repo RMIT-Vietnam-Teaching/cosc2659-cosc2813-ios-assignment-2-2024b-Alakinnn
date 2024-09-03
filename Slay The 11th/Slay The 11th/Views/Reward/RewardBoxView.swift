@@ -14,11 +14,24 @@ struct RewardBoxView: View {
         VStack {
             Text(reward.name)
             .font(.kreonHeadline)
+            .foregroundStyle(.red)
+          
           Text(reward.description).font(.kreonSubheadline)
+            .foregroundStyle(
+                reward.type == .heal(percentage: 35) ? .pink :
+                  (reward.type == .attackBuff(value: 2) ? .red :
+                  (reward.type == .shieldBuff(value: 2) || reward.type == .shieldBuff(value: 3) ? .blue : .yellow))
+            )
+
             Image(systemName: reward.iconName)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 40, height: 40)
+                .foregroundStyle(
+                    reward.type == .heal(percentage: 35) ? .pink :
+                      (reward.type == .attackBuff(value: 2) ? .red :
+                      (reward.type == .shieldBuff(value: 2) || reward.type == .shieldBuff(value: 3) ? .blue : .yellow))
+                )
             
         }
       
