@@ -199,7 +199,7 @@ struct MainMenuView: View {
                     .edgesIgnoringSafeArea(.all)
             }
             .navigationDestination(isPresented: $gameVm.isGameStarted) {
-                StageView(vm: gameVm.stageViewModel, gameVm: gameVm, db: db)
+                StageView(gameVm: gameVm, db: db)
             }
             .navigationDestination(isPresented: $gameVm.stageViewModel.allStagesCleared) {
                 VictoryView(gameVm: gameVm)
@@ -328,7 +328,7 @@ struct PlayerNameInputView: View {
                 .font(.kreonTitle)
                 .foregroundColor(.white)
 
-            TextField(NSLocalizedString("name_placeholder", comment: "Name input placeholder"), text: $playerName)
+          TextField(NSLocalizedString("name_placeholder", comment: "Name input placeholder"), text: $playerName, prompt: Text("Enter your name")               .foregroundStyle(.black))
                 .padding()
                 .background(Color.white)
                 .cornerRadius(8)

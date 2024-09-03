@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		642132FE2C87C7ED001ADDE3 /* Kreon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 642132FD2C87C7ED001ADDE3 /* Kreon.ttf */; };
 		AC61A5D72C876A29001EB41F /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = AC61A5D62C876A29001EB41F /* SDWebImageSwiftUI */; };
 		AC61A5DA2C876A34001EB41F /* Pow in Frameworks */ = {isa = PBXBuildFile; productRef = AC61A5D92C876A34001EB41F /* Pow */; };
 		AC61A5DD2C876A3F001EB41F /* NavigationTransitions in Frameworks */ = {isa = PBXBuildFile; productRef = AC61A5DC2C876A3F001EB41F /* NavigationTransitions */; };
@@ -55,7 +56,6 @@
 		AC6217452C876B020038ABD2 /* Spotlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6216F32C876B020038ABD2 /* Spotlight.swift */; };
 		AC6217462C876B020038ABD2 /* CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6216F42C876B020038ABD2 /* CustomFont.swift */; };
 		AC6217472C876B020038ABD2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AC6216F62C876B020038ABD2 /* Localizable.strings */; };
-		AC6217482C876B020038ABD2 /* Kreon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AC6216FA2C876B020038ABD2 /* Kreon.ttf */; };
 		AC6217492C876B020038ABD2 /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6216FD2C876B020038ABD2 /* StatisticsView.swift */; };
 		AC62174A2C876B020038ABD2 /* LineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6216FE2C876B020038ABD2 /* LineChartView.swift */; };
 		AC62174B2C876B020038ABD2 /* GameplayStatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6216FF2C876B020038ABD2 /* GameplayStatisticsView.swift */; };
@@ -82,7 +82,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		642132F82C87860D001ADDE3 /* Slay-The-11th-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Slay-The-11th-Info.plist"; sourceTree = SOURCE_ROOT; };
+		642132FD2C87C7ED001ADDE3 /* Kreon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Kreon.ttf; sourceTree = "<group>"; };
+		642132FF2C87C935001ADDE3 /* Slay-The-11th-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Slay-The-11th-Info.plist"; sourceTree = SOURCE_ROOT; };
 		AC61A5302C876A03001EB41F /* Slay The 11th.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Slay The 11th.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC6216BE2C876B020038ABD2 /* Slay_The_11thApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Slay_The_11thApp.swift; sourceTree = "<group>"; };
 		AC6216C12C876B020038ABD2 /* stage.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = stage.mp3; sourceTree = "<group>"; };
@@ -131,7 +132,6 @@
 		AC6216F72C876B020038ABD2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AC6216F82C876B020038ABD2 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AC6216F92C876B020038ABD2 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Localizable.strings; sourceTree = "<group>"; };
-		AC6216FA2C876B020038ABD2 /* Kreon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Kreon.ttf; sourceTree = "<group>"; };
 		AC6216FD2C876B020038ABD2 /* StatisticsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
 		AC6216FE2C876B020038ABD2 /* LineChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineChartView.swift; sourceTree = "<group>"; };
 		AC6216FF2C876B020038ABD2 /* GameplayStatisticsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameplayStatisticsView.swift; sourceTree = "<group>"; };
@@ -171,10 +171,10 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		642132F72C8785F9001ADDE3 /* Font */ = {
+		642132FB2C87C7BA001ADDE3 /* Font */ = {
 			isa = PBXGroup;
 			children = (
-				AC6216FA2C876B020038ABD2 /* Kreon.ttf */,
+				642132FD2C87C7ED001ADDE3 /* Kreon.ttf */,
 			);
 			path = Font;
 			sourceTree = "<group>";
@@ -198,12 +198,11 @@
 		AC61A5322C876A03001EB41F /* Slay The 11th */ = {
 			isa = PBXGroup;
 			children = (
-				642132F82C87860D001ADDE3 /* Slay-The-11th-Info.plist */,
+				642132FF2C87C935001ADDE3 /* Slay-The-11th-Info.plist */,
 				AC6216E62C876B020038ABD2 /* Assets.xcassets */,
 				AC6216E72C876B020038ABD2 /* Config */,
 				AC6216CC2C876B020038ABD2 /* gifs */,
 				AC6216E02C876B020038ABD2 /* GoogleService-Info.plist */,
-				642132F72C8785F9001ADDE3 /* Font */,
 				AC6216DF2C876B020038ABD2 /* MainMenuView.swift */,
 				AC6216E12C876B020038ABD2 /* Model */,
 				AC6216ED2C876B020038ABD2 /* Preview Content */,
@@ -211,6 +210,7 @@
 				AC6216EA2C876B020038ABD2 /* Services */,
 				AC6216BE2C876B020038ABD2 /* Slay_The_11thApp.swift */,
 				AC6216CB2C876B020038ABD2 /* Slay-The-11th-Info.plist */,
+				642132FB2C87C7BA001ADDE3 /* Font */,
 				AC6217602C877A160038ABD2 /* Utils */,
 				AC6216D72C876B020038ABD2 /* ViewModel */,
 				AC6216FB2C876B020038ABD2 /* Views */,
@@ -473,7 +473,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1500;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 1540;
 				TargetAttributes = {
 					AC61A52F2C876A03001EB41F = {
 						CreatedOnToolsVersion = 15.0.1;
@@ -514,7 +514,7 @@
 				AC62171E2C876B020038ABD2 /* achievement.mp3 in Resources */,
 				AC62171D2C876B020038ABD2 /* mainMenu.mp3 in Resources */,
 				AC62173D2C876B020038ABD2 /* Assets.xcassets in Resources */,
-				AC6217482C876B020038ABD2 /* Kreon.ttf in Resources */,
+				642132FE2C87C7ED001ADDE3 /* Kreon.ttf in Resources */,
 				AC62172A2C876B020038ABD2 /* Player-Idle.gif in Resources */,
 				AC62172D2C876B020038ABD2 /* Bat-Damage.gif in Resources */,
 				AC6217242C876B020038ABD2 /* stabSfx.mp3 in Resources */,
@@ -614,6 +614,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -677,6 +678,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -744,8 +746,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -776,8 +778,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

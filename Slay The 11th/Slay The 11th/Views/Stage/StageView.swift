@@ -10,7 +10,6 @@ import NavigationTransitions
 import Pow
 
 struct StageView: View {
-  var vm: StageViewModel
   var gameVm: GameViewModel
   var db: DatabaseManager
   var toastManager = ToastManager.shared
@@ -18,24 +17,24 @@ struct StageView: View {
     @State private var showGameOverView: Bool = false
     @State private var isPaused: Bool = false
     @State private var showMenuSheet: Bool = false
-  @State private var showSpotlight: Bool = true
+    @State private var showSpotlight: Bool = true
     @State private var currentSpot: Int = 0
 
     var body: some View {
         ZStack {
             // Game content view
-          StageContentView(vm: vm, gameVm: gameVm)
+            StageContentView(vm: gameVm.stageViewModel, gameVm: gameVm)
 
             // Header view, if the game is not over
-            if !vm.isGameOver {
-              StageHeaderView(vm: vm, gameVm: gameVm, isPaused: $isPaused, showMenuSheet: $showMenuSheet, db:db)
+            if !gameVm.stageViewModel.isGameOver {
+              StageHeaderView(vm: gameVm.stageViewModel, gameVm: gameVm, isPaused: $isPaused, showMenuSheet: $showMenuSheet, db:db)
             }
 
             // Pause overlay
             PauseOverlay(isPaused: $isPaused)
 
             // Handle game over directly in the StageView
-            if vm.isGameOver {
+            if gameVm.stageViewModel.isGameOver {
                 Color.black
                     .opacity(blackoutOpacity)
                     .edgesIgnoringSafeArea(.all)
@@ -52,7 +51,7 @@ struct StageView: View {
 
                 if showGameOverView {
                     GameOverView(onConfirm: {
-                        vm.isGameOver = false
+                        gameVm.stageViewModel.isGameOver = false
                       gameVm.isGameStarted = false
                     })
                     .background(Color.black.opacity(0.8))
@@ -85,7 +84,7 @@ struct StageView: View {
 
   
   #Preview {
-    StageView(vm: StageViewModel(difficulty: .medium, player: Player(hp: 44), mode: .regular), gameVm: GameViewModel(), db: MockDataManager())
+    StageView( gameVm: GameViewModel(), db: MockDataManager())
   }
 
 

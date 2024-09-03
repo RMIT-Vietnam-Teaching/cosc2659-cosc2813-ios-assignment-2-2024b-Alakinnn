@@ -67,12 +67,22 @@ enum Mode: Int {
             self.mode = Mode(rawValue: savedModeRawValue) ?? .regular
 
             if let playerData = UserDefaults.standard.dictionary(forKey: "playerData"),
-               let stageData = UserDefaults.standard.dictionary(forKey: "stageData") {
+               let stageData = UserDefaults.standard.dictionary(forKey: "stageData"),
+               let enemiesData = UserDefaults.standard.array(forKey: "enemies"){
                 let player = Player.fromDictionary(playerData)
                 let stageViewModel = StageViewModel.fromDictionary(stageData, difficulty: difficulty)
-                self.stageViewModel = StageViewModel(difficulty: difficulty, player: player!, mode: mode)
+                self.stageViewModel = stageViewModel ?? StageViewModel(difficulty: difficulty, player: player!, mode: mode)
+                self.stageViewModel.difficulty = difficulty
+                self.stageViewModel.player = player!
+                self.stageViewModel.mode = mode
                 self.stageViewModel.currentStage = stageViewModel?.currentStage ?? 1
-                self.stageViewModel.enemies = stageViewModel?.enemies ?? []
+                
+                let enemiesDataList: [Enemy] = enemiesData.compactMap{
+                    guard let validElement = $0 as? [String : Any] else { return nil }
+                    return Enemy.fromDictionary(validElement)
+                }
+                
+                self.stageViewModel.enemies = enemiesDataList
 
                 self.stageViewModel.resumeTimer() // Resume the timer after loading the game
             }
@@ -84,10 +94,12 @@ enum Mode: Int {
     func saveGame() {
         guard mode == .regular else { return } // Only save in regular mode
         stageViewModel.pauseTimer() // Pause the timer before saving
+        
 
         UserDefaults.standard.set(isGameStarted, forKey: "isGameStarted")
         UserDefaults.standard.set(difficulty.rawValue, forKey: "difficulty")
         UserDefaults.standard.set(stageViewModel.player.toDictionary(), forKey: "playerData")
+        UserDefaults.standard.set(stageViewModel.enemies.compactMap{ $0.toDictionary() }, forKey: "enemies")
         UserDefaults.standard.set(stageViewModel.toDictionary(), forKey: "stageData")
         UserDefaults.standard.set(mode.rawValue, forKey: "gameMode")
 
