@@ -28,7 +28,7 @@ struct GameplayStatisticsView: View {
                 Text(String(format: NSLocalizedString("player_finished_stage", comment: "Player finished at stage message"), selectedDataPoint?.name ?? "", selectedDataPoint?.stagesFinished ?? 0))
                     .font(.kreonHeadline)
                     .padding()
-                    .foregroundColor(.black)
+                    .foregroundColor(Color(.label))
                     .opacity(selectedDataPoint == nil ? 0 : 1)
                     .transition(.movingParts.wipe(
                         angle: .degrees(-45),
@@ -44,6 +44,7 @@ struct GameplayStatisticsView: View {
             ZStack {
                 Text(String(format: NSLocalizedString("chart_label_value", comment: "Chart label with value"), selectedBarData?.label ?? "", selectedBarData?.value ?? 0, selectedBarData?.label == NSLocalizedString("runs_played", comment: "Runs Played label") ? "%.0f" : "%.2f"))
                     .font(.kreonHeadline)
+                    .foregroundColor(Color(.label))
                     .padding()
                     .opacity(selectedBarData == nil ? 0 : 1)
                     .transition(.movingParts.wipe(

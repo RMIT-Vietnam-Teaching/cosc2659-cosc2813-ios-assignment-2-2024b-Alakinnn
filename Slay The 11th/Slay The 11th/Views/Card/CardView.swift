@@ -21,16 +21,17 @@ struct CardView: View {
                   .resizable()
                   .aspectRatio(contentMode: .fit)
                   .frame(width: 250, height: 100)
-            
+                  .foregroundColor(.black)
                   .padding(.vertical)
                   
               Text(card.name)
                   .font(.custom("Kreon", size: 24))
                   .padding(.top, 16)
-              
+                  .foregroundColor(Color(.black))
               Text(card.description)
                   .font(.custom("Kreon", size: 14))
                   .fontWeight(.medium)
+                  .foregroundColor(Color(.black))
                   .multilineTextAlignment(.center)
                   .padding([.leading, .trailing, .bottom], 8)
                   .lineLimit(3)
@@ -39,6 +40,7 @@ struct CardView: View {
                   .font(.custom("Kreon", size: 14))
                   .fontWeight(.light)
                   .padding(.bottom, 8)
+                  .foregroundColor(Color(.black))
           }
           .frame(width: 250, height: 300)
           .background(

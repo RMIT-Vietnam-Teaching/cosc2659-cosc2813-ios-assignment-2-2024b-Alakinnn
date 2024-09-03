@@ -47,13 +47,15 @@ struct StatisticsView: View {
 struct LeaderboardView: View {
     private let itemsPerPage = 20
     private let db = DatabaseManager.shared
-
     @State private var players: [PlayerScore] = []
     @State private var currentPage = 1
 
     var body: some View {
         NavigationView {
             ZStack {
+              Color(.systemBackground)
+                                  .edgesIgnoringSafeArea(.all)
+              
                 if players.isEmpty {
                     Text(NSLocalizedString("no_players", comment: "No players to display"))
                         .font(.kreonTitle)
@@ -69,6 +71,7 @@ struct LeaderboardView: View {
                             }
                     }
                     .listStyle(PlainListStyle())
+                    .background(Color(.systemBackground))
                 }
             }
             .onAppear {
@@ -101,17 +104,20 @@ struct LeaderboardRowView: View {
                 .font(.kreonBody)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.leading, 10)
+                .foregroundColor(Color(.label))
             Text(player.name)
                 .font(.kreonCaption)
                 .frame(maxWidth: .infinity, alignment: .leading)
+                .foregroundColor(Color(.label))
             Spacer()
             Text("\(player.score)")
                 .font(.kreonHeadline)
                 .frame(maxWidth: .infinity, alignment: .trailing)
                 .padding(.trailing, 10)
+                .foregroundColor(Color(.label))
         }
         .padding(.vertical, 8)
-        .background(Color.white)
+        .background(Color(.secondarySystemBackground))
         .cornerRadius(8)
         .shadow(radius: 2)
     }
@@ -139,7 +145,7 @@ struct AchievementsView: View {
                 }
                 .padding()
             }
-            .navigationTitle(Text(NSLocalizedString("achievements", comment: "Achievements navigation title")).font(.kreonTitle))
+            .navigationTitle(Text(NSLocalizedString("achievements", comment: "Achievements navigation title")))
             .navigationTransition(.slide)
             .onAppear {
                 achievements = db.fetchAchievements()
