@@ -7,437 +7,449 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		640DF4642C7F7A01005B3342 /* VictoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640DF4632C7F7A01005B3342 /* VictoryView.swift */; };
-		640DF4672C7F7A7A005B3342 /* Pow in Frameworks */ = {isa = PBXBuildFile; productRef = 640DF4662C7F7A7A005B3342 /* Pow */; };
-		640DF4692C7F7F87005B3342 /* ScoreSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640DF4682C7F7F86005B3342 /* ScoreSystem.swift */; };
-		640DF46B2C7F9756005B3342 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 640DF46A2C7F9756005B3342 /* GoogleService-Info.plist */; };
-		640DF49C2C7F996C005B3342 /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640DF49B2C7F996C005B3342 /* StatisticsView.swift */; };
-		640DF49F2C7F9A06005B3342 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640DF49E2C7F9A06005B3342 /* Database.swift */; };
-		643F04FD2C7A09E000CB9EDF /* LoadingScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643F04FC2C7A09E000CB9EDF /* LoadingScreenView.swift */; };
-		6447CDE82C78660600F57F46 /* NavigationTransitions in Frameworks */ = {isa = PBXBuildFile; productRef = 6447CDE72C78660600F57F46 /* NavigationTransitions */; };
-		6447CDEA2C78D57900F57F46 /* StageContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6447CDE92C78D57900F57F46 /* StageContentView.swift */; };
-		6447CDEC2C78D5A500F57F46 /* StageHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6447CDEB2C78D5A500F57F46 /* StageHeaderView.swift */; };
-		6447CDEE2C78D5B900F57F46 /* PauseOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6447CDED2C78D5B900F57F46 /* PauseOverlay.swift */; };
-		6447CDF02C78D5C900F57F46 /* RewardSelectionOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6447CDEF2C78D5C900F57F46 /* RewardSelectionOverlay.swift */; };
-		6447CDF22C78D5D700F57F46 /* GameOverOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6447CDF12C78D5D700F57F46 /* GameOverOverlay.swift */; };
-		6447CDF82C78DBB700F57F46 /* GameOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6447CDF72C78DBB700F57F46 /* GameOverView.swift */; };
-		6456BB5F2C69217800AE46FD /* StageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6456BB5E2C69217800AE46FD /* StageViewModel.swift */; };
-		6456EC752C6DFE060037DEA1 /* PlayerZoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6456EC742C6DFE060037DEA1 /* PlayerZoneView.swift */; };
-		6456EC782C6E05BB0037DEA1 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6456EC772C6E05BB0037DEA1 /* Player.swift */; };
-		6456EC7A2C6E12FF0037DEA1 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6456EC792C6E12FF0037DEA1 /* Enemy.swift */; };
-		6472AC372C6B786300F81A82 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6472AC362C6B786300F81A82 /* GameViewModel.swift */; };
-		6472AC392C6C5BB400F81A82 /* MainMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6472AC382C6C5BB400F81A82 /* MainMenuView.swift */; };
-		6472AC3D2C6C5F2A00F81A82 /* EnemyFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6472AC3C2C6C5F2900F81A82 /* EnemyFactory.swift */; };
-		647653042C7A247000148222 /* Kreon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 647653032C7A246F00148222 /* Kreon.ttf */; };
-		6476530B2C7A461000148222 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6476530A2C7A461000148222 /* AudioManager.swift */; };
-		6476530D2C7A464300148222 /* stage.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6476530C2C7A464300148222 /* stage.mp3 */; };
-		647653102C7A4BB900148222 /* mainMenu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6476530E2C7A464800148222 /* mainMenu.mp3 */; };
-		647653122C7A4CD100148222 /* sfxButton.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 647653112C7A4CD100148222 /* sfxButton.mp3 */; };
-		6476689D2C85FBF4000629D5 /* achievement.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6476689C2C85FBF4000629D5 /* achievement.mp3 */; };
-		6476CAA82C666AFE001C664A /* Slay_The_11thApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6476CAA72C666AFE001C664A /* Slay_The_11thApp.swift */; };
-		6476CAAC2C666B01001C664A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6476CAAB2C666B01001C664A /* Assets.xcassets */; };
-		6476CAAF2C666B01001C664A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6476CAAE2C666B01001C664A /* Preview Assets.xcassets */; };
-		64786C132C83117B005F97BE /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 64786C122C83117B005F97BE /* SDWebImageSwiftUI */; };
-		64786C172C831AA4005F97BE /* Mushroom-Idle.gif in Resources */ = {isa = PBXBuildFile; fileRef = 64786C162C831AA4005F97BE /* Mushroom-Idle.gif */; };
-		64786C192C8321F1005F97BE /* Mushroom-Damage.gif in Resources */ = {isa = PBXBuildFile; fileRef = 64786C182C8321F1005F97BE /* Mushroom-Damage.gif */; };
-		64786C1C2C832DEB005F97BE /* Bat-Idle.gif in Resources */ = {isa = PBXBuildFile; fileRef = 64786C1B2C832DEB005F97BE /* Bat-Idle.gif */; };
-		64786C1E2C832E02005F97BE /* Bat-Damage.gif in Resources */ = {isa = PBXBuildFile; fileRef = 64786C1D2C832E02005F97BE /* Bat-Damage.gif */; };
-		64786C202C832E12005F97BE /* Player-Idle.gif in Resources */ = {isa = PBXBuildFile; fileRef = 64786C1F2C832E12005F97BE /* Player-Idle.gif */; };
-		64786C222C832E24005F97BE /* Player-Damage.gif in Resources */ = {isa = PBXBuildFile; fileRef = 64786C212C832E24005F97BE /* Player-Damage.gif */; };
-		64786C262C83321C005F97BE /* Boss-Idle.gif in Resources */ = {isa = PBXBuildFile; fileRef = 64786C252C83321C005F97BE /* Boss-Idle.gif */; };
-		64786C282C8332B3005F97BE /* Boss-Damage.gif in Resources */ = {isa = PBXBuildFile; fileRef = 64786C272C8332B3005F97BE /* Boss-Damage.gif */; };
-		64786C2A2C83337B005F97BE /* Skeleton-Idle.gif in Resources */ = {isa = PBXBuildFile; fileRef = 64786C292C83337B005F97BE /* Skeleton-Idle.gif */; };
-		64786C2C2C83337F005F97BE /* Skeleton-Damage.gif in Resources */ = {isa = PBXBuildFile; fileRef = 64786C2B2C83337F005F97BE /* Skeleton-Damage.gif */; };
-		64B71A172C74D4C1009F3987 /* Reward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B71A162C74D4C1009F3987 /* Reward.swift */; };
-		64B71A1B2C74D670009F3987 /* RewardBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B71A1A2C74D670009F3987 /* RewardBoxView.swift */; };
-		64B71A1D2C74E428009F3987 /* RewardSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B71A1C2C74E428009F3987 /* RewardSelectionView.swift */; };
-		64C420B02C8505CB0077962F /* drawSfx.wav in Resources */ = {isa = PBXBuildFile; fileRef = 64C420AF2C8505CB0077962F /* drawSfx.wav */; };
-		64C420B22C850AEC0077962F /* playCardSfx.wav in Resources */ = {isa = PBXBuildFile; fileRef = 64C420B12C850AEC0077962F /* playCardSfx.wav */; };
-		64C420B42C85112F0077962F /* stabSfx.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 64C420B32C85112F0077962F /* stabSfx.mp3 */; };
-		64C420B62C8513150077962F /* gameOverSfx.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 64C420B52C8513150077962F /* gameOverSfx.mp3 */; };
-		64C420B82C8513680077962F /* victorySfx.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 64C420B72C8513680077962F /* victorySfx.mp3 */; };
-		64C420BD2C8528BD0077962F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 64C420BB2C8528BD0077962F /* Localizable.strings */; };
-		64CC61252C80486A00F88EFE /* CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CC61242C80486A00F88EFE /* CustomFont.swift */; };
-		64CC61272C80594400F88EFE /* ToastManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CC61262C80594400F88EFE /* ToastManager.swift */; };
-		64CC61292C80595C00F88EFE /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CC61282C80595C00F88EFE /* ToastView.swift */; };
-		64CC612B2C80602B00F88EFE /* AchievementSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CC612A2C80602B00F88EFE /* AchievementSystem.swift */; };
-		64CC612D2C809D1A00F88EFE /* GameplayStatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CC612C2C809D1A00F88EFE /* GameplayStatisticsView.swift */; };
-		64CC612F2C809D5D00F88EFE /* TooltipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CC612E2C809D5D00F88EFE /* TooltipView.swift */; };
-		64CC61312C809D6800F88EFE /* LineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CC61302C809D6800F88EFE /* LineChartView.swift */; };
-		64CC61332C80AAAF00F88EFE /* BarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CC61322C80AAAF00F88EFE /* BarChartView.swift */; };
-		64CC61382C81FB5700F88EFE /* Spotlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CC61372C81FB5700F88EFE /* Spotlight.swift */; };
-		64CC613B2C820EAB00F88EFE /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CC613A2C820EAB00F88EFE /* TutorialView.swift */; };
-		64CC613D2C820F0D00F88EFE /* TutorialMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CC613C2C820F0D00F88EFE /* TutorialMessageView.swift */; };
-		64D9B1E72C76259000CB11D1 /* EnemyActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D9B1E62C76259000CB11D1 /* EnemyActions.swift */; };
-		64D9B1E92C7625FE00CB11D1 /* CardActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D9B1E82C7625FE00CB11D1 /* CardActions.swift */; };
-		64D9B1EB2C76270000CB11D1 /* PlayerActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D9B1EA2C76270000CB11D1 /* PlayerActions.swift */; };
-		64FF8D252C6735EF0010487C /* StageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FF8D242C6735EF0010487C /* StageView.swift */; };
-		64FF8D272C6735FB0010487C /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FF8D262C6735FB0010487C /* Card.swift */; };
-		64FF8D292C673C0C0010487C /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FF8D282C673C0C0010487C /* CardView.swift */; };
-		64FF8D2B2C673CA70010487C /* DeckFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FF8D2A2C673CA70010487C /* DeckFactory.swift */; };
-		64FF8D2D2C673DB90010487C /* PlayerHandView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FF8D2C2C673DB80010487C /* PlayerHandView.swift */; };
-		64FF8D332C674A810010487C /* EnemyZoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FF8D322C674A810010487C /* EnemyZoneView.swift */; };
-		64FF8D372C674ED80010487C /* CharacterBody2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FF8D362C674ED80010487C /* CharacterBody2D.swift */; };
+		AC61A5D72C876A29001EB41F /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = AC61A5D62C876A29001EB41F /* SDWebImageSwiftUI */; };
+		AC61A5DA2C876A34001EB41F /* Pow in Frameworks */ = {isa = PBXBuildFile; productRef = AC61A5D92C876A34001EB41F /* Pow */; };
+		AC61A5DD2C876A3F001EB41F /* NavigationTransitions in Frameworks */ = {isa = PBXBuildFile; productRef = AC61A5DC2C876A3F001EB41F /* NavigationTransitions */; };
+		AC62171B2C876B020038ABD2 /* Slay_The_11thApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6216BE2C876B020038ABD2 /* Slay_The_11thApp.swift */; };
+		AC62171C2C876B020038ABD2 /* stage.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AC6216C12C876B020038ABD2 /* stage.mp3 */; };
+		AC62171D2C876B020038ABD2 /* mainMenu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AC6216C22C876B020038ABD2 /* mainMenu.mp3 */; };
+		AC62171E2C876B020038ABD2 /* achievement.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AC6216C32C876B020038ABD2 /* achievement.mp3 */; };
+		AC62171F2C876B020038ABD2 /* drawSfx.wav in Resources */ = {isa = PBXBuildFile; fileRef = AC6216C52C876B020038ABD2 /* drawSfx.wav */; };
+		AC6217202C876B020038ABD2 /* sfxButton.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AC6216C62C876B020038ABD2 /* sfxButton.mp3 */; };
+		AC6217212C876B020038ABD2 /* playCardSfx.wav in Resources */ = {isa = PBXBuildFile; fileRef = AC6216C72C876B020038ABD2 /* playCardSfx.wav */; };
+		AC6217222C876B020038ABD2 /* gameOverSfx.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AC6216C82C876B020038ABD2 /* gameOverSfx.mp3 */; };
+		AC6217232C876B020038ABD2 /* victorySfx.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AC6216C92C876B020038ABD2 /* victorySfx.mp3 */; };
+		AC6217242C876B020038ABD2 /* stabSfx.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AC6216CA2C876B020038ABD2 /* stabSfx.mp3 */; };
+		AC6217252C876B020038ABD2 /* Slay-The-11th-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC6216CB2C876B020038ABD2 /* Slay-The-11th-Info.plist */; };
+		AC6217262C876B020038ABD2 /* Boss-Damage.gif in Resources */ = {isa = PBXBuildFile; fileRef = AC6216CD2C876B020038ABD2 /* Boss-Damage.gif */; };
+		AC6217272C876B020038ABD2 /* Skeleton-Damage.gif in Resources */ = {isa = PBXBuildFile; fileRef = AC6216CE2C876B020038ABD2 /* Skeleton-Damage.gif */; };
+		AC6217282C876B020038ABD2 /* Mushroom-Idle.gif in Resources */ = {isa = PBXBuildFile; fileRef = AC6216CF2C876B020038ABD2 /* Mushroom-Idle.gif */; };
+		AC6217292C876B020038ABD2 /* Mushroom-Damage.gif in Resources */ = {isa = PBXBuildFile; fileRef = AC6216D02C876B020038ABD2 /* Mushroom-Damage.gif */; };
+		AC62172A2C876B020038ABD2 /* Player-Idle.gif in Resources */ = {isa = PBXBuildFile; fileRef = AC6216D12C876B020038ABD2 /* Player-Idle.gif */; };
+		AC62172B2C876B020038ABD2 /* Player-Damage.gif in Resources */ = {isa = PBXBuildFile; fileRef = AC6216D22C876B020038ABD2 /* Player-Damage.gif */; };
+		AC62172C2C876B020038ABD2 /* Boss-Idle.gif in Resources */ = {isa = PBXBuildFile; fileRef = AC6216D32C876B020038ABD2 /* Boss-Idle.gif */; };
+		AC62172D2C876B020038ABD2 /* Bat-Damage.gif in Resources */ = {isa = PBXBuildFile; fileRef = AC6216D42C876B020038ABD2 /* Bat-Damage.gif */; };
+		AC62172E2C876B020038ABD2 /* Bat-Idle.gif in Resources */ = {isa = PBXBuildFile; fileRef = AC6216D52C876B020038ABD2 /* Bat-Idle.gif */; };
+		AC62172F2C876B020038ABD2 /* Skeleton-Idle.gif in Resources */ = {isa = PBXBuildFile; fileRef = AC6216D62C876B020038ABD2 /* Skeleton-Idle.gif */; };
+		AC6217302C876B020038ABD2 /* EnemyActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6216D82C876B020038ABD2 /* EnemyActions.swift */; };
+		AC6217312C876B020038ABD2 /* AchievementSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6216D92C876B020038ABD2 /* AchievementSystem.swift */; };
+		AC6217322C876B020038ABD2 /* PlayerActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6216DA2C876B020038ABD2 /* PlayerActions.swift */; };
+		AC6217332C876B020038ABD2 /* ScoreSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6216DB2C876B020038ABD2 /* ScoreSystem.swift */; };
+		AC6217342C876B020038ABD2 /* StageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6216DC2C876B020038ABD2 /* StageViewModel.swift */; };
+		AC6217352C876B020038ABD2 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6216DD2C876B020038ABD2 /* GameViewModel.swift */; };
+		AC6217362C876B020038ABD2 /* CardActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6216DE2C876B020038ABD2 /* CardActions.swift */; };
+		AC6217372C876B020038ABD2 /* MainMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6216DF2C876B020038ABD2 /* MainMenuView.swift */; };
+		AC6217382C876B020038ABD2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC6216E02C876B020038ABD2 /* GoogleService-Info.plist */; };
+		AC6217392C876B020038ABD2 /* Reward.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6216E22C876B020038ABD2 /* Reward.swift */; };
+		AC62173A2C876B020038ABD2 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6216E32C876B020038ABD2 /* Card.swift */; };
+		AC62173B2C876B020038ABD2 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6216E42C876B020038ABD2 /* Enemy.swift */; };
+		AC62173C2C876B020038ABD2 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6216E52C876B020038ABD2 /* Player.swift */; };
+		AC62173D2C876B020038ABD2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC6216E62C876B020038ABD2 /* Assets.xcassets */; };
+		AC62173E2C876B020038ABD2 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6216E92C876B020038ABD2 /* AudioManager.swift */; };
+		AC62173F2C876B020038ABD2 /* ToastManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6216EB2C876B020038ABD2 /* ToastManager.swift */; };
+		AC6217402C876B020038ABD2 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6216EC2C876B020038ABD2 /* Database.swift */; };
+		AC6217412C876B020038ABD2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC6216EE2C876B020038ABD2 /* Preview Assets.xcassets */; };
+		AC6217422C876B020038ABD2 /* DeckFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6216F02C876B020038ABD2 /* DeckFactory.swift */; };
+		AC6217432C876B020038ABD2 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6216F12C876B020038ABD2 /* ToastView.swift */; };
+		AC6217442C876B020038ABD2 /* EnemyFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6216F22C876B020038ABD2 /* EnemyFactory.swift */; };
+		AC6217452C876B020038ABD2 /* Spotlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6216F32C876B020038ABD2 /* Spotlight.swift */; };
+		AC6217462C876B020038ABD2 /* CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6216F42C876B020038ABD2 /* CustomFont.swift */; };
+		AC6217472C876B020038ABD2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AC6216F62C876B020038ABD2 /* Localizable.strings */; };
+		AC6217482C876B020038ABD2 /* Kreon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AC6216FA2C876B020038ABD2 /* Kreon.ttf */; };
+		AC6217492C876B020038ABD2 /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6216FD2C876B020038ABD2 /* StatisticsView.swift */; };
+		AC62174A2C876B020038ABD2 /* LineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6216FE2C876B020038ABD2 /* LineChartView.swift */; };
+		AC62174B2C876B020038ABD2 /* GameplayStatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6216FF2C876B020038ABD2 /* GameplayStatisticsView.swift */; };
+		AC62174C2C876B020038ABD2 /* BarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6217002C876B020038ABD2 /* BarChartView.swift */; };
+		AC62174D2C876B020038ABD2 /* TooltipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6217012C876B020038ABD2 /* TooltipView.swift */; };
+		AC62174E2C876B020038ABD2 /* TutorialMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6217032C876B020038ABD2 /* TutorialMessageView.swift */; };
+		AC62174F2C876B020038ABD2 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6217042C876B020038ABD2 /* TutorialView.swift */; };
+		AC6217502C876B020038ABD2 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6217062C876B020038ABD2 /* CardView.swift */; };
+		AC6217512C876B020038ABD2 /* EnemyZoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6217082C876B020038ABD2 /* EnemyZoneView.swift */; };
+		AC6217522C876B020038ABD2 /* CharacterBody2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6217092C876B020038ABD2 /* CharacterBody2D.swift */; };
+		AC6217532C876B020038ABD2 /* LoadingScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC62170B2C876B020038ABD2 /* LoadingScreenView.swift */; };
+		AC6217542C876B020038ABD2 /* RewardBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC62170D2C876B020038ABD2 /* RewardBoxView.swift */; };
+		AC6217552C876B020038ABD2 /* RewardSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC62170E2C876B020038ABD2 /* RewardSelectionView.swift */; };
+		AC6217562C876B020038ABD2 /* StageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6217102C876B020038ABD2 /* StageView.swift */; };
+		AC6217572C876B020038ABD2 /* PauseOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6217112C876B020038ABD2 /* PauseOverlay.swift */; };
+		AC6217582C876B020038ABD2 /* StageContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6217122C876B020038ABD2 /* StageContentView.swift */; };
+		AC6217592C876B020038ABD2 /* VictoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6217132C876B020038ABD2 /* VictoryView.swift */; };
+		AC62175A2C876B020038ABD2 /* StageHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6217142C876B020038ABD2 /* StageHeaderView.swift */; };
+		AC62175B2C876B020038ABD2 /* GameOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6217152C876B020038ABD2 /* GameOverView.swift */; };
+		AC62175C2C876B020038ABD2 /* GameOverOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6217162C876B020038ABD2 /* GameOverOverlay.swift */; };
+		AC62175D2C876B020038ABD2 /* RewardSelectionOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6217172C876B020038ABD2 /* RewardSelectionOverlay.swift */; };
+		AC62175E2C876B020038ABD2 /* PlayerZoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6217192C876B020038ABD2 /* PlayerZoneView.swift */; };
+		AC62175F2C876B020038ABD2 /* PlayerHandView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC62171A2C876B020038ABD2 /* PlayerHandView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		640DF4632C7F7A01005B3342 /* VictoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VictoryView.swift; sourceTree = "<group>"; };
-		640DF4682C7F7F86005B3342 /* ScoreSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreSystem.swift; sourceTree = "<group>"; };
-		640DF46A2C7F9756005B3342 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		640DF49B2C7F996C005B3342 /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
-		640DF49E2C7F9A06005B3342 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
-		643F04FC2C7A09E000CB9EDF /* LoadingScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreenView.swift; sourceTree = "<group>"; };
-		6447CDE92C78D57900F57F46 /* StageContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageContentView.swift; sourceTree = "<group>"; };
-		6447CDEB2C78D5A500F57F46 /* StageHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageHeaderView.swift; sourceTree = "<group>"; };
-		6447CDED2C78D5B900F57F46 /* PauseOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseOverlay.swift; sourceTree = "<group>"; };
-		6447CDEF2C78D5C900F57F46 /* RewardSelectionOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardSelectionOverlay.swift; sourceTree = "<group>"; };
-		6447CDF12C78D5D700F57F46 /* GameOverOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverOverlay.swift; sourceTree = "<group>"; };
-		6447CDF72C78DBB700F57F46 /* GameOverView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverView.swift; sourceTree = "<group>"; };
-		6456BB5D2C690FB900AE46FD /* Slay-The-11th-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Slay-The-11th-Info.plist"; sourceTree = SOURCE_ROOT; };
-		6456BB5E2C69217800AE46FD /* StageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageViewModel.swift; sourceTree = "<group>"; };
-		6456EC742C6DFE060037DEA1 /* PlayerZoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerZoneView.swift; sourceTree = "<group>"; };
-		6456EC772C6E05BB0037DEA1 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
-		6456EC792C6E12FF0037DEA1 /* Enemy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
-		6472AC362C6B786300F81A82 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
-		6472AC382C6C5BB400F81A82 /* MainMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuView.swift; sourceTree = "<group>"; };
-		6472AC3C2C6C5F2900F81A82 /* EnemyFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyFactory.swift; sourceTree = "<group>"; };
-		647653032C7A246F00148222 /* Kreon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Kreon.ttf; sourceTree = "<group>"; };
-		6476530A2C7A461000148222 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
-		6476530C2C7A464300148222 /* stage.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = stage.mp3; sourceTree = "<group>"; };
-		6476530E2C7A464800148222 /* mainMenu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = mainMenu.mp3; sourceTree = "<group>"; };
-		647653112C7A4CD100148222 /* sfxButton.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sfxButton.mp3; sourceTree = "<group>"; };
-		6476689C2C85FBF4000629D5 /* achievement.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = achievement.mp3; sourceTree = "<group>"; };
-		6476CAA42C666AFE001C664A /* Slay The 11th.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Slay The 11th.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6476CAA72C666AFE001C664A /* Slay_The_11thApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slay_The_11thApp.swift; sourceTree = "<group>"; };
-		6476CAAB2C666B01001C664A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		6476CAAE2C666B01001C664A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		64786C162C831AA4005F97BE /* Mushroom-Idle.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Mushroom-Idle.gif"; sourceTree = "<group>"; };
-		64786C182C8321F1005F97BE /* Mushroom-Damage.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Mushroom-Damage.gif"; sourceTree = "<group>"; };
-		64786C1B2C832DEB005F97BE /* Bat-Idle.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Bat-Idle.gif"; sourceTree = "<group>"; };
-		64786C1D2C832E02005F97BE /* Bat-Damage.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Bat-Damage.gif"; sourceTree = "<group>"; };
-		64786C1F2C832E12005F97BE /* Player-Idle.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Player-Idle.gif"; sourceTree = "<group>"; };
-		64786C212C832E24005F97BE /* Player-Damage.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Player-Damage.gif"; sourceTree = "<group>"; };
-		64786C252C83321C005F97BE /* Boss-Idle.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Boss-Idle.gif"; sourceTree = "<group>"; };
-		64786C272C8332B3005F97BE /* Boss-Damage.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Boss-Damage.gif"; sourceTree = "<group>"; };
-		64786C292C83337B005F97BE /* Skeleton-Idle.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Skeleton-Idle.gif"; sourceTree = "<group>"; };
-		64786C2B2C83337F005F97BE /* Skeleton-Damage.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Skeleton-Damage.gif"; sourceTree = "<group>"; };
-		64B71A162C74D4C1009F3987 /* Reward.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reward.swift; sourceTree = "<group>"; };
-		64B71A1A2C74D670009F3987 /* RewardBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardBoxView.swift; sourceTree = "<group>"; };
-		64B71A1C2C74E428009F3987 /* RewardSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardSelectionView.swift; sourceTree = "<group>"; };
-		64C420AF2C8505CB0077962F /* drawSfx.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = drawSfx.wav; sourceTree = "<group>"; };
-		64C420B12C850AEC0077962F /* playCardSfx.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = playCardSfx.wav; sourceTree = "<group>"; };
-		64C420B32C85112F0077962F /* stabSfx.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = stabSfx.mp3; sourceTree = "<group>"; };
-		64C420B52C8513150077962F /* gameOverSfx.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gameOverSfx.mp3; sourceTree = "<group>"; };
-		64C420B72C8513680077962F /* victorySfx.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = victorySfx.mp3; sourceTree = "<group>"; };
-		64C420BC2C8528BD0077962F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		64C420BF2C8529810077962F /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Localizable.strings; sourceTree = "<group>"; };
-		64CC61242C80486A00F88EFE /* CustomFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFont.swift; sourceTree = "<group>"; };
-		64CC61262C80594400F88EFE /* ToastManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastManager.swift; sourceTree = "<group>"; };
-		64CC61282C80595C00F88EFE /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
-		64CC612A2C80602B00F88EFE /* AchievementSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementSystem.swift; sourceTree = "<group>"; };
-		64CC612C2C809D1A00F88EFE /* GameplayStatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameplayStatisticsView.swift; sourceTree = "<group>"; };
-		64CC612E2C809D5D00F88EFE /* TooltipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TooltipView.swift; sourceTree = "<group>"; };
-		64CC61302C809D6800F88EFE /* LineChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartView.swift; sourceTree = "<group>"; };
-		64CC61322C80AAAF00F88EFE /* BarChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartView.swift; sourceTree = "<group>"; };
-		64CC61372C81FB5700F88EFE /* Spotlight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spotlight.swift; sourceTree = "<group>"; };
-		64CC613A2C820EAB00F88EFE /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
-		64CC613C2C820F0D00F88EFE /* TutorialMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialMessageView.swift; sourceTree = "<group>"; };
-		64D9B1E62C76259000CB11D1 /* EnemyActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyActions.swift; sourceTree = "<group>"; };
-		64D9B1E82C7625FE00CB11D1 /* CardActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardActions.swift; sourceTree = "<group>"; };
-		64D9B1EA2C76270000CB11D1 /* PlayerActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerActions.swift; sourceTree = "<group>"; };
-		64FF8D242C6735EF0010487C /* StageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageView.swift; sourceTree = "<group>"; };
-		64FF8D262C6735FB0010487C /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
-		64FF8D282C673C0C0010487C /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
-		64FF8D2A2C673CA70010487C /* DeckFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckFactory.swift; sourceTree = "<group>"; };
-		64FF8D2C2C673DB80010487C /* PlayerHandView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerHandView.swift; sourceTree = "<group>"; };
-		64FF8D322C674A810010487C /* EnemyZoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyZoneView.swift; sourceTree = "<group>"; };
-		64FF8D362C674ED80010487C /* CharacterBody2D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterBody2D.swift; sourceTree = "<group>"; };
+		642132F82C87860D001ADDE3 /* Slay-The-11th-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Slay-The-11th-Info.plist"; sourceTree = SOURCE_ROOT; };
+		AC61A5302C876A03001EB41F /* Slay The 11th.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Slay The 11th.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC6216BE2C876B020038ABD2 /* Slay_The_11thApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Slay_The_11thApp.swift; sourceTree = "<group>"; };
+		AC6216C12C876B020038ABD2 /* stage.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = stage.mp3; sourceTree = "<group>"; };
+		AC6216C22C876B020038ABD2 /* mainMenu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = mainMenu.mp3; sourceTree = "<group>"; };
+		AC6216C32C876B020038ABD2 /* achievement.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = achievement.mp3; sourceTree = "<group>"; };
+		AC6216C52C876B020038ABD2 /* drawSfx.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = drawSfx.wav; sourceTree = "<group>"; };
+		AC6216C62C876B020038ABD2 /* sfxButton.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sfxButton.mp3; sourceTree = "<group>"; };
+		AC6216C72C876B020038ABD2 /* playCardSfx.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = playCardSfx.wav; sourceTree = "<group>"; };
+		AC6216C82C876B020038ABD2 /* gameOverSfx.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gameOverSfx.mp3; sourceTree = "<group>"; };
+		AC6216C92C876B020038ABD2 /* victorySfx.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = victorySfx.mp3; sourceTree = "<group>"; };
+		AC6216CA2C876B020038ABD2 /* stabSfx.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = stabSfx.mp3; sourceTree = "<group>"; };
+		AC6216CB2C876B020038ABD2 /* Slay-The-11th-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Slay-The-11th-Info.plist"; sourceTree = "<group>"; };
+		AC6216CD2C876B020038ABD2 /* Boss-Damage.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Boss-Damage.gif"; sourceTree = "<group>"; };
+		AC6216CE2C876B020038ABD2 /* Skeleton-Damage.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Skeleton-Damage.gif"; sourceTree = "<group>"; };
+		AC6216CF2C876B020038ABD2 /* Mushroom-Idle.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Mushroom-Idle.gif"; sourceTree = "<group>"; };
+		AC6216D02C876B020038ABD2 /* Mushroom-Damage.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Mushroom-Damage.gif"; sourceTree = "<group>"; };
+		AC6216D12C876B020038ABD2 /* Player-Idle.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Player-Idle.gif"; sourceTree = "<group>"; };
+		AC6216D22C876B020038ABD2 /* Player-Damage.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Player-Damage.gif"; sourceTree = "<group>"; };
+		AC6216D32C876B020038ABD2 /* Boss-Idle.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Boss-Idle.gif"; sourceTree = "<group>"; };
+		AC6216D42C876B020038ABD2 /* Bat-Damage.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Bat-Damage.gif"; sourceTree = "<group>"; };
+		AC6216D52C876B020038ABD2 /* Bat-Idle.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Bat-Idle.gif"; sourceTree = "<group>"; };
+		AC6216D62C876B020038ABD2 /* Skeleton-Idle.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Skeleton-Idle.gif"; sourceTree = "<group>"; };
+		AC6216D82C876B020038ABD2 /* EnemyActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnemyActions.swift; sourceTree = "<group>"; };
+		AC6216D92C876B020038ABD2 /* AchievementSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AchievementSystem.swift; sourceTree = "<group>"; };
+		AC6216DA2C876B020038ABD2 /* PlayerActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerActions.swift; sourceTree = "<group>"; };
+		AC6216DB2C876B020038ABD2 /* ScoreSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreSystem.swift; sourceTree = "<group>"; };
+		AC6216DC2C876B020038ABD2 /* StageViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StageViewModel.swift; sourceTree = "<group>"; };
+		AC6216DD2C876B020038ABD2 /* GameViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
+		AC6216DE2C876B020038ABD2 /* CardActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardActions.swift; sourceTree = "<group>"; };
+		AC6216DF2C876B020038ABD2 /* MainMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuView.swift; sourceTree = "<group>"; };
+		AC6216E02C876B020038ABD2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		AC6216E22C876B020038ABD2 /* Reward.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reward.swift; sourceTree = "<group>"; };
+		AC6216E32C876B020038ABD2 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		AC6216E42C876B020038ABD2 /* Enemy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
+		AC6216E52C876B020038ABD2 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		AC6216E62C876B020038ABD2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AC6216E92C876B020038ABD2 /* AudioManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
+		AC6216EB2C876B020038ABD2 /* ToastManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToastManager.swift; sourceTree = "<group>"; };
+		AC6216EC2C876B020038ABD2 /* Database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
+		AC6216EE2C876B020038ABD2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		AC6216F02C876B020038ABD2 /* DeckFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeckFactory.swift; sourceTree = "<group>"; };
+		AC6216F12C876B020038ABD2 /* ToastView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
+		AC6216F22C876B020038ABD2 /* EnemyFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnemyFactory.swift; sourceTree = "<group>"; };
+		AC6216F32C876B020038ABD2 /* Spotlight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spotlight.swift; sourceTree = "<group>"; };
+		AC6216F42C876B020038ABD2 /* CustomFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomFont.swift; sourceTree = "<group>"; };
+		AC6216F72C876B020038ABD2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		AC6216F82C876B020038ABD2 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		AC6216F92C876B020038ABD2 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Localizable.strings; sourceTree = "<group>"; };
+		AC6216FA2C876B020038ABD2 /* Kreon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Kreon.ttf; sourceTree = "<group>"; };
+		AC6216FD2C876B020038ABD2 /* StatisticsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
+		AC6216FE2C876B020038ABD2 /* LineChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineChartView.swift; sourceTree = "<group>"; };
+		AC6216FF2C876B020038ABD2 /* GameplayStatisticsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameplayStatisticsView.swift; sourceTree = "<group>"; };
+		AC6217002C876B020038ABD2 /* BarChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarChartView.swift; sourceTree = "<group>"; };
+		AC6217012C876B020038ABD2 /* TooltipView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TooltipView.swift; sourceTree = "<group>"; };
+		AC6217032C876B020038ABD2 /* TutorialMessageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialMessageView.swift; sourceTree = "<group>"; };
+		AC6217042C876B020038ABD2 /* TutorialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
+		AC6217062C876B020038ABD2 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		AC6217082C876B020038ABD2 /* EnemyZoneView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnemyZoneView.swift; sourceTree = "<group>"; };
+		AC6217092C876B020038ABD2 /* CharacterBody2D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterBody2D.swift; sourceTree = "<group>"; };
+		AC62170B2C876B020038ABD2 /* LoadingScreenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingScreenView.swift; sourceTree = "<group>"; };
+		AC62170D2C876B020038ABD2 /* RewardBoxView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RewardBoxView.swift; sourceTree = "<group>"; };
+		AC62170E2C876B020038ABD2 /* RewardSelectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RewardSelectionView.swift; sourceTree = "<group>"; };
+		AC6217102C876B020038ABD2 /* StageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StageView.swift; sourceTree = "<group>"; };
+		AC6217112C876B020038ABD2 /* PauseOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PauseOverlay.swift; sourceTree = "<group>"; };
+		AC6217122C876B020038ABD2 /* StageContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StageContentView.swift; sourceTree = "<group>"; };
+		AC6217132C876B020038ABD2 /* VictoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VictoryView.swift; sourceTree = "<group>"; };
+		AC6217142C876B020038ABD2 /* StageHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StageHeaderView.swift; sourceTree = "<group>"; };
+		AC6217152C876B020038ABD2 /* GameOverView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverView.swift; sourceTree = "<group>"; };
+		AC6217162C876B020038ABD2 /* GameOverOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverOverlay.swift; sourceTree = "<group>"; };
+		AC6217172C876B020038ABD2 /* RewardSelectionOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RewardSelectionOverlay.swift; sourceTree = "<group>"; };
+		AC6217192C876B020038ABD2 /* PlayerZoneView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerZoneView.swift; sourceTree = "<group>"; };
+		AC62171A2C876B020038ABD2 /* PlayerHandView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerHandView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		6476CAA12C666AFE001C664A /* Frameworks */ = {
+		AC61A52D2C876A03001EB41F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				64786C132C83117B005F97BE /* SDWebImageSwiftUI in Frameworks */,
-				6447CDE82C78660600F57F46 /* NavigationTransitions in Frameworks */,
-				640DF4672C7F7A7A005B3342 /* Pow in Frameworks */,
+				AC61A5D72C876A29001EB41F /* SDWebImageSwiftUI in Frameworks */,
+				AC61A5DD2C876A3F001EB41F /* NavigationTransitions in Frameworks */,
+				AC61A5DA2C876A34001EB41F /* Pow in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		640DF49D2C7F99EF005B3342 /* Services */ = {
+		642132F72C8785F9001ADDE3 /* Font */ = {
 			isa = PBXGroup;
 			children = (
-				640DF49E2C7F9A06005B3342 /* Database.swift */,
-				64CC61262C80594400F88EFE /* ToastManager.swift */,
+				AC6216FA2C876B020038ABD2 /* Kreon.ttf */,
 			);
-			path = Services;
+			path = Font;
 			sourceTree = "<group>";
 		};
-		643F04FB2C7A09D300CB9EDF /* Common */ = {
+		AC61A5272C876A03001EB41F = {
 			isa = PBXGroup;
 			children = (
-				643F04FC2C7A09E000CB9EDF /* LoadingScreenView.swift */,
-			);
-			path = Common;
-			sourceTree = "<group>";
-		};
-		6447CDF32C78DB1A00F57F46 /* Stage */ = {
-			isa = PBXGroup;
-			children = (
-				640DF4632C7F7A01005B3342 /* VictoryView.swift */,
-				6447CDF72C78DBB700F57F46 /* GameOverView.swift */,
-				64FF8D242C6735EF0010487C /* StageView.swift */,
-				6447CDE92C78D57900F57F46 /* StageContentView.swift */,
-				6447CDEB2C78D5A500F57F46 /* StageHeaderView.swift */,
-				6447CDED2C78D5B900F57F46 /* PauseOverlay.swift */,
-				6447CDEF2C78D5C900F57F46 /* RewardSelectionOverlay.swift */,
-				6447CDF12C78D5D700F57F46 /* GameOverOverlay.swift */,
-			);
-			path = Stage;
-			sourceTree = "<group>";
-		};
-		6447CDF42C78DB4200F57F46 /* Enemy */ = {
-			isa = PBXGroup;
-			children = (
-				64FF8D322C674A810010487C /* EnemyZoneView.swift */,
-				64FF8D362C674ED80010487C /* CharacterBody2D.swift */,
-			);
-			path = Enemy;
-			sourceTree = "<group>";
-		};
-		6447CDF52C78DB5A00F57F46 /* Player */ = {
-			isa = PBXGroup;
-			children = (
-				64FF8D2C2C673DB80010487C /* PlayerHandView.swift */,
-				6456EC742C6DFE060037DEA1 /* PlayerZoneView.swift */,
-			);
-			path = Player;
-			sourceTree = "<group>";
-		};
-		6447CDF62C78DB7400F57F46 /* Reward */ = {
-			isa = PBXGroup;
-			children = (
-				64B71A1C2C74E428009F3987 /* RewardSelectionView.swift */,
-				64B71A1A2C74D670009F3987 /* RewardBoxView.swift */,
-			);
-			path = Reward;
-			sourceTree = "<group>";
-		};
-		6456EC762C6E05960037DEA1 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				64FF8D262C6735FB0010487C /* Card.swift */,
-				6456EC772C6E05BB0037DEA1 /* Player.swift */,
-				6456EC792C6E12FF0037DEA1 /* Enemy.swift */,
-				64B71A162C74D4C1009F3987 /* Reward.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		647653052C7A45DA00148222 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				647653072C7A45F100148222 /* Sfx */,
-				647653062C7A45E900148222 /* Soundtrack */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		647653062C7A45E900148222 /* Soundtrack */ = {
-			isa = PBXGroup;
-			children = (
-				6476530E2C7A464800148222 /* mainMenu.mp3 */,
-				6476689C2C85FBF4000629D5 /* achievement.mp3 */,
-				6476530C2C7A464300148222 /* stage.mp3 */,
-			);
-			path = Soundtrack;
-			sourceTree = "<group>";
-		};
-		647653072C7A45F100148222 /* Sfx */ = {
-			isa = PBXGroup;
-			children = (
-				64C420B12C850AEC0077962F /* playCardSfx.wav */,
-				64C420B32C85112F0077962F /* stabSfx.mp3 */,
-				647653112C7A4CD100148222 /* sfxButton.mp3 */,
-				64C420B52C8513150077962F /* gameOverSfx.mp3 */,
-				64C420AF2C8505CB0077962F /* drawSfx.wav */,
-				64C420B72C8513680077962F /* victorySfx.mp3 */,
-			);
-			path = Sfx;
-			sourceTree = "<group>";
-		};
-		647653082C7A45F800148222 /* Config */ = {
-			isa = PBXGroup;
-			children = (
-				647653092C7A460100148222 /* Media */,
-			);
-			path = Config;
-			sourceTree = "<group>";
-		};
-		647653092C7A460100148222 /* Media */ = {
-			isa = PBXGroup;
-			children = (
-				6476530A2C7A461000148222 /* AudioManager.swift */,
-			);
-			path = Media;
-			sourceTree = "<group>";
-		};
-		6476CA9B2C666AFE001C664A = {
-			isa = PBXGroup;
-			children = (
-				6476CAA62C666AFE001C664A /* Slay The 11th */,
-				6476CAA52C666AFE001C664A /* Products */,
+				AC61A5322C876A03001EB41F /* Slay The 11th */,
+				AC61A5312C876A03001EB41F /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		6476CAA52C666AFE001C664A /* Products */ = {
+		AC61A5312C876A03001EB41F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6476CAA42C666AFE001C664A /* Slay The 11th.app */,
+				AC61A5302C876A03001EB41F /* Slay The 11th.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		6476CAA62C666AFE001C664A /* Slay The 11th */ = {
+		AC61A5322C876A03001EB41F /* Slay The 11th */ = {
 			isa = PBXGroup;
 			children = (
-				64786C1A2C832DCF005F97BE /* gifs */,
-				64CC61362C81FAF300F88EFE /* Utils */,
-				647653052C7A45DA00148222 /* Resources */,
-				6456BB5D2C690FB900AE46FD /* Slay-The-11th-Info.plist */,
-				647653032C7A246F00148222 /* Kreon.ttf */,
-				647653082C7A45F800148222 /* Config */,
-				6456EC762C6E05960037DEA1 /* Model */,
-				64832AE82C676FF200895A90 /* ViewModel */,
-				64FF8D2E2C6749E30010487C /* Views */,
-				6476CAA72C666AFE001C664A /* Slay_The_11thApp.swift */,
-				6476CAAB2C666B01001C664A /* Assets.xcassets */,
-				640DF46A2C7F9756005B3342 /* GoogleService-Info.plist */,
-				6476CAAD2C666B01001C664A /* Preview Content */,
-				6472AC382C6C5BB400F81A82 /* MainMenuView.swift */,
-				640DF49D2C7F99EF005B3342 /* Services */,
+				642132F82C87860D001ADDE3 /* Slay-The-11th-Info.plist */,
+				AC6216E62C876B020038ABD2 /* Assets.xcassets */,
+				AC6216E72C876B020038ABD2 /* Config */,
+				AC6216CC2C876B020038ABD2 /* gifs */,
+				AC6216E02C876B020038ABD2 /* GoogleService-Info.plist */,
+				642132F72C8785F9001ADDE3 /* Font */,
+				AC6216DF2C876B020038ABD2 /* MainMenuView.swift */,
+				AC6216E12C876B020038ABD2 /* Model */,
+				AC6216ED2C876B020038ABD2 /* Preview Content */,
+				AC6216BF2C876B020038ABD2 /* Resources */,
+				AC6216EA2C876B020038ABD2 /* Services */,
+				AC6216BE2C876B020038ABD2 /* Slay_The_11thApp.swift */,
+				AC6216CB2C876B020038ABD2 /* Slay-The-11th-Info.plist */,
+				AC6217602C877A160038ABD2 /* Utils */,
+				AC6216D72C876B020038ABD2 /* ViewModel */,
+				AC6216FB2C876B020038ABD2 /* Views */,
 			);
 			path = "Slay The 11th";
 			sourceTree = "<group>";
 		};
-		6476CAAD2C666B01001C664A /* Preview Content */ = {
+		AC6216BF2C876B020038ABD2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				6476CAAE2C666B01001C664A /* Preview Assets.xcassets */,
+				AC6216C02C876B020038ABD2 /* Soundtrack */,
+				AC6216C42C876B020038ABD2 /* Sfx */,
 			);
-			path = "Preview Content";
+			path = Resources;
 			sourceTree = "<group>";
 		};
-		64786C1A2C832DCF005F97BE /* gifs */ = {
+		AC6216C02C876B020038ABD2 /* Soundtrack */ = {
 			isa = PBXGroup;
 			children = (
-				64786C162C831AA4005F97BE /* Mushroom-Idle.gif */,
-				64786C182C8321F1005F97BE /* Mushroom-Damage.gif */,
-				64786C1B2C832DEB005F97BE /* Bat-Idle.gif */,
-				64786C1D2C832E02005F97BE /* Bat-Damage.gif */,
-				64786C1F2C832E12005F97BE /* Player-Idle.gif */,
-				64786C212C832E24005F97BE /* Player-Damage.gif */,
-				64786C252C83321C005F97BE /* Boss-Idle.gif */,
-				64786C272C8332B3005F97BE /* Boss-Damage.gif */,
-				64786C292C83337B005F97BE /* Skeleton-Idle.gif */,
-				64786C2B2C83337F005F97BE /* Skeleton-Damage.gif */,
+				AC6216C12C876B020038ABD2 /* stage.mp3 */,
+				AC6216C22C876B020038ABD2 /* mainMenu.mp3 */,
+				AC6216C32C876B020038ABD2 /* achievement.mp3 */,
+			);
+			path = Soundtrack;
+			sourceTree = "<group>";
+		};
+		AC6216C42C876B020038ABD2 /* Sfx */ = {
+			isa = PBXGroup;
+			children = (
+				AC6216C52C876B020038ABD2 /* drawSfx.wav */,
+				AC6216C62C876B020038ABD2 /* sfxButton.mp3 */,
+				AC6216C72C876B020038ABD2 /* playCardSfx.wav */,
+				AC6216C82C876B020038ABD2 /* gameOverSfx.mp3 */,
+				AC6216C92C876B020038ABD2 /* victorySfx.mp3 */,
+				AC6216CA2C876B020038ABD2 /* stabSfx.mp3 */,
+			);
+			path = Sfx;
+			sourceTree = "<group>";
+		};
+		AC6216CC2C876B020038ABD2 /* gifs */ = {
+			isa = PBXGroup;
+			children = (
+				AC6216CD2C876B020038ABD2 /* Boss-Damage.gif */,
+				AC6216CE2C876B020038ABD2 /* Skeleton-Damage.gif */,
+				AC6216CF2C876B020038ABD2 /* Mushroom-Idle.gif */,
+				AC6216D02C876B020038ABD2 /* Mushroom-Damage.gif */,
+				AC6216D12C876B020038ABD2 /* Player-Idle.gif */,
+				AC6216D22C876B020038ABD2 /* Player-Damage.gif */,
+				AC6216D32C876B020038ABD2 /* Boss-Idle.gif */,
+				AC6216D42C876B020038ABD2 /* Bat-Damage.gif */,
+				AC6216D52C876B020038ABD2 /* Bat-Idle.gif */,
+				AC6216D62C876B020038ABD2 /* Skeleton-Idle.gif */,
 			);
 			path = gifs;
 			sourceTree = "<group>";
 		};
-		64832AE82C676FF200895A90 /* ViewModel */ = {
+		AC6216D72C876B020038ABD2 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				6456BB5E2C69217800AE46FD /* StageViewModel.swift */,
-				640DF4682C7F7F86005B3342 /* ScoreSystem.swift */,
-				64D9B1E82C7625FE00CB11D1 /* CardActions.swift */,
-				6472AC362C6B786300F81A82 /* GameViewModel.swift */,
-				64CC612A2C80602B00F88EFE /* AchievementSystem.swift */,
-				64D9B1E62C76259000CB11D1 /* EnemyActions.swift */,
-				64D9B1EA2C76270000CB11D1 /* PlayerActions.swift */,
+				AC6216D82C876B020038ABD2 /* EnemyActions.swift */,
+				AC6216D92C876B020038ABD2 /* AchievementSystem.swift */,
+				AC6216DA2C876B020038ABD2 /* PlayerActions.swift */,
+				AC6216DB2C876B020038ABD2 /* ScoreSystem.swift */,
+				AC6216DC2C876B020038ABD2 /* StageViewModel.swift */,
+				AC6216DD2C876B020038ABD2 /* GameViewModel.swift */,
+				AC6216DE2C876B020038ABD2 /* CardActions.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		64C420B92C85289D0077962F /* Localization */ = {
+		AC6216E12C876B020038ABD2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				64C420BB2C8528BD0077962F /* Localizable.strings */,
+				AC6216E22C876B020038ABD2 /* Reward.swift */,
+				AC6216E32C876B020038ABD2 /* Card.swift */,
+				AC6216E42C876B020038ABD2 /* Enemy.swift */,
+				AC6216E52C876B020038ABD2 /* Player.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AC6216E72C876B020038ABD2 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				AC6216E82C876B020038ABD2 /* Media */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		AC6216E82C876B020038ABD2 /* Media */ = {
+			isa = PBXGroup;
+			children = (
+				AC6216E92C876B020038ABD2 /* AudioManager.swift */,
+			);
+			path = Media;
+			sourceTree = "<group>";
+		};
+		AC6216EA2C876B020038ABD2 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				AC6216EB2C876B020038ABD2 /* ToastManager.swift */,
+				AC6216EC2C876B020038ABD2 /* Database.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		AC6216ED2C876B020038ABD2 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				AC6216EE2C876B020038ABD2 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		AC6216F52C876B020038ABD2 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				AC6216F62C876B020038ABD2 /* Localizable.strings */,
 			);
 			path = Localization;
 			sourceTree = "<group>";
 		};
-		64CC61342C80C50F00F88EFE /* Statistics */ = {
+		AC6216FB2C876B020038ABD2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				640DF49B2C7F996C005B3342 /* StatisticsView.swift */,
-				64CC61322C80AAAF00F88EFE /* BarChartView.swift */,
-				64CC612C2C809D1A00F88EFE /* GameplayStatisticsView.swift */,
-				64CC612E2C809D5D00F88EFE /* TooltipView.swift */,
-				64CC61302C809D6800F88EFE /* LineChartView.swift */,
+				AC6216FC2C876B020038ABD2 /* Statistics */,
+				AC6217022C876B020038ABD2 /* Tutorial */,
+				AC6217052C876B020038ABD2 /* Card */,
+				AC6217072C876B020038ABD2 /* Enemy */,
+				AC62170A2C876B020038ABD2 /* Common */,
+				AC62170C2C876B020038ABD2 /* Reward */,
+				AC62170F2C876B020038ABD2 /* Stage */,
+				AC6217182C876B020038ABD2 /* Player */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		AC6216FC2C876B020038ABD2 /* Statistics */ = {
+			isa = PBXGroup;
+			children = (
+				AC6216FD2C876B020038ABD2 /* StatisticsView.swift */,
+				AC6216FE2C876B020038ABD2 /* LineChartView.swift */,
+				AC6216FF2C876B020038ABD2 /* GameplayStatisticsView.swift */,
+				AC6217002C876B020038ABD2 /* BarChartView.swift */,
+				AC6217012C876B020038ABD2 /* TooltipView.swift */,
 			);
 			path = Statistics;
 			sourceTree = "<group>";
 		};
-		64CC61352C81FAD700F88EFE /* Card */ = {
+		AC6217022C876B020038ABD2 /* Tutorial */ = {
 			isa = PBXGroup;
 			children = (
-				64FF8D282C673C0C0010487C /* CardView.swift */,
-			);
-			path = Card;
-			sourceTree = "<group>";
-		};
-		64CC61362C81FAF300F88EFE /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				64C420B92C85289D0077962F /* Localization */,
-				64CC61282C80595C00F88EFE /* ToastView.swift */,
-				64FF8D2A2C673CA70010487C /* DeckFactory.swift */,
-				64CC61242C80486A00F88EFE /* CustomFont.swift */,
-				6472AC3C2C6C5F2900F81A82 /* EnemyFactory.swift */,
-				64CC61372C81FB5700F88EFE /* Spotlight.swift */,
-			);
-			path = Utils;
-			sourceTree = "<group>";
-		};
-		64CC61392C820E9A00F88EFE /* Tutorial */ = {
-			isa = PBXGroup;
-			children = (
-				64CC613A2C820EAB00F88EFE /* TutorialView.swift */,
-				64CC613C2C820F0D00F88EFE /* TutorialMessageView.swift */,
+				AC6217032C876B020038ABD2 /* TutorialMessageView.swift */,
+				AC6217042C876B020038ABD2 /* TutorialView.swift */,
 			);
 			path = Tutorial;
 			sourceTree = "<group>";
 		};
-		64FF8D2E2C6749E30010487C /* Views */ = {
+		AC6217052C876B020038ABD2 /* Card */ = {
 			isa = PBXGroup;
 			children = (
-				64CC61392C820E9A00F88EFE /* Tutorial */,
-				64CC61352C81FAD700F88EFE /* Card */,
-				64CC61342C80C50F00F88EFE /* Statistics */,
-				643F04FB2C7A09D300CB9EDF /* Common */,
-				6447CDF62C78DB7400F57F46 /* Reward */,
-				6447CDF52C78DB5A00F57F46 /* Player */,
-				6447CDF42C78DB4200F57F46 /* Enemy */,
-				6447CDF32C78DB1A00F57F46 /* Stage */,
+				AC6217062C876B020038ABD2 /* CardView.swift */,
 			);
-			path = Views;
+			path = Card;
+			sourceTree = "<group>";
+		};
+		AC6217072C876B020038ABD2 /* Enemy */ = {
+			isa = PBXGroup;
+			children = (
+				AC6217082C876B020038ABD2 /* EnemyZoneView.swift */,
+				AC6217092C876B020038ABD2 /* CharacterBody2D.swift */,
+			);
+			path = Enemy;
+			sourceTree = "<group>";
+		};
+		AC62170A2C876B020038ABD2 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				AC62170B2C876B020038ABD2 /* LoadingScreenView.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		AC62170C2C876B020038ABD2 /* Reward */ = {
+			isa = PBXGroup;
+			children = (
+				AC62170D2C876B020038ABD2 /* RewardBoxView.swift */,
+				AC62170E2C876B020038ABD2 /* RewardSelectionView.swift */,
+			);
+			path = Reward;
+			sourceTree = "<group>";
+		};
+		AC62170F2C876B020038ABD2 /* Stage */ = {
+			isa = PBXGroup;
+			children = (
+				AC6217102C876B020038ABD2 /* StageView.swift */,
+				AC6217112C876B020038ABD2 /* PauseOverlay.swift */,
+				AC6217122C876B020038ABD2 /* StageContentView.swift */,
+				AC6217132C876B020038ABD2 /* VictoryView.swift */,
+				AC6217142C876B020038ABD2 /* StageHeaderView.swift */,
+				AC6217152C876B020038ABD2 /* GameOverView.swift */,
+				AC6217162C876B020038ABD2 /* GameOverOverlay.swift */,
+				AC6217172C876B020038ABD2 /* RewardSelectionOverlay.swift */,
+			);
+			path = Stage;
+			sourceTree = "<group>";
+		};
+		AC6217182C876B020038ABD2 /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				AC6217192C876B020038ABD2 /* PlayerZoneView.swift */,
+				AC62171A2C876B020038ABD2 /* PlayerHandView.swift */,
+			);
+			path = Player;
+			sourceTree = "<group>";
+		};
+		AC6217602C877A160038ABD2 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				AC6216F02C876B020038ABD2 /* DeckFactory.swift */,
+				AC6216F12C876B020038ABD2 /* ToastView.swift */,
+				AC6216F22C876B020038ABD2 /* EnemyFactory.swift */,
+				AC6216F32C876B020038ABD2 /* Spotlight.swift */,
+				AC6216F42C876B020038ABD2 /* CustomFont.swift */,
+				AC6216F52C876B020038ABD2 /* Localization */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6476CAA32C666AFE001C664A /* Slay The 11th */ = {
+		AC61A52F2C876A03001EB41F /* Slay The 11th */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6476CAB22C666B01001C664A /* Build configuration list for PBXNativeTarget "Slay The 11th" */;
+			buildConfigurationList = AC61A53E2C876A05001EB41F /* Build configuration list for PBXNativeTarget "Slay The 11th" */;
 			buildPhases = (
-				6476CAA02C666AFE001C664A /* Sources */,
-				6476CAA12C666AFE001C664A /* Frameworks */,
-				6476CAA22C666AFE001C664A /* Resources */,
+				AC61A52C2C876A03001EB41F /* Sources */,
+				AC61A52D2C876A03001EB41F /* Frameworks */,
+				AC61A52E2C876A03001EB41F /* Resources */,
 			);
 			buildRules = (
 			);
@@ -445,147 +457,151 @@
 			);
 			name = "Slay The 11th";
 			packageProductDependencies = (
-				6447CDE72C78660600F57F46 /* NavigationTransitions */,
-				640DF4662C7F7A7A005B3342 /* Pow */,
-				64786C122C83117B005F97BE /* SDWebImageSwiftUI */,
+				AC61A5D62C876A29001EB41F /* SDWebImageSwiftUI */,
+				AC61A5D92C876A34001EB41F /* Pow */,
+				AC61A5DC2C876A3F001EB41F /* NavigationTransitions */,
 			);
 			productName = "Slay The 11th";
-			productReference = 6476CAA42C666AFE001C664A /* Slay The 11th.app */;
+			productReference = AC61A5302C876A03001EB41F /* Slay The 11th.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		6476CA9C2C666AFE001C664A /* Project object */ = {
+		AC61A5282C876A03001EB41F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1540;
-				LastUpgradeCheck = 1540;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
-					6476CAA32C666AFE001C664A = {
-						CreatedOnToolsVersion = 15.4;
+					AC61A52F2C876A03001EB41F = {
+						CreatedOnToolsVersion = 15.0.1;
+						LastSwiftMigration = 1500;
 					};
 				};
 			};
-			buildConfigurationList = 6476CA9F2C666AFE001C664A /* Build configuration list for PBXProject "Slay The 11th" */;
+			buildConfigurationList = AC61A52B2C876A03001EB41F /* Build configuration list for PBXProject "Slay The 11th" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
+				es,
 				vi,
 			);
-			mainGroup = 6476CA9B2C666AFE001C664A;
+			mainGroup = AC61A5272C876A03001EB41F;
 			packageReferences = (
-				6447CDE62C78660600F57F46 /* XCRemoteSwiftPackageReference "swiftui-navigation-transitions" */,
-				640DF4652C7F7A7A005B3342 /* XCRemoteSwiftPackageReference "Pow" */,
-				64786C112C83117B005F97BE /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+				AC61A5D52C876A29001EB41F /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+				AC61A5D82C876A34001EB41F /* XCRemoteSwiftPackageReference "Pow" */,
+				AC61A5DB2C876A3F001EB41F /* XCRemoteSwiftPackageReference "swiftui-navigation-transitions" */,
 			);
-			productRefGroup = 6476CAA52C666AFE001C664A /* Products */;
+			productRefGroup = AC61A5312C876A03001EB41F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6476CAA32C666AFE001C664A /* Slay The 11th */,
+				AC61A52F2C876A03001EB41F /* Slay The 11th */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		6476CAA22C666AFE001C664A /* Resources */ = {
+		AC61A52E2C876A03001EB41F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				64C420B82C8513680077962F /* victorySfx.mp3 in Resources */,
-				6476530D2C7A464300148222 /* stage.mp3 in Resources */,
-				64C420BD2C8528BD0077962F /* Localizable.strings in Resources */,
-				6476CAAF2C666B01001C664A /* Preview Assets.xcassets in Resources */,
-				64786C1C2C832DEB005F97BE /* Bat-Idle.gif in Resources */,
-				647653042C7A247000148222 /* Kreon.ttf in Resources */,
-				64C420B02C8505CB0077962F /* drawSfx.wav in Resources */,
-				64786C282C8332B3005F97BE /* Boss-Damage.gif in Resources */,
-				64786C222C832E24005F97BE /* Player-Damage.gif in Resources */,
-				647653102C7A4BB900148222 /* mainMenu.mp3 in Resources */,
-				6476689D2C85FBF4000629D5 /* achievement.mp3 in Resources */,
-				64C420B22C850AEC0077962F /* playCardSfx.wav in Resources */,
-				6476CAAC2C666B01001C664A /* Assets.xcassets in Resources */,
-				647653122C7A4CD100148222 /* sfxButton.mp3 in Resources */,
-				640DF46B2C7F9756005B3342 /* GoogleService-Info.plist in Resources */,
-				64786C202C832E12005F97BE /* Player-Idle.gif in Resources */,
-				64786C172C831AA4005F97BE /* Mushroom-Idle.gif in Resources */,
-				64C420B42C85112F0077962F /* stabSfx.mp3 in Resources */,
-				64786C192C8321F1005F97BE /* Mushroom-Damage.gif in Resources */,
-				64786C2C2C83337F005F97BE /* Skeleton-Damage.gif in Resources */,
-				64C420B62C8513150077962F /* gameOverSfx.mp3 in Resources */,
-				64786C2A2C83337B005F97BE /* Skeleton-Idle.gif in Resources */,
-				64786C1E2C832E02005F97BE /* Bat-Damage.gif in Resources */,
-				64786C262C83321C005F97BE /* Boss-Idle.gif in Resources */,
+				AC62171E2C876B020038ABD2 /* achievement.mp3 in Resources */,
+				AC62171D2C876B020038ABD2 /* mainMenu.mp3 in Resources */,
+				AC62173D2C876B020038ABD2 /* Assets.xcassets in Resources */,
+				AC6217482C876B020038ABD2 /* Kreon.ttf in Resources */,
+				AC62172A2C876B020038ABD2 /* Player-Idle.gif in Resources */,
+				AC62172D2C876B020038ABD2 /* Bat-Damage.gif in Resources */,
+				AC6217242C876B020038ABD2 /* stabSfx.mp3 in Resources */,
+				AC6217202C876B020038ABD2 /* sfxButton.mp3 in Resources */,
+				AC6217272C876B020038ABD2 /* Skeleton-Damage.gif in Resources */,
+				AC6217412C876B020038ABD2 /* Preview Assets.xcassets in Resources */,
+				AC62172C2C876B020038ABD2 /* Boss-Idle.gif in Resources */,
+				AC6217222C876B020038ABD2 /* gameOverSfx.mp3 in Resources */,
+				AC62171F2C876B020038ABD2 /* drawSfx.wav in Resources */,
+				AC6217262C876B020038ABD2 /* Boss-Damage.gif in Resources */,
+				AC6217472C876B020038ABD2 /* Localizable.strings in Resources */,
+				AC6217282C876B020038ABD2 /* Mushroom-Idle.gif in Resources */,
+				AC6217232C876B020038ABD2 /* victorySfx.mp3 in Resources */,
+				AC62172F2C876B020038ABD2 /* Skeleton-Idle.gif in Resources */,
+				AC6217212C876B020038ABD2 /* playCardSfx.wav in Resources */,
+				AC6217292C876B020038ABD2 /* Mushroom-Damage.gif in Resources */,
+				AC62172E2C876B020038ABD2 /* Bat-Idle.gif in Resources */,
+				AC62171C2C876B020038ABD2 /* stage.mp3 in Resources */,
+				AC62172B2C876B020038ABD2 /* Player-Damage.gif in Resources */,
+				AC6217252C876B020038ABD2 /* Slay-The-11th-Info.plist in Resources */,
+				AC6217382C876B020038ABD2 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		6476CAA02C666AFE001C664A /* Sources */ = {
+		AC61A52C2C876A03001EB41F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6476CAA82C666AFE001C664A /* Slay_The_11thApp.swift in Sources */,
-				6472AC392C6C5BB400F81A82 /* MainMenuView.swift in Sources */,
-				6456EC752C6DFE060037DEA1 /* PlayerZoneView.swift in Sources */,
-				640DF4642C7F7A01005B3342 /* VictoryView.swift in Sources */,
-				64D9B1E72C76259000CB11D1 /* EnemyActions.swift in Sources */,
-				64FF8D272C6735FB0010487C /* Card.swift in Sources */,
-				6456EC782C6E05BB0037DEA1 /* Player.swift in Sources */,
-				64CC612D2C809D1A00F88EFE /* GameplayStatisticsView.swift in Sources */,
-				64FF8D2B2C673CA70010487C /* DeckFactory.swift in Sources */,
-				64D9B1EB2C76270000CB11D1 /* PlayerActions.swift in Sources */,
-				64CC613B2C820EAB00F88EFE /* TutorialView.swift in Sources */,
-				64FF8D292C673C0C0010487C /* CardView.swift in Sources */,
-				64CC61312C809D6800F88EFE /* LineChartView.swift in Sources */,
-				64CC61382C81FB5700F88EFE /* Spotlight.swift in Sources */,
-				640DF49F2C7F9A06005B3342 /* Database.swift in Sources */,
-				64CC61332C80AAAF00F88EFE /* BarChartView.swift in Sources */,
-				64FF8D2D2C673DB90010487C /* PlayerHandView.swift in Sources */,
-				6447CDF02C78D5C900F57F46 /* RewardSelectionOverlay.swift in Sources */,
-				64FF8D252C6735EF0010487C /* StageView.swift in Sources */,
-				64FF8D372C674ED80010487C /* CharacterBody2D.swift in Sources */,
-				64D9B1E92C7625FE00CB11D1 /* CardActions.swift in Sources */,
-				64CC61292C80595C00F88EFE /* ToastView.swift in Sources */,
-				6476530B2C7A461000148222 /* AudioManager.swift in Sources */,
-				64B71A1D2C74E428009F3987 /* RewardSelectionView.swift in Sources */,
-				64B71A1B2C74D670009F3987 /* RewardBoxView.swift in Sources */,
-				64CC61252C80486A00F88EFE /* CustomFont.swift in Sources */,
-				6447CDEC2C78D5A500F57F46 /* StageHeaderView.swift in Sources */,
-				6456BB5F2C69217800AE46FD /* StageViewModel.swift in Sources */,
-				6456EC7A2C6E12FF0037DEA1 /* Enemy.swift in Sources */,
-				640DF49C2C7F996C005B3342 /* StatisticsView.swift in Sources */,
-				643F04FD2C7A09E000CB9EDF /* LoadingScreenView.swift in Sources */,
-				64CC612B2C80602B00F88EFE /* AchievementSystem.swift in Sources */,
-				64CC61272C80594400F88EFE /* ToastManager.swift in Sources */,
-				64B71A172C74D4C1009F3987 /* Reward.swift in Sources */,
-				6472AC372C6B786300F81A82 /* GameViewModel.swift in Sources */,
-				640DF4692C7F7F87005B3342 /* ScoreSystem.swift in Sources */,
-				64CC612F2C809D5D00F88EFE /* TooltipView.swift in Sources */,
-				6447CDEA2C78D57900F57F46 /* StageContentView.swift in Sources */,
-				64FF8D332C674A810010487C /* EnemyZoneView.swift in Sources */,
-				6447CDF22C78D5D700F57F46 /* GameOverOverlay.swift in Sources */,
-				64CC613D2C820F0D00F88EFE /* TutorialMessageView.swift in Sources */,
-				6447CDEE2C78D5B900F57F46 /* PauseOverlay.swift in Sources */,
-				6447CDF82C78DBB700F57F46 /* GameOverView.swift in Sources */,
-				6472AC3D2C6C5F2A00F81A82 /* EnemyFactory.swift in Sources */,
+				AC62174F2C876B020038ABD2 /* TutorialView.swift in Sources */,
+				AC6217542C876B020038ABD2 /* RewardBoxView.swift in Sources */,
+				AC6217522C876B020038ABD2 /* CharacterBody2D.swift in Sources */,
+				AC62175C2C876B020038ABD2 /* GameOverOverlay.swift in Sources */,
+				AC6217462C876B020038ABD2 /* CustomFont.swift in Sources */,
+				AC62173F2C876B020038ABD2 /* ToastManager.swift in Sources */,
+				AC62174E2C876B020038ABD2 /* TutorialMessageView.swift in Sources */,
+				AC6217322C876B020038ABD2 /* PlayerActions.swift in Sources */,
+				AC6217342C876B020038ABD2 /* StageViewModel.swift in Sources */,
+				AC6217302C876B020038ABD2 /* EnemyActions.swift in Sources */,
+				AC6217372C876B020038ABD2 /* MainMenuView.swift in Sources */,
+				AC62175A2C876B020038ABD2 /* StageHeaderView.swift in Sources */,
+				AC6217582C876B020038ABD2 /* StageContentView.swift in Sources */,
+				AC62174D2C876B020038ABD2 /* TooltipView.swift in Sources */,
+				AC6217422C876B020038ABD2 /* DeckFactory.swift in Sources */,
+				AC6217532C876B020038ABD2 /* LoadingScreenView.swift in Sources */,
+				AC62174C2C876B020038ABD2 /* BarChartView.swift in Sources */,
+				AC6217392C876B020038ABD2 /* Reward.swift in Sources */,
+				AC62175D2C876B020038ABD2 /* RewardSelectionOverlay.swift in Sources */,
+				AC62173C2C876B020038ABD2 /* Player.swift in Sources */,
+				AC6217312C876B020038ABD2 /* AchievementSystem.swift in Sources */,
+				AC62171B2C876B020038ABD2 /* Slay_The_11thApp.swift in Sources */,
+				AC6217502C876B020038ABD2 /* CardView.swift in Sources */,
+				AC62173E2C876B020038ABD2 /* AudioManager.swift in Sources */,
+				AC6217562C876B020038ABD2 /* StageView.swift in Sources */,
+				AC6217332C876B020038ABD2 /* ScoreSystem.swift in Sources */,
+				AC6217452C876B020038ABD2 /* Spotlight.swift in Sources */,
+				AC6217512C876B020038ABD2 /* EnemyZoneView.swift in Sources */,
+				AC62174A2C876B020038ABD2 /* LineChartView.swift in Sources */,
+				AC62173B2C876B020038ABD2 /* Enemy.swift in Sources */,
+				AC6217352C876B020038ABD2 /* GameViewModel.swift in Sources */,
+				AC6217362C876B020038ABD2 /* CardActions.swift in Sources */,
+				AC62175B2C876B020038ABD2 /* GameOverView.swift in Sources */,
+				AC6217402C876B020038ABD2 /* Database.swift in Sources */,
+				AC6217432C876B020038ABD2 /* ToastView.swift in Sources */,
+				AC6217492C876B020038ABD2 /* StatisticsView.swift in Sources */,
+				AC62174B2C876B020038ABD2 /* GameplayStatisticsView.swift in Sources */,
+				AC6217592C876B020038ABD2 /* VictoryView.swift in Sources */,
+				AC6217442C876B020038ABD2 /* EnemyFactory.swift in Sources */,
+				AC62175E2C876B020038ABD2 /* PlayerZoneView.swift in Sources */,
+				AC6217572C876B020038ABD2 /* PauseOverlay.swift in Sources */,
+				AC6217552C876B020038ABD2 /* RewardSelectionView.swift in Sources */,
+				AC62175F2C876B020038ABD2 /* PlayerHandView.swift in Sources */,
+				AC62173A2C876B020038ABD2 /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		64C420BB2C8528BD0077962F /* Localizable.strings */ = {
+		AC6216F62C876B020038ABD2 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				64C420BC2C8528BD0077962F /* en */,
-				64C420BF2C8529810077962F /* vi */,
+				AC6216F72C876B020038ABD2 /* en */,
+				AC6216F82C876B020038ABD2 /* es */,
+				AC6216F92C876B020038ABD2 /* vi */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -593,12 +609,11 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		6476CAB02C666B01001C664A /* Debug */ = {
+		AC61A53C2C876A05001EB41F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
-				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -646,7 +661,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -657,12 +672,11 @@
 			};
 			name = Debug;
 		};
-		6476CAB12C666B01001C664A /* Release */ = {
+		AC61A53D2C876A05001EB41F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
-				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -704,7 +718,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -714,11 +728,12 @@
 			};
 			name = Release;
 		};
-		6476CAB32C666B01001C664A /* Debug */ = {
+		AC61A53F2C876A05001EB41F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Slay The 11th/Preview Content\"";
@@ -730,6 +745,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -738,16 +754,18 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "sa.hoang.Slay-The-11th";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		6476CAB42C666B01001C664A /* Release */ = {
+		AC61A5402C876A05001EB41F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Slay The 11th/Preview Content\"";
@@ -759,6 +777,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -775,20 +794,20 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6476CA9F2C666AFE001C664A /* Build configuration list for PBXProject "Slay The 11th" */ = {
+		AC61A52B2C876A03001EB41F /* Build configuration list for PBXProject "Slay The 11th" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6476CAB02C666B01001C664A /* Debug */,
-				6476CAB12C666B01001C664A /* Release */,
+				AC61A53C2C876A05001EB41F /* Debug */,
+				AC61A53D2C876A05001EB41F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6476CAB22C666B01001C664A /* Build configuration list for PBXNativeTarget "Slay The 11th" */ = {
+		AC61A53E2C876A05001EB41F /* Build configuration list for PBXNativeTarget "Slay The 11th" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6476CAB32C666B01001C664A /* Debug */,
-				6476CAB42C666B01001C664A /* Release */,
+				AC61A53F2C876A05001EB41F /* Debug */,
+				AC61A5402C876A05001EB41F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -796,49 +815,49 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		640DF4652C7F7A7A005B3342 /* XCRemoteSwiftPackageReference "Pow" */ = {
+		AC61A5D52C876A29001EB41F /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/EmergeTools/Pow";
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.4;
+				kind = exactVersion;
+				version = 3.1.2;
 			};
 		};
-		6447CDE62C78660600F57F46 /* XCRemoteSwiftPackageReference "swiftui-navigation-transitions" */ = {
+		AC61A5D82C876A34001EB41F /* XCRemoteSwiftPackageReference "Pow" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/davdroman/swiftui-navigation-transitions";
+			repositoryURL = "https://github.com/EmergeTools/Pow.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.13.4;
+				kind = exactVersion;
+				version = 1.0.4;
 			};
 		};
-		64786C112C83117B005F97BE /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+		AC61A5DB2C876A3F001EB41F /* XCRemoteSwiftPackageReference "swiftui-navigation-transitions" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI";
+			repositoryURL = "https://github.com/davdroman/swiftui-navigation-transitions.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.1.2;
+				kind = exactVersion;
+				version = 0.13.4;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		640DF4662C7F7A7A005B3342 /* Pow */ = {
+		AC61A5D62C876A29001EB41F /* SDWebImageSwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 640DF4652C7F7A7A005B3342 /* XCRemoteSwiftPackageReference "Pow" */;
+			package = AC61A5D52C876A29001EB41F /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
+		};
+		AC61A5D92C876A34001EB41F /* Pow */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AC61A5D82C876A34001EB41F /* XCRemoteSwiftPackageReference "Pow" */;
 			productName = Pow;
 		};
-		6447CDE72C78660600F57F46 /* NavigationTransitions */ = {
+		AC61A5DC2C876A3F001EB41F /* NavigationTransitions */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 6447CDE62C78660600F57F46 /* XCRemoteSwiftPackageReference "swiftui-navigation-transitions" */;
+			package = AC61A5DB2C876A3F001EB41F /* XCRemoteSwiftPackageReference "swiftui-navigation-transitions" */;
 			productName = NavigationTransitions;
-		};
-		64786C122C83117B005F97BE /* SDWebImageSwiftUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 64786C112C83117B005F97BE /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
-			productName = SDWebImageSwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = 6476CA9C2C666AFE001C664A /* Project object */;
+	rootObject = AC61A5282C876A03001EB41F /* Project object */;
 }

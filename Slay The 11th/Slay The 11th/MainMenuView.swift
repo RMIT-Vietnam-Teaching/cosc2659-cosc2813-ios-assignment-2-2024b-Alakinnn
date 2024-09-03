@@ -15,7 +15,7 @@ struct MainMenuView: View {
     @State private var playerName: String = ""
     @State private var showingPlayerNameInput = false
     @State private var isTutorialMode = false
-    @Bindable var gameVm = GameViewModel()
+    @Binding var gameVm: GameViewModel
     @Bindable var db = DatabaseManager.shared
 
     // New state variables for volume controls
@@ -524,7 +524,7 @@ struct InfoSheetView: View {
 }
 
 #Preview {
-    MainMenuView(gameVm: GameViewModel())
+    MainMenuView(gameVm: .constant(GameViewModel()))
 }
 
 

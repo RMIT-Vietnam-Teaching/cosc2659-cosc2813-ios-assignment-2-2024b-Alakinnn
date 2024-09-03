@@ -1,10 +1,9 @@
 {
-  "originHash" : "8da3dda1ac4abd87b4eda8273bbc7d2eb98b5bb83e1dc39b575ed08e31b26b77",
   "pins" : [
     {
       "identity" : "pow",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/EmergeTools/Pow",
+      "location" : "https://github.com/EmergeTools/Pow.git",
       "state" : {
         "revision" : "f0d0f3e72d42beaf2b01f1cb798e1b55902814eb",
         "version" : "1.0.4"
@@ -22,7 +21,7 @@
     {
       "identity" : "sdwebimageswiftui",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/SDWebImage/SDWebImageSwiftUI",
+      "location" : "https://github.com/SDWebImage/SDWebImageSwiftUI.git",
       "state" : {
         "revision" : "5aa947356f4ea49a0c3b9968564267f6ea5abea7",
         "version" : "3.1.2"
@@ -40,12 +39,12 @@
     {
       "identity" : "swiftui-navigation-transitions",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/davdroman/swiftui-navigation-transitions",
+      "location" : "https://github.com/davdroman/swiftui-navigation-transitions.git",
       "state" : {
         "revision" : "ad6ecab3f275fd0ff30959150dec0f14a5b7a245",
         "version" : "0.13.4"
       }
     }
   ],
-  "version" : 3
+  "version" : 2
 }

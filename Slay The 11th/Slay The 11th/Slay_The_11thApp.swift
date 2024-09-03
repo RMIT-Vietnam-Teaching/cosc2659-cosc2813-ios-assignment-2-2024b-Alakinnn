@@ -14,8 +14,8 @@ struct Slay_The_11thApp: App {
   @State private var toast = ToastManager.shared
     var body: some Scene {
         WindowGroup {
-            MainMenuView()
-              .environment(gameVm)
+            MainMenuView(gameVm: $gameVm)
+              //.environment(gameVm)
               .environment(db)
               .environment(toast)
         }
