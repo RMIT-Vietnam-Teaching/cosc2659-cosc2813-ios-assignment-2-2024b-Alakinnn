@@ -85,6 +85,7 @@ struct LeaderboardView: View {
 
     private func fetchPlayers(limit: Int) {
         players = db.fetchPlayers(limit: limit)
+        .sorted(by: { $0.score > $1.score })
     }
 
     private func fetchMorePlayers() {
@@ -205,5 +206,5 @@ struct AchievementCardView: View {
 
 
   #Preview {
-      StatisticsView(db: MockDataManager())
+    StatisticsView(db: DatabaseManager.shared)
   }
