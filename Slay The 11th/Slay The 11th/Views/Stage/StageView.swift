@@ -76,6 +76,7 @@ struct StageView: View {
                   }
           }
         }
+        .statusBarHidden()
         .navigationBarHidden(true)
     }
 }

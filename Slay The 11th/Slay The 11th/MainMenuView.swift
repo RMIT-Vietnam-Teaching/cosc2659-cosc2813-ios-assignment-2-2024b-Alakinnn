@@ -260,6 +260,7 @@ struct MainMenuView: View {
         .onDisappear {
             AudioManager.shared.stopBackgroundMusic()
         }
+        .statusBarHidden()
     }
 }
 
