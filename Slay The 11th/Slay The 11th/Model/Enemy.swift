@@ -81,8 +81,6 @@ import Observation
            let intendedActionRawValue = dictionary["intendedAction"] as? String,
            let intendedAction = EnemyAction(rawValue: intendedActionRawValue),
            let attackBuff = dictionary["attackBuff"] as? Int,
-           let enemyImages = dictionary["enemyImages"] as? [String: [String]],
-           let currentStateRawValue = dictionary["currentState"] as? String,
            let enemyImages = dictionary["enemyImages"] as? [String],
           let enemyStateRawValue = dictionary["enemyState"] as? String, 
           let enemyState = EntityState(rawValue: enemyStateRawValue)
@@ -94,6 +92,7 @@ import Observation
        enemy.curHp = curHp
        enemy.intendedAction = intendedAction
        enemy.attackBuff = attackBuff
+       enemy.enemyState = enemyState
        return enemy
    }
 }

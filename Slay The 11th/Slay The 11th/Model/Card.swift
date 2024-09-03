@@ -63,11 +63,13 @@ import Observation
           let cardTypeRawValue = dictionary["cardType"] as? String,
           let cardType = CardType(rawValue: cardTypeRawValue),
           let baseValue = dictionary["baseValue"] as? Int,
-//          let currentValue = dictionary["currentValue"] as? Int,
+          let currentValue = dictionary["currentValue"] as? Int,
           let imageName = dictionary["imageName"] as? String
       else { return nil }
 
-      return Card(id: id, name: name, description: description, cardType: cardType, value: baseValue, imageName: imageName)
+      let card = Card(id: id, name: name, description: description, cardType: cardType, value: baseValue, imageName: imageName)
+    card.currentValue = currentValue
+    return card
   }
 }
 
