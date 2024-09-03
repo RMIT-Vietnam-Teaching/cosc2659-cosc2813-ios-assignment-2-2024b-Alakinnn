@@ -144,56 +144,17 @@ struct MainMenuView: View {
                   VStack(spacing: 0) {
                     HStack(spacing: 20) {
                           Button(action: {
-                              AudioManager.shared.playImmediateSFX("sfxButton")
-                              isMusicPopoverPresented.toggle()
-                          }) {
-                              Image(systemName: "speaker.2.fill")
-                                  .font(.kreonCaption)
-                                  .foregroundColor(.white)
-                                  .frame(width: 50, height: 50)
-                                  .padding(2)
-                          }
-                          .background(Image("smallBtnBackground").resizable().scaledToFit())
-                          .popover(isPresented: $isMusicPopoverPresented) {
-                              VolumeSliderView(volume: $musicVolume, title: NSLocalizedString("music_volume", comment: "Music volume popover title"))
-                                  .onDisappear {
-                                      AudioManager.shared.setMusicVolume(to: musicVolume)
-                                  }
-                                  .padding()
-                                  .frame(width: 300)
-                          }
-
-                          Button(action: {
-                              AudioManager.shared.playImmediateSFX("sfxButton")
-                              isSFXPopoverPresented.toggle()
-                          }) {
-                              Image(systemName: "music.note")
-                                  .font(.kreonCaption)
-                                  .foregroundColor(.white)
-                                  .frame(width: 50, height: 50)
-                                  .padding(2)
-                          }
-                          .background(Image("smallBtnBackground").resizable().scaledToFit())
-                          .popover(isPresented: $isSFXPopoverPresented) {
-                              VolumeSliderView(volume: $sfxVolume, title: NSLocalizedString("sfx_volume", comment: "SFX volume popover title"))
-                                  .onDisappear {
-                                      AudioManager.shared.setSFXVolume(to: sfxVolume)
-                                  }
-                                  .padding()
-                                  .frame(width: 300)
-                          }
-                      Button(action: {
                               showSettings.toggle()
                           }) {
-                              Image(systemName: "globe")
-                              .font(.kreonCaption)
-                              .foregroundColor(.white)
-                              .frame(width: 50, height: 50)
-                              .padding(2)
+                              Image(systemName: "gear")
+                                  .font(.kreonCaption)
+                                  .foregroundColor(.white)
+                                  .frame(width: 50, height: 50)
+                                  .padding(2)
                           }
                           .background(Image("smallBtnBackground").resizable().scaledToFit())
                           .sheet(isPresented: $showSettings) {
-                              SettingsView()
+                              UnifiedSettingsView(musicVolume: $musicVolume, sfxVolume: $sfxVolume)
                           }
 
                           Spacer()
@@ -264,22 +225,38 @@ struct MainMenuView: View {
     }
 }
 
-struct SettingsView: View {
+struct UnifiedSettingsView: View {
+    @Binding var musicVolume: Double
+    @Binding var sfxVolume: Double
     @AppStorage("selectedLanguage") private var selectedLanguage = "en" // Default to English
     private let languages = ["en": "English", "vi": "Vietnamese"]
 
     var body: some View {
         NavigationStack {
             Form {
-                Picker("Language", selection: $selectedLanguage) {
-                    ForEach(languages.keys.sorted(), id: \.self) { key in
-                        Text(languages[key]!).tag(key)
-                    }
+                Section(header: Text("Audio Settings")) {
+                    VolumeSliderView(volume: $musicVolume, title: NSLocalizedString("music_volume", comment: "Music volume title"))
+                        .onDisappear {
+                            AudioManager.shared.setMusicVolume(to: musicVolume)
+                        }
+                    
+                    VolumeSliderView(volume: $sfxVolume, title: NSLocalizedString("sfx_volume", comment: "SFX volume title"))
+                        .onDisappear {
+                            AudioManager.shared.setSFXVolume(to: sfxVolume)
+                        }
                 }
-                .pickerStyle(MenuPickerStyle())
-                .onChange(of: selectedLanguage, perform: { value in
-                    changeLanguage(to: value)
-                })
+                
+                Section(header: Text("Language Settings")) {
+                    Picker("Language", selection: $selectedLanguage) {
+                        ForEach(languages.keys.sorted(), id: \.self) { key in
+                            Text(languages[key]!).tag(key)
+                        }
+                    }
+                    .pickerStyle(MenuPickerStyle())
+                    .onChange(of: selectedLanguage, perform: { value in
+                        changeLanguage(to: value)
+                    })
+                }
             }
             .navigationTitle("Settings")
         }
