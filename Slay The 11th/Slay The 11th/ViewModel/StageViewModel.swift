@@ -1,9 +1,14 @@
-//
-//  StageViewModel.swift
-//  Slay The 11th
-//
-//  Created by Duong Tran Minh Hoang on 11/08/2024.
-//
+/*
+  RMIT University Vietnam
+  Course: COSC2659 iOS Development
+  Semester: 2024B
+  Assessment: Assignment 2
+  Author: Duong Tran Minh Hoang
+  ID: 3978452
+  Created  date: 11/08/2024
+  Last modified: 04/09/2024
+  Acknowledgement: None
+*/
 
 import SwiftUI
 import Observation
