@@ -35,6 +35,7 @@ struct GameOverView: View {
         .shadow(radius: 10)
         .padding()
         .onAppear {
+            AudioManager.shared.clearSFXQueue()
             AudioManager.shared.playImmediateSFX("gameOverSfx")
         }
     }

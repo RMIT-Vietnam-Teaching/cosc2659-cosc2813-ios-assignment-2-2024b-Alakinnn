@@ -99,7 +99,12 @@ class AudioManager: NSObject {
             playNextSFX()  // Continue with next SFX in case of an error
         }
     }
-
+  
+    func clearSFXQueue() {
+        sfxQueue.removeAll()
+        isPlayingSFX = false
+    }
+  
     // Stop any currently playing SFX
     private func stopCurrentSFX() {
         activePlayers.forEach { player in

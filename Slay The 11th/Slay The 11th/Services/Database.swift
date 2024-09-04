@@ -17,7 +17,7 @@ import Observation
   private let firstDefendBuff = "defendBuff"
 
   init() {
-    UserDefaults.resetDefaults()
+//    UserDefaults.resetDefaults()
     if fetchPlayers().isEmpty {
                 initializeMockData()
             }

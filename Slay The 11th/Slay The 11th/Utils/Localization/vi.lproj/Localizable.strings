@@ -120,3 +120,32 @@
 
 // Common
 "confirm" = "Xác Nhận";
+
+//extra info
+"developer_info" = "s3978452 - Dương Trần Minh Hoàng";
+"game_description" = "Slay The 11th là một trò chơi thẻ bài trên di động lấy cảm hứng từ một trong những trò chơi phổ biến nhất có tên là Slay The Spire. Trong Slay The 11th, người chơi sẽ phải chiến đấu từ giai đoạn 1 đến giai đoạn 11 và đánh bại con trùm mạnh mẽ ở cuối. Trong quá trình chơi, người chơi sẽ có một bộ thẻ bài độc đáo, mỗi thẻ bài có công dụng riêng; một số trong số đó sẽ được mở khóa khi họ đạt đến một giai đoạn nhất định của trò chơi. Hơn nữa, người chơi sẽ tìm thấy những phần thưởng như một phần thưởng mà họ có thể lựa chọn để đánh bại quái vật trong ngục tối.";
+"basic_info" = "Dưới đây là một số thông tin cơ bản về cách chơi trò chơi, hoặc bạn có thể chơi phần hướng dẫn:";
+"card_variety_title" = "## Đa dạng thẻ bài";
+"card_variety_1" = "1. **Thẻ tấn công**: Chọn thẻ này để gây sát thương bằng với giá trị trên thẻ.";
+"card_variety_2" = "2. **Thẻ phòng thủ**: Chọn thẻ này để bảo vệ bản thân bằng với giá trị trên thẻ.";
+"card_variety_3" = "3. **Thẻ rút bài**: Khi sử dụng, thẻ này sẽ rút thêm các thẻ bằng với giá trị trên thẻ.";
+"card_variety_4" = "4. **Thẻ độc**: Một thẻ giảm sức mạnh, sử dụng thẻ này để áp dụng độc lên kẻ thù.";
+"card_variety_5" = "5. **Thẻ im lặng**: Một thẻ giảm sức mạnh, sử dụng thẻ này để áp dụng im lặng lên kẻ thù.";
+"card_variety_6" = "6. **Thẻ hồi máu**: Nhận được từ phần thưởng, sử dụng thẻ này để hồi máu cho bản thân bằng với giá trị trên thẻ.";
+"card_variety_7" = "7. **Thẻ XPoison**: Nhận được từ phần thưởng, sử dụng thẻ này lên kẻ thù để nhân đôi hiệu quả của độc mà chúng đang bị.";
+"debuff_mechanics_title" = "## Cơ chế giảm sức mạnh";
+"debuff_mechanics_1" = "1. **Độc**: Khi bị nhiễm độc, kẻ thù sẽ nhận sát thương bằng với thời gian còn lại mà chúng đang bị nhiễm độc vào cuối lượt chơi của người chơi. Ví dụ, trong lượt chơi của người chơi, kẻ thù A có 4 lớp độc, do đó nhận 4 sát thương vào cuối lượt chơi của người chơi. Độc giảm dần thời gian sau mỗi lượt chơi của người chơi và kẻ thù. Sử dụng cùng một ví dụ, sau khi nhận 4 sát thương, nếu kẻ thù vẫn còn sống, chúng sẽ nhận 3 sát thương vào cuối lượt chơi tiếp theo của người chơi trừ khi chúng chết. Độc sẽ giảm dần cho đến khi không còn lớp nào.";
+"debuff_mechanics_2" = "2. **Im lặng**: Im lặng chia sẻ cùng hiệu ứng giảm dần với Độc. Kẻ thù với hiệu ứng im lặng sẽ không thực hiện bất kỳ hành động nào cho đến khi hiệu ứng chấm dứt.";
+"enemy_intentions_title" = "## Ý định của kẻ thù";
+"enemy_intentions_description" = "Tương tự như Slay The Spire, kẻ thù trong Slay The 11th sẽ hiển thị ý định của chúng trong lượt chơi của người chơi. Ý định có thể thay đổi tùy thuộc vào tình huống; chúng có thể tấn công, tăng cường hoặc làm sạch các giảm sức mạnh từ bản thân hoặc đồng minh của chúng. Kẻ thù bị im lặng vẫn sẽ hiển thị ý định với biểu tượng im lặng.";
+"difficulty_title" = "## Độ khó";
+"difficulty_description" = "Slay The 11th có 3 mức độ khó: dễ, trung bình và khó. Trò chơi càng khó, kẻ thù càng mạnh mẽ. Chỉ trong chế độ khó, các giảm sức mạnh chống lại kẻ thù trở nên kém hiệu quả hơn. Độc hiện giảm bớt 2 thay vì 1 như trong chế độ dễ và trung bình. Im lặng sẽ bị loại bỏ sau một lượt của kẻ thù bất kể chúng có bao nhiêu lớp.";
+"how_to_play_title" = "## Cách chơi";
+"how_to_play_intro" = "-- Người chơi có thể chơi phần hướng dẫn để hiểu các tương tác.";
+"how_to_play_1" = "1. Chọn thẻ, nhấn vào người chơi hoặc kẻ thù để áp dụng hiệu ứng thẻ.";
+"how_to_play_2" = "2. Tùy thuộc vào loại thẻ, sẽ có hiệu ứng khác nhau. Đối với các hiệu ứng tiêu cực như độc hoặc im lặng, không thể áp dụng cho người chơi.";
+"how_to_play_3" = "3. Cố gắng sử dụng tất cả các thẻ trong một lượt. Sau khi người chơi quyết định hoặc hết thẻ, họ có thể kết thúc lượt của mình để rút các thẻ mới.";
+"how_to_play_4" = "4. Sau khi kết thúc lượt chơi của người chơi, kẻ thù sẽ thực hiện bất kỳ ý định nào mà chúng đã hiển thị trong lượt chơi cuối cùng của người chơi.";
+"extra_info_title" = "Thông tin thêm";
+"close" = "Đóng";
+

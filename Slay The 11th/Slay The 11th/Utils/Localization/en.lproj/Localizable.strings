@@ -119,4 +119,32 @@
 "abandon_run" = "Abandon Run";
 "cancel" = "Cancel";
 
+// Extra Info
+"developer_info" = "s3978452 - Duong Tran Minh Hoang";
+"game_description" = "Slay The 11th is a mobile card game that takes inspiration from one of the most popular games called Slay The Spire. In Slay The 11th, the player will have to fight their way from stage 1 to stage 11 and defeat the mighty boss at the end. During the gameplay, the player will find themselves with a unique set of cards, each with its own usage; some of which are unlocked when they reach a certain stage of the game. Moreover, players will find buffs as a reward of their choice in order to defeat the monsters in the dungeon.";
+"basic_info" = "Here are some basic information on how to play the game, or you can play the tutorial:";
+"card_variety_title" = "## Card Variety";
+"card_variety_1" = "1. **Attack card**: Select this card to deal damage equal to the value on the card.";
+"card_variety_2" = "2. **Defend card**: Select this card to shield yourself equal to the value on the card.";
+"card_variety_3" = "3. **Draw card**: When used, this card will draw additional cards equal to the value on the card.";
+"card_variety_4" = "4. **Poison card**: A debuff card, use this card to apply poison to the enemy.";
+"card_variety_5" = "5. **Silent card**: A debuff card, use this card to apply silence to the enemy.";
+"card_variety_6" = "6. **Heal card**: Obtained from a reward, use this card to heal yourself equal to the value on the card.";
+"card_variety_7" = "7. **XPoison card**: Obtained from a reward, use this card on the enemy to double the effect of poison they are inflicted with.";
+"debuff_mechanics_title" = "## Debuff Mechanics";
+"debuff_mechanics_1" = "1. **Poison**: When poisoned, the enemies will take damage equal to the current duration they are being inflicted with at the end of the player turn. For example, during the player turn, enemy A has 4 stacks of poison, hence taking 4 damage at the end of the player turn. Poison decrements its duration after each player and enemy turn. Using the same example, after taking 4 damage, if the enemy is still alive, they will take 3 damage at the end of the next player turn unless they die. Poison will decrement until there are no stacks left.";
+"debuff_mechanics_2" = "2. **Silent**: Silence shares the same decrementing effect as Poison. Enemies with a silence effect will not perform any action until the effect ceases.";
+"enemy_intentions_title" = "## Enemy Intentions";
+"enemy_intentions_description" = "Similar to Slay The Spire, enemies in Slay The 11th show their intention during the player turn. The intention varies depending on the situation; they can attack, buff, or cleanse debuffs from themselves or their allies. Enemies who are silent will still show intention with a muted icon.";
+"difficulty_title" = "## Difficulty";
+"difficulty_description" = "Slay The 11th has 3 difficulties: easy, medium, and hard. The more difficult the game, the tougher the enemies. In hard mode only, debuffs against enemies become less effective. Poison now decrements by 2 instead of 1, like in easy and medium. Silence will be removed after one enemy turn, despite how many stacks they have.";
+"how_to_play_title" = "## How to play";
+"how_to_play_intro" = "-- Player can play the tutorial to understand the interactions.";
+"how_to_play_1" = "1. Select the card, tap either on the player or the enemy to apply the card effects.";
+"how_to_play_2" = "2. Depending on the type of card, there will be an effect. For negative effects like poison or silence, it can't be applied to the player.";
+"how_to_play_3" = "3. Try to utilize all the cards in one turn. After the player decides or the player runs out of cards, they can end their turn to draw new cards.";
+"how_to_play_4" = "4. After ending the player turn, enemies will execute whatever intention they were displaying during the last player turn.";
+"extra_info_title" = "Extra Info";
+"close" = "Close";
+
 

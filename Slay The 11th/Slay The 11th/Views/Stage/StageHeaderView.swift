@@ -12,6 +12,7 @@ struct StageHeaderView: View {
     var gameVm: GameViewModel
     @Binding var isPaused: Bool
     @Binding var showMenuSheet: Bool
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
     var db: DatabaseManager
 
     var body: some View {
@@ -33,7 +34,7 @@ struct StageHeaderView: View {
                     .foregroundColor(.white)
             }
             .padding(.horizontal, 25)
-            .padding(.vertical, 6)
+            .padding(.vertical, horizontalSizeClass == .compact ? 6 : 24)
             .frame(height: 60)
             .background(Color.black.opacity(0.7))
 
@@ -76,6 +77,7 @@ struct MenuSheetView: View, Observable {
                     vm.isGameStarted = false
                 } else {
                     vm.isTutorial = false
+                  vm.mode = .regular
                 }
                 showMenuSheet = false
                 vm.stageViewModel.updatePlayerScore(db: db)

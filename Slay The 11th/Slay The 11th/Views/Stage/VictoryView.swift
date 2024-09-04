@@ -65,6 +65,7 @@ struct VictoryView: View {
             )
         }
         .onAppear {
+          AudioManager.shared.clearSFXQueue()
             triggerSpray.toggle()
             AudioManager.shared.queueSFX("victorySfx")
           gameVm.checkAndUnlockAchievements(db: db, action: .clearGame)
