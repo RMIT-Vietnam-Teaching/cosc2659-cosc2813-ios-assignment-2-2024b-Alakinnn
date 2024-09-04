@@ -184,6 +184,11 @@ struct TutorialView: View {
                                                vm.applyDrawEffect(value: card.baseValue)
                                                vm.moveCardToDiscardedDeck(card)
                                                vm.selectedCard = nil
+                                          
+                                           case .heal:
+                                             vm.applyHealEffect(value: card.currentValue)
+                                             vm.moveCardToDiscardedDeck(card)
+                                             vm.selectedCard = nil
                                                
                                            default:
                                                print("Card type \(card.cardType) is not applicable to the player directly.")

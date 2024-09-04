@@ -58,7 +58,13 @@ extension StageViewModel {
                       }
                   }
           case .buff:
-              performBuff(enemy: &enemies[index])
+            if enemies[index].isBoss && enemies[index].curHp <= enemies[index].maxHp / 2 {
+                for _ in 1...4 {
+                    performBuff(enemy: &enemies[index])
+                }
+                } else {
+                    performBuff(enemy: &enemies[index])
+                }
           case .cleanse:
               performCleanse(for: &enemies[index])
           case .none:
@@ -100,6 +106,12 @@ extension StageViewModel {
 
   // Function to decrement the silence effect duration
   private func decrementSilenceEffectDuration(for enemy: inout Enemy) {
+    if enemy.isBoss {
+            // Remove all silence debuffs at once
+            enemy.debuffEffects.removeAll(where: { $0.type == .silence })
+            print("All silence stacks removed from boss \(enemy.name).")
+        }
+    
       if let index = enemy.debuffEffects.firstIndex(where: { $0.type == .silence }) {
           // Check if the difficulty is hard
           if difficulty == .hard {
@@ -143,7 +155,14 @@ extension StageViewModel {
       let possibleActions: [EnemyAction] = [.attack, .buff, .cleanse]
       var chosenAction: EnemyAction = .attack // Default to attack
       var actionWeights: [Double] = [0.7, 0.2, 0.1] // Initial weights: attack is more likely
-
+      
+    // Check if the enemy is a boss and its HP is at or below 50%
+      if enemy.isBoss && enemy.curHp <= enemy.maxHp / 2 {
+          chosenAction = .buff
+          print("Boss \(enemy.name) is at 50% HP or below and chooses to buff.")
+          return chosenAction
+      }
+    
       // Adjust weights based on current conditions
       if hasDebuffedAlly(excluding: index) {
           actionWeights[2] = cleanseChance // Increase chance for cleanse if there's a debuffed ally

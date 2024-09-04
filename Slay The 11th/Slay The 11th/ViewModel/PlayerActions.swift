@@ -50,10 +50,7 @@ extension StageViewModel {
                       self.enemies[index].debuffEffects.remove(at: poisonIndex)
                   }
 
-                  // Check if it's the last enemy in the list and apply further logic
-                  if index == self.enemies.indices.last {
-                      self.checkIfStageCompleted()
-                  }
+                  self.checkIfStageCompleted()
               }
 
               // Increment delay for the next enemy
