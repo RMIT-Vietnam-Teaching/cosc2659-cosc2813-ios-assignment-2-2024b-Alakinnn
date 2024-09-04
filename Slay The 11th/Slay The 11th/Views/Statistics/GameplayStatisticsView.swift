@@ -61,7 +61,7 @@ struct GameplayStatisticsView: View {
             .animation(.spring(dampingFraction: 1), value: selectedBarData)
         }
         .onAppear {
-            playerScores = db.fetchPlayers(limit: 15)
+            playerScores = db.fetchPlayers()
         }
     }
 
