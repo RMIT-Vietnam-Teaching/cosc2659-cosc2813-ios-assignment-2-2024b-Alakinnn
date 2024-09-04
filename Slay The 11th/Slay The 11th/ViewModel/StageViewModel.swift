@@ -89,6 +89,7 @@ import Observation
 
   // End player's turn
   func endPlayerTurn() {
+      checkIfStageCompleted()
       isPlayerTurn = false
       discardPlayerHand()
       applyPoisonEffects() 

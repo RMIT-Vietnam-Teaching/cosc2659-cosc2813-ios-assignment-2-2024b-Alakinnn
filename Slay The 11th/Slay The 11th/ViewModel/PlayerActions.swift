@@ -94,6 +94,8 @@ extension StageViewModel {
 
       // Clear the selected card after applying
       selectedCard = nil
+    
+      checkIfStageCompleted()
   }
 
   // Apply a heal effect to the player
